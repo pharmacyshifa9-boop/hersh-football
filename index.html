@@ -23,8 +23,6 @@
   --text:#f5fff9;
   --muted:#91aaa0;
   --line:#1d3b2d;
-  --red:#ff5365;
-  --yellow:#ffd166;
 }
 
 body{
@@ -186,6 +184,7 @@ footer{
 }
 
 @media(max-width:500px){
+
   .container{
     padding:12px;
   }
@@ -205,6 +204,7 @@ footer{
   .player{
     font-size:18px;
   }
+
 }
 </style>
 </head>
@@ -212,19 +212,33 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Hersh Football ⚽</div>
-  <div class="subtitle">نوێترین هەواڵ و گواستنەوەکانی یاریزانان</div>
+
+  <div class="logo">
+    Hersh Football ⚽
+  </div>
+
+  <div class="subtitle">
+    نوێترین هەواڵ و گواستنەوەکانی یاریزانان
+  </div>
+
 </header>
 
 <main class="container">
 
   <div class="title">
-    <h1>🔄 گواستنەوەی یاریزانان</h1>
-    <button class="refresh" onclick="loadTransfers()">نوێکردنەوە</button>
+
+    <h1>
+      🔄 گواستنەوەی یاریزانان
+    </h1>
+
+    <button class="refresh" onclick="loadTransfers()">
+      نوێکردنەوە
+    </button>
+
   </div>
 
   <div class="status" id="status">
-    چاوەڕێی داتا دەکەین...
+    ⏳ چاوەڕێی داتا دەکەین...
   </div>
 
   <div id="transfers"></div>
@@ -235,149 +249,273 @@ footer{
   Hersh Football ⚽ — Kurdish Football App
 </footer>
 
+
 <script>
 
 async function loadTransfers(){
 
-  const status = document.getElementById("status");
-  const container = document.getElementById("transfers");
+  const status =
+    document.getElementById("status");
 
-  status.textContent = "⏳ داتا نوێ دەکرێتەوە...";
+  const container =
+    document.getElementById("transfers");
+
+  status.textContent =
+    "⏳ داتا نوێ دەکرێتەوە...";
+
   container.innerHTML = "";
 
   try{
 
-    const response = await fetch("transfers.json?t=" + Date.now());
+    const response =
+      await fetch("transfers.json?t=" + Date.now());
 
     if(!response.ok){
-      throw new Error("transfers.json نەدۆزرایەوە");
+
+      throw new Error(
+        "transfers.json نەدۆزرایەوە"
+      );
+
     }
 
-    const data = await response.json();
+    const json =
+      await response.json();
 
-    if(!Array.isArray(data) || data.length === 0){
-      container.innerHTML =
-        '<div class="empty">هیچ گواستنەوەیەک بەردەست نییە.</div>';
 
-      status.textContent = "هیچ داتایەک نییە";
+    /*
+      update.yml ـی نوێمان ئەم شێوەیەی دروست دەکات:
+
+      {
+        results: 3,
+        transfers: [...]
+      }
+
+      ئەم بەشە داتا دەکاتە Array.
+    */
+
+    let data;
+
+    if(Array.isArray(json)){
+
+      data = json;
+
+    }else if(
+      json &&
+      Array.isArray(json.transfers)
+    ){
+
+      data = json.transfers;
+
+    }else{
+
+      data = [];
+
+    }
+
+
+    if(data.length === 0){
+
+      container.innerHTML = `
+        <div class="empty">
+          هیچ گواستنەوەیەکی نوێ بەردەست نییە.
+        </div>
+      `;
+
+      status.textContent =
+        "هیچ گواستنەوەیەک نییە";
+
       return;
+
     }
+
 
     status.textContent =
-      "✅ " + data.length + " گواستنەوە دۆزرایەوە";
+      "✅ " +
+      data.length +
+      " گواستنەوە دۆزرایەوە";
+
 
     data.forEach(item => {
 
-      if(!item.player || !item.teams) return;
+      if(!item){
+        return;
+      }
 
-      const playerName =
-        item.player.name || "یاریزان";
 
-      const date =
-        item.date || "";
+      const player =
+        item.player || {};
 
-      const type =
-        item.type || "Transfer";
 
       const inTeam =
-        item.teams.in || {};
+        item.in || {};
+
 
       const outTeam =
-        item.teams.out || {};
+        item.out || {};
 
-      const card = document.createElement("div");
 
-      card.className = "transfer";
+      const playerName =
+        player.name ||
+        "یاریزان";
+
+
+      const date =
+        item.date ||
+        "بێ‌ڕێکەوت";
+
+
+      const type =
+        item.type ||
+        "Transfer";
+
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "transfer";
+
 
       card.innerHTML = `
 
         <div class="player">
-          ⚽ ${escapeHTML(playerName)}
+
+          ⚽
+          ${escapeHTML(playerName)}
+
         </div>
 
+
         <div class="teams">
+
 
           <div class="team">
 
             ${
               outTeam.logo
               ?
-              `<img src="${outTeam.logo}"
-                    alt=""
-                    onerror="this.style.display='none'">`
+              `
+              <img
+                src="${escapeHTML(outTeam.logo)}"
+                alt=""
+                onerror="this.style.display='none'"
+              >
+              `
               :
               ""
             }
 
             <div class="team-name">
-              ${escapeHTML(outTeam.name || "تیمی نەزانراوە")}
+
+              ${
+                escapeHTML(
+                  outTeam.name ||
+                  "تیمی نەزانراوە"
+                )
+              }
+
             </div>
 
           </div>
 
+
           <div class="arrow">
-            ←
+            →
           </div>
+
 
           <div class="team">
 
             ${
               inTeam.logo
               ?
-              `<img src="${inTeam.logo}"
-                    alt=""
-                    onerror="this.style.display='none'">`
+              `
+              <img
+                src="${escapeHTML(inTeam.logo)}"
+                alt=""
+                onerror="this.style.display='none'"
+              >
+              `
               :
               ""
             }
 
             <div class="team-name">
-              ${escapeHTML(inTeam.name || "تیمی نەزانراوە")}
+
+              ${
+                escapeHTML(
+                  inTeam.name ||
+                  "تیمی نەزانراوە"
+                )
+              }
+
             </div>
 
           </div>
 
+
         </div>
+
 
         <div class="info">
 
           <div class="date">
-            📅 ${escapeHTML(date)}
+
+            📅
+            ${escapeHTML(date)}
+
           </div>
 
+
           <div class="type">
+
             ${escapeHTML(type)}
+
           </div>
 
         </div>
+
       `;
+
 
       container.appendChild(card);
 
     });
 
+
   }catch(error){
 
     console.error(error);
 
+
     status.textContent =
-      "❌ کێشەیەک لە خوێندنەوەی داتا هەیە.";
+      "❌ کێشەیەک لە خوێندنەوەی داتا هەیە";
+
 
     container.innerHTML = `
+
       <div class="empty">
+
         تکایە دڵنیابە لەوەی
+
         <b>transfers.json</b>
+
         لە هەمان repository ـدایە.
+
       </div>
+
     `;
 
   }
+
 }
 
 
 function escapeHTML(text){
 
   return String(text)
+
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
