@@ -536,34 +536,62 @@ async function loadTransfers(){
 
   try{
 
-    const response=await fetch(
-      "transfers.json?cache="+Date.now()
+    const response = await fetch(
+      "transfers.json?cache=" + Date.now()
     );
 
-    if(!response.ok)
+    if(!response.ok){
       throw new Error("No transfers file");
-
-    const data=await response.json();
-
-    if(Array.isArray(data)){
-      transfers=data;
     }
 
-    else if(Array.isArray(data.transfers)){
-      transfers=data.transfers;
-    }
+    const data = await response.json();
 
-    else{
-      transfers=[];
+    if(Array.isArray(data.response)){
+
+      transfers = [];
+
+      data.response.forEach(item => {
+
+        const player = item.player;
+
+        if(!player || !Array.isArray(item.transfers)){
+          return;
+        }
+
+        item.transfers.forEach(move => {
+
+          transfers.push({
+
+            player: player,
+
+            date: move.date,
+
+            type: move.type,
+
+            teams: move.teams
+
+          });
+
+        });
+
+      });
+
+    }else{
+
+      transfers = [];
+
     }
 
   }catch(error){
 
-    transfers=[];
+    console.error("Transfer error:", error);
+
+    transfers = [];
 
   }
 
   render();
+  
 }
 
 /* TRANSFER */
