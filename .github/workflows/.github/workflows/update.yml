@@ -20,89 +20,82 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
+          curl -f -sS \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/transfers?team=529" \
+            -o raw.json
+
+      - name: Filter latest 7 days and save
+        run: |
           python3 - <<'PY'
           import json
-          import urllib.request
           from datetime import datetime, timedelta, timezone
 
-          API_KEY = "${API_KEY}"
+          with open("raw.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
 
-          teams = [
-              529, 541, 157, 42, 50, 33, 49,
-              530, 85, 40, 496, 505, 489, 165
-          ]
+          important = {
+              "Barcelona",
+              "Real Madrid",
+              "Bayern Munich",
+              "Arsenal",
+              "Manchester City",
+              "Manchester United",
+              "Chelsea",
+              "Atletico Madrid",
+              "Atlético Madrid",
+              "Paris Saint Germain",
+              "PSG",
+              "Hewlêr",
+              "Erbil",
+              "Zakho",
+              "Zakho SC"
+          }
 
           cutoff = datetime.now(timezone.utc).date() - timedelta(days=7)
-          all_transfers = []
+          output = []
 
-          for team in teams:
-              url = f"https://v3.football.api-sports.io/transfers?team={team}"
+          for item in data.get("response", []):
+              player = item.get("player", {})
+              for tr in item.get("transfers", []):
+                  date_text = tr.get("date")
+                  if not date_text:
+                      continue
 
-              request = urllib.request.Request(
-                  url,
-                  headers={"x-apisports-key": API_KEY}
-              )
+                  try:
+                      transfer_date = datetime.fromisoformat(date_text).date()
+                  except:
+                      continue
 
-              try:
-                  with urllib.request.urlopen(request) as response:
-                      data = json.load(response)
+                  if transfer_date < cutoff:
+                      continue
 
-                  for item in data.get("response", []):
-                      player = item.get("player", {})
+                  teams = tr.get("teams", {})
+                  incoming = teams.get("in", {})
+                  outgoing = teams.get("out", {})
 
-                      for transfer in item.get("transfers", []):
-                          date_text = transfer.get("date", "")
+                  in_name = incoming.get("name", "")
+                  out_name = outgoing.get("name", "")
 
-                          try:
-                              transfer_date = datetime.fromisoformat(
-                                  date_text.replace("Z", "+00:00")
-                              ).date()
-                          except:
-                              continue
+                  if in_name not in important and out_name not in important:
+                      continue
 
-                          if transfer_date >= cutoff:
-                              all_transfers.append({
-                                  "player": player,
-                                  "date": date_text,
-                                  "type": transfer.get("type"),
-                                  "teams": transfer.get("teams")
-                              })
+                  output.append({
+                      "player": player,
+                      "date": date_text,
+                      "type": tr.get("type", ""),
+                      "teams": {
+                          "in": incoming,
+                          "out": outgoing
+                      }
+                  })
 
-              except Exception as error:
-                  print(f"Team {team} error: {error}")
+          output.sort(key=lambda x: x["date"], reverse=True)
 
-          # Remove duplicates
-          unique = {}
-          for transfer in all_transfers:
-              key = (
-                  transfer["player"].get("id"),
-                  transfer["date"],
-                  transfer["teams"]["in"].get("id"),
-                  transfer["teams"]["out"].get("id")
-              )
-              unique[key] = transfer
+          with open("transfers.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
 
-          result = list(unique.values())
-
-          result.sort(
-              key=lambda x: x.get("date", ""),
-              reverse=True
-          )
-
-          with open("transfers.json", "w", encoding="utf-8") as file:
-              json.dump(
-                  {
-                      "updated": datetime.now(timezone.utc).isoformat(),
-                      "days": 7,
-                      "results": len(result),
-                      "response": result
-                  },
-                  file,
-                  ensure_ascii=False,
-                  indent=2
-              )
-
-          print(f"Saved {len(result)} transfers from the last 7 days.")
+          print("Saved transfers:", len(output))
           PY
 
       - name: Save changes
@@ -116,5 +109,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update football transfers"
+          git commit -m "Update latest football transfers"
           git push
