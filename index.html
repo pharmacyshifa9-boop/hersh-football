@@ -561,15 +561,10 @@ async function loadTransfers(){
         item.transfers.forEach(move => {
 
           transfers.push({
-
             player: player,
-
             date: move.date,
-
             type: move.type,
-
             teams: move.teams
-
           });
 
         });
@@ -585,15 +580,12 @@ async function loadTransfers(){
   }catch(error){
 
     console.error("Transfer error:", error);
-
     transfers = [];
 
   }
 
   render();
-  
 }
-
 /* TRANSFER */
 
 function transferCard(t){
