@@ -1,17 +1,46 @@
-- name: Commit transfers
-  run: |
-    git config user.name "github-actions"
-    git config user.email "github-actions@github.com"
+name: Update Football Transfers
 
-    git add transfers.json
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
 
-    if git diff --cached --quiet; then
-      echo "No changes to commit"
-      exit 0
-    fi
+permissions:
+  contents: write
 
-    git commit -m "Update transfers"
+jobs:
+  update:
+    runs-on: ubuntu-latest
 
-    git pull --rebase origin main
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
-    git push origin HEAD:main
+      - name: Get transfers
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+          curl -f -sS \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/transfers?team=529" \
+            -o transfers.json
+
+      - name: Commit transfers
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add transfers.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update transfers"
+
+          git pull --rebase origin main
+
+          git push origin HEAD:main
