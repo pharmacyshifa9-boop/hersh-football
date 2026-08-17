@@ -13,24 +13,82 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get repository 
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
-          curl -f -s \
-            -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/transfers?team=529" \
-            -o transfers.json
+          mkdir -p transfer_data
 
-      - name: save changes 
+          teams=(
+            529
+            541
+            157
+            42
+            50
+            33
+            49
+            530
+            85
+          )
+
+          for team in "${teams[@]}"; do
+            echo "Getting transfers for team $team..."
+
+            curl -f -sS \
+              -H "x-apisports-key: $API_KEY" \
+              "https://v3.football.api-sports.io/transfers?team=$team" \
+              -o "transfer_data/$team.json"
+          done
+
+      - name: Filter last 7 days
+        run: |
+          CUTOFF=$(date -u -d "7 days ago" +%Y-%m-%d)
+
+          echo "Showing transfers from $CUTOFF"
+
+          jq -s --arg cutoff "$CUTOFF" '
+            [
+              .[]
+              | .response[]
+              | . as $playerData
+              | .transfers[]
+              | select(.date >= $cutoff)
+              | {
+                  player: $playerData.player,
+                  date: .date,
+                  type: .type,
+                  teams: .teams,
+                  update: $playerData.update
+                }
+            ]
+            | unique_by([
+                .player.id,
+                .date,
+                .type,
+                .teams.in.id,
+                .teams.out.id
+              ])
+            | sort_by(.date)
+            | reverse
+          ' transfer_data/*.json > transfers.json
+
+          echo "Latest transfers:"
+          cat transfers.json
+
+      - name: Save changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
           git add transfers.json
-          git diff --cached --quiet || git commit -m "Update transfers"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update football transfers"
           git push
