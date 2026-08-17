@@ -346,15 +346,10 @@ async function loadTransfers(){
         item.player || {};
 
 const inTeam =
-  item.in ||
-  (item.teams && item.teams.in) ||
-  {};
+  item.teams?.in || {};
 
 const outTeam =
-  item.out ||
-  (item.teams && item.teams.out) ||
-  {};
-
+  item.teams?.out || {};
 
       const playerName =
         player.name ||
