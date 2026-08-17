@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06110d">
+
+<title>Hersh Football ⚽</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Arabic",sans-serif;
+  background:#06110d;
+  color:#f5fff9;
+  min-height:100vh;
+}
+
+header{
+  padding:28px 18px 22px;
+  text-align:center;
+  background:linear-gradient(135deg,#0b2418,#06110d);
+  border-bottom:1px solid #1d3b2d;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:#25e889;
+}
+
+.subtitle{
+  margin-top:8px;
+  color:#91aaa0;
+  font-size:14px;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:18px;
+}
+
+.welcome{
+  background:linear-gradient(145deg,#0d2118,#123020);
+  border:1px solid #1d3b2d;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:18px;
+}
+
+.welcome h1{
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.welcome p{
+  color:#91aaa0;
+  line-height:1.8;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#f5fff9;
+  background:#0d2118;
+  border:1px solid #1d3b2d;
+  border-radius:18px;
+  padding:20px 12px;
+  text-align:center;
+  transition:.2s;
+}
+
+.menu a:active{
+  transform:scale(.97);
+}
+
+.icon{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.name{
+  font-weight:bold;
+  font-size:15px;
+}
+
+.desc{
+  color:#91aaa0;
+  font-size:11px;
+  margin-top:5px;
+}
+
+footer{
+  text-align:center;
+  color:#91aaa0;
+  padding:30px 15px;
+  font-size:12px;
+}
+
+@media(max-width:500px){
+  .menu{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    Hersh Football ⚽
+  </div>
+
+  <div class="subtitle">
+    هەموو زانیارییەکانی فوتبال لە یەک شوێن
+  </div>
+
+</header>
+
+<main class="container">
+
+  <section class="welcome">
+
+    <h1>
+      بەخێربێیت بۆ Hersh Football 👋
+    </h1>
+
+    <p>
+      نوێترین زانیارییەکانی جیهانی فوتبال
+      لەگەڵ گواستنەوە، یاری و ئەنجامەکان.
+    </p>
+
+  </section>
+
+
+  <section class="menu">
+
+    <a href="index.html">
+
+      <div class="icon">🔄</div>
+
+      <div class="name">
+        گواستنەوەکان
+      </div>
+
+      <div class="desc">
+        نوێترین گواستنەوەی یاریزانان
+      </div>
+
+    </a>
+
+
+    <a href="#matches">
+
+      <div class="icon">⚽</div>
+
+      <div class="name">
+        یارییەکان
+      </div>
+
+      <div class="desc">
+        یارییەکانی ئەمڕۆ
+      </div>
+
+    </a>
+
+
+    <a href="#news">
+
+      <div class="icon">📰</div>
+
+      <div class="name">
+        هەواڵ
+      </div>
+
+      <div class="desc">
+        نوێترین هەواڵی فوتبال
+      </div>
+
+    </a>
+
+
+    <a href="#table">
+
+      <div class="icon">🏆</div>
+
+      <div class="name">
+        خشتەی لیگ
+      </div>
+
+      <div class="desc">
+        خاڵ و پلەی تیمەکان
+      </div>
+
+    </a>
+
+
+    <a href="#results">
+
+      <div class="icon">📊</div>
+
+      <div class="name">
+        ئەنجامەکان
+      </div>
+
+      <div class="desc">
+        ئەنجامی یارییەکان
+      </div>
+
+    </a>
+
+
+    <a href="#search">
+
+      <div class="icon">🔍</div>
+
+      <div class="name">
+        گەڕان
+      </div>
+
+      <div class="desc">
+        تیم و یاریزان بدۆزەرەوە
+      </div>
+
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+  Hersh Football ⚽
+  <br>
+  Kurdish Football App
+</footer>
+
+</body>
+</html>
