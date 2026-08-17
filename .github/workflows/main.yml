@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Get repository 
         uses: actions/checkout@v4
         with:
           persist-credentials: true
@@ -27,7 +27,7 @@ jobs:
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers.json
 
-      - name: Commit transfers
+      - name: save changes 
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
