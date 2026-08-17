@@ -1,4 +1,29 @@
+
 {
-  "updated": "",
-  "matches": []
+  "updated": "2026-08-17",
+  "matches": [
+    {
+      "fixture": {
+        "date": "2026-08-17T18:00:00+00:00",
+        "status": {
+          "short": "NS"
+        }
+      },
+      "league": {
+        "name": "Premier League"
+      },
+      "home": {
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "away": {
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    }
+  ]
 }
