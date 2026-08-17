@@ -1,9 +1,9 @@
 name: Update Football Transfers
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,6 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: true
 
       - name: Get transfers
@@ -27,7 +28,7 @@ jobs:
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers.json
 
-      - name: Commit transfers
+      - name: Update transfers
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -41,6 +42,7 @@ jobs:
 
           git commit -m "Update transfers"
 
-          git pull --rebase origin main
+          git fetch origin main
+          git rebase origin/main
 
           git push origin HEAD:main
