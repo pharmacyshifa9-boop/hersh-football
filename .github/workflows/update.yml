@@ -1,9 +1,9 @@
 name: Update Football Transfers
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 */6 * * *"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -41,8 +41,6 @@ jobs:
           fi
 
           git commit -m "Update transfers"
-
           git fetch origin main
           git rebase origin/main
-
           git push origin HEAD:main
