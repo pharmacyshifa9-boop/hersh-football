@@ -149,17 +149,29 @@ jobs:
       # SAVE
       # =========================
 
+            - name: Check matches data
+        run: |
+          echo "===== MATCHES API RESULT ====="
+          python3 - <<'PY'
+          import json
+
+          with open("matches_raw.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          print("API results:", data.get("results", 0))
+          print("API errors:", data.get("errors", {}))
+          print("Response count:", len(data.get("response", [])))
+          PY
+
       - name: Save changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add transfers.json matches.json
+          git add -f transfers.json matches.json
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
+          git status --short
 
-          git commit -m "Update football transfers and matches"
+          git commit -m "Update football transfers and matches" || true
+
           git push
