@@ -23,85 +23,77 @@ jobs:
           curl -f -sS \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
-            -o raw.json
+            -o transfers.json
 
-      - name: Filter latest 7 days and save
+      - name: Filter recent transfers
         run: |
           python3 - <<'PY'
           import json
           from datetime import datetime, timedelta, timezone
 
-          with open("raw.json", "r", encoding="utf-8") as f:
+          with open("transfers.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          important = {
-              "Barcelona",
-              "Real Madrid",
-              "Bayern Munich",
-              "Arsenal",
-              "Manchester City",
-              "Manchester United",
-              "Chelsea",
-              "Atletico Madrid",
-              "Atlético Madrid",
-              "Paris Saint Germain",
-              "PSG",
-              "Hewlêr",
-              "Erbil",
-              "Zakho",
-              "Zakho SC"
+          today = datetime.now(timezone.utc).date()
+          start_date = today - timedelta(days=7)
+
+          strong_teams = {
+              529, 541, 530, 157, 42, 50, 33, 49,
+              40, 85, 211, 47, 228, 531, 536,
+              645, 234, 520
           }
 
-          cutoff = datetime.now(timezone.utc).date() - timedelta(days=7)
-          output = []
+          filtered = []
 
-          for item in data.get("response", []):
-              player = item.get("player", {})
-              for tr in item.get("transfers", []):
-                  date_text = tr.get("date")
-                  if not date_text:
-                      continue
+          for player in data.get("response", []):
+              for transfer in player.get("transfers", []):
+                  date_text = transfer.get("date", "")
 
                   try:
-                      transfer_date = datetime.fromisoformat(date_text).date()
+                      transfer_date = datetime.strptime(
+                          date_text, "%Y-%m-%d"
+                      ).date()
                   except:
                       continue
 
-                  if transfer_date < cutoff:
+                  if transfer_date < start_date or transfer_date > today:
                       continue
 
-                  teams = tr.get("teams", {})
-                  incoming = teams.get("in", {})
-                  outgoing = teams.get("out", {})
+                  teams = transfer.get("teams", {})
+                  team_in = teams.get("in", {})
+                  team_out = teams.get("out", {})
 
-                  in_name = incoming.get("name", "")
-                  out_name = outgoing.get("name", "")
-
-                  if in_name not in important and out_name not in important:
+                  if (
+                      team_in.get("id") not in strong_teams
+                      and team_out.get("id") not in strong_teams
+                  ):
                       continue
 
-                  output.append({
-                      "player": player,
+                  filtered.append({
+                      "player": player.get("player", {}),
                       "date": date_text,
-                      "type": tr.get("type", ""),
-                      "teams": {
-                          "in": incoming,
-                          "out": outgoing
-                      }
+                      "type": transfer.get("type"),
+                      "in": team_in,
+                      "out": team_out
                   })
 
-          output.sort(key=lambda x: x["date"], reverse=True)
+          output = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "results": len(filtered),
+              "transfers": filtered
+          }
 
           with open("transfers.json", "w", encoding="utf-8") as f:
               json.dump(output, f, ensure_ascii=False, indent=2)
 
-          print("Saved transfers:", len(output))
+          print(f"Recent strong-team transfers: {len(filtered)}")
           PY
 
       - name: Save changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
           git add transfers.json
 
           if git diff --cached --quiet; then
@@ -109,5 +101,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update latest football transfers"
+          git commit -m "Update recent football transfers"
           git push
