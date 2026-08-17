@@ -20,10 +20,36 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
-          curl -f -sS \
-            -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/transfers?team=529" \
-            -o transfers.json
+          set -e
+
+          rm -f transfers_all.json
+          echo "[" > transfers_all.json
+
+          FIRST=true
+
+          TEAMS="529 541 530 157 42 50 33 49 40 85 211 47 228 531 536 645 234 520"
+
+          for TEAM in $TEAMS; do
+            echo "Getting transfers for team: $TEAM"
+
+            RESPONSE=$(curl -f -sS \
+              -H "x-apisports-key: $API_KEY" \
+              "https://v3.football.api-sports.io/transfers?team=$TEAM")
+
+            if [ "$FIRST" = true ]; then
+              FIRST=false
+            else
+              echo "," >> transfers_all.json
+            fi
+
+            echo "$RESPONSE" >> transfers_all.json
+
+            sleep 1
+          done
+
+          echo "]" >> transfers_all.json
+
+          echo "API requests completed."
 
       - name: Filter recent transfers
         run: |
@@ -31,62 +57,109 @@ jobs:
           import json
           from datetime import datetime, timedelta, timezone
 
-          with open("transfers.json", "r", encoding="utf-8") as f:
-              data = json.load(f)
+          with open("transfers_all.json", "r", encoding="utf-8") as f:
+              all_data = json.load(f)
 
           today = datetime.now(timezone.utc).date()
-          start_date = today - timedelta(days=7)
-
-          strong_teams = {
-              529, 541, 530, 157, 42, 50, 33, 49,
-              40, 85, 211, 47, 228, 531, 536,
-              645, 234, 520
-          }
+          start_date = today - timedelta(days=30)
 
           filtered = []
+          seen = set()
 
-          for player in data.get("response", []):
-              for transfer in player.get("transfers", []):
-                  date_text = transfer.get("date", "")
+          for data in all_data:
+              for player in data.get("response", []):
+                  player_info = player.get("player", {})
 
-                  try:
-                      transfer_date = datetime.strptime(
-                          date_text, "%Y-%m-%d"
-                      ).date()
-                  except:
-                      continue
+                  for transfer in player.get("transfers", []):
+                      date_text = transfer.get("date")
 
-                  if transfer_date < start_date or transfer_date > today:
-                      continue
+                      if not date_text:
+                          continue
 
-                  teams = transfer.get("teams", {})
-                  team_in = teams.get("in", {})
-                  team_out = teams.get("out", {})
+                      try:
+                          transfer_date = datetime.strptime(
+                              date_text[:10],
+                              "%Y-%m-%d"
+                          ).date()
+                      except Exception:
+                          continue
 
-                  if (
-                      team_in.get("id") not in strong_teams
-                      and team_out.get("id") not in strong_teams
-                  ):
-                      continue
+                      if transfer_date < start_date or transfer_date > today:
+                          continue
 
-                  filtered.append({
-                      "player": player.get("player", {}),
-                      "date": date_text,
-                      "type": transfer.get("type"),
-                      "in": team_in,
-                      "out": team_out
-                  })
+                      teams = transfer.get("teams", {})
+                      team_in = teams.get("in") or {}
+                      team_out = teams.get("out") or {}
+
+                      player_id = player_info.get("id")
+
+                      transfer_key = (
+                          player_id,
+                          date_text,
+                          team_in.get("id"),
+                          team_out.get("id"),
+                          transfer.get("type")
+                      )
+
+                      if transfer_key in seen:
+                          continue
+
+                      seen.add(transfer_key)
+
+                      filtered.append({
+                          "player": player_info,
+                          "date": date_text,
+                          "type": transfer.get("type"),
+                          "in": team_in,
+                          "out": team_out
+                      })
+
+          filtered.sort(
+              key=lambda x: x.get("date", ""),
+              reverse=True
+          )
 
           output = {
               "updated": datetime.now(timezone.utc).isoformat(),
+              "period_days": 30,
               "results": len(filtered),
               "transfers": filtered
           }
 
           with open("transfers.json", "w", encoding="utf-8") as f:
-              json.dump(output, f, ensure_ascii=False, indent=2)
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
 
-          print(f"Recent strong-team transfers: {len(filtered)}")
+          print("===================================")
+          print(f"Recent transfers: {len(filtered)}")
+          print("===================================")
+
+          if len(filtered) == 0:
+              print("WARNING: No transfers found.")
+          else:
+              for t in filtered[:20]:
+                  player = t["player"].get("name", "Unknown")
+                  print(
+                      f"{t['date']} | "
+                      f"{player} | "
+                      f"{t.get('type')}"
+                  )
+          PY
+
+      - name: Validate transfers.json
+        run: |
+          python3 - <<'PY'
+          import json
+
+          with open("transfers.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          print("transfers.json is valid.")
+          print("Results:", data.get("results", 0))
           PY
 
       - name: Save changes
