@@ -38,9 +38,6 @@ header{
   padding:22px 15px;
   border-bottom:1px solid var(--line);
   text-align:center;
-  position:sticky;
-  top:0;
-  z-index:10;
 }
 
 .logo{
@@ -155,16 +152,14 @@ header{
 }
 
 .live{
-  display:inline-block;
   background:rgba(255,83,101,.15);
   color:var(--red);
-  padding:6px 12px;
+  padding:7px 12px;
   border-radius:20px;
   font-size:11px;
   margin-top:10px;
   font-weight:bold;
   text-align:center;
-  width:100%;
 }
 
 .finished{
@@ -180,6 +175,13 @@ header{
   color:var(--muted);
 }
 
+.error{
+  text-align:center;
+  padding:25px 15px;
+  color:var(--red);
+  line-height:1.8;
+}
+
 footer{
   text-align:center;
   color:var(--muted);
@@ -188,6 +190,7 @@ footer{
 }
 
 @media(max-width:500px){
+
   .topbar h1{
     font-size:18px;
   }
@@ -211,6 +214,7 @@ footer{
 <body>
 
 <header>
+
   <div class="logo">
     Hersh Football ⚽
   </div>
@@ -218,20 +222,25 @@ footer{
   <div class="subtitle">
     یارییەکانی ئەمڕۆ
   </div>
+
 </header>
 
 <main class="container">
 
   <div class="topbar">
-    <h1>⚽ یارییەکان</h1>
+
+    <h1>
+      ⚽ یارییەکان
+    </h1>
 
     <a href="home.html" class="home">
       🏠 سەرەتا
     </a>
+
   </div>
 
   <div class="status" id="status">
-    ⏳ چاوەڕێی داتا دەکەین...
+    🔄 داتا بار دەکرێت...
   </div>
 
   <div id="matches"></div>
@@ -242,235 +251,85 @@ footer{
   Hersh Football ⚽ — Kurdish Football App
 </footer>
 
+
 <script>
-async function loadMatches(){
 
-  const status = document.getElementById("status");
-  const container = document.getElementById("matches");
+const JSON_URL =
+  "https://pharmacyshifa9-boop.github.io/hersh-football/matches.json";
 
-  status.textContent = "🔵 JavaScript کاردەکات...";
-  container.innerHTML = "";
 
-  try {
+function escapeHTML(value){
 
-    const response = await fetch(
-      "https://pharmacyshifa9-boop.github.io/hersh-football/matches.json?t=" + Date.now()
-    );
-
-    if (!response.ok) {
-      throw new Error("matches.json نەدۆزرایەوە");
-    }
-
-    const data = await response.json();
-
-    if (!data || !Array.isArray(data.matches)) {
-      throw new Error("داتاکە دروست نییە");
-    }
-
-    if (data.matches.length === 0) {
-
-      status.textContent = "📭 ئەمڕۆ یارییەک نییە";
-
-      container.innerHTML = `
-        <div class="empty">
-          هیچ یارییەک بۆ ئەمڕۆ نەدۆزرایەوە.
-        </div>
-      `;
-
-      return;
-    }
-
-    status.textContent =
-      "✅ " + data.matches.length + " یاری دۆزرایەوە";
-
-    data.matches.forEach(match => {
-
-      const home = match.home || {};
-      const away = match.away || {};
-      const fixture = match.fixture || {};
-      const league = match.league || {};
-      const matchStatus = fixture.status || {};
-
-      let score = "-";
-
-      if (
-        match.goals &&
-        (
-          match.goals.home !== null ||
-          match.goals.away !== null
-        )
-      ) {
-        score =
-          (match.goals.home ?? 0) +
-          " - " +
-          (match.goals.away ?? 0);
-      }
-
-      let time = "--:--";
-
-      if (fixture.date) {
-        time = new Date(fixture.date).toLocaleTimeString(
-          "ku-IQ",
-          {
-            hour: "2-digit",
-            minute: "2-digit"
-          }
-        );
-      }
-
-      let stateHTML = `
-        <div class="time">
-          🕐 ${escapeHTML(time)}
-        </div>
-      `;
-
-      if (
-        ["1H","2H","HT","ET","BT","P","LIVE"].includes(
-          matchStatus.short
-        )
-      ) {
-
-        stateHTML = `
-          <div class="live">
-            🔴 LIVE
-          </div>
-        `;
-
-      } else if (
-        ["FT","AET","PEN"].includes(
-          matchStatus.short
-        )
-      ) {
-
-        stateHTML = `
-          <div class="finished">
-            🏁 تەواوبوو
-          </div>
-        `;
-
-      }
-
-      const card = document.createElement("div");
-
-      card.className = "match";
-
-      card.innerHTML = `
-
-        <div class="league">
-          🏆 ${escapeHTML(
-            league.name || "لیگی نەناسراو"
-          )}
-        </div>
-
-        <div class="teams">
-
-          <div class="team">
-
-            ${
-              home.logo
-              ? `
-                <img
-                  src="${escapeHTML(home.logo)}"
-                  alt=""
-                >
-              `
-              : ""
-            }
-
-            <div class="team-name">
-              ${escapeHTML(
-                home.name || "تیمی نەزانراوە"
-              )}
-            </div>
-
-          </div>
-
-          <div class="score">
-            ${escapeHTML(score)}
-          </div>
-
-          <div class="team">
-
-            ${
-              away.logo
-              ? `
-                <img
-                  src="${escapeHTML(away.logo)}"
-                  alt=""
-                >
-              `
-              : ""
-            }
-
-            <div class="team-name">
-              ${escapeHTML(
-                away.name || "تیمی نەزانراوە"
-              )}
-            </div>
-
-          </div>
-
-        </div>
-
-        ${stateHTML}
-
-      `;
-
-      container.appendChild(card);
-
-    });
-
-  } catch (error) {
-
-    console.error(error);
-
-    status.textContent =
-      "❌ کێشەیەک لە داتا هەیە";
-
-    container.innerHTML = `
-      <div class="empty">
-        نەتوانرا داتای یارییەکان بخوێندرێتەوە.
-      </div>
-    `;
-  }
-}
-
-function escapeHTML(text){
-
-  return String(text)
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
-loadMatches();
-</script>
 
-status.textContent =
-  "🔵 JavaScript کاردەکات...";
+function showError(message){
 
-  container.innerHTML = "";
+  document.getElementById("status").textContent =
+    "❌ کێشەیەک هەیە";
+
+  document.getElementById("matches").innerHTML = `
+    <div class="error">
+      ${escapeHTML(message)}
+    </div>
+  `;
+
+}
+
+
+async function loadMatches(){
+
+  const status =
+    document.getElementById("status");
+
+  const container =
+    document.getElementById("matches");
+
+  status.textContent =
+    "🔄 داتا بار دەکرێت...";
 
   try{
 
-const response =
-  await fetch(
-    "https://pharmacyshifa9-boop.github.io/hersh-football/matches.json?t=" + Date.now()
-  );
+    const response =
+      await fetch(
+        JSON_URL + "?v=" + Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
+
     if(!response.ok){
-      throw new Error("matches.json نەدۆزرایەوە");
+
+      throw new Error(
+        "HTTP " + response.status
+      );
+
     }
 
     const data =
       await response.json();
 
-    if(
-      !data ||
-      !Array.isArray(data.matches) ||
-      data.matches.length === 0
-    ){
+    if(!data){
+
+      throw new Error(
+        "داتا بەتاڵە"
+      );
+
+    }
+
+    const matches =
+      Array.isArray(data.matches)
+      ? data.matches
+      : [];
+
+    if(matches.length === 0){
 
       status.textContent =
         "📭 ئەمڕۆ یارییەک نییە";
@@ -482,21 +341,20 @@ const response =
       `;
 
       return;
+
     }
+
 
     status.textContent =
       "✅ " +
-      data.matches.length +
+      matches.length +
       " یاری دۆزرایەوە";
 
 
-    data.matches.forEach(match => {
+    container.innerHTML = "";
 
-      const home =
-        match.home || {};
 
-      const away =
-        match.away || {};
+    matches.forEach(match => {
 
       const fixture =
         match.fixture || {};
@@ -504,8 +362,101 @@ const response =
       const league =
         match.league || {};
 
-      const statusData =
+      const home =
+        match.home || {};
+
+      const away =
+        match.away || {};
+
+      const goals =
+        match.goals || {};
+
+      const matchStatus =
         fixture.status || {};
+
+
+      let score =
+        "-";
+
+      if(
+        goals.home !== null &&
+        goals.home !== undefined
+      ){
+
+        score =
+          (goals.home ?? 0) +
+          " - " +
+          (goals.away ?? 0);
+
+      }
+
+
+      let time =
+        "--:--";
+
+      if(fixture.date){
+
+        time =
+          new Date(
+            fixture.date
+          ).toLocaleTimeString(
+            "ku-IQ",
+            {
+              hour:"2-digit",
+              minute:"2-digit"
+            }
+          );
+
+      }
+
+
+      let stateHTML = `
+        <div class="time">
+          🕐 ${escapeHTML(time)}
+        </div>
+      `;
+
+
+      if(
+        [
+          "1H",
+          "2H",
+          "HT",
+          "ET",
+          "BT",
+          "P",
+          "LIVE"
+        ].includes(
+          matchStatus.short
+        )
+      ){
+
+        stateHTML = `
+          <div class="live">
+            🔴 LIVE
+          </div>
+        `;
+
+      }
+
+
+      if(
+        [
+          "FT",
+          "AET",
+          "PEN"
+        ].includes(
+          matchStatus.short
+        )
+      ){
+
+        stateHTML = `
+          <div class="finished">
+            🏁 تەواوبوو
+          </div>
+        `;
+
+      }
 
 
       const card =
@@ -515,15 +466,121 @@ const response =
         "match";
 
 
-      /* کاتی یاری */
+      card.innerHTML = `
 
-      let timeText =
-        "--:--";
+        <div class="league">
 
-      if(fixture.date){
+          🏆
+          ${escapeHTML(
+            league.name ||
+            "لیگی نەناسراو"
+          )}
 
-        const date =
-          new Date(fixture.date);
+        </div>
 
-        timeText =
-          date.to
+
+        <div class="teams">
+
+
+          <div class="team">
+
+            ${
+              home.logo
+              ?
+              `
+              <img
+                src="${escapeHTML(home.logo)}"
+                alt=""
+                onerror="this.style.display='none'"
+              >
+              `
+              :
+              ""
+            }
+
+            <div class="team-name">
+
+              ${escapeHTML(
+                home.name ||
+                "تیمی نەناسراوە"
+              )}
+
+            </div>
+
+          </div>
+
+
+          <div class="score">
+
+            ${escapeHTML(score)}
+
+          </div>
+
+
+          <div class="team">
+
+            ${
+              away.logo
+              ?
+              `
+              <img
+                src="${escapeHTML(away.logo)}"
+                alt=""
+                onerror="this.style.display='none'"
+              >
+              `
+              :
+              ""
+            }
+
+            <div class="team-name">
+
+              ${escapeHTML(
+                away.name ||
+                "تیمی نەناسراوە"
+              )}
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        ${stateHTML}
+
+      `;
+
+
+      container.appendChild(card);
+
+    });
+
+
+  }
+
+  catch(error){
+
+    console.error(
+      "Hersh Football:",
+      error
+    );
+
+    showError(
+      "نەتوانرا matches.json بخوێندرێتەوە. " +
+      "کۆدی هەڵە: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+loadMatches();
+
+</script>
+
+</body>
+</html>
