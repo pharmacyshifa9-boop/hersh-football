@@ -46,98 +46,133 @@ jobs:
       # CREATE MATCHES.JSON
       # =========================
 
-      - name: Create matches.json
+
+- name: Create transfers.json
 
         run: |
 
           python3 - <<'PY'
 
           import json
-          from datetime import datetime, timezone
+          import glob
 
 
-          with open(
-              "matches_raw.json",
-              "r",
-              encoding="utf-8"
-          ) as f:
-
-              data = json.load(f)
+          transfers = []
 
 
-          matches = []
-
-
-          for item in data.get(
-              "response",
-              []
+          for filename in glob.glob(
+              "transfer_data/*.json"
           ):
 
-              matches.append({
+              try:
 
-                  "fixture":
-                      item.get(
-                          "fixture",
-                          {}
-                      ),
+                  with open(
+                      filename,
+                      "r",
+                      encoding="utf-8"
+                  ) as f:
 
-                  "league":
-                      item.get(
-                          "league",
-                          {}
-                      ),
+                      data = json.load(f)
 
-                  "home":
-                      item.get(
-                          "teams",
-                          {}
-                      ).get(
-                          "home",
-                          {}
-                      ),
 
-                  "away":
-                      item.get(
-                          "teams",
-                          {}
-                      ).get(
-                          "away",
-                          {}
-                      ),
+                  for item in data.get(
+                      "response",
+                      []
+                  ):
 
-                  "goals":
-                      item.get(
-                          "goals",
+                      player = item.get(
+                          "player",
                           {}
                       )
 
-              })
+
+                      for transfer in item.get(
+                          "transfers",
+                          []
+                      ):
+
+                          transfers.append({
+
+                              "player": player,
+
+                              "date":
+                                  transfer.get(
+                                      "date"
+                                  ),
+
+                              "type":
+                                  transfer.get(
+                                      "type"
+                                  ),
+
+                              "teams":
+                                  transfer.get(
+                                      "teams"
+                                  )
+
+                          })
 
 
-          output = {
+              except Exception as e:
 
-              "updated":
-                  datetime.now(
-                      timezone.utc
-                  ).isoformat(),
+                  print(
+                      "Skipping",
+                      filename,
+                      e
+                  )
 
-              "results":
-                  len(matches),
 
-              "matches":
-                  matches
+          unique = []
 
-          }
+          seen = set()
+
+
+          for item in transfers:
+
+              player = item.get(
+                  "player",
+                  {}
+              )
+
+
+              key = (
+
+                  player.get("id"),
+
+                  item.get("date"),
+
+                  item.get("type")
+
+              )
+
+
+              if key in seen:
+                  continue
+
+
+              seen.add(key)
+
+              unique.append(item)
+
+
+          unique.sort(
+
+              key=lambda x:
+                  x.get("date") or "",
+
+              reverse=True
+
+          )
 
 
           with open(
-              "matches.json",
+              "transfers.json",
               "w",
               encoding="utf-8"
           ) as f:
 
               json.dump(
-                  output,
+                  unique[:100],
                   f,
                   ensure_ascii=False,
                   indent=2
@@ -145,8 +180,8 @@ jobs:
 
 
           print(
-              "MATCHES:",
-              len(matches)
+              "TRANSFERS:",
+              len(unique[:100])
           )
 
           PY
