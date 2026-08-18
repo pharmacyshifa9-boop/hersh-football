@@ -334,7 +334,23 @@ async function loadMatches(){
 
       const card =
         document.createElement("div");
+const matchDate = item.fixture?.date || "";
+const matchTime = matchDate
+  ? new Date(matchDate).toLocaleTimeString("ku-IQ", {
+      hour: "2-digit",
+      minute: "2-digit"
+    })
+  : "--:--";
 
+const statusCode = item.fixture?.status?.short || "";
+
+let matchStatus = "⏳ دەستی پێ نەکردووە";
+
+if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
+  matchStatus = "🟢 LIVE";
+} else if (["FT","AET","PEN"].includes(statusCode)) {
+  matchStatus = "🏁 کۆتایی";
+  }
       card.className =
         "match";
 
