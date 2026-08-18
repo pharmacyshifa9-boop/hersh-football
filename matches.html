@@ -259,7 +259,10 @@ status.textContent =
 
   try{
 
-https://pharmacyshifa9-boop.github.io/hersh-football/matches.json?t=
+const response =
+  await fetch(
+    "https://pharmacyshifa9-boop.github.io/hersh-football/matches.json?t=" + Date.now()
+  );
     if(!response.ok){
       throw new Error("matches.json نەدۆزرایەوە");
     }
