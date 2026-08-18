@@ -95,7 +95,7 @@ jobs:
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
-      - name: Create matches.json
+            - name: Create matches.json
         run: |
           python3 - <<'PY'
           import json
@@ -104,27 +104,47 @@ jobs:
           with open("matches_raw.json", "r", encoding="utf-8") as f:
               data = json.load(f)
 
-          response = data.get("response", [])
+          # خولە بەهێزەکان
+          strong_leagues = {
+              39,    # Premier League
+              140,   # La Liga
+              135,   # Serie A
+              78,    # Bundesliga
+              61,    # Ligue 1
+              40,    # Championship
+              2,     # Champions League
+              3,     # Europa League
+              848,   # Conference League
+              307,   # Saudi Pro League
+              203,   # Süper Lig
+              88,    # Eredivisie
+              94,    # Primeira Liga
+              144    # Belgian Pro League
+          }
 
           matches = []
 
-          for item in response:
+          for item in data.get("response", []):
 
-              fixture = item.get("fixture", {})
               league = item.get("league", {})
+              league_id = league.get("id")
+
+              if league_id not in strong_leagues:
+                  continue
+
               teams = item.get("teams", {})
-              goals = item.get("goals", {})
 
               matches.append({
-                  "fixture": fixture,
+                  "fixture": item.get("fixture", {}),
                   "league": league,
                   "home": teams.get("home", {}),
                   "away": teams.get("away", {}),
-                  "goals": goals
+                  "goals": item.get("goals", {})
               })
 
           output = {
               "updated": datetime.now(timezone.utc).isoformat(),
+              "results": len(matches),
               "matches": matches
           }
 
@@ -136,9 +156,8 @@ jobs:
                   indent=2
               )
 
-          print("Matches found:", len(matches))
+          print("Strong league matches:", len(matches))
           PY
-
       # =========================
       # SAVE EVERYTHING
       # =========================
