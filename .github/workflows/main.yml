@@ -17,30 +17,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # =========================
-      # TRANSFERS
-      # =========================
-
       - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
           mkdir -p transfer_data
 
-          teams=(
-            529
-            541
-            157
-            42
-            50
-            33
-            49
-            530
-            85
-          )
-
-          for team in "${teams[@]}"; do
-            echo "Getting transfers for team $team..."
+          for team in 529 541 157 42 50 33 49 530 85
+          do
+            echo "Getting transfers for team $team"
 
             curl -f -sS \
               -H "x-apisports-key: $API_KEY" \
@@ -48,7 +33,7 @@ jobs:
               -o "transfer_data/$team.json"
           done
 
-      - name: Filter last 7 days
+      - name: Create transfers.json
         run: |
           CUTOFF=$(date -u -d "7 days ago" +%Y-%m-%d)
 
@@ -56,15 +41,15 @@ jobs:
             [
               .[]
               | .response[]
-              | . as $playerData
+              | . as $p
               | .transfers[]
               | select(.date >= $cutoff)
               | {
-                  player: $playerData.player,
+                  player: $p.player,
                   date: .date,
                   type: .type,
                   teams: .teams,
-                  update: $playerData.update
+                  update: $p.update
                 }
             ]
             | unique_by([
@@ -78,27 +63,72 @@ jobs:
             | reverse
           ' transfer_data/*.json > transfers.json
 
-      # =========================
-      # TODAY'S MATCHES
-      # =========================
-
       - name: Get today's matches
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
           TODAY=$(date -u +"%Y-%m-%d")
 
-          echo "Getting matches for $TODAY..."
-
           curl -f -sS \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
-matches.json
-      
-      # =========================
-      # SAVE EVERYTHING
-      # =========================
+
+      - name: Create matches.json
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+
+          with open("matches_raw.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          strong_leagues = {
+              39,
+              140,
+              135,
+              78,
+              61,
+              40,
+              2,
+              3,
+              848,
+              307,
+              203,
+              88,
+              94,
+              144
+          }
+
+          matches = []
+
+          for item in data.get("response", []):
+              league = item.get("league", {})
+
+              if league.get("id") not in strong_leagues:
+                  continue
+
+              teams = item.get("teams", {})
+
+              matches.append({
+                  "fixture": item.get("fixture", {}),
+                  "league": league,
+                  "home": teams.get("home", {}),
+                  "away": teams.get("away", {}),
+                  "goals": item.get("goals", {})
+              })
+
+          output = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "results": len(matches),
+              "matches": matches
+          }
+
+          with open("matches.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+
+          print("Strong league matches:", len(matches))
+          PY
 
       - name: Save changes
         run: |
@@ -107,10 +137,6 @@ matches.json
 
           git add transfers.json matches.json
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
+          git commit -m "Update football data" || true
 
-          git commit -m "Update football transfers and matches"
           git push
