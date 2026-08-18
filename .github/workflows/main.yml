@@ -34,14 +34,23 @@ jobs:
 
           TODAY=$(date -u +"%Y-%m-%d")
 
-          echo "Getting matches for $TODAY"
+          echo "================================"
+          echo "DATE: $TODAY"
+          echo "================================"
 
           curl -sS \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
-          echo "API response saved."
+          echo "================================"
+          echo "API RESPONSE:"
+          echo "================================"
+
+          cat matches_raw.json
+
+          echo ""
+          echo "================================"
 
 
       # =========================
