@@ -2,6 +2,7 @@ name: Update Football Data
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "*/5 * * * *"
 
@@ -21,10 +22,11 @@ jobs:
 
 
       # =========================
-      # TODAY'S MATCHES + LIVE
+      # GET TODAY MATCHES
       # =========================
 
       - name: Get today's matches
+
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
 
@@ -34,17 +36,18 @@ jobs:
 
           echo "Getting matches for $TODAY"
 
-          curl -f -sS \
+          curl -sS \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
 
       # =========================
-      # CREATE matches.json
+      # CREATE MATCHES.JSON
       # =========================
 
       - name: Create matches.json
+
         run: |
 
           python3 - <<'PY'
@@ -70,55 +73,43 @@ jobs:
               []
           ):
 
-              fixture = \
-                  item.get(
-                      "fixture",
-                      {}
-                  )
-
-              league = \
-                  item.get(
-                      "league",
-                      {}
-                  )
-
-              teams = \
-                  item.get(
-                      "teams",
-                      {}
-                  )
-
-              goals = \
-                  item.get(
-                      "goals",
-                      {}
-                  )
-
-
-              home = \
-                  teams.get(
-                      "home",
-                      {}
-                  )
-
-              away = \
-                  teams.get(
-                      "away",
-                      {}
-                  )
-
-
               matches.append({
 
-                  "fixture": fixture,
+                  "fixture":
+                      item.get(
+                          "fixture",
+                          {}
+                      ),
 
-                  "league": league,
+                  "league":
+                      item.get(
+                          "league",
+                          {}
+                      ),
 
-                  "home": home,
+                  "home":
+                      item.get(
+                          "teams",
+                          {}
+                      ).get(
+                          "home",
+                          {}
+                      ),
 
-                  "away": away,
+                  "away":
+                      item.get(
+                          "teams",
+                          {}
+                      ).get(
+                          "away",
+                          {}
+                      ),
 
-                  "goals": goals
+                  "goals":
+                      item.get(
+                          "goals",
+                          {}
+                      )
 
               })
 
@@ -154,7 +145,7 @@ jobs:
 
 
           print(
-              "Matches:",
+              "MATCHES:",
               len(matches)
           )
 
@@ -165,11 +156,8 @@ jobs:
       # TRANSFERS
       # =========================
 
-      # =========================
-      # TRANSFERS
-      # =========================
+      - name: Get important transfers
 
-      - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
 
@@ -178,110 +166,184 @@ jobs:
           mkdir -p transfer_data
 
           teams=(
+
             529
             541
             157
-            42
-            50
-            33
-            49
-            530
-            85
+
           )
+
 
           for team in "${teams[@]}"; do
 
-            echo "Getting transfers for team $team..."
+            echo \
+              "Getting transfers for $team"
 
             curl -sS \
               -H "x-apisports-key: $API_KEY" \
               "https://v3.football.api-sports.io/transfers?team=$team" \
               -o "transfer_data/$team.json" \
-              -w " HTTP:%{http_code}\n" || true
+              -w " HTTP:%{http_code}\n" \
+              || true
 
-            sleep 3
+            sleep 5
 
           done
 
+
       # =========================
-      # CREATE transfers.json
+      # CREATE TRANSFERS.JSON
       # =========================
 
       - name: Create transfers.json
 
         run: |
 
-          CUTOFF=$(date -u -d "7 days ago" +%Y-%m-%d)
+          python3 - <<'PY'
 
-          echo \
-            "Showing transfers from $CUTOFF"
-
-
-          jq -s --arg cutoff "$CUTOFF" '
-
-            [
-
-              .[]
-
-              | .response[]
-
-              | . as $playerData
-
-              | .transfers[]
-
-              | select(
-                  .date >= $cutoff
-                )
-
-              | {
-
-                  player:
-                    $playerData.player,
-
-                  date:
-                    .date,
-
-                  type:
-                    .type,
-
-                  teams:
-                    .teams,
-
-                  update:
-                    $playerData.update
-
-                }
-
-            ]
-
-            | unique_by([
-
-                .player.id,
-                .date,
-                .type,
-                .teams.in.id,
-                .teams.out.id
-
-            ])
-
-            | sort_by(.date)
-
-            | reverse
-
-          ' transfer_data/*.json \
-            > transfers.json
+          import json
+          import glob
 
 
-          echo "Transfers created"
+          transfers = []
 
-          cat transfers.json
+
+          for filename in glob.glob(
+              "transfer_data/*.json"
+          ):
+
+              try:
+
+                  with open(
+                      filename,
+                      "r",
+                      encoding="utf-8"
+                  ) as f:
+
+                      data = json.load(f)
+
+
+                  for item in data.get(
+                      "response",
+                      []
+                  ):
+
+                      player = item.get(
+                          "player",
+                          {}
+                      )
+
+
+                      for transfer in item.get(
+                          "transfers",
+                          []
+                      ):
+
+                          transfers.append({
+
+                              "player":
+                                  player,
+
+                              "date":
+                                  transfer.get(
+                                      "date"
+                                  ),
+
+                              "type":
+                                  transfer.get(
+                                      "type"
+                                  ),
+
+                              "teams":
+                                  transfer.get(
+                                      "teams"
+                                  )
+
+                          })
+
+              except Exception as e:
+
+                  print(
+                      "Skipping",
+                      filename,
+                      e
+                  )
+
+
+          unique = []
+
+
+          seen = set()
+
+
+          for item in transfers:
+
+              player =
+                  item.get(
+                      "player",
+                      {}
+                  )
+
+
+              key = (
+
+                  player.get("id"),
+
+                  item.get("date"),
+
+                  item.get("type")
+
+              )
+
+
+              if key in seen:
+                  continue
+
+
+              seen.add(key)
+
+              unique.append(item)
+
+
+          unique.sort(
+
+              key=lambda x:
+                  x.get(
+                      "date"
+                  ) or "",
+
+              reverse=True
+
+          )
+
+
+          with open(
+              "transfers.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  unique[:100],
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print(
+              "TRANSFERS:",
+              len(unique[:100])
+          )
+
+          PY
 
 
       # =========================
-      # SAVE
+      # COMMIT
       # =========================
 
-      - name: Save changes
+      - name: Save data
 
         run: |
 
@@ -296,15 +358,15 @@ jobs:
 
           git add \
             matches.json \
-            transfers.json
+            transfers.json \
+            transfer_data
 
 
           if git diff \
             --cached \
             --quiet; then
 
-            echo \
-              "No changes to commit"
+            echo "No changes"
 
             exit 0
 
