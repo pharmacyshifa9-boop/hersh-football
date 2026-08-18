@@ -1,6 +1,48 @@
 [
   {
     "player": {
+      "id": 557379,
+      "name": "R. Kavuma McQueen"
+    },
+    "date": "2026-08-13",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 1355,
+        "name": "Portsmouth",
+        "logo": "https://media.api-sports.io/football/teams/1355.png"
+      },
+      "out": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      }
+    },
+    "update": "2026-08-17T00:10:54+00:00"
+  },
+  {
+    "player": {
+      "id": 445472,
+      "name": "D. Satpaev"
+    },
+    "date": "2026-08-13",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 44,
+        "name": "Burnley",
+        "logo": "https://media.api-sports.io/football/teams/44.png"
+      },
+      "out": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      }
+    },
+    "update": "2026-08-17T00:17:34+00:00"
+  },
+  {
+    "player": {
       "id": 280339,
       "name": "A. Sieb"
     },
@@ -22,6 +64,27 @@
   },
   {
     "player": {
+      "id": 445472,
+      "name": "D. Satpaev"
+    },
+    "date": "2026-08-11",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      },
+      "out": {
+        "id": 664,
+        "name": "Kairat Almaty",
+        "logo": "https://media.api-sports.io/football/teams/664.png"
+      }
+    },
+    "update": "2026-08-17T00:17:34+00:00"
+  },
+  {
+    "player": {
       "id": 280339,
       "name": "A. Sieb"
     },
@@ -40,6 +103,27 @@
       }
     },
     "update": "2026-08-17T00:31:52+00:00"
+  },
+  {
+    "player": {
+      "id": 181734,
+      "name": "Pep Chavarría"
+    },
+    "date": "2026-08-11",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      },
+      "out": {
+        "id": 728,
+        "name": "Rayo Vallecano",
+        "logo": "https://media.api-sports.io/football/teams/728.png"
+      }
+    },
+    "update": "2026-08-17T00:25:43+00:00"
   },
   {
     "player": {
