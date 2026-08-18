@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
@@ -159,11 +158,13 @@ header{
   display:inline-block;
   background:rgba(255,83,101,.15);
   color:var(--red);
-  padding:5px 10px;
+  padding:6px 12px;
   border-radius:20px;
   font-size:11px;
   margin-top:10px;
   font-weight:bold;
+  text-align:center;
+  width:100%;
 }
 
 .finished{
@@ -227,9 +228,7 @@ footer{
 
   <div class="topbar">
 
-    <h1>
-      ⚽ یارییەکان
-    </h1>
+    <h1>⚽ یارییەکان</h1>
 
     <a href="home.html" class="home">
       🏠 سەرەتا
@@ -251,44 +250,24 @@ footer{
 
 <script>
 
-const API_URL =
-  "https://v3.football.api-sports.io/fixtures?date=" +
-  new Date().toISOString().slice(0,10);
-
 async function loadMatches(){
 
-  const status =
-    document.getElementById("status");
+  const status = document.getElementById("status");
+  const container = document.getElementById("matches");
 
-  const container =
-    document.getElementById("matches");
-
-  status.textContent =
-    "⏳ داتا دەهێنرێت...";
-
+  status.textContent = "⏳ داتا دەهێنرێت...";
   container.innerHTML = "";
 
   try{
-
-    /*
-      تێبینی:
-      API Key نابێت لە HTML دانرێت.
-      لە GitHub Actions داتا دروست دەکەین.
-    */
 
     const response =
       await fetch("matches.json?t=" + Date.now());
 
     if(!response.ok){
-
-      throw new Error(
-        "matches.json نەدۆزرایەوە"
-      );
-
+      throw new Error("matches.json نەدۆزرایەوە");
     }
 
-    const data =
-      await response.json();
+    const data = await response.json();
 
     if(
       !data ||
@@ -296,8 +275,7 @@ async function loadMatches(){
       data.matches.length === 0
     ){
 
-      status.textContent =
-        "📭 ئەمڕۆ یارییەک نییە";
+      status.textContent = "📭 ئەمڕۆ یارییەک نییە";
 
       container.innerHTML = `
         <div class="empty">
@@ -309,54 +287,44 @@ async function loadMatches(){
     }
 
     status.textContent =
-      "✅ " +
-      data.matches.length +
-      " یاری دۆزرایەوە";
+      "✅ " + data.matches.length + " یاری دۆزرایەوە";
 
 
     data.matches.forEach(match => {
 
-      const home =
-        match.home || {};
+      const home = match.home || {};
+      const away = match.away || {};
+      const fixture = match.fixture || {};
+      const league = match.league || {};
+      const statusData = fixture.status || {};
 
-      const away =
-        match.away || {};
+      const card = document.createElement("div");
 
-      const fixture =
-        match.fixture || {};
-
-      const league =
-        match.league || {};
-
-      const statusData =
-        fixture.status || {};
+      card.className = "match";
 
 
-      const card =
-        document.createElement("div");
-const matchDate = item.fixture?.date || "";
-const matchTime = matchDate
-  ? new Date(matchDate).toLocaleTimeString("ku-IQ", {
-      hour: "2-digit",
-      minute: "2-digit"
-    })
-  : "--:--";
+      /* کاتی یاری */
 
-const statusCode = item.fixture?.status?.short || "";
+      let timeText = "--:--";
 
-let matchStatus = "⏳ دەستی پێ نەکردووە";
+      if(fixture.date){
 
-if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
-  matchStatus = "🟢 LIVE";
-} else if (["FT","AET","PEN"].includes(statusCode)) {
-  matchStatus = "🏁 کۆتایی";
-  }
-      card.className =
-        "match";
+        const date = new Date(fixture.date);
+
+        timeText = date.toLocaleTimeString(
+          "ku-IQ",
+          {
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+        );
+
+      }
 
 
-      let scoreText =
-        "-";
+      /* ئەنجام */
+
+      let scoreText = "-";
 
       if(
         match.goals &&
@@ -374,30 +342,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
       }
 
 
-      const date =
-        fixture.date
-        ?
-        new Date(fixture.date)
-        :
-        null;
-
-
-      let timeText =
-        "";
-
-      if(date){
-
-        timeText =
-          date.toLocaleTimeString(
-            "ku-IQ",
-            {
-              hour:"2-digit",
-              minute:"2-digit"
-            }
-          );
-
-      }
-
+      /* دۆخی یاری */
 
       const statusShort =
         statusData.short || "";
@@ -411,7 +356,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
 
       if(
-        ["1H","2H","ET","P","LIVE"].includes(
+        ["1H","2H","HT","ET","BT","P","LIVE"].includes(
           statusShort
         )
       ){
@@ -422,7 +367,9 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
           </div>
         `;
 
-      }else if(
+      }
+
+      else if(
         ["FT","AET","PEN"].includes(
           statusShort
         )
@@ -430,21 +377,21 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
         stateHTML = `
           <div class="finished">
-            تەواوبوو
+            🏁 تەواوبوو
           </div>
         `;
 
       }
 
 
+      /* کارت */
+
       card.innerHTML = `
 
         <div class="league">
 
-          🏆
-          ${escapeHTML(
-            league.name ||
-            "لیگی نەناسراو"
+          🏆 ${escapeHTML(
+            league.name || "لیگی نەناسراو"
           )}
 
         </div>
@@ -461,6 +408,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
               <img
                 src="${escapeHTML(home.logo)}"
                 alt=""
+                onerror="this.style.display='none'"
               >
               `
               :
@@ -469,8 +417,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
             <div class="team-name">
               ${escapeHTML(
-                home.name ||
-                "تیمی نەزانراوە"
+                home.name || "تیمی نەزانراوە"
               )}
             </div>
 
@@ -478,9 +425,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
 
           <div class="score">
-
             ${escapeHTML(scoreText)}
-
           </div>
 
 
@@ -493,6 +438,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
               <img
                 src="${escapeHTML(away.logo)}"
                 alt=""
+                onerror="this.style.display='none'"
               >
               `
               :
@@ -501,8 +447,7 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
             <div class="team-name">
               ${escapeHTML(
-                away.name ||
-                "تیمی نەزانراوە"
+                away.name || "تیمی نەزانراوە"
               )}
             </div>
 
@@ -530,10 +475,8 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 
     container.innerHTML = `
       <div class="empty">
-        matches.json هێشتا دروست نەکراوە.
-        <br><br>
-        لە هەنگاوی دواتر API ـی یارییەکان
-        خۆکار دەکەین.
+        کێشەیەک لە خوێندنەوەی
+        matches.json هەیە.
       </div>
     `;
 
@@ -545,7 +488,6 @@ if (["1H","2H","HT","ET","BT"].includes(statusCode)) {
 function escapeHTML(text){
 
   return String(text)
-
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
