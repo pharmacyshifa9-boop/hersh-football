@@ -447,19 +447,18 @@ function renderMatches(){
 
    let time = "--:--";
 
-   if(fixture.date){
+if (fixture.date) {
+  const d = new Date(fixture.date);
 
-     time =
-  new Date(fixture.date).toLocaleTimeString(
-    "en-GB",
-    {
+  if (!isNaN(d.getTime())) {
+    time = d.toLocaleTimeString("ku-IQ", {
       timeZone: "Asia/Baghdad",
       hour: "2-digit",
-      minute: "2-digit"
-    }
-  );
-
-   }
+      minute: "2-digit",
+      hour12: false
+    });
+  }
+}
 
 
    let stateHTML = `
