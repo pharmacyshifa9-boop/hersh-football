@@ -1,4 +1,4 @@
-name: Update Football Transfers
+name: Update Football Data
 
 on:
   workflow_dispatch:
@@ -13,8 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      # =========================
+      # TRANSFERS
+      # =========================
 
       - name: Get transfers
         env:
@@ -47,8 +52,6 @@ jobs:
         run: |
           CUTOFF=$(date -u -d "7 days ago" +%Y-%m-%d)
 
-          echo "Showing transfers from $CUTOFF"
-
           jq -s --arg cutoff "$CUTOFF" '
             [
               .[]
@@ -75,20 +78,82 @@ jobs:
             | reverse
           ' transfer_data/*.json > transfers.json
 
-          echo "Latest transfers:"
-          cat transfers.json
+      # =========================
+      # TODAY'S MATCHES
+      # =========================
+
+      - name: Get today's matches
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+          TODAY=$(date -u +"%Y-%m-%d")
+
+          echo "Getting matches for $TODAY..."
+
+          curl -f -sS \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
+            -o matches_raw.json
+
+      - name: Create matches.json
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+
+          with open("matches_raw.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          response = data.get("response", [])
+
+          matches = []
+
+          for item in response:
+
+              fixture = item.get("fixture", {})
+              league = item.get("league", {})
+              teams = item.get("teams", {})
+              goals = item.get("goals", {})
+
+              matches.append({
+                  "fixture": fixture,
+                  "league": league,
+                  "home": teams.get("home", {}),
+                  "away": teams.get("away", {}),
+                  "goals": goals
+              })
+
+          output = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "matches": matches
+          }
+
+          with open("matches.json", "w", encoding="utf-8") as f:
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("Matches found:", len(matches))
+          PY
+
+      # =========================
+      # SAVE EVERYTHING
+      # =========================
 
       - name: Save changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add transfers.json
+          git add transfers.json matches.json
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          git commit -m "Update football transfers"
+          git commit -m "Update football transfers and matches"
           git push
