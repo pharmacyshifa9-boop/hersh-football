@@ -450,15 +450,14 @@ function renderMatches(){
    if(fixture.date){
 
      time =
-       new Date(
-         fixture.date
-       ).toLocaleTimeString(
-         "ku-IQ",
-         {
-           hour:"2-digit",
-           minute:"2-digit"
-         }
-       );
+  new Date(fixture.date).toLocaleTimeString(
+    "en-GB",
+    {
+      timeZone: "Asia/Baghdad",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+  );
 
    }
 
