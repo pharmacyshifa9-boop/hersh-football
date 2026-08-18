@@ -243,14 +243,210 @@ footer{
 </footer>
 
 <script>
-
 async function loadMatches(){
 
-  const status =
-    document.getElementById("status");
+  const status = document.getElementById("status");
+  const container = document.getElementById("matches");
 
-  const container =
-    document.getElementById("matches");
+  status.textContent = "🔵 JavaScript کاردەکات...";
+  container.innerHTML = "";
+
+  try {
+
+    const response = await fetch(
+      "https://pharmacyshifa9-boop.github.io/hersh-football/matches.json?t=" + Date.now()
+    );
+
+    if (!response.ok) {
+      throw new Error("matches.json نەدۆزرایەوە");
+    }
+
+    const data = await response.json();
+
+    if (!data || !Array.isArray(data.matches)) {
+      throw new Error("داتاکە دروست نییە");
+    }
+
+    if (data.matches.length === 0) {
+
+      status.textContent = "📭 ئەمڕۆ یارییەک نییە";
+
+      container.innerHTML = `
+        <div class="empty">
+          هیچ یارییەک بۆ ئەمڕۆ نەدۆزرایەوە.
+        </div>
+      `;
+
+      return;
+    }
+
+    status.textContent =
+      "✅ " + data.matches.length + " یاری دۆزرایەوە";
+
+    data.matches.forEach(match => {
+
+      const home = match.home || {};
+      const away = match.away || {};
+      const fixture = match.fixture || {};
+      const league = match.league || {};
+      const matchStatus = fixture.status || {};
+
+      let score = "-";
+
+      if (
+        match.goals &&
+        (
+          match.goals.home !== null ||
+          match.goals.away !== null
+        )
+      ) {
+        score =
+          (match.goals.home ?? 0) +
+          " - " +
+          (match.goals.away ?? 0);
+      }
+
+      let time = "--:--";
+
+      if (fixture.date) {
+        time = new Date(fixture.date).toLocaleTimeString(
+          "ku-IQ",
+          {
+            hour: "2-digit",
+            minute: "2-digit"
+          }
+        );
+      }
+
+      let stateHTML = `
+        <div class="time">
+          🕐 ${escapeHTML(time)}
+        </div>
+      `;
+
+      if (
+        ["1H","2H","HT","ET","BT","P","LIVE"].includes(
+          matchStatus.short
+        )
+      ) {
+
+        stateHTML = `
+          <div class="live">
+            🔴 LIVE
+          </div>
+        `;
+
+      } else if (
+        ["FT","AET","PEN"].includes(
+          matchStatus.short
+        )
+      ) {
+
+        stateHTML = `
+          <div class="finished">
+            🏁 تەواوبوو
+          </div>
+        `;
+
+      }
+
+      const card = document.createElement("div");
+
+      card.className = "match";
+
+      card.innerHTML = `
+
+        <div class="league">
+          🏆 ${escapeHTML(
+            league.name || "لیگی نەناسراو"
+          )}
+        </div>
+
+        <div class="teams">
+
+          <div class="team">
+
+            ${
+              home.logo
+              ? `
+                <img
+                  src="${escapeHTML(home.logo)}"
+                  alt=""
+                >
+              `
+              : ""
+            }
+
+            <div class="team-name">
+              ${escapeHTML(
+                home.name || "تیمی نەزانراوە"
+              )}
+            </div>
+
+          </div>
+
+          <div class="score">
+            ${escapeHTML(score)}
+          </div>
+
+          <div class="team">
+
+            ${
+              away.logo
+              ? `
+                <img
+                  src="${escapeHTML(away.logo)}"
+                  alt=""
+                >
+              `
+              : ""
+            }
+
+            <div class="team-name">
+              ${escapeHTML(
+                away.name || "تیمی نەزانراوە"
+              )}
+            </div>
+
+          </div>
+
+        </div>
+
+        ${stateHTML}
+
+      `;
+
+      container.appendChild(card);
+
+    });
+
+  } catch (error) {
+
+    console.error(error);
+
+    status.textContent =
+      "❌ کێشەیەک لە داتا هەیە";
+
+    container.innerHTML = `
+      <div class="empty">
+        نەتوانرا داتای یارییەکان بخوێندرێتەوە.
+      </div>
+    `;
+  }
+}
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+loadMatches();
+</script>
 
 status.textContent =
   "🔵 JavaScript کاردەکات...";
