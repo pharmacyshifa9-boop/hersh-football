@@ -258,9 +258,8 @@ async function loadMatches(){
   container.innerHTML = "";
 
   try{
-
-    const response =
-      await fetch("matches.json?t=" + Date.now());
+const response =
+  await fetch("./matches.json?t=" + Date.now());
 
     if(!response.ok){
       throw new Error("matches.json نەدۆزرایەوە");
