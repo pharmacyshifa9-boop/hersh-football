@@ -165,8 +165,11 @@ jobs:
       # TRANSFERS
       # =========================
 
-      - name: Get transfers
+      # =========================
+      # TRANSFERS
+      # =========================
 
+      - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
 
@@ -175,7 +178,6 @@ jobs:
           mkdir -p transfer_data
 
           teams=(
-
             529
             541
             157
@@ -185,22 +187,21 @@ jobs:
             49
             530
             85
-
           )
-
 
           for team in "${teams[@]}"; do
 
-            echo \
-              "Getting transfers for team $team..."
+            echo "Getting transfers for team $team..."
 
-            curl -f -sS \
+            curl -sS \
               -H "x-apisports-key: $API_KEY" \
               "https://v3.football.api-sports.io/transfers?team=$team" \
-              -o "transfer_data/$team.json"
+              -o "transfer_data/$team.json" \
+              -w " HTTP:%{http_code}\n" || true
+
+            sleep 3
 
           done
-
 
       # =========================
       # CREATE transfers.json
