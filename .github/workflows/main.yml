@@ -329,6 +329,33 @@ jobs:
 
           fi
 
+          - name: Save data
+
+        run: |
+
+          git config \
+            user.name \
+            "github-actions"
+
+          git config \
+            user.email \
+            "github-actions@github.com"
+
+          git add \
+            matches.json \
+            transfers.json \
+            transfer_data
+
+          if git diff \
+            --cached \
+            --quiet; then
+
+            echo "No changes"
+
+            exit 0
+
+          fi
+
           git commit \
             -m \
             "Update football data"
