@@ -671,6 +671,251 @@ async function loadMatches(){
 
 async function loadResults(){
 
+  const status = document.getElementById("resultStatus");
+  const box = document.getElementById("results");
+
+  status.textContent = "⏳ ئەنجامەکان دەخوێندرێنەوە...";
+  box.innerHTML = "";
+
+  try {
+
+    const response =
+      await fetch("matches.json?t=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("matches.json نەدۆزرایەوە");
+    }
+
+    const json = await response.json();
+
+    const matches =
+      Array.isArray(json.matches)
+        ? json.matches
+        : [];
+
+    /*
+      تەنها یارییە تەواوبووەکان:
+      FT  = Full Time
+      AET = After Extra Time
+      PEN = Penalties
+    */
+
+    const results = matches.filter(item => {
+
+      const shortStatus =
+        item &&
+        item.fixture &&
+        item.fixture.status
+          ? item.fixture.status.short
+          : "";
+
+      return (
+        shortStatus === "FT" ||
+        shortStatus === "AET" ||
+        shortStatus === "PEN"
+      );
+
+    });
+
+
+    if (results.length === 0) {
+
+      status.textContent =
+        "هیچ ئەنجامێکی تەواو نییە";
+
+      box.innerHTML = `
+        <div class="empty">
+          🏁 هێشتا ئەنجامێکی تەواو نییە.
+        </div>
+      `;
+
+      return;
+    }
+
+
+    status.textContent =
+      "✅ " + results.length + " ئەنجام";
+
+
+    results.forEach(item => {
+
+      const fixture =
+        item.fixture || {};
+
+      const league =
+        item.league || {};
+
+      const teams =
+        item.teams || {};
+
+      const goals =
+        item.goals || {};
+
+
+      /*
+        ناوی یانەکان لە:
+        teams.home.name
+        teams.away.name
+      */
+
+      const home =
+        teams.home || {};
+
+      const away =
+        teams.away || {};
+
+
+      const homeName =
+        home.name || "یانەی ماڵەوە";
+
+      const awayName =
+        away.name || "یانەی میوان";
+
+
+      const homeLogo =
+        home.logo || "";
+
+      const awayLogo =
+        away.logo || "";
+
+
+      const homeGoals =
+        goals.home !== null &&
+        goals.home !== undefined
+          ? goals.home
+          : 0;
+
+      const awayGoals =
+        goals.away !== null &&
+        goals.away !== undefined
+          ? goals.away
+          : 0;
+
+
+      const card =
+        document.createElement("div");
+
+      card.className = "match";
+
+
+      card.innerHTML = `
+
+        <div class="match-league">
+
+          🏆
+          ${escapeHTML(
+            league.name || "Football"
+          )}
+
+        </div>
+
+
+        <div class="match-teams">
+
+
+          <!-- HOME -->
+
+          <div class="match-team">
+
+            ${
+              homeLogo
+              ?
+              `
+              <img
+                src="${escapeHTML(homeLogo)}"
+                alt="${escapeHTML(homeName)}"
+                onerror="this.style.display='none'"
+              >
+              `
+              :
+              ""
+            }
+
+            <div class="team-name">
+
+              ${escapeHTML(homeName)}
+
+            </div>
+
+          </div>
+
+
+          <!-- SCORE -->
+
+          <div class="score">
+
+            ${escapeHTML(homeGoals)}
+
+            -
+
+            ${escapeHTML(awayGoals)}
+
+          </div>
+
+
+          <!-- AWAY -->
+
+          <div class="match-team">
+
+            ${
+              awayLogo
+              ?
+              `
+              <img
+                src="${escapeHTML(awayLogo)}"
+                alt="${escapeHTML(awayName)}"
+                onerror="this.style.display='none'"
+              >
+              `
+              :
+              ""
+            }
+
+            <div class="team-name">
+
+              ${escapeHTML(awayName)}
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="match-time">
+
+          🏁
+          ${escapeHTML(
+            fixture.status?.long ||
+            fixture.status?.short ||
+            "FT"
+          )}
+
+        </div>
+
+      `;
+
+
+      box.appendChild(card);
+
+    });
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    status.innerHTML = `
+      <span class="error">
+        ❌ کێشەیەک لە خوێندنەوەی matches.json هەیە
+      </span>
+    `;
+
+  }
+
+}
+
  const status=
   document.getElementById("resultStatus");
 
