@@ -63,53 +63,21 @@ jobs:
           start_date = today - timedelta(days=7)
 
           important_teams = {
-              # Barcelona
-              529,
-
-              # Real Madrid
-              541,
-
-              # Atletico Madrid
-              530,
-
-              # Manchester City
-              50,
-
-              # Manchester United
-              33,
-
-              # Arsenal
-              42,
-
-              # Chelsea
-              49,
-
-              # Liverpool
-              40,
-
-              # Bayern Munich
+              529, 541, 530,
+              42, 49, 40,
+              50, 33,
               157,
-
-              # PSG
               85,
-
-              # Juventus
-              496,
-
-              # Inter
-              505,
-
-              # AC Milan
-              489
+              496, 505, 489
           }
 
-          filtered = []
+          result = []
 
-          for player_data in data.get("response", []):
+          for item in data.get("response", []):
 
-              player = player_data.get("player", {})
+              player = item.get("player", {})
 
-              for transfer in player_data.get("transfers", []):
+              for transfer in item.get("transfers", []):
 
                   date_text = transfer.get("date", "")
 
@@ -132,22 +100,17 @@ jobs:
                   team_in = teams.get("in", {})
                   team_out = teams.get("out", {})
 
-                  in_id = team_in.get("id")
-                  out_id = team_out.get("id")
-
                   if (
-                      in_id not in important_teams
-                      and out_id not in important_teams
+                      team_in.get("id") not in important_teams
+                      and
+                      team_out.get("id") not in important_teams
                   ):
                       continue
 
-                  filtered.append({
+                  result.append({
                       "player": player,
                       "date": date_text,
-                      "type": transfer.get(
-                          "type",
-                          "Transfer"
-                      ),
+                      "type": transfer.get("type", "Transfer"),
                       "teams": {
                           "in": team_in,
                           "out": team_out
@@ -160,31 +123,34 @@ jobs:
               encoding="utf-8"
           ) as f:
               json.dump(
-                  filtered,
+                  result,
                   f,
                   ensure_ascii=False,
                   indent=2
               )
 
-          print(
-              "Transfers:",
-              len(filtered)
-          )
+          print("Transfers:", len(result))
           PY
 
 
       # =========================
-      # TODAY MATCHES
+      # TODAY
+      # =========================
+
+      - name: Set today's date
+        run: |
+          echo "TODAY=$(date -u +"%Y-%m-%d")" >> "$GITHUB_ENV"
+          echo "Today: $(date -u +"%Y-%m-%d")"
+
+
+      # =========================
+      # GET ALL TODAY MATCHES
       # =========================
 
       - name: Get today's matches
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
-          TODAY=$(date -u +"%Y-%m-%d")
-
-          echo "Getting matches for $TODAY"
-
           curl -f -sS \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
@@ -194,61 +160,100 @@ jobs:
 
 
       # =========================
-      # FILTER IMPORTANT MATCHES
+      # CREATE FILTERED MATCHES
       # =========================
 
       - name: Create matches.json
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
+
           python3 - <<'PY'
+
           import json
+          import urllib.request
+          import os
           from datetime import datetime, timezone
 
-          with open(
-              "matches_raw.json",
-              encoding="utf-8"
-          ) as f:
-              data = json.load(f)
-
-          response = data.get(
-              "response",
-              []
-          )
-
-          print(
-              "ALL API MATCHES:",
-              len(response)
-          )
+          API_KEY = os.environ["API_KEY"]
 
 
           # ==========================================
-          # IMPORTANT LEAGUES
+          # EXACT BIG LEAGUE IDS
           # ==========================================
 
-          important_leagues = {
-              "Premier League",
-              "La Liga",
-              "Serie A",
-              "Bundesliga",
-              "Ligue 1",
-              "UEFA Champions League",
-              "Champions League",
-              "UEFA Europa League",
-              "Europa League",
-
-              # Iraq
-              "Iraq Stars League",
-
-              # Kurdistan
-              "Kurdistan Premier League",
-              "Kurdistan Premier League"
+          BIG_LEAGUES = {
+              39: "Premier League",
+              140: "La Liga",
+              135: "Serie A",
+              78: "Bundesliga",
+              61: "Ligue 1",
+              2: "Champions League",
+              3: "Europa League"
           }
 
 
           # ==========================================
-          # IMPORTANT BIG CLUBS
+          # GET IRAQ LEAGUES FROM API
           # ==========================================
 
-          important_teams = {
+          iraq_league_ids = set()
+
+          try:
+
+              url = (
+                  "https://v3.football.api-sports.io/"
+                  "leagues?country=Iraq"
+              )
+
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "x-apisports-key": API_KEY,
+                      "User-Agent": "Hersh-Football"
+                  }
+              )
+
+              with urllib.request.urlopen(
+                  request,
+                  timeout=30
+              ) as response:
+
+                  iraq_data = json.load(response)
+
+
+              print("IRAQ LEAGUES FOUND:")
+
+              for item in iraq_data.get("response", []):
+
+                  league = item.get("league", {})
+                  league_id = league.get("id")
+                  league_name = league.get("name", "")
+
+                  print(
+                      league_id,
+                      "|",
+                      league_name
+                  )
+
+                  # Keep Iraq football competitions.
+                  # The country filter guarantees Iraq.
+                  if league_id:
+                      iraq_league_ids.add(league_id)
+
+          except Exception as e:
+
+              print(
+                  "Iraq league lookup failed:",
+                  e
+              )
+
+
+          # ==========================================
+          # IMPORTANT TEAM NAMES
+          # ==========================================
+
+          IMPORTANT_TEAMS = {
 
               # England
               "Manchester City",
@@ -291,61 +296,100 @@ jobs:
               "Zakho FC",
               "Duhok",
               "Duhok SC",
+              "Duhok FC",
+
               "Erbil",
               "Erbil SC",
+              "Erbil Sport Club",
+
               "Newroz",
               "Newroz SC",
+              "Newroz FC",
+
               "Hawler",
               "Hawler FC",
 
-              # Kurdistan Premier League
               "Shaklawa",
               "Shaqlawa",
               "Shaklawa SC",
-
-              "Handren",
-              "Handren FC",
-
-              "Sirwani Nwe",
-              "Sirwani Nwe FC",
+              "Shaqlawa SC",
 
               "Akre",
               "Akre SC",
-
-              "Hawlar Peshmarga",
-              "Hawler Peshmarga",
+              "Akre FC",
 
               "Ranya",
               "Ranya SC",
+              "Ranya FC",
+
+              "Handren",
+              "Handren FC",
+              "Handren SC",
+
+              "Sirwani Nwe",
+              "Sirwani Nwe FC",
+              "Sirwani Nwe SC",
 
               "Sherwana",
               "Sherwana SC",
+              "Sherwana FC",
 
               "Chwarqurna",
               "Chwarqurna SC",
+              "Chwarqurna FC",
 
               "Rzgari",
               "Rzgari SC",
+              "Rzgari FC",
 
               "Qaladze",
               "Qaladze SC",
-
-              "Pishasazy",
-              "Pishasazy SC",
+              "Qaladze FC",
 
               "Darbandikhan",
               "Darbandikhan SC",
-
-              "Briati",
-              "Briati SC",
-
-              "Said Sadiq",
-              "Said Sadiq SC"
+              "Darbandikhan FC"
           }
+
+
+          # ==========================================
+          # LOAD MATCHES
+          # ==========================================
+
+          with open(
+              "matches_raw.json",
+              encoding="utf-8"
+          ) as f:
+
+              data = json.load(f)
+
+
+          response = data.get(
+              "response",
+              []
+          )
+
+
+          print(
+              "=============================="
+          )
+
+          print(
+              "ALL API MATCHES:",
+              len(response)
+          )
+
+          print(
+              "=============================="
+          )
 
 
           matches = []
 
+
+          # ==========================================
+          # FILTER
+          # ==========================================
 
           for item in response:
 
@@ -369,9 +413,16 @@ jobs:
                   {}
               )
 
-              league_name = league.get(
-                  "name",
-                  ""
+              league_id = league.get(
+                  "id"
+              )
+
+              home_id = home.get(
+                  "id"
+              )
+
+              away_id = away.get(
+                  "id"
               )
 
               home_name = home.get(
@@ -388,27 +439,39 @@ jobs:
               keep = False
 
 
-              # ==========================================
-              # KEEP IMPORTANT LEAGUES
-              # ==========================================
+              # ------------------------------------------
+              # BIG EUROPEAN LEAGUES BY ID
+              # ------------------------------------------
 
-              if league_name in important_leagues:
+              if league_id in BIG_LEAGUES:
+
                   keep = True
 
 
-              # ==========================================
-              # KEEP IMPORTANT CLUBS
-              # ==========================================
+              # ------------------------------------------
+              # IRAQ BY LEAGUE ID
+              # ------------------------------------------
+
+              if league_id in iraq_league_ids:
+
+                  keep = True
+
+
+              # ------------------------------------------
+              # IMPORTANT CLUBS
+              # ------------------------------------------
 
               if (
-                  home_name in important_teams
+                  home_name in IMPORTANT_TEAMS
                   or
-                  away_name in important_teams
+                  away_name in IMPORTANT_TEAMS
               ):
+
                   keep = True
 
 
               if not keep:
+
                   continue
 
 
@@ -436,6 +499,10 @@ jobs:
                       )
               })
 
+
+          # ==========================================
+          # SAVE
+          # ==========================================
 
           output = {
 
@@ -468,7 +535,7 @@ jobs:
           )
 
           print(
-              "IMPORTANT MATCHES:",
+              "FINAL MATCHES:",
               len(matches)
           )
 
@@ -500,10 +567,12 @@ jobs:
               )
 
               print(
+                  league.get("id"),
+                  "|",
                   league.get("name"),
                   "|",
                   home.get("name"),
-                  "-",
+                  "vs",
                   away.get("name"),
                   "|",
                   goals.get("home"),
@@ -531,10 +600,8 @@ jobs:
           import os
           from datetime import datetime, timezone
 
-          API_KEY = os.environ.get(
-              "API_KEY",
-              ""
-          )
+          API_KEY = os.environ["API_KEY"]
+
 
           leagues = {
 
@@ -548,12 +615,14 @@ jobs:
 
           }
 
-          # Free plan seasons
+
+          # Free-plan compatible seasons
           seasons = [
               2024,
               2023,
               2022
           ]
+
 
           result = {}
 
@@ -570,6 +639,7 @@ jobs:
                   name
               )
 
+
               found = False
 
 
@@ -584,12 +654,13 @@ jobs:
                       + str(season)
                   )
 
+
                   request = urllib.request.Request(
                       url,
                       headers={
                           "x-apisports-key": API_KEY,
                           "Accept": "application/json",
-                          "User-Agent": "Mozilla/5.0"
+                          "User-Agent": "Hersh-Football"
                       }
                   )
 
@@ -601,10 +672,8 @@ jobs:
                           timeout=30
                       ) as response:
 
-                          raw = response.read()
-
-                          data = json.loads(
-                              raw.decode("utf-8")
+                          data = json.load(
+                              response
                           )
 
 
@@ -647,6 +716,7 @@ jobs:
 
 
                   if not response_data:
+
                       continue
 
 
@@ -667,6 +737,7 @@ jobs:
 
 
                   if not standings:
+
                       continue
 
 
@@ -675,18 +746,23 @@ jobs:
 
                   result[name] = {
 
-                      "id": league_id,
+                      "id":
+                          league_id,
 
-                      "season": season,
+                      "season":
+                          season,
 
-                      "name": name,
+                      "name":
+                          name,
 
                       "logo":
                           league_data.get(
                               "logo"
                           ),
 
-                      "standings": table
+                      "standings":
+                          table
+
                   }
 
 
@@ -701,6 +777,7 @@ jobs:
 
 
                   found = True
+
                   break
 
 
@@ -721,6 +798,7 @@ jobs:
 
               "leagues":
                   result
+
           }
 
 
@@ -756,7 +834,7 @@ jobs:
 
 
       # =========================
-      # CHECK DATA
+      # CHECK EVERYTHING
       # =========================
 
       - name: Check generated files
@@ -776,6 +854,9 @@ jobs:
           python3 - <<'PY'
 
           import json
+
+
+          # MATCHES
 
           with open(
               "matches.json",
@@ -815,6 +896,8 @@ jobs:
               )
 
               print(
+                  league.get("id"),
+                  "|",
                   league.get("name"),
                   "=>",
                   home.get("name"),
@@ -822,6 +905,8 @@ jobs:
                   away.get("name")
               )
 
+
+          # STANDINGS
 
           with open(
               "standings.json",
@@ -839,6 +924,22 @@ jobs:
                       {}
                   )
               )
+          )
+
+
+          # TRANSFERS
+
+          with open(
+              "transfers.json",
+              encoding="utf-8"
+          ) as f:
+
+              transfers = json.load(f)
+
+
+          print(
+              "TRANSFERS:",
+              len(transfers)
           )
 
           PY
@@ -867,7 +968,7 @@ jobs:
           git status --short
 
           git commit \
-            -m "Update filtered football data" \
+            -m "Update football data" \
             || true
 
           git push
