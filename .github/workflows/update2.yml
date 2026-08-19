@@ -132,44 +132,7 @@ jobs:
                   ):
                       continue
 
-                  filtered.append({
-                      "player":
-                          player.get(
-                              "player",
-                              {}
-                          ),
-                      "date":
-                          date_text,
-                      "type":
-                          transfer.get(
-                              "type"
-                          ),
-                      "teams": {
-                          "in":
-                              team_in,
-                          "out":
-                              team_out
-                      }
-                  })
 
-          with open(
-              "transfers.json",
-              "w",
-              encoding="utf-8"
-          ) as f:
-
-              json.dump(
-                  filtered,
-                  f,
-                  ensure_ascii=False,
-                  indent=2
-              )
-
-          print(
-              "Transfers:",
-              len(filtered)
-          )
-          PY
 
       # =========================
       # TODAY MATCHES
@@ -189,7 +152,93 @@ jobs:
             -o matches_raw.json
 
           echo "✅ Matches downloaded"
+      - name: Create transfers.json
+        run: |
+          python3 - <<'PY'
+          import json
 
+          with open(
+              "transfers_raw.json",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          transfers = []
+
+          for player_data in data.get(
+              "response",
+              []
+          ):
+
+              player = player_data.get(
+                  "player",
+                  {}
+              )
+
+              for transfer in player_data.get(
+                  "transfers",
+                  []
+              ):
+
+                  teams = transfer.get(
+                      "teams",
+                      {}
+                  )
+
+                  team_in = teams.get(
+                      "in",
+                      {}
+                  )
+
+                  team_out = teams.get(
+                      "out",
+                      {}
+                  )
+
+                  transfers.append({
+
+                      "player": player,
+
+                      "date":
+                          transfer.get(
+                              "date",
+                              ""
+                          ),
+
+                      "type":
+                          transfer.get(
+                              "type",
+                              "Transfer"
+                          ),
+
+                      "teams": {
+
+                          "in": team_in,
+
+                          "out": team_out
+
+                      }
+
+                  })
+
+          with open(
+              "transfers.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  transfers,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print(
+              "Transfers:",
+              len(transfers)
+          )
+          PY
       - name: Create matches.json
         run: |
           python3 - <<'PY'
