@@ -484,16 +484,16 @@ jobs:
                               response
                           )
 
-                  except Exception as e:
+                except Exception as e:
 
-                      print(
-                          "Error:",
-                          name,
-                          season,
-                          e
-                      )
+    print(
+        "ERROR:",
+        name,
+        season,
+        str(e)
+    )
 
-                      continue
+    continue
 
                   if data.get("errors"):
                       continue
