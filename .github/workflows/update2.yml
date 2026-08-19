@@ -400,51 +400,206 @@ jobs:
 
               except Exception as e:
 
-                  print("ERROR:", e)
-                  continue
+# ==========================================
+      # STANDINGS
+      # ==========================================
 
-              response_data = data.get("response", [])
+      - name: Create standings
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import urllib.request
+          import urllib.error
+          import os
+          from datetime import datetime, timezone
 
-              if not response_data:
-                  print("❌ No data")
-                  continue
+          API_KEY = os.environ["API_KEY"]
 
-              league_data = response_data[0].get(
-                  "league",
-                  {}
-              )
+          leagues = {
+              "Premier League": 39,
+              "La Liga": 140,
+              "Serie A": 135,
+              "Bundesliga": 78,
+              "Ligue 1": 61
+          }
 
-              standings = league_data.get(
-                  "standings",
-                  []
-              )
+          seasons = [
+              2026,
+              2025,
+              2024,
+              2023
+          ]
 
-              if not standings:
-                  print("❌ No standings")
-                  continue
+          result = {}
 
-              table = standings[0]
+          for name, league_id in leagues.items():
 
-              result[name] = {
-                  "id": league_id,
-                  "season": season,
-                  "name": name,
-                  "logo": league_data.get("logo"),
-                  "standings": table
-              }
+              print("")
+              print("==============================")
+              print("League:", name)
 
-              print(
-                  "✅ SUCCESS:",
-                  name,
-                  "teams:",
-                  len(table)
-              )
+              found = False
+
+              for season in seasons:
+
+                  print(
+                      "Trying season:",
+                      season
+                  )
+
+                  url = (
+                      "https://v3.football.api-sports.io/"
+                      "standings"
+                      "?league="
+                      + str(league_id)
+                      + "&season="
+                      + str(season)
+                  )
+
+                  request = urllib.request.Request(
+                      url,
+                      headers={
+                          "x-apisports-key": API_KEY,
+                          "Accept": "application/json",
+                          "User-Agent": "Hersh-Football"
+                      }
+                  )
+
+                  try:
+
+                      with urllib.request.urlopen(
+                          request,
+                          timeout=30
+                      ) as response:
+
+                          raw = response.read()
+
+                          data = json.loads(
+                              raw.decode("utf-8")
+                          )
+
+                  except urllib.error.HTTPError as e:
+
+                      print(
+                          "HTTP ERROR:",
+                          e.code
+                      )
+
+                      continue
+
+                  except Exception as e:
+
+                      print(
+                          "REQUEST ERROR:",
+                          str(e)
+                      )
+
+                      continue
+
+                  if data.get("errors"):
+
+                      print(
+                          "API ERRORS:",
+                          data.get("errors")
+                      )
+
+                      continue
+
+                  response_data = data.get(
+                      "response",
+                      []
+                  )
+
+                  print(
+                      "API RESPONSE:",
+                      len(response_data)
+                  )
+
+                  if not response_data:
+
+                      print(
+                          "No data for season:",
+                          season
+                      )
+
+                      continue
+
+                  league_data = (
+                      response_data[0].get(
+                          "league",
+                          {}
+                      )
+                  )
+
+                  standings = (
+                      league_data.get(
+                          "standings",
+                          []
+                      )
+                  )
+
+                  if not standings:
+
+                      print(
+                          "No standings for season:",
+                          season
+                      )
+
+                      continue
+
+                  table = standings[0]
+
+                  result[name] = {
+
+                      "id":
+                          league_id,
+
+                      "season":
+                          season,
+
+                      "name":
+                          name,
+
+                      "logo":
+                          league_data.get(
+                              "logo"
+                          ),
+
+                      "standings":
+                          table
+                  }
+
+                  print(
+                      "✅ SUCCESS:",
+                      name,
+                      "season:",
+                      season,
+                      "teams:",
+                      len(table)
+                  )
+
+                  found = True
+
+                  break
+
+              if not found:
+
+                  print(
+                      "❌ FAILED:",
+                      name
+                  )
 
           output = {
-              "updated": datetime.now(
-                  timezone.utc
-              ).isoformat(),
-              "leagues": result
+
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+
+              "leagues":
+                  result
           }
 
           with open(
@@ -468,7 +623,6 @@ jobs:
           )
           print("==============================")
           PY
-
       # =========================
       # FINAL CHECK
       # =========================
