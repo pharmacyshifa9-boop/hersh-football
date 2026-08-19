@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T12:20:08.803911+00:00",
+  "updated": "2026-08-19T12:26:58.801307+00:00",
   "matches": [
     {
       "fixture": {
@@ -1218,9 +1218,9 @@
           "city": null
         },
         "status": {
-          "long": "Break Time",
-          "short": "BT",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "PEN",
+          "elapsed": 120,
           "extra": null
         }
       },
@@ -1238,13 +1238,13 @@
         "id": 10408,
         "name": "Suzuka Unlimited",
         "logo": "https://media.api-sports.io/football/teams/10408.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 26057,
         "name": "Basara Hyogo",
         "logo": "https://media.api-sports.io/football/teams/26057.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
         "home": 1,
@@ -1720,7 +1720,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 111,
+          "elapsed": 118,
           "extra": null
         }
       },
@@ -2120,7 +2120,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 97,
+          "elapsed": 117,
           "extra": null
         }
       },
@@ -2138,16 +2138,16 @@
         "id": 4319,
         "name": "Gainare Tottori",
         "logo": "https://media.api-sports.io/football/teams/4319.png",
-        "winner": false
+        "winner": null
       },
       "away": {
         "id": 314,
         "name": "Roasso Kumamoto",
         "logo": "https://media.api-sports.io/football/teams/314.png",
-        "winner": true
+        "winner": null
       },
       "goals": {
-        "home": 1,
+        "home": 2,
         "away": 2
       }
     },
@@ -2170,7 +2170,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 106,
+          "elapsed": 97,
           "extra": null
         }
       },
@@ -2670,7 +2670,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 107,
+          "elapsed": 115,
           "extra": null
         }
       },
@@ -2697,7 +2697,7 @@
         "winner": false
       },
       "goals": {
-        "home": 2,
+        "home": 3,
         "away": 1
       }
     },
@@ -2918,10 +2918,10 @@
           "city": "Anyang"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
+          "long": "Match Finished",
+          "short": "FT",
           "elapsed": 90,
-          "extra": 2
+          "extra": 8
         }
       },
       "league": {
@@ -2971,7 +2971,7 @@
           "long": "Second Half",
           "short": "2H",
           "elapsed": 90,
-          "extra": 1
+          "extra": 8
         }
       },
       "league": {
@@ -3021,7 +3021,7 @@
           "long": "Second Half",
           "short": "2H",
           "elapsed": 90,
-          "extra": 4
+          "extra": 11
         }
       },
       "league": {
@@ -3220,7 +3220,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 61,
+          "elapsed": 68,
           "extra": null
         }
       },
@@ -3320,7 +3320,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 61,
+          "elapsed": 68,
           "extra": null
         }
       },
@@ -3370,7 +3370,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 59,
+          "elapsed": 66,
           "extra": null
         }
       },
@@ -3470,7 +3470,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 61,
+          "elapsed": 68,
           "extra": null
         }
       },
@@ -3568,10 +3568,10 @@
           "city": "Shanghai"
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
+          "long": "Halftime",
+          "short": "HT",
           "elapsed": 45,
-          "extra": null
+          "extra": 6
         }
       },
       "league": {
@@ -3770,7 +3770,7 @@
         "status": {
           "long": "First Half",
           "short": "1H",
-          "elapsed": 20,
+          "elapsed": 27,
           "extra": null
         }
       },

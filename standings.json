@@ -1,4 +1,7621 @@
 {
-  "updated": "2026-08-19T12:20:11.156737+00:00",
-  "leagues": {}
+  "updated": "2026-08-19T12:27:00.974040+00:00",
+  "leagues": {
+    "Premier League": {
+      "id": 39,
+      "season": 2024,
+      "name": "Premier League",
+      "logo": "https://media.api-sports.io/football/leagues/39.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png"
+          },
+          "points": 84,
+          "goalsDiff": 45,
+          "group": "Premier League",
+          "form": "DLDLW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 25,
+            "draw": 9,
+            "lose": 4,
+            "goals": {
+              "for": 86,
+              "against": 41
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 14,
+            "draw": 4,
+            "lose": 1,
+            "goals": {
+              "for": 42,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 11,
+            "draw": 5,
+            "lose": 3,
+            "goals": {
+              "for": 44,
+              "against": 25
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png"
+          },
+          "points": 74,
+          "goalsDiff": 35,
+          "group": "Premier League",
+          "form": "WWDLD",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 20,
+            "draw": 14,
+            "lose": 4,
+            "goals": {
+              "for": 69,
+              "against": 34
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 11,
+            "draw": 6,
+            "lose": 2,
+            "goals": {
+              "for": 35,
+              "against": 17
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 9,
+            "draw": 8,
+            "lose": 2,
+            "goals": {
+              "for": 34,
+              "against": 17
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 50,
+            "name": "Manchester City",
+            "logo": "https://media.api-sports.io/football/teams/50.png"
+          },
+          "points": 71,
+          "goalsDiff": 28,
+          "group": "Premier League",
+          "form": "WWDWW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 21,
+            "draw": 8,
+            "lose": 9,
+            "goals": {
+              "for": 72,
+              "against": 44
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 13,
+            "draw": 3,
+            "lose": 3,
+            "goals": {
+              "for": 43,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 29,
+              "against": 21
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 49,
+            "name": "Chelsea",
+            "logo": "https://media.api-sports.io/football/teams/49.png"
+          },
+          "points": 69,
+          "goalsDiff": 21,
+          "group": "Premier League",
+          "form": "WWLWW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 20,
+            "draw": 9,
+            "lose": 9,
+            "goals": {
+              "for": 64,
+              "against": 43
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 12,
+            "draw": 5,
+            "lose": 2,
+            "goals": {
+              "for": 35,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 29,
+              "against": 25
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 34,
+            "name": "Newcastle",
+            "logo": "https://media.api-sports.io/football/teams/34.png"
+          },
+          "points": 66,
+          "goalsDiff": 21,
+          "group": "Premier League",
+          "form": "LLWDW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 20,
+            "draw": 6,
+            "lose": 12,
+            "goals": {
+              "for": 68,
+              "against": 47
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 12,
+            "draw": 2,
+            "lose": 5,
+            "goals": {
+              "for": 40,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 28,
+              "against": 27
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png"
+          },
+          "points": 66,
+          "goalsDiff": 7,
+          "group": "Premier League",
+          "form": "LWWWL",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 38,
+            "win": 19,
+            "draw": 9,
+            "lose": 10,
+            "goals": {
+              "for": 58,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 11,
+            "draw": 7,
+            "lose": 1,
+            "goals": {
+              "for": 34,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 2,
+            "lose": 9,
+            "goals": {
+              "for": 24,
+              "against": 31
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 65,
+            "name": "Nottingham Forest",
+            "logo": "https://media.api-sports.io/football/teams/65.png"
+          },
+          "points": 65,
+          "goalsDiff": 12,
+          "group": "Premier League",
+          "form": "LWDDL",
+          "status": "same",
+          "description": "Conference League Qualification",
+          "all": {
+            "played": 38,
+            "win": 19,
+            "draw": 8,
+            "lose": 11,
+            "goals": {
+              "for": 58,
+              "against": 46
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 5,
+            "lose": 5,
+            "goals": {
+              "for": 26,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 10,
+            "draw": 3,
+            "lose": 6,
+            "goals": {
+              "for": 32,
+              "against": 30
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 51,
+            "name": "Brighton",
+            "logo": "https://media.api-sports.io/football/teams/51.png"
+          },
+          "points": 61,
+          "goalsDiff": 7,
+          "group": "Premier League",
+          "form": "WWWDW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 16,
+            "draw": 13,
+            "lose": 9,
+            "goals": {
+              "for": 66,
+              "against": 59
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 8,
+            "draw": 8,
+            "lose": 3,
+            "goals": {
+              "for": 30,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 36,
+              "against": 33
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 35,
+            "name": "Bournemouth",
+            "logo": "https://media.api-sports.io/football/teams/35.png"
+          },
+          "points": 56,
+          "goalsDiff": 12,
+          "group": "Premier League",
+          "form": "WLLWD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 15,
+            "draw": 11,
+            "lose": 12,
+            "goals": {
+              "for": 58,
+              "against": 46
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 8,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 23,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 7,
+            "lose": 5,
+            "goals": {
+              "for": 35,
+              "against": 30
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 55,
+            "name": "Brentford",
+            "logo": "https://media.api-sports.io/football/teams/55.png"
+          },
+          "points": 56,
+          "goalsDiff": 9,
+          "group": "Premier League",
+          "form": "DLWWW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 16,
+            "draw": 8,
+            "lose": 14,
+            "goals": {
+              "for": 66,
+              "against": 57
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 4,
+            "lose": 6,
+            "goals": {
+              "for": 40,
+              "against": 35
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 4,
+            "lose": 8,
+            "goals": {
+              "for": 26,
+              "against": 22
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 36,
+            "name": "Fulham",
+            "logo": "https://media.api-sports.io/football/teams/36.png"
+          },
+          "points": 54,
+          "goalsDiff": 0,
+          "group": "Premier League",
+          "form": "LWLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 15,
+            "draw": 9,
+            "lose": 14,
+            "goals": {
+              "for": 54,
+              "against": 54
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 5,
+            "lose": 7,
+            "goals": {
+              "for": 27,
+              "against": 30
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 27,
+              "against": 24
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 52,
+            "name": "Crystal Palace",
+            "logo": "https://media.api-sports.io/football/teams/52.png"
+          },
+          "points": 53,
+          "goalsDiff": 0,
+          "group": "Premier League",
+          "form": "DWWDD",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 38,
+            "win": 13,
+            "draw": 14,
+            "lose": 11,
+            "goals": {
+              "for": 51,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 7,
+            "lose": 6,
+            "goals": {
+              "for": 24,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 7,
+            "lose": 5,
+            "goals": {
+              "for": 27,
+              "against": 25
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 45,
+            "name": "Everton",
+            "logo": "https://media.api-sports.io/football/teams/45.png"
+          },
+          "points": 48,
+          "goalsDiff": -2,
+          "group": "Premier League",
+          "form": "WWWDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 15,
+            "lose": 12,
+            "goals": {
+              "for": 42,
+              "against": 44
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 5,
+            "draw": 9,
+            "lose": 5,
+            "goals": {
+              "for": 26,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 6,
+            "lose": 7,
+            "goals": {
+              "for": 16,
+              "against": 21
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 48,
+            "name": "West Ham",
+            "logo": "https://media.api-sports.io/football/teams/48.png"
+          },
+          "points": 43,
+          "goalsDiff": -16,
+          "group": "Premier League",
+          "form": "WLWDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 10,
+            "lose": 17,
+            "goals": {
+              "for": 46,
+              "against": 62
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 5,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 23,
+              "against": 34
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 5,
+            "lose": 8,
+            "goals": {
+              "for": 23,
+              "against": 28
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 33,
+            "name": "Manchester United",
+            "logo": "https://media.api-sports.io/football/teams/33.png"
+          },
+          "points": 42,
+          "goalsDiff": -10,
+          "group": "Premier League",
+          "form": "WLLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 9,
+            "lose": 18,
+            "goals": {
+              "for": 44,
+              "against": 54
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 3,
+            "lose": 9,
+            "goals": {
+              "for": 23,
+              "against": 28
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 6,
+            "lose": 9,
+            "goals": {
+              "for": 21,
+              "against": 26
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 39,
+            "name": "Wolves",
+            "logo": "https://media.api-sports.io/football/teams/39.png"
+          },
+          "points": 42,
+          "goalsDiff": -15,
+          "group": "Premier League",
+          "form": "DLLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 12,
+            "draw": 6,
+            "lose": 20,
+            "goals": {
+              "for": 54,
+              "against": 69
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 3,
+            "lose": 10,
+            "goals": {
+              "for": 27,
+              "against": 32
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 3,
+            "lose": 10,
+            "goals": {
+              "for": 27,
+              "against": 37
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 47,
+            "name": "Tottenham",
+            "logo": "https://media.api-sports.io/football/teams/47.png"
+          },
+          "points": 38,
+          "goalsDiff": -1,
+          "group": "Premier League",
+          "form": "LLLDL",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 5,
+            "lose": 22,
+            "goals": {
+              "for": 64,
+              "against": 65
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 3,
+            "lose": 10,
+            "goals": {
+              "for": 35,
+              "against": 35
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 2,
+            "lose": 12,
+            "goals": {
+              "for": 29,
+              "against": 30
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 46,
+            "name": "Leicester",
+            "logo": "https://media.api-sports.io/football/teams/46.png"
+          },
+          "points": 25,
+          "goalsDiff": -47,
+          "group": "Premier League",
+          "form": "LWDWL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 6,
+            "draw": 7,
+            "lose": 25,
+            "goals": {
+              "for": 33,
+              "against": 80
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 4,
+            "draw": 3,
+            "lose": 12,
+            "goals": {
+              "for": 15,
+              "against": 34
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 4,
+            "lose": 13,
+            "goals": {
+              "for": 18,
+              "against": 46
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 19,
+          "team": {
+            "id": 57,
+            "name": "Ipswich",
+            "logo": "https://media.api-sports.io/football/teams/57.png"
+          },
+          "points": 22,
+          "goalsDiff": -46,
+          "group": "Premier League",
+          "form": "LLLDL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 4,
+            "draw": 10,
+            "lose": 24,
+            "goals": {
+              "for": 36,
+              "against": 82
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 1,
+            "draw": 4,
+            "lose": 14,
+            "goals": {
+              "for": 14,
+              "against": 44
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 3,
+            "draw": 6,
+            "lose": 10,
+            "goals": {
+              "for": 22,
+              "against": 38
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 20,
+          "team": {
+            "id": 41,
+            "name": "Southampton",
+            "logo": "https://media.api-sports.io/football/teams/41.png"
+          },
+          "points": 12,
+          "goalsDiff": -60,
+          "group": "Premier League",
+          "form": "LLDLL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 2,
+            "draw": 6,
+            "lose": 30,
+            "goals": {
+              "for": 26,
+              "against": 86
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 1,
+            "draw": 3,
+            "lose": 15,
+            "goals": {
+              "for": 13,
+              "against": 47
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 1,
+            "draw": 3,
+            "lose": 15,
+            "goals": {
+              "for": 13,
+              "against": 39
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        }
+      ]
+    },
+    "La Liga": {
+      "id": 140,
+      "season": 2024,
+      "name": "La Liga",
+      "logo": "https://media.api-sports.io/football/leagues/140.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 529,
+            "name": "Barcelona",
+            "logo": "https://media.api-sports.io/football/teams/529.png"
+          },
+          "points": 88,
+          "goalsDiff": 63,
+          "group": "LaLiga",
+          "form": "WLWWW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 28,
+            "draw": 4,
+            "lose": 6,
+            "goals": {
+              "for": 102,
+              "against": 39
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 14,
+            "draw": 1,
+            "lose": 4,
+            "goals": {
+              "for": 52,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 14,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 50,
+              "against": 19
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 541,
+            "name": "Real Madrid",
+            "logo": "https://media.api-sports.io/football/teams/541.png"
+          },
+          "points": 84,
+          "goalsDiff": 40,
+          "group": "LaLiga",
+          "form": "WWWLW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 26,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 78,
+              "against": 38
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 16,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 45,
+              "against": 19
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 10,
+            "draw": 5,
+            "lose": 4,
+            "goals": {
+              "for": 33,
+              "against": 19
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 530,
+            "name": "Atletico Madrid",
+            "logo": "https://media.api-sports.io/football/teams/530.png"
+          },
+          "points": 76,
+          "goalsDiff": 38,
+          "group": "LaLiga",
+          "form": "WWLWD",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 22,
+            "draw": 10,
+            "lose": 6,
+            "goals": {
+              "for": 68,
+              "against": 30
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 14,
+            "draw": 4,
+            "lose": 1,
+            "goals": {
+              "for": 42,
+              "against": 15
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 6,
+            "lose": 5,
+            "goals": {
+              "for": 26,
+              "against": 15
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 531,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/531.png"
+          },
+          "points": 70,
+          "goalsDiff": 25,
+          "group": "LaLiga",
+          "form": "LWWWD",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 19,
+            "draw": 13,
+            "lose": 6,
+            "goals": {
+              "for": 54,
+              "against": 29
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 11,
+            "draw": 6,
+            "lose": 2,
+            "goals": {
+              "for": 32,
+              "against": 13
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 8,
+            "draw": 7,
+            "lose": 4,
+            "goals": {
+              "for": 22,
+              "against": 16
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 533,
+            "name": "Villarreal",
+            "logo": "https://media.api-sports.io/football/teams/533.png"
+          },
+          "points": 70,
+          "goalsDiff": 20,
+          "group": "LaLiga",
+          "form": "WWWWW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 38,
+            "win": 20,
+            "draw": 10,
+            "lose": 8,
+            "goals": {
+              "for": 71,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 7,
+            "lose": 3,
+            "goals": {
+              "for": 43,
+              "against": 27
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 11,
+            "draw": 3,
+            "lose": 5,
+            "goals": {
+              "for": 28,
+              "against": 24
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 543,
+            "name": "Real Betis",
+            "logo": "https://media.api-sports.io/football/teams/543.png"
+          },
+          "points": 60,
+          "goalsDiff": 7,
+          "group": "LaLiga",
+          "form": "DLDDW",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 38,
+            "win": 16,
+            "draw": 12,
+            "lose": 10,
+            "goals": {
+              "for": 57,
+              "against": 50
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 7,
+            "lose": 3,
+            "goals": {
+              "for": 32,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 5,
+            "lose": 7,
+            "goals": {
+              "for": 25,
+              "against": 29
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 538,
+            "name": "Celta Vigo",
+            "logo": "https://media.api-sports.io/football/teams/538.png"
+          },
+          "points": 55,
+          "goalsDiff": 2,
+          "group": "LaLiga",
+          "form": "WLWWL",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 38,
+            "win": 16,
+            "draw": 7,
+            "lose": 15,
+            "goals": {
+              "for": 59,
+              "against": 57
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 11,
+            "draw": 3,
+            "lose": 5,
+            "goals": {
+              "for": 32,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 4,
+            "lose": 10,
+            "goals": {
+              "for": 27,
+              "against": 36
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 728,
+            "name": "Rayo Vallecano",
+            "logo": "https://media.api-sports.io/football/teams/728.png"
+          },
+          "points": 52,
+          "goalsDiff": -4,
+          "group": "LaLiga",
+          "form": "DWDWW",
+          "status": "same",
+          "description": "Conference League Qualification",
+          "all": {
+            "played": 38,
+            "win": 13,
+            "draw": 13,
+            "lose": 12,
+            "goals": {
+              "for": 41,
+              "against": 45
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 8,
+            "lose": 5,
+            "goals": {
+              "for": 24,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 5,
+            "lose": 7,
+            "goals": {
+              "for": 17,
+              "against": 19
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 727,
+            "name": "Osasuna",
+            "logo": "https://media.api-sports.io/football/teams/727.png"
+          },
+          "points": 52,
+          "goalsDiff": -4,
+          "group": "LaLiga",
+          "form": "DWWDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 12,
+            "draw": 16,
+            "lose": 10,
+            "goals": {
+              "for": 48,
+              "against": 52
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 10,
+            "draw": 6,
+            "lose": 3,
+            "goals": {
+              "for": 33,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 10,
+            "lose": 7,
+            "goals": {
+              "for": 15,
+              "against": 29
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 798,
+            "name": "Mallorca",
+            "logo": "https://media.api-sports.io/football/teams/798.png"
+          },
+          "points": 48,
+          "goalsDiff": -9,
+          "group": "LaLiga",
+          "form": "DLLWL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 13,
+            "draw": 9,
+            "lose": 16,
+            "goals": {
+              "for": 35,
+              "against": 44
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 20,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 3,
+            "lose": 10,
+            "goals": {
+              "for": 15,
+              "against": 23
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 548,
+            "name": "Real Sociedad",
+            "logo": "https://media.api-sports.io/football/teams/548.png"
+          },
+          "points": 46,
+          "goalsDiff": -11,
+          "group": "LaLiga",
+          "form": "LWLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 13,
+            "draw": 7,
+            "lose": 18,
+            "goals": {
+              "for": 35,
+              "against": 46
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 8,
+            "draw": 3,
+            "lose": 8,
+            "goals": {
+              "for": 20,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 4,
+            "lose": 10,
+            "goals": {
+              "for": 15,
+              "against": 26
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 532,
+            "name": "Valencia",
+            "logo": "https://media.api-sports.io/football/teams/532.png"
+          },
+          "points": 46,
+          "goalsDiff": -10,
+          "group": "LaLiga",
+          "form": "DLLWW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 13,
+            "lose": 14,
+            "goals": {
+              "for": 44,
+              "against": 54
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 4,
+            "lose": 6,
+            "goals": {
+              "for": 26,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 18,
+              "against": 34
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 546,
+            "name": "Getafe",
+            "logo": "https://media.api-sports.io/football/teams/546.png"
+          },
+          "points": 42,
+          "goalsDiff": -5,
+          "group": "LaLiga",
+          "form": "LWLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 9,
+            "lose": 18,
+            "goals": {
+              "for": 34,
+              "against": 39
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 4,
+            "draw": 7,
+            "lose": 8,
+            "goals": {
+              "for": 15,
+              "against": 19
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 2,
+            "lose": 10,
+            "goals": {
+              "for": 19,
+              "against": 20
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 540,
+            "name": "Espanyol",
+            "logo": "https://media.api-sports.io/football/teams/540.png"
+          },
+          "points": 42,
+          "goalsDiff": -11,
+          "group": "LaLiga",
+          "form": "WLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 9,
+            "lose": 18,
+            "goals": {
+              "for": 40,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 8,
+            "draw": 6,
+            "lose": 5,
+            "goals": {
+              "for": 23,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 3,
+            "draw": 3,
+            "lose": 13,
+            "goals": {
+              "for": 17,
+              "against": 31
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 542,
+            "name": "Alaves",
+            "logo": "https://media.api-sports.io/football/teams/542.png"
+          },
+          "points": 42,
+          "goalsDiff": -10,
+          "group": "LaLiga",
+          "form": "DWWLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 10,
+            "draw": 12,
+            "lose": 16,
+            "goals": {
+              "for": 38,
+              "against": 48
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 6,
+            "lose": 7,
+            "goals": {
+              "for": 14,
+              "against": 17
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 6,
+            "lose": 9,
+            "goals": {
+              "for": 24,
+              "against": 31
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 547,
+            "name": "Girona",
+            "logo": "https://media.api-sports.io/football/teams/547.png"
+          },
+          "points": 41,
+          "goalsDiff": -16,
+          "group": "LaLiga",
+          "form": "LLWLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 11,
+            "draw": 8,
+            "lose": 19,
+            "goals": {
+              "for": 44,
+              "against": 60
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 3,
+            "lose": 9,
+            "goals": {
+              "for": 27,
+              "against": 30
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 5,
+            "lose": 10,
+            "goals": {
+              "for": 17,
+              "against": 30
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 536,
+            "name": "Sevilla",
+            "logo": "https://media.api-sports.io/football/teams/536.png"
+          },
+          "points": 41,
+          "goalsDiff": -13,
+          "group": "LaLiga",
+          "form": "LLWLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 10,
+            "draw": 11,
+            "lose": 17,
+            "goals": {
+              "for": 42,
+              "against": 55
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 6,
+            "lose": 7,
+            "goals": {
+              "for": 17,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 5,
+            "lose": 10,
+            "goals": {
+              "for": 25,
+              "against": 32
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 537,
+            "name": "Leganes",
+            "logo": "https://media.api-sports.io/football/teams/537.png"
+          },
+          "points": 40,
+          "goalsDiff": -17,
+          "group": "LaLiga",
+          "form": "WWLWD",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 9,
+            "draw": 13,
+            "lose": 16,
+            "goals": {
+              "for": 39,
+              "against": 56
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 4,
+            "lose": 8,
+            "goals": {
+              "for": 23,
+              "against": 27
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 16,
+              "against": 29
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 19,
+          "team": {
+            "id": 534,
+            "name": "Las Palmas",
+            "logo": "https://media.api-sports.io/football/teams/534.png"
+          },
+          "points": 32,
+          "goalsDiff": -21,
+          "group": "LaLiga",
+          "form": "LLLLL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 8,
+            "draw": 8,
+            "lose": 22,
+            "goals": {
+              "for": 40,
+              "against": 61
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 4,
+            "draw": 5,
+            "lose": 10,
+            "goals": {
+              "for": 21,
+              "against": 29
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 3,
+            "lose": 12,
+            "goals": {
+              "for": 19,
+              "against": 32
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        },
+        {
+          "rank": 20,
+          "team": {
+            "id": 720,
+            "name": "Valladolid",
+            "logo": "https://media.api-sports.io/football/teams/720.png"
+          },
+          "points": 16,
+          "goalsDiff": -64,
+          "group": "LaLiga",
+          "form": "LLLLL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 38,
+            "win": 4,
+            "draw": 4,
+            "lose": 30,
+            "goals": {
+              "for": 26,
+              "against": 90
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 3,
+            "draw": 4,
+            "lose": 12,
+            "goals": {
+              "for": 11,
+              "against": 32
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 1,
+            "draw": 0,
+            "lose": 18,
+            "goals": {
+              "for": 15,
+              "against": 58
+            }
+          },
+          "update": "2025-05-26T00:00:00+00:00"
+        }
+      ]
+    },
+    "Serie A": {
+      "id": 135,
+      "season": 2024,
+      "name": "Serie A",
+      "logo": "https://media.api-sports.io/football/leagues/135.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 492,
+            "name": "Napoli",
+            "logo": "https://media.api-sports.io/football/teams/492.png"
+          },
+          "points": 82,
+          "goalsDiff": 32,
+          "group": "Serie A",
+          "form": "WDDWW",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 24,
+            "draw": 10,
+            "lose": 4,
+            "goals": {
+              "for": 59,
+              "against": 27
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 14,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 32,
+              "against": 13
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 10,
+            "draw": 7,
+            "lose": 2,
+            "goals": {
+              "for": 27,
+              "against": 14
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 505,
+            "name": "Inter",
+            "logo": "https://media.api-sports.io/football/teams/505.png"
+          },
+          "points": 81,
+          "goalsDiff": 44,
+          "group": "Serie A",
+          "form": "WDWWL",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 24,
+            "draw": 9,
+            "lose": 5,
+            "goals": {
+              "for": 79,
+              "against": 35
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 13,
+            "draw": 4,
+            "lose": 2,
+            "goals": {
+              "for": 40,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 11,
+            "draw": 5,
+            "lose": 3,
+            "goals": {
+              "for": 39,
+              "against": 14
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 499,
+            "name": "Atalanta",
+            "logo": "https://media.api-sports.io/football/teams/499.png"
+          },
+          "points": 74,
+          "goalsDiff": 41,
+          "group": "Serie A",
+          "form": "LWWWD",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 22,
+            "draw": 8,
+            "lose": 8,
+            "goals": {
+              "for": 78,
+              "against": 37
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 5,
+            "lose": 5,
+            "goals": {
+              "for": 36,
+              "against": 24
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 13,
+            "draw": 3,
+            "lose": 3,
+            "goals": {
+              "for": 42,
+              "against": 13
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 496,
+            "name": "Juventus",
+            "logo": "https://media.api-sports.io/football/teams/496.png"
+          },
+          "points": 70,
+          "goalsDiff": 23,
+          "group": "Serie A",
+          "form": "WWDDW",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 18,
+            "draw": 16,
+            "lose": 4,
+            "goals": {
+              "for": 58,
+              "against": 35
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 11,
+            "draw": 7,
+            "lose": 1,
+            "goals": {
+              "for": 31,
+              "against": 15
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 9,
+            "lose": 3,
+            "goals": {
+              "for": 27,
+              "against": 20
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 497,
+            "name": "AS Roma",
+            "logo": "https://media.api-sports.io/football/teams/497.png"
+          },
+          "points": 69,
+          "goalsDiff": 21,
+          "group": "Serie A",
+          "form": "WWLWW",
+          "status": "same",
+          "description": "Promotion - Europa League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 20,
+            "draw": 9,
+            "lose": 9,
+            "goals": {
+              "for": 56,
+              "against": 35
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 13,
+            "draw": 2,
+            "lose": 4,
+            "goals": {
+              "for": 37,
+              "against": 15
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 7,
+            "lose": 5,
+            "goals": {
+              "for": 19,
+              "against": 20
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 502,
+            "name": "Fiorentina",
+            "logo": "https://media.api-sports.io/football/teams/502.png"
+          },
+          "points": 65,
+          "goalsDiff": 19,
+          "group": "Serie A",
+          "form": "WWLLW",
+          "status": "same",
+          "description": "Promotion - Conference League (Qualification: )",
+          "all": {
+            "played": 38,
+            "win": 19,
+            "draw": 8,
+            "lose": 11,
+            "goals": {
+              "for": 60,
+              "against": 41
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 12,
+            "draw": 4,
+            "lose": 3,
+            "goals": {
+              "for": 32,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 7,
+            "draw": 4,
+            "lose": 8,
+            "goals": {
+              "for": 28,
+              "against": 23
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 487,
+            "name": "Lazio",
+            "logo": "https://media.api-sports.io/football/teams/487.png"
+          },
+          "points": 65,
+          "goalsDiff": 12,
+          "group": "Serie A",
+          "form": "LDDWD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 18,
+            "draw": 11,
+            "lose": 9,
+            "goals": {
+              "for": 61,
+              "against": 49
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 9,
+            "lose": 3,
+            "goals": {
+              "for": 33,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 11,
+            "draw": 2,
+            "lose": 6,
+            "goals": {
+              "for": 28,
+              "against": 23
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 489,
+            "name": "AC Milan",
+            "logo": "https://media.api-sports.io/football/teams/489.png"
+          },
+          "points": 63,
+          "goalsDiff": 18,
+          "group": "Serie A",
+          "form": "WLWWW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 18,
+            "draw": 9,
+            "lose": 11,
+            "goals": {
+              "for": 61,
+              "against": 43
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 9,
+            "draw": 7,
+            "lose": 3,
+            "goals": {
+              "for": 30,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 9,
+            "draw": 2,
+            "lose": 8,
+            "goals": {
+              "for": 31,
+              "against": 27
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 500,
+            "name": "Bologna",
+            "logo": "https://media.api-sports.io/football/teams/500.png"
+          },
+          "points": 62,
+          "goalsDiff": 10,
+          "group": "Serie A",
+          "form": "LLLDD",
+          "status": "same",
+          "description": "Promotion - Europa League (League phase: )",
+          "all": {
+            "played": 38,
+            "win": 16,
+            "draw": 14,
+            "lose": 8,
+            "goals": {
+              "for": 57,
+              "against": 47
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 10,
+            "draw": 7,
+            "lose": 2,
+            "goals": {
+              "for": 33,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 7,
+            "lose": 6,
+            "goals": {
+              "for": 24,
+              "against": 29
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 895,
+            "name": "Como",
+            "logo": "https://media.api-sports.io/football/teams/895.png"
+          },
+          "points": 49,
+          "goalsDiff": -3,
+          "group": "Serie A",
+          "form": "LDWWW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 13,
+            "draw": 10,
+            "lose": 15,
+            "goals": {
+              "for": 49,
+              "against": 52
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 8,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 28,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 21,
+              "against": 26
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 503,
+            "name": "Torino",
+            "logo": "https://media.api-sports.io/football/teams/503.png"
+          },
+          "points": 44,
+          "goalsDiff": -6,
+          "group": "Serie A",
+          "form": "LLLDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 10,
+            "draw": 14,
+            "lose": 14,
+            "goals": {
+              "for": 39,
+              "against": 45
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 7,
+            "lose": 6,
+            "goals": {
+              "for": 17,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 7,
+            "lose": 8,
+            "goals": {
+              "for": 22,
+              "against": 27
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 494,
+            "name": "Udinese",
+            "logo": "https://media.api-sports.io/football/teams/494.png"
+          },
+          "points": 44,
+          "goalsDiff": -15,
+          "group": "Serie A",
+          "form": "LLLWD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 12,
+            "draw": 8,
+            "lose": 18,
+            "goals": {
+              "for": 41,
+              "against": 56
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 7,
+            "draw": 3,
+            "lose": 9,
+            "goals": {
+              "for": 22,
+              "against": 27
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 19,
+              "against": 29
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 495,
+            "name": "Genoa",
+            "logo": "https://media.api-sports.io/football/teams/495.png"
+          },
+          "points": 43,
+          "goalsDiff": -12,
+          "group": "Serie A",
+          "form": "WLDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 10,
+            "draw": 13,
+            "lose": 15,
+            "goals": {
+              "for": 37,
+              "against": 49
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 5,
+            "draw": 7,
+            "lose": 7,
+            "goals": {
+              "for": 21,
+              "against": 25
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 5,
+            "draw": 6,
+            "lose": 8,
+            "goals": {
+              "for": 16,
+              "against": 24
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 504,
+            "name": "Verona",
+            "logo": "https://media.api-sports.io/football/teams/504.png"
+          },
+          "points": 37,
+          "goalsDiff": -32,
+          "group": "Serie A",
+          "form": "WDDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 10,
+            "draw": 7,
+            "lose": 21,
+            "goals": {
+              "for": 34,
+              "against": 66
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 4,
+            "draw": 5,
+            "lose": 10,
+            "goals": {
+              "for": 15,
+              "against": 36
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 6,
+            "draw": 2,
+            "lose": 11,
+            "goals": {
+              "for": 19,
+              "against": 30
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 490,
+            "name": "Cagliari",
+            "logo": "https://media.api-sports.io/football/teams/490.png"
+          },
+          "points": 36,
+          "goalsDiff": -16,
+          "group": "Serie A",
+          "form": "LWLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 9,
+            "draw": 9,
+            "lose": 20,
+            "goals": {
+              "for": 40,
+              "against": 56
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 6,
+            "draw": 4,
+            "lose": 9,
+            "goals": {
+              "for": 24,
+              "against": 28
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 3,
+            "draw": 5,
+            "lose": 11,
+            "goals": {
+              "for": 16,
+              "against": 28
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 523,
+            "name": "Parma",
+            "logo": "https://media.api-sports.io/football/teams/523.png"
+          },
+          "points": 36,
+          "goalsDiff": -14,
+          "group": "Serie A",
+          "form": "WDLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 7,
+            "draw": 15,
+            "lose": 16,
+            "goals": {
+              "for": 44,
+              "against": 58
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 5,
+            "draw": 6,
+            "lose": 8,
+            "goals": {
+              "for": 25,
+              "against": 28
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 19,
+              "against": 30
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 867,
+            "name": "Lecce",
+            "logo": "https://media.api-sports.io/football/teams/867.png"
+          },
+          "points": 34,
+          "goalsDiff": -31,
+          "group": "Serie A",
+          "form": "WWDLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 38,
+            "win": 8,
+            "draw": 10,
+            "lose": 20,
+            "goals": {
+              "for": 27,
+              "against": 58
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 4,
+            "draw": 6,
+            "lose": 9,
+            "goals": {
+              "for": 13,
+              "against": 31
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 4,
+            "lose": 11,
+            "goals": {
+              "for": 14,
+              "against": 27
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 511,
+            "name": "Empoli",
+            "logo": "https://media.api-sports.io/football/teams/511.png"
+          },
+          "points": 31,
+          "goalsDiff": -26,
+          "group": "Serie A",
+          "form": "LWWLL",
+          "status": "same",
+          "description": "Relegation - Serie B",
+          "all": {
+            "played": 38,
+            "win": 6,
+            "draw": 13,
+            "lose": 19,
+            "goals": {
+              "for": 33,
+              "against": 59
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 2,
+            "draw": 7,
+            "lose": 10,
+            "goals": {
+              "for": 10,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 4,
+            "draw": 6,
+            "lose": 9,
+            "goals": {
+              "for": 23,
+              "against": 33
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 19,
+          "team": {
+            "id": 517,
+            "name": "Venezia",
+            "logo": "https://media.api-sports.io/football/teams/517.png"
+          },
+          "points": 29,
+          "goalsDiff": -24,
+          "group": "Serie A",
+          "form": "LLWDL",
+          "status": "same",
+          "description": "Relegation - Serie B",
+          "all": {
+            "played": 38,
+            "win": 5,
+            "draw": 14,
+            "lose": 19,
+            "goals": {
+              "for": 32,
+              "against": 56
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 5,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 17,
+              "against": 22
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 0,
+            "draw": 9,
+            "lose": 10,
+            "goals": {
+              "for": 15,
+              "against": 34
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 20,
+          "team": {
+            "id": 1579,
+            "name": "Monza",
+            "logo": "https://media.api-sports.io/football/teams/1579.png"
+          },
+          "points": 18,
+          "goalsDiff": -41,
+          "group": "Serie A",
+          "form": "LLWLL",
+          "status": "same",
+          "description": "Relegation - Serie B",
+          "all": {
+            "played": 38,
+            "win": 3,
+            "draw": 9,
+            "lose": 26,
+            "goals": {
+              "for": 28,
+              "against": 69
+            }
+          },
+          "home": {
+            "played": 19,
+            "win": 1,
+            "draw": 5,
+            "lose": 13,
+            "goals": {
+              "for": 13,
+              "against": 31
+            }
+          },
+          "away": {
+            "played": 19,
+            "win": 2,
+            "draw": 4,
+            "lose": 13,
+            "goals": {
+              "for": 15,
+              "against": 38
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        }
+      ]
+    },
+    "Bundesliga": {
+      "id": 78,
+      "season": 2024,
+      "name": "Bundesliga",
+      "logo": "https://media.api-sports.io/football/leagues/78.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 157,
+            "name": "Bayern München",
+            "logo": "https://media.api-sports.io/football/teams/157.png"
+          },
+          "points": 82,
+          "goalsDiff": 67,
+          "group": "Bundesliga",
+          "form": "WWDWW",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 25,
+            "draw": 7,
+            "lose": 2,
+            "goals": {
+              "for": 99,
+              "against": 32
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 14,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 53,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 11,
+            "draw": 5,
+            "lose": 1,
+            "goals": {
+              "for": 46,
+              "against": 16
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 168,
+            "name": "Bayer Leverkusen",
+            "logo": "https://media.api-sports.io/football/teams/168.png"
+          },
+          "points": 69,
+          "goalsDiff": 29,
+          "group": "Bundesliga",
+          "form": "DLDWD",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 19,
+            "draw": 12,
+            "lose": 3,
+            "goals": {
+              "for": 72,
+              "against": 43
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 10,
+            "draw": 4,
+            "lose": 3,
+            "goals": {
+              "for": 36,
+              "against": 22
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 9,
+            "draw": 8,
+            "lose": 0,
+            "goals": {
+              "for": 36,
+              "against": 21
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 169,
+            "name": "Eintracht Frankfurt",
+            "logo": "https://media.api-sports.io/football/teams/169.png"
+          },
+          "points": 60,
+          "goalsDiff": 22,
+          "group": "Bundesliga",
+          "form": "WDDWD",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 17,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 68,
+              "against": 46
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 10,
+            "draw": 4,
+            "lose": 3,
+            "goals": {
+              "for": 41,
+              "against": 22
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 7,
+            "draw": 5,
+            "lose": 5,
+            "goals": {
+              "for": 27,
+              "against": 24
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 165,
+            "name": "Borussia Dortmund",
+            "logo": "https://media.api-sports.io/football/teams/165.png"
+          },
+          "points": 57,
+          "goalsDiff": 20,
+          "group": "Bundesliga",
+          "form": "WWWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 17,
+            "draw": 6,
+            "lose": 11,
+            "goals": {
+              "for": 71,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 11,
+            "draw": 3,
+            "lose": 3,
+            "goals": {
+              "for": 44,
+              "against": 19
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 3,
+            "lose": 8,
+            "goals": {
+              "for": 27,
+              "against": 32
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 160,
+            "name": "SC Freiburg",
+            "logo": "https://media.api-sports.io/football/teams/160.png"
+          },
+          "points": 55,
+          "goalsDiff": -4,
+          "group": "Bundesliga",
+          "form": "LWDWW",
+          "status": "same",
+          "description": "Promotion - Europa League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 16,
+            "draw": 7,
+            "lose": 11,
+            "goals": {
+              "for": 49,
+              "against": 53
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 9,
+            "draw": 3,
+            "lose": 5,
+            "goals": {
+              "for": 32,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 7,
+            "draw": 4,
+            "lose": 6,
+            "goals": {
+              "for": 17,
+              "against": 27
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 164,
+            "name": "FSV Mainz 05",
+            "logo": "https://media.api-sports.io/football/teams/164.png"
+          },
+          "points": 52,
+          "goalsDiff": 12,
+          "group": "Bundesliga",
+          "form": "DWDLD",
+          "status": "same",
+          "description": "Promotion - Conference League (Qualification: )",
+          "all": {
+            "played": 34,
+            "win": 14,
+            "draw": 10,
+            "lose": 10,
+            "goals": {
+              "for": 55,
+              "against": 43
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 6,
+            "draw": 8,
+            "lose": 3,
+            "goals": {
+              "for": 24,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 8,
+            "draw": 2,
+            "lose": 7,
+            "goals": {
+              "for": 31,
+              "against": 25
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 173,
+            "name": "RB Leipzig",
+            "logo": "https://media.api-sports.io/football/teams/173.png"
+          },
+          "points": 51,
+          "goalsDiff": 5,
+          "group": "Bundesliga",
+          "form": "LDDLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 13,
+            "draw": 12,
+            "lose": 9,
+            "goals": {
+              "for": 53,
+              "against": 48
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 8,
+            "draw": 6,
+            "lose": 3,
+            "goals": {
+              "for": 33,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 20,
+              "against": 25
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 162,
+            "name": "Werder Bremen",
+            "logo": "https://media.api-sports.io/football/teams/162.png"
+          },
+          "points": 51,
+          "goalsDiff": -3,
+          "group": "Bundesliga",
+          "form": "WDDDW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 14,
+            "draw": 9,
+            "lose": 11,
+            "goals": {
+              "for": 54,
+              "against": 57
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 5,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 21,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 9,
+            "draw": 3,
+            "lose": 5,
+            "goals": {
+              "for": 33,
+              "against": 31
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 172,
+            "name": "VfB Stuttgart",
+            "logo": "https://media.api-sports.io/football/teams/172.png"
+          },
+          "points": 50,
+          "goalsDiff": 11,
+          "group": "Bundesliga",
+          "form": "WWWLD",
+          "status": "same",
+          "description": "Promotion - Europa League (League phase: )",
+          "all": {
+            "played": 34,
+            "win": 14,
+            "draw": 8,
+            "lose": 12,
+            "goals": {
+              "for": 64,
+              "against": 53
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 7,
+            "draw": 2,
+            "lose": 8,
+            "goals": {
+              "for": 35,
+              "against": 27
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 7,
+            "draw": 6,
+            "lose": 4,
+            "goals": {
+              "for": 29,
+              "against": 26
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 163,
+            "name": "Borussia Mönchengladbach",
+            "logo": "https://media.api-sports.io/football/teams/163.png"
+          },
+          "points": 45,
+          "goalsDiff": -2,
+          "group": "Bundesliga",
+          "form": "LLDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 13,
+            "draw": 6,
+            "lose": 15,
+            "goals": {
+              "for": 55,
+              "against": 57
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 7,
+            "draw": 3,
+            "lose": 7,
+            "goals": {
+              "for": 29,
+              "against": 26
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 3,
+            "lose": 8,
+            "goals": {
+              "for": 26,
+              "against": 31
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 161,
+            "name": "VfL Wolfsburg",
+            "logo": "https://media.api-sports.io/football/teams/161.png"
+          },
+          "points": 43,
+          "goalsDiff": 2,
+          "group": "Bundesliga",
+          "form": "WDLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 11,
+            "draw": 10,
+            "lose": 13,
+            "goals": {
+              "for": 56,
+              "against": 54
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 7,
+            "lose": 7,
+            "goals": {
+              "for": 27,
+              "against": 30
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 8,
+            "draw": 3,
+            "lose": 6,
+            "goals": {
+              "for": 29,
+              "against": 24
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 170,
+            "name": "FC Augsburg",
+            "logo": "https://media.api-sports.io/football/teams/170.png"
+          },
+          "points": 43,
+          "goalsDiff": -16,
+          "group": "Bundesliga",
+          "form": "LLLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 11,
+            "draw": 10,
+            "lose": 13,
+            "goals": {
+              "for": 35,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 6,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 18,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 5,
+            "lose": 7,
+            "goals": {
+              "for": 17,
+              "against": 31
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 182,
+            "name": "Union Berlin",
+            "logo": "https://media.api-sports.io/football/teams/182.png"
+          },
+          "points": 40,
+          "goalsDiff": -16,
+          "group": "Bundesliga",
+          "form": "WLDDD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 10,
+            "draw": 10,
+            "lose": 14,
+            "goals": {
+              "for": 35,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 5,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 18,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 4,
+            "lose": 8,
+            "goals": {
+              "for": 17,
+              "against": 28
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 186,
+            "name": "FC St. Pauli",
+            "logo": "https://media.api-sports.io/football/teams/186.png"
+          },
+          "points": 32,
+          "goalsDiff": -13,
+          "group": "Bundesliga",
+          "form": "LDLDD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 8,
+            "draw": 8,
+            "lose": 18,
+            "goals": {
+              "for": 28,
+              "against": 41
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 10,
+              "against": 19
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 3,
+            "lose": 9,
+            "goals": {
+              "for": 18,
+              "against": 22
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 167,
+            "name": "1899 Hoffenheim",
+            "logo": "https://media.api-sports.io/football/teams/167.png"
+          },
+          "points": 32,
+          "goalsDiff": -22,
+          "group": "Bundesliga",
+          "form": "LDDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 7,
+            "draw": 11,
+            "lose": 16,
+            "goals": {
+              "for": 46,
+              "against": 68
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 4,
+            "draw": 5,
+            "lose": 8,
+            "goals": {
+              "for": 25,
+              "against": 36
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 3,
+            "draw": 6,
+            "lose": 8,
+            "goals": {
+              "for": 21,
+              "against": 32
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 180,
+            "name": "1. FC Heidenheim",
+            "logo": "https://media.api-sports.io/football/teams/180.png"
+          },
+          "points": 29,
+          "goalsDiff": -27,
+          "group": "Bundesliga",
+          "form": "LWDWL",
+          "status": "same",
+          "description": "Bundesliga (Relegation)",
+          "all": {
+            "played": 34,
+            "win": 8,
+            "draw": 5,
+            "lose": 21,
+            "goals": {
+              "for": 37,
+              "against": 64
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 2,
+            "lose": 12,
+            "goals": {
+              "for": 13,
+              "against": 33
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 3,
+            "lose": 9,
+            "goals": {
+              "for": 24,
+              "against": 31
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 191,
+            "name": "Holstein Kiel",
+            "logo": "https://media.api-sports.io/football/teams/191.png"
+          },
+          "points": 25,
+          "goalsDiff": -31,
+          "group": "Bundesliga",
+          "form": "LLWWD",
+          "status": "same",
+          "description": "Relegation - 2. Bundesliga",
+          "all": {
+            "played": 34,
+            "win": 6,
+            "draw": 7,
+            "lose": 21,
+            "goals": {
+              "for": 49,
+              "against": 80
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 4,
+            "draw": 2,
+            "lose": 11,
+            "goals": {
+              "for": 24,
+              "against": 41
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 2,
+            "draw": 5,
+            "lose": 10,
+            "goals": {
+              "for": 25,
+              "against": 39
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 176,
+            "name": "VfL Bochum",
+            "logo": "https://media.api-sports.io/football/teams/176.png"
+          },
+          "points": 25,
+          "goalsDiff": -34,
+          "group": "Bundesliga",
+          "form": "WLDDL",
+          "status": "same",
+          "description": "Relegation - 2. Bundesliga",
+          "all": {
+            "played": 34,
+            "win": 6,
+            "draw": 7,
+            "lose": 21,
+            "goals": {
+              "for": 33,
+              "against": 67
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 4,
+            "lose": 10,
+            "goals": {
+              "for": 16,
+              "against": 33
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 3,
+            "draw": 3,
+            "lose": 11,
+            "goals": {
+              "for": 17,
+              "against": 34
+            }
+          },
+          "update": "2025-05-28T00:00:00+00:00"
+        }
+      ]
+    },
+    "Ligue 1": {
+      "id": 61,
+      "season": 2024,
+      "name": "Ligue 1",
+      "logo": "https://media.api-sports.io/football/leagues/61.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "logo": "https://media.api-sports.io/football/teams/85.png"
+          },
+          "points": 84,
+          "goalsDiff": 57,
+          "group": "Ligue 1",
+          "form": "WWLLD",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 34,
+            "win": 26,
+            "draw": 6,
+            "lose": 2,
+            "goals": {
+              "for": 92,
+              "against": 35
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 14,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 45,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 12,
+            "draw": 4,
+            "lose": 1,
+            "goals": {
+              "for": 47,
+              "against": 19
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 81,
+            "name": "Marseille",
+            "logo": "https://media.api-sports.io/football/teams/81.png"
+          },
+          "points": 65,
+          "goalsDiff": 27,
+          "group": "Ligue 1",
+          "form": "WWDWW",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 34,
+            "win": 20,
+            "draw": 5,
+            "lose": 9,
+            "goals": {
+              "for": 74,
+              "against": 47
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 10,
+            "draw": 4,
+            "lose": 3,
+            "goals": {
+              "for": 41,
+              "against": 23
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 10,
+            "draw": 1,
+            "lose": 6,
+            "goals": {
+              "for": 33,
+              "against": 24
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 91,
+            "name": "Monaco",
+            "logo": "https://media.api-sports.io/football/teams/91.png"
+          },
+          "points": 61,
+          "goalsDiff": 22,
+          "group": "Ligue 1",
+          "form": "LWWDD",
+          "status": "same",
+          "description": "Champions League",
+          "all": {
+            "played": 34,
+            "win": 18,
+            "draw": 7,
+            "lose": 9,
+            "goals": {
+              "for": 63,
+              "against": 41
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 12,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 38,
+              "against": 16
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 25,
+              "against": 25
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png"
+          },
+          "points": 60,
+          "goalsDiff": 25,
+          "group": "Ligue 1",
+          "form": "WLWWW",
+          "status": "same",
+          "description": "Champions League Qualification",
+          "all": {
+            "played": 34,
+            "win": 17,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 66,
+              "against": 41
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 11,
+            "draw": 4,
+            "lose": 2,
+            "goals": {
+              "for": 38,
+              "against": 15
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 28,
+              "against": 26
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 79,
+            "name": "Lille",
+            "logo": "https://media.api-sports.io/football/teams/79.png"
+          },
+          "points": 60,
+          "goalsDiff": 16,
+          "group": "Ligue 1",
+          "form": "WLDWW",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 34,
+            "win": 17,
+            "draw": 9,
+            "lose": 8,
+            "goals": {
+              "for": 52,
+              "against": 36
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 11,
+            "draw": 4,
+            "lose": 2,
+            "goals": {
+              "for": 31,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 5,
+            "lose": 6,
+            "goals": {
+              "for": 21,
+              "against": 18
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 80,
+            "name": "Lyon",
+            "logo": "https://media.api-sports.io/football/teams/80.png"
+          },
+          "points": 57,
+          "goalsDiff": 19,
+          "group": "Ligue 1",
+          "form": "WLLWL",
+          "status": "same",
+          "description": "UEFA Europa League",
+          "all": {
+            "played": 34,
+            "win": 17,
+            "draw": 6,
+            "lose": 11,
+            "goals": {
+              "for": 65,
+              "against": 46
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 11,
+            "draw": 2,
+            "lose": 4,
+            "goals": {
+              "for": 37,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 28,
+              "against": 25
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 95,
+            "name": "Strasbourg",
+            "logo": "https://media.api-sports.io/football/teams/95.png"
+          },
+          "points": 57,
+          "goalsDiff": 12,
+          "group": "Ligue 1",
+          "form": "LLWWD",
+          "status": "same",
+          "description": "Conference League Qualification",
+          "all": {
+            "played": 34,
+            "win": 16,
+            "draw": 9,
+            "lose": 9,
+            "goals": {
+              "for": 56,
+              "against": 44
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 10,
+            "draw": 5,
+            "lose": 2,
+            "goals": {
+              "for": 33,
+              "against": 20
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 23,
+              "against": 24
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 116,
+            "name": "Lens",
+            "logo": "https://media.api-sports.io/football/teams/116.png"
+          },
+          "points": 52,
+          "goalsDiff": 3,
+          "group": "Ligue 1",
+          "form": "WDWLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 15,
+            "draw": 7,
+            "lose": 12,
+            "goals": {
+              "for": 42,
+              "against": 39
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 7,
+            "draw": 2,
+            "lose": 8,
+            "goals": {
+              "for": 19,
+              "against": 22
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 8,
+            "draw": 5,
+            "lose": 4,
+            "goals": {
+              "for": 23,
+              "against": 17
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 106,
+            "name": "Stade Brestois 29",
+            "logo": "https://media.api-sports.io/football/teams/106.png"
+          },
+          "points": 50,
+          "goalsDiff": -7,
+          "group": "Ligue 1",
+          "form": "LWWLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 15,
+            "draw": 5,
+            "lose": 14,
+            "goals": {
+              "for": 52,
+              "against": 59
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 10,
+            "draw": 3,
+            "lose": 4,
+            "goals": {
+              "for": 31,
+              "against": 21
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 2,
+            "lose": 10,
+            "goals": {
+              "for": 21,
+              "against": 38
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 96,
+            "name": "Toulouse",
+            "logo": "https://media.api-sports.io/football/teams/96.png"
+          },
+          "points": 42,
+          "goalsDiff": 1,
+          "group": "Ligue 1",
+          "form": "WDWDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 11,
+            "draw": 9,
+            "lose": 14,
+            "goals": {
+              "for": 44,
+              "against": 43
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 5,
+            "draw": 5,
+            "lose": 7,
+            "goals": {
+              "for": 20,
+              "against": 22
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 6,
+            "draw": 4,
+            "lose": 7,
+            "goals": {
+              "for": 24,
+              "against": 21
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 108,
+            "name": "Auxerre",
+            "logo": "https://media.api-sports.io/football/teams/108.png"
+          },
+          "points": 42,
+          "goalsDiff": -3,
+          "group": "Ligue 1",
+          "form": "LDLWL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 11,
+            "draw": 9,
+            "lose": 14,
+            "goals": {
+              "for": 48,
+              "against": 51
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 7,
+            "draw": 6,
+            "lose": 4,
+            "goals": {
+              "for": 24,
+              "against": 17
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 4,
+            "draw": 3,
+            "lose": 10,
+            "goals": {
+              "for": 24,
+              "against": 34
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 94,
+            "name": "Rennes",
+            "logo": "https://media.api-sports.io/football/teams/94.png"
+          },
+          "points": 41,
+          "goalsDiff": 1,
+          "group": "Ligue 1",
+          "form": "LWLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 13,
+            "draw": 2,
+            "lose": 19,
+            "goals": {
+              "for": 51,
+              "against": 50
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 9,
+            "draw": 1,
+            "lose": 7,
+            "goals": {
+              "for": 25,
+              "against": 17
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 4,
+            "draw": 1,
+            "lose": 12,
+            "goals": {
+              "for": 26,
+              "against": 33
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 83,
+            "name": "Nantes",
+            "logo": "https://media.api-sports.io/football/teams/83.png"
+          },
+          "points": 36,
+          "goalsDiff": -13,
+          "group": "Ligue 1",
+          "form": "WDLDD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 8,
+            "draw": 12,
+            "lose": 14,
+            "goals": {
+              "for": 39,
+              "against": 52
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 5,
+            "draw": 6,
+            "lose": 6,
+            "goals": {
+              "for": 19,
+              "against": 18
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 3,
+            "draw": 6,
+            "lose": 8,
+            "goals": {
+              "for": 20,
+              "against": 34
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 77,
+            "name": "Angers",
+            "logo": "https://media.api-sports.io/football/teams/77.png"
+          },
+          "points": 36,
+          "goalsDiff": -21,
+          "group": "Ligue 1",
+          "form": "LWWLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 10,
+            "draw": 6,
+            "lose": 18,
+            "goals": {
+              "for": 32,
+              "against": 53
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 5,
+            "draw": 2,
+            "lose": 10,
+            "goals": {
+              "for": 18,
+              "against": 33
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 5,
+            "draw": 4,
+            "lose": 8,
+            "goals": {
+              "for": 14,
+              "against": 20
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 111,
+            "name": "Le Havre",
+            "logo": "https://media.api-sports.io/football/teams/111.png"
+          },
+          "points": 34,
+          "goalsDiff": -31,
+          "group": "Ligue 1",
+          "form": "WLWDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 34,
+            "win": 10,
+            "draw": 4,
+            "lose": 20,
+            "goals": {
+              "for": 40,
+              "against": 71
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 2,
+            "lose": 12,
+            "goals": {
+              "for": 15,
+              "against": 41
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 7,
+            "draw": 2,
+            "lose": 8,
+            "goals": {
+              "for": 25,
+              "against": 30
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 93,
+            "name": "Reims",
+            "logo": "https://media.api-sports.io/football/teams/93.png"
+          },
+          "points": 33,
+          "goalsDiff": -14,
+          "group": "Ligue 1",
+          "form": "LDLLL",
+          "status": "same",
+          "description": "Relegation Playoffs",
+          "all": {
+            "played": 34,
+            "win": 8,
+            "draw": 9,
+            "lose": 17,
+            "goals": {
+              "for": 33,
+              "against": 47
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 4,
+            "draw": 4,
+            "lose": 9,
+            "goals": {
+              "for": 17,
+              "against": 25
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 4,
+            "draw": 5,
+            "lose": 8,
+            "goals": {
+              "for": 16,
+              "against": 22
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 1063,
+            "name": "Saint Etienne",
+            "logo": "https://media.api-sports.io/football/teams/1063.png"
+          },
+          "points": 30,
+          "goalsDiff": -38,
+          "group": "Ligue 1",
+          "form": "LWLLW",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 34,
+            "win": 8,
+            "draw": 6,
+            "lose": 20,
+            "goals": {
+              "for": 39,
+              "against": 77
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 6,
+            "draw": 3,
+            "lose": 8,
+            "goals": {
+              "for": 24,
+              "against": 33
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 2,
+            "draw": 3,
+            "lose": 12,
+            "goals": {
+              "for": 15,
+              "against": 44
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 82,
+            "name": "Montpellier",
+            "logo": "https://media.api-sports.io/football/teams/82.png"
+          },
+          "points": 16,
+          "goalsDiff": -56,
+          "group": "Ligue 1",
+          "form": "LLLDL",
+          "status": "same",
+          "description": "Relegation",
+          "all": {
+            "played": 34,
+            "win": 4,
+            "draw": 4,
+            "lose": 26,
+            "goals": {
+              "for": 23,
+              "against": 79
+            }
+          },
+          "home": {
+            "played": 17,
+            "win": 3,
+            "draw": 4,
+            "lose": 10,
+            "goals": {
+              "for": 17,
+              "against": 41
+            }
+          },
+          "away": {
+            "played": 17,
+            "win": 1,
+            "draw": 0,
+            "lose": 16,
+            "goals": {
+              "for": 6,
+              "against": 38
+            }
+          },
+          "update": "2025-05-30T00:00:00+00:00"
+        }
+      ]
+    },
+    "Champions League": {
+      "id": 2,
+      "season": 2024,
+      "name": "Champions League",
+      "logo": "https://media.api-sports.io/football/leagues/2.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 40,
+            "name": "Liverpool",
+            "logo": "https://media.api-sports.io/football/teams/40.png"
+          },
+          "points": 21,
+          "goalsDiff": 12,
+          "group": "UEFA Champions League",
+          "form": "LWWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 7,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 17,
+              "against": 5
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 10,
+              "against": 1
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 529,
+            "name": "Barcelona",
+            "logo": "https://media.api-sports.io/football/teams/529.png"
+          },
+          "points": 19,
+          "goalsDiff": 15,
+          "group": "UEFA Champions League",
+          "form": "DWWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 28,
+              "against": 13
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 14,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 14,
+              "against": 10
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 42,
+            "name": "Arsenal",
+            "logo": "https://media.api-sports.io/football/teams/42.png"
+          },
+          "points": 19,
+          "goalsDiff": 13,
+          "group": "UEFA Champions League",
+          "form": "WWWWL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 16,
+              "against": 3
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 0
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 3
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 505,
+            "name": "Inter",
+            "logo": "https://media.api-sports.io/football/teams/505.png"
+          },
+          "points": 19,
+          "goalsDiff": 10,
+          "group": "UEFA Champions League",
+          "form": "WWLWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 11,
+              "against": 1
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 0
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 2,
+              "against": 1
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 530,
+            "name": "Atletico Madrid",
+            "logo": "https://media.api-sports.io/football/teams/530.png"
+          },
+          "points": 18,
+          "goalsDiff": 8,
+          "group": "UEFA Champions League",
+          "form": "WWWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 20,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 12,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 168,
+            "name": "Bayer Leverkusen",
+            "logo": "https://media.api-sports.io/football/teams/168.png"
+          },
+          "points": 16,
+          "goalsDiff": 8,
+          "group": "UEFA Champions League",
+          "form": "WLWWL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 15,
+              "against": 7
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 0
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 79,
+            "name": "Lille",
+            "logo": "https://media.api-sports.io/football/teams/79.png"
+          },
+          "points": 16,
+          "goalsDiff": 7,
+          "group": "UEFA Champions League",
+          "form": "WLWWD",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 17,
+              "against": 10
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 11,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 66,
+            "name": "Aston Villa",
+            "logo": "https://media.api-sports.io/football/teams/66.png"
+          },
+          "points": 16,
+          "goalsDiff": 7,
+          "group": "UEFA Champions League",
+          "form": "WLWDL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 13,
+              "against": 6
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 7,
+              "against": 2
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 499,
+            "name": "Atalanta",
+            "logo": "https://media.api-sports.io/football/teams/499.png"
+          },
+          "points": 15,
+          "goalsDiff": 14,
+          "group": "UEFA Champions League",
+          "form": "DWLWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 20,
+              "against": 6
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 13,
+              "against": 3
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 165,
+            "name": "Borussia Dortmund",
+            "logo": "https://media.api-sports.io/football/teams/165.png"
+          },
+          "points": 15,
+          "goalsDiff": 10,
+          "group": "UEFA Champions League",
+          "form": "WLLWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 22,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 13,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 9,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 541,
+            "name": "Real Madrid",
+            "logo": "https://media.api-sports.io/football/teams/541.png"
+          },
+          "points": 15,
+          "goalsDiff": 8,
+          "group": "UEFA Champions League",
+          "form": "WWWLL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 20,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 14,
+              "against": 7
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 157,
+            "name": "Bayern München",
+            "logo": "https://media.api-sports.io/football/teams/157.png"
+          },
+          "points": 15,
+          "goalsDiff": 8,
+          "group": "UEFA Champions League",
+          "form": "WLWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 20,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 14,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 6,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 489,
+            "name": "AC Milan",
+            "logo": "https://media.api-sports.io/football/teams/489.png"
+          },
+          "points": 15,
+          "goalsDiff": 3,
+          "group": "UEFA Champions League",
+          "form": "LWWWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 14,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 7,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 197,
+            "name": "PSV Eindhoven",
+            "logo": "https://media.api-sports.io/football/teams/197.png"
+          },
+          "points": 14,
+          "goalsDiff": 4,
+          "group": "UEFA Champions League",
+          "form": "WWLWW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 16,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 11,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 85,
+            "name": "Paris Saint Germain",
+            "logo": "https://media.api-sports.io/football/teams/85.png"
+          },
+          "points": 13,
+          "goalsDiff": 5,
+          "group": "UEFA Champions League",
+          "form": "WWWLL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 14,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 7,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 211,
+            "name": "Benfica",
+            "logo": "https://media.api-sports.io/football/teams/211.png"
+          },
+          "points": 13,
+          "goalsDiff": 4,
+          "group": "UEFA Champions League",
+          "form": "WLDWL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 16,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 9,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 91,
+            "name": "Monaco",
+            "logo": "https://media.api-sports.io/football/teams/91.png"
+          },
+          "points": 13,
+          "goalsDiff": 0,
+          "group": "UEFA Champions League",
+          "form": "LWLLW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 13,
+              "against": 13
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 10,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 3,
+              "against": 8
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 106,
+            "name": "Stade Brestois 29",
+            "logo": "https://media.api-sports.io/football/teams/106.png"
+          },
+          "points": 13,
+          "goalsDiff": -1,
+          "group": "UEFA Champions League",
+          "form": "LLWLW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 10,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 4,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 19,
+          "team": {
+            "id": 209,
+            "name": "Feyenoord",
+            "logo": "https://media.api-sports.io/football/teams/209.png"
+          },
+          "points": 13,
+          "goalsDiff": -3,
+          "group": "UEFA Champions League",
+          "form": "LWWDL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 18,
+              "against": 21
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 8,
+              "against": 9
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 10,
+              "against": 12
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 20,
+          "team": {
+            "id": 496,
+            "name": "Juventus",
+            "logo": "https://media.api-sports.io/football/teams/496.png"
+          },
+          "points": 12,
+          "goalsDiff": 2,
+          "group": "UEFA Champions League",
+          "form": "LDWDD",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 9,
+              "against": 7
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 3,
+            "lose": 0,
+            "goals": {
+              "for": 4,
+              "against": 3
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 21,
+          "team": {
+            "id": 247,
+            "name": "Celtic",
+            "logo": "https://media.api-sports.io/football/teams/247.png"
+          },
+          "points": 12,
+          "goalsDiff": -1,
+          "group": "UEFA Champions League",
+          "form": "LWDDW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 13,
+              "against": 14
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 10,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 3,
+              "against": 11
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 22,
+          "team": {
+            "id": 50,
+            "name": "Manchester City",
+            "logo": "https://media.api-sports.io/football/teams/50.png"
+          },
+          "points": 11,
+          "goalsDiff": 4,
+          "group": "UEFA Champions League",
+          "form": "WLLDL",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 18,
+              "against": 14
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 2,
+            "lose": 0,
+            "goals": {
+              "for": 11,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 7,
+              "against": 10
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 23,
+          "team": {
+            "id": 228,
+            "name": "Sporting CP",
+            "logo": "https://media.api-sports.io/football/teams/228.png"
+          },
+          "points": 11,
+          "goalsDiff": 1,
+          "group": "UEFA Champions League",
+          "form": "DLLLW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 13,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 7
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 24,
+          "team": {
+            "id": 569,
+            "name": "Club Brugge KV",
+            "logo": "https://media.api-sports.io/football/teams/569.png"
+          },
+          "points": 11,
+          "goalsDiff": -4,
+          "group": "UEFA Champions League",
+          "form": "LDWDW",
+          "status": "same",
+          "description": "Promotion - Champions League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 7,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 3,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 4,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 25,
+          "team": {
+            "id": 620,
+            "name": "Dinamo Zagreb",
+            "logo": "https://media.api-sports.io/football/teams/620.png"
+          },
+          "points": 11,
+          "goalsDiff": -7,
+          "group": "UEFA Champions League",
+          "form": "WLDLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 12,
+              "against": 19
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 4,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 8,
+              "against": 13
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 26,
+          "team": {
+            "id": 172,
+            "name": "VfB Stuttgart",
+            "logo": "https://media.api-sports.io/football/teams/172.png"
+          },
+          "points": 10,
+          "goalsDiff": -4,
+          "group": "UEFA Champions League",
+          "form": "LWWLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 1,
+            "lose": 4,
+            "goals": {
+              "for": 13,
+              "against": 17
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 7,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 27,
+          "team": {
+            "id": 550,
+            "name": "Shakhtar Donetsk",
+            "logo": "https://media.api-sports.io/football/teams/550.png"
+          },
+          "points": 7,
+          "goalsDiff": -8,
+          "group": "UEFA Champions League",
+          "form": "LWLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 1,
+            "lose": 5,
+            "goals": {
+              "for": 8,
+              "against": 16
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 9
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 28,
+          "team": {
+            "id": 500,
+            "name": "Bologna",
+            "logo": "https://media.api-sports.io/football/teams/500.png"
+          },
+          "points": 6,
+          "goalsDiff": -5,
+          "group": "UEFA Champions League",
+          "form": "DWDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 3,
+            "lose": 4,
+            "goals": {
+              "for": 4,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 3,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 1,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 29,
+          "team": {
+            "id": 598,
+            "name": "FK Crvena Zvezda",
+            "logo": "https://media.api-sports.io/football/teams/598.png"
+          },
+          "points": 6,
+          "goalsDiff": -9,
+          "group": "UEFA Champions League",
+          "form": "WLLWL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 0,
+            "lose": 6,
+            "goals": {
+              "for": 13,
+              "against": 22
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 10,
+              "against": 11
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 11
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 30,
+          "team": {
+            "id": 637,
+            "name": "Sturm Graz",
+            "logo": "https://media.api-sports.io/football/teams/637.png"
+          },
+          "points": 6,
+          "goalsDiff": -9,
+          "group": "UEFA Champions League",
+          "form": "WLLWL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 0,
+            "lose": 6,
+            "goals": {
+              "for": 5,
+              "against": 14
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 2,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 3,
+              "against": 11
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 31,
+          "team": {
+            "id": 628,
+            "name": "Sparta Praha",
+            "logo": "https://media.api-sports.io/football/teams/628.png"
+          },
+          "points": 4,
+          "goalsDiff": -14,
+          "group": "UEFA Champions League",
+          "form": "LLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 1,
+            "lose": 6,
+            "goals": {
+              "for": 7,
+              "against": 21
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 4,
+              "against": 9
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 12
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 32,
+          "team": {
+            "id": 173,
+            "name": "RB Leipzig",
+            "logo": "https://media.api-sports.io/football/teams/173.png"
+          },
+          "points": 3,
+          "goalsDiff": -7,
+          "group": "UEFA Champions League",
+          "form": "LWLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 0,
+            "lose": 7,
+            "goals": {
+              "for": 8,
+              "against": 15
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 6,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 2,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 33,
+          "team": {
+            "id": 547,
+            "name": "Girona",
+            "logo": "https://media.api-sports.io/football/teams/547.png"
+          },
+          "points": 3,
+          "goalsDiff": -8,
+          "group": "UEFA Champions League",
+          "form": "LLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 0,
+            "lose": 7,
+            "goals": {
+              "for": 5,
+              "against": 13
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 5,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 0,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 34,
+          "team": {
+            "id": 571,
+            "name": "Red Bull Salzburg",
+            "logo": "https://media.api-sports.io/football/teams/571.png"
+          },
+          "points": 3,
+          "goalsDiff": -22,
+          "group": "UEFA Champions League",
+          "form": "LLLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 0,
+            "lose": 7,
+            "goals": {
+              "for": 5,
+              "against": 27
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 1,
+              "against": 13
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 4,
+              "against": 14
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 35,
+          "team": {
+            "id": 656,
+            "name": "Slovan Bratislava",
+            "logo": "https://media.api-sports.io/football/teams/656.png"
+          },
+          "points": 0,
+          "goalsDiff": -20,
+          "group": "UEFA Champions League",
+          "form": "LLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 0,
+            "draw": 0,
+            "lose": 8,
+            "goals": {
+              "for": 7,
+              "against": 27
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 4,
+              "against": 14
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 3,
+              "against": 13
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 36,
+          "team": {
+            "id": 565,
+            "name": "BSC Young Boys",
+            "logo": "https://media.api-sports.io/football/teams/565.png"
+          },
+          "points": 0,
+          "goalsDiff": -21,
+          "group": "UEFA Champions League",
+          "form": "LLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 0,
+            "draw": 0,
+            "lose": 8,
+            "goals": {
+              "for": 3,
+              "against": 24
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 1,
+              "against": 11
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 2,
+              "against": 13
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        }
+      ]
+    },
+    "Europa League": {
+      "id": 3,
+      "season": 2024,
+      "name": "Europa League",
+      "logo": "https://media.api-sports.io/football/leagues/3.png",
+      "standings": [
+        {
+          "rank": 1,
+          "team": {
+            "id": 487,
+            "name": "Lazio",
+            "logo": "https://media.api-sports.io/football/teams/487.png"
+          },
+          "points": 19,
+          "goalsDiff": 12,
+          "group": "UEFA Europa League",
+          "form": "LWWDW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 17,
+              "against": 5
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 2
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 2,
+          "team": {
+            "id": 531,
+            "name": "Athletic Club",
+            "logo": "https://media.api-sports.io/football/teams/531.png"
+          },
+          "points": 19,
+          "goalsDiff": 8,
+          "group": "UEFA Europa League",
+          "form": "WLWWW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 6,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 15,
+              "against": 7
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 4,
+            "draw": 0,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 1
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 3,
+          "team": {
+            "id": 33,
+            "name": "Manchester United",
+            "logo": "https://media.api-sports.io/football/teams/33.png"
+          },
+          "points": 18,
+          "goalsDiff": 7,
+          "group": "UEFA Europa League",
+          "form": "WWWWW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 3,
+            "lose": 0,
+            "goals": {
+              "for": 16,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 8,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 2,
+            "lose": 0,
+            "goals": {
+              "for": 8,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 4,
+          "team": {
+            "id": 47,
+            "name": "Tottenham",
+            "logo": "https://media.api-sports.io/football/teams/47.png"
+          },
+          "points": 17,
+          "goalsDiff": 8,
+          "group": "UEFA Europa League",
+          "form": "WWDDL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 17,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 9,
+              "against": 2
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 5,
+          "team": {
+            "id": 169,
+            "name": "Eintracht Frankfurt",
+            "logo": "https://media.api-sports.io/football/teams/169.png"
+          },
+          "points": 16,
+          "goalsDiff": 4,
+          "group": "UEFA Europa League",
+          "form": "LWLWW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 5,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 14,
+              "against": 10
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 7,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 7,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 6,
+          "team": {
+            "id": 80,
+            "name": "Lyon",
+            "logo": "https://media.api-sports.io/football/teams/80.png"
+          },
+          "points": 15,
+          "goalsDiff": 8,
+          "group": "UEFA Europa League",
+          "form": "DDWWD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 16,
+              "against": 8
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 2,
+            "lose": 0,
+            "goals": {
+              "for": 10,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 7,
+          "team": {
+            "id": 553,
+            "name": "Olympiakos Piraeus",
+            "logo": "https://media.api-sports.io/football/teams/553.png"
+          },
+          "points": 15,
+          "goalsDiff": 6,
+          "group": "UEFA Europa League",
+          "form": "WWDDD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 9,
+              "against": 3
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 2,
+            "lose": 0,
+            "goals": {
+              "for": 7,
+              "against": 1
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 2,
+              "against": 2
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 8,
+          "team": {
+            "id": 257,
+            "name": "Rangers",
+            "logo": "https://media.api-sports.io/football/teams/257.png"
+          },
+          "points": 14,
+          "goalsDiff": 6,
+          "group": "UEFA Europa League",
+          "form": "WLDWD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/8-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 16,
+              "against": 10
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 9,
+          "team": {
+            "id": 327,
+            "name": "Bodo/Glimt",
+            "logo": "https://media.api-sports.io/football/teams/327.png"
+          },
+          "points": 14,
+          "goalsDiff": 3,
+          "group": "UEFA Europa League",
+          "form": "DWWLL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 14,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 9,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 5,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 10,
+          "team": {
+            "id": 554,
+            "name": "Anderlecht",
+            "logo": "https://media.api-sports.io/football/teams/554.png"
+          },
+          "points": 14,
+          "goalsDiff": 2,
+          "group": "UEFA Europa League",
+          "form": "LLWDD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 14,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 9,
+              "against": 7
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 5,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 11,
+          "team": {
+            "id": 559,
+            "name": "FCSB",
+            "logo": "https://media.api-sports.io/football/teams/559.png"
+          },
+          "points": 14,
+          "goalsDiff": 1,
+          "group": "UEFA Europa League",
+          "form": "LWDDW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 10,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 4,
+              "against": 6
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 12,
+          "team": {
+            "id": 194,
+            "name": "Ajax",
+            "logo": "https://media.api-sports.io/football/teams/194.png"
+          },
+          "points": 13,
+          "goalsDiff": 8,
+          "group": "UEFA Europa League",
+          "form": "WLLLW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 16,
+              "against": 8
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 12,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 4,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 13,
+          "team": {
+            "id": 548,
+            "name": "Real Sociedad",
+            "logo": "https://media.api-sports.io/football/teams/548.png"
+          },
+          "points": 13,
+          "goalsDiff": 4,
+          "group": "UEFA Europa League",
+          "form": "WLWWL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 13,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 2
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 14,
+          "team": {
+            "id": 645,
+            "name": "Galatasaray",
+            "logo": "https://media.api-sports.io/football/teams/645.png"
+          },
+          "points": 13,
+          "goalsDiff": 3,
+          "group": "UEFA Europa League",
+          "form": "LDDDW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 4,
+            "lose": 1,
+            "goals": {
+              "for": 19,
+              "against": 16
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 13,
+              "against": 9
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 15,
+          "team": {
+            "id": 497,
+            "name": "AS Roma",
+            "logo": "https://media.api-sports.io/football/teams/497.png"
+          },
+          "points": 12,
+          "goalsDiff": 4,
+          "group": "UEFA Europa League",
+          "form": "WLWDD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 10,
+              "against": 6
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 7,
+              "against": 1
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 3,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 16,
+          "team": {
+            "id": 567,
+            "name": "Plzen",
+            "logo": "https://media.api-sports.io/football/teams/567.png"
+          },
+          "points": 12,
+          "goalsDiff": 1,
+          "group": "UEFA Europa League",
+          "form": "LWLWW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 3,
+            "lose": 2,
+            "goals": {
+              "for": 13,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 5,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 8,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 17,
+          "team": {
+            "id": 651,
+            "name": "Ferencvarosi TC",
+            "logo": "https://media.api-sports.io/football/teams/651.png"
+          },
+          "points": 12,
+          "goalsDiff": 0,
+          "group": "UEFA Europa League",
+          "form": "WLLWW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 4,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 15,
+              "against": 15
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 10,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 5,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 18,
+          "team": {
+            "id": 212,
+            "name": "FC Porto",
+            "logo": "https://media.api-sports.io/football/teams/212.png"
+          },
+          "points": 11,
+          "goalsDiff": 2,
+          "group": "UEFA Europa League",
+          "form": "WLWDL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 13,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 19,
+          "team": {
+            "id": 201,
+            "name": "AZ Alkmaar",
+            "logo": "https://media.api-sports.io/football/teams/201.png"
+          },
+          "points": 11,
+          "goalsDiff": 0,
+          "group": "UEFA Europa League",
+          "form": "LWDDW",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 13,
+              "against": 13
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 8,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 5,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 20,
+          "team": {
+            "id": 397,
+            "name": "FC Midtjylland",
+            "logo": "https://media.api-sports.io/football/teams/397.png"
+          },
+          "points": 11,
+          "goalsDiff": 0,
+          "group": "UEFA Europa League",
+          "form": "DWLLL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 9,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 5,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 4,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 21,
+          "team": {
+            "id": 1393,
+            "name": "Union St. Gilloise",
+            "logo": "https://media.api-sports.io/football/teams/1393.png"
+          },
+          "points": 11,
+          "goalsDiff": 0,
+          "group": "UEFA Europa League",
+          "form": "LWWWD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 2,
+            "lose": 3,
+            "goals": {
+              "for": 8,
+              "against": 8
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 2,
+            "lose": 0,
+            "goals": {
+              "for": 5,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 22,
+          "team": {
+            "id": 619,
+            "name": "PAOK",
+            "logo": "https://media.api-sports.io/football/teams/619.png"
+          },
+          "points": 10,
+          "goalsDiff": 2,
+          "group": "UEFA Europa League",
+          "form": "LWWWL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 1,
+            "lose": 4,
+            "goals": {
+              "for": 12,
+              "against": 10
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 1,
+            "lose": 1,
+            "goals": {
+              "for": 9,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 23,
+          "team": {
+            "id": 415,
+            "name": "Twente",
+            "logo": "https://media.api-sports.io/football/teams/415.png"
+          },
+          "points": 10,
+          "goalsDiff": -1,
+          "group": "UEFA Europa League",
+          "form": "WWDLD",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 4,
+            "lose": 2,
+            "goals": {
+              "for": 8,
+              "against": 9
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 2,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 3,
+            "lose": 0,
+            "goals": {
+              "for": 6,
+              "against": 5
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 24,
+          "team": {
+            "id": 611,
+            "name": "Fenerbahce",
+            "logo": "https://media.api-sports.io/football/teams/611.png"
+          },
+          "points": 10,
+          "goalsDiff": -2,
+          "group": "UEFA Europa League",
+          "form": "DDLWL",
+          "status": "same",
+          "description": "Promotion - Europa League (Play Offs: 1/16-finals)",
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 4,
+            "lose": 2,
+            "goals": {
+              "for": 9,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 3,
+              "against": 4
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 25,
+          "team": {
+            "id": 217,
+            "name": "SC Braga",
+            "logo": "https://media.api-sports.io/football/teams/217.png"
+          },
+          "points": 10,
+          "goalsDiff": -3,
+          "group": "UEFA Europa League",
+          "form": "WLLWD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 1,
+            "lose": 4,
+            "goals": {
+              "for": 9,
+              "against": 12
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 0,
+            "lose": 1,
+            "goals": {
+              "for": 7,
+              "against": 3
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 2,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 26,
+          "team": {
+            "id": 372,
+            "name": "IF Elfsborg",
+            "logo": "https://media.api-sports.io/football/teams/372.png"
+          },
+          "points": 10,
+          "goalsDiff": -5,
+          "group": "UEFA Europa League",
+          "form": "LWWLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 1,
+            "lose": 4,
+            "goals": {
+              "for": 9,
+              "against": 14
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 3,
+            "draw": 1,
+            "lose": 0,
+            "goals": {
+              "for": 4,
+              "against": 1
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 5,
+              "against": 13
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 27,
+          "team": {
+            "id": 167,
+            "name": "1899 Hoffenheim",
+            "logo": "https://media.api-sports.io/football/teams/167.png"
+          },
+          "points": 9,
+          "goalsDiff": -3,
+          "group": "UEFA Europa League",
+          "form": "WLDLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 3,
+            "lose": 3,
+            "goals": {
+              "for": 11,
+              "against": 14
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 6,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 28,
+          "team": {
+            "id": 549,
+            "name": "Besiktas",
+            "logo": "https://media.api-sports.io/football/teams/549.png"
+          },
+          "points": 9,
+          "goalsDiff": -5,
+          "group": "UEFA Europa League",
+          "form": "LWLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 3,
+            "draw": 0,
+            "lose": 5,
+            "goals": {
+              "for": 10,
+              "against": 15
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 2,
+            "draw": 0,
+            "lose": 2,
+            "goals": {
+              "for": 8,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 2,
+              "against": 7
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 29,
+          "team": {
+            "id": 604,
+            "name": "Maccabi Tel Aviv",
+            "logo": "https://media.api-sports.io/football/teams/604.png"
+          },
+          "points": 6,
+          "goalsDiff": -9,
+          "group": "UEFA Europa League",
+          "form": "LLWWL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 2,
+            "draw": 0,
+            "lose": 6,
+            "goals": {
+              "for": 8,
+              "against": 17
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 6
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 5,
+              "against": 11
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 30,
+          "team": {
+            "id": 560,
+            "name": "Slavia Praha",
+            "logo": "https://media.api-sports.io/football/teams/560.png"
+          },
+          "points": 5,
+          "goalsDiff": -4,
+          "group": "UEFA Europa League",
+          "form": "DLLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 2,
+            "lose": 5,
+            "goals": {
+              "for": 7,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 2,
+            "lose": 2,
+            "goals": {
+              "for": 5,
+              "against": 7
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 2,
+              "against": 4
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 31,
+          "team": {
+            "id": 375,
+            "name": "Malmo FF",
+            "logo": "https://media.api-sports.io/football/teams/375.png"
+          },
+          "points": 5,
+          "goalsDiff": -7,
+          "group": "UEFA Europa League",
+          "form": "DLDLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 2,
+            "lose": 5,
+            "goals": {
+              "for": 10,
+              "against": 17
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 4,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 1,
+            "lose": 2,
+            "goals": {
+              "for": 6,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 32,
+          "team": {
+            "id": 4160,
+            "name": "Rīgas FS",
+            "logo": "https://media.api-sports.io/football/teams/4160.png"
+          },
+          "points": 5,
+          "goalsDiff": -7,
+          "group": "UEFA Europa League",
+          "form": "LWLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 2,
+            "lose": 5,
+            "goals": {
+              "for": 6,
+              "against": 13
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 2,
+            "lose": 1,
+            "goals": {
+              "for": 4,
+              "against": 5
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 2,
+              "against": 8
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 33,
+          "team": {
+            "id": 566,
+            "name": "Ludogorets",
+            "logo": "https://media.api-sports.io/football/teams/566.png"
+          },
+          "points": 4,
+          "goalsDiff": -7,
+          "group": "UEFA Europa League",
+          "form": "DLDDL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 0,
+            "draw": 4,
+            "lose": 4,
+            "goals": {
+              "for": 4,
+              "against": 11
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 1,
+              "against": 3
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 34,
+          "team": {
+            "id": 572,
+            "name": "Dynamo Kyiv",
+            "logo": "https://media.api-sports.io/football/teams/572.png"
+          },
+          "points": 4,
+          "goalsDiff": -13,
+          "group": "UEFA Europa League",
+          "form": "WDLLL",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 1,
+            "lose": 6,
+            "goals": {
+              "for": 5,
+              "against": 18
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 2,
+              "against": 9
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 1,
+            "lose": 3,
+            "goals": {
+              "for": 3,
+              "against": 9
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 35,
+          "team": {
+            "id": 84,
+            "name": "Nice",
+            "logo": "https://media.api-sports.io/football/teams/84.png"
+          },
+          "points": 3,
+          "goalsDiff": -9,
+          "group": "UEFA Europa League",
+          "form": "DLLLD",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 0,
+            "draw": 3,
+            "lose": 5,
+            "goals": {
+              "for": 7,
+              "against": 16
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 3,
+            "lose": 1,
+            "goals": {
+              "for": 5,
+              "against": 8
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 2,
+              "against": 8
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        },
+        {
+          "rank": 36,
+          "team": {
+            "id": 556,
+            "name": "Qarabag",
+            "logo": "https://media.api-sports.io/football/teams/556.png"
+          },
+          "points": 3,
+          "goalsDiff": -14,
+          "group": "UEFA Europa League",
+          "form": "LLLLW",
+          "status": "same",
+          "description": null,
+          "all": {
+            "played": 8,
+            "win": 1,
+            "draw": 0,
+            "lose": 7,
+            "goals": {
+              "for": 6,
+              "against": 20
+            }
+          },
+          "home": {
+            "played": 4,
+            "win": 0,
+            "draw": 0,
+            "lose": 4,
+            "goals": {
+              "for": 4,
+              "against": 12
+            }
+          },
+          "away": {
+            "played": 4,
+            "win": 1,
+            "draw": 0,
+            "lose": 3,
+            "goals": {
+              "for": 2,
+              "against": 8
+            }
+          },
+          "update": "2025-02-10T00:00:00+00:00"
+        }
+      ]
+    }
+  }
 }
