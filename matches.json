@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T11:46:49.811874+00:00",
+  "updated": "2026-08-19T12:08:18.054956+00:00",
   "matches": [
     {
       "fixture": {
@@ -759,8 +759,8 @@
         "date": "2026-08-19T08:00:00+00:00",
         "timestamp": 1787126400,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787126400,
+          "second": 1787130000
         },
         "venue": {
           "id": null,
@@ -768,9 +768,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -788,17 +788,17 @@
         "id": 9164,
         "name": "Dong Thap",
         "logo": "https://media.api-sports.io/football/teams/9164.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 3672,
         "name": "Ho Chi Minh",
         "logo": "https://media.api-sports.io/football/teams/3672.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       }
     },
     {
@@ -1220,7 +1220,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 103,
+          "elapsed": 121,
           "extra": null
         }
       },
@@ -1470,7 +1470,7 @@
         "status": {
           "long": "Extra Time",
           "short": "ET",
-          "elapsed": 108,
+          "elapsed": 123,
           "extra": null
         }
       },
@@ -1618,10 +1618,10 @@
           "city": "Wronki"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
+          "long": "Match Finished",
+          "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 4
         }
       },
       "league": {
@@ -1668,10 +1668,10 @@
           "city": "Asan"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 86,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 9
         }
       },
       "league": {
@@ -1697,8 +1697,8 @@
         "winner": true
       },
       "goals": {
-        "home": 1,
-        "away": 2
+        "home": 2,
+        "away": 3
       }
     },
     {
@@ -1718,10 +1718,10 @@
           "city": "Jeonju"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 89,
-          "extra": null
+          "long": "Break Time",
+          "short": "BT",
+          "elapsed": null,
+          "extra": 12
         }
       },
       "league": {
@@ -1768,10 +1768,10 @@
           "city": "Gimpo"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -1818,10 +1818,10 @@
           "city": "Pohang"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 84,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
         }
       },
       "league": {
@@ -1868,10 +1868,10 @@
           "city": "Ulsan"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 87,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -1918,10 +1918,10 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
+          "long": "Match Finished",
+          "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 6
         }
       },
       "league": {
@@ -1938,17 +1938,17 @@
         "id": 23078,
         "name": "Metalist 1925 U19",
         "logo": "https://media.api-sports.io/football/teams/23078.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 25118,
         "name": "Livyi Bereh U19",
         "logo": "https://media.api-sports.io/football/teams/25118.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
         "home": 1,
-        "away": 1
+        "away": 2
       }
     },
     {
@@ -1968,10 +1968,10 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 89,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 3
         }
       },
       "league": {
@@ -2009,8 +2009,8 @@
         "date": "2026-08-19T10:00:00+00:00",
         "timestamp": 1787133600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787133600,
+          "second": 1787137200
         },
         "venue": {
           "id": 956,
@@ -2018,9 +2018,9 @@
           "city": "Matsuyama"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -2038,17 +2038,17 @@
         "id": 318,
         "name": "Ehime FC",
         "logo": "https://media.api-sports.io/football/teams/318.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 7139,
         "name": "Pacific University",
         "logo": "https://media.api-sports.io/football/teams/7139.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       }
     },
     {
@@ -2068,10 +2068,10 @@
           "city": "Fukushima"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 89,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 4
         }
       },
       "league": {
@@ -2118,9 +2118,9 @@
           "city": "Tottori"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
+          "long": "Extra Time",
+          "short": "ET",
+          "elapsed": 101,
           "extra": null
         }
       },
@@ -2138,17 +2138,17 @@
         "id": 4319,
         "name": "Gainare Tottori",
         "logo": "https://media.api-sports.io/football/teams/4319.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 314,
         "name": "Roasso Kumamoto",
         "logo": "https://media.api-sports.io/football/teams/314.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
         "home": 1,
-        "away": 1
+        "away": 2
       }
     },
     {
@@ -2168,9 +2168,9 @@
           "city": "Kitakyushu"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
+          "long": "Extra Time",
+          "short": "ET",
+          "elapsed": 94,
           "extra": null
         }
       },
@@ -2188,17 +2188,17 @@
         "id": 805,
         "name": "Kitakyushu",
         "logo": "https://media.api-sports.io/football/teams/805.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 7137,
         "name": "Okinawa SV",
         "logo": "https://media.api-sports.io/football/teams/7137.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
         "home": 1,
-        "away": 1
+        "away": 2
       }
     },
     {
@@ -2218,10 +2218,10 @@
           "city": "Kagoshima"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 86,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 8
         }
       },
       "league": {
@@ -2248,7 +2248,7 @@
       },
       "goals": {
         "home": 2,
-        "away": 0
+        "away": 1
       }
     },
     {
@@ -2259,8 +2259,8 @@
         "date": "2026-08-19T10:00:00+00:00",
         "timestamp": 1787133600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787133600,
+          "second": 1787137200
         },
         "venue": {
           "id": null,
@@ -2268,9 +2268,9 @@
           "city": "Kanazawa"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -2288,17 +2288,17 @@
         "id": 300,
         "name": "Kanazawa",
         "logo": "https://media.api-sports.io/football/teams/300.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 11431,
         "name": "Kyoto Sangyo University",
         "logo": "https://media.api-sports.io/football/teams/11431.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 4
       }
     },
     {
@@ -2318,10 +2318,10 @@
           "city": "Nagano"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
+          "long": "Match Finished",
+          "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 5
         }
       },
       "league": {
@@ -2368,10 +2368,10 @@
           "city": "Nara"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 86,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
         }
       },
       "league": {
@@ -2418,10 +2418,10 @@
           "city": "Hikone"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 9
         }
       },
       "league": {
@@ -2438,16 +2438,16 @@
         "id": 7117,
         "name": "Biwako Shiga",
         "logo": "https://media.api-sports.io/football/teams/7117.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 11446,
         "name": "Japan Soccer College",
         "logo": "https://media.api-sports.io/football/teams/11446.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": 1,
+        "home": 2,
         "away": 1
       }
     },
@@ -2518,10 +2518,10 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 87,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -2538,16 +2538,16 @@
         "id": 28189,
         "name": "Senshu University",
         "logo": "https://media.api-sports.io/football/teams/28189.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 11424,
         "name": "Tsukuba University",
         "logo": "https://media.api-sports.io/football/teams/11424.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": 1,
+        "home": 2,
         "away": 1
       }
     },
@@ -2568,10 +2568,10 @@
           "city": "Utsunomiya"
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
+          "long": "Match Finished",
+          "short": "FT",
           "elapsed": 90,
-          "extra": null
+          "extra": 4
         }
       },
       "league": {
@@ -2618,10 +2618,10 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 86,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -2648,7 +2648,7 @@
       },
       "goals": {
         "home": 1,
-        "away": 2
+        "away": 3
       }
     },
     {
@@ -2668,9 +2668,9 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
+          "long": "Break Time",
+          "short": "BT",
+          "elapsed": null,
           "extra": null
         }
       },
@@ -2688,17 +2688,17 @@
         "id": 11437,
         "name": "Veroskronos Tsuno",
         "logo": "https://media.api-sports.io/football/teams/11437.png",
-        "winner": true
+        "winner": null
       },
       "away": {
         "id": 317,
         "name": "Kamatamare Sanuki",
         "logo": "https://media.api-sports.io/football/teams/317.png",
-        "winner": false
+        "winner": null
       },
       "goals": {
         "home": 1,
-        "away": 0
+        "away": 1
       }
     },
     {
@@ -2718,10 +2718,10 @@
           "city": null
         },
         "status": {
-          "long": "Second Half",
-          "short": "2H",
-          "elapsed": 88,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -2747,7 +2747,7 @@
         "winner": false
       },
       "goals": {
-        "home": 2,
+        "home": 3,
         "away": 0
       }
     },
@@ -2759,8 +2759,8 @@
         "date": "2026-08-19T10:00:00+00:00",
         "timestamp": 1787133600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787133600,
+          "second": 1787137200
         },
         "venue": {
           "id": null,
@@ -2768,9 +2768,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -2788,17 +2788,17 @@
         "id": 7153,
         "name": "Yamanashi Gakuin",
         "logo": "https://media.api-sports.io/football/teams/7153.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 7148,
         "name": "Tokyo Int. University",
         "logo": "https://media.api-sports.io/football/teams/7148.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       }
     },
     {
@@ -2820,8 +2820,8 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 69,
-          "extra": null
+          "elapsed": 90,
+          "extra": 1
         }
       },
       "league": {
@@ -2870,7 +2870,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 60,
+          "elapsed": 82,
           "extra": null
         }
       },
@@ -2897,7 +2897,7 @@
         "winner": false
       },
       "goals": {
-        "home": 2,
+        "home": 3,
         "away": 0
       }
     },
@@ -2920,7 +2920,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 58,
+          "elapsed": 79,
           "extra": null
         }
       },
@@ -2938,16 +2938,16 @@
         "id": 2748,
         "name": "FC Anyang",
         "logo": "https://media.api-sports.io/football/teams/2748.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 2761,
         "name": "Jeju United FC",
         "logo": "https://media.api-sports.io/football/teams/2761.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": 1,
+        "home": 2,
         "away": 1
       }
     },
@@ -2970,7 +2970,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 58,
+          "elapsed": 79,
           "extra": null
         }
       },
@@ -3020,7 +3020,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 61,
+          "elapsed": 82,
           "extra": null
         }
       },
@@ -3210,7 +3210,7 @@
         "timestamp": 1787137200,
         "periods": {
           "first": 1787137200,
-          "second": null
+          "second": 1787140800
         },
         "venue": {
           "id": 7773,
@@ -3218,10 +3218,10 @@
           "city": "Mbeya"
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 45,
-          "extra": 1
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 49,
+          "extra": null
         }
       },
       "league": {
@@ -3310,7 +3310,7 @@
         "timestamp": 1787137200,
         "periods": {
           "first": 1787137200,
-          "second": null
+          "second": 1787140800
         },
         "venue": {
           "id": null,
@@ -3318,9 +3318,9 @@
           "city": null
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 44,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 49,
           "extra": null
         }
       },
@@ -3348,7 +3348,7 @@
       },
       "goals": {
         "home": 0,
-        "away": 1
+        "away": 2
       }
     },
     {
@@ -3360,7 +3360,7 @@
         "timestamp": 1787137200,
         "periods": {
           "first": 1787137200,
-          "second": null
+          "second": 1787140800
         },
         "venue": {
           "id": null,
@@ -3368,9 +3368,9 @@
           "city": null
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 43,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 47,
           "extra": null
         }
       },
@@ -3460,7 +3460,7 @@
         "timestamp": 1787137200,
         "periods": {
           "first": 1787137200,
-          "second": null
+          "second": 1787140800
         },
         "venue": {
           "id": null,
@@ -3468,10 +3468,10 @@
           "city": null
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 45,
-          "extra": 2
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 49,
+          "extra": null
         }
       },
       "league": {
@@ -3520,7 +3520,7 @@
         "status": {
           "long": "First Half",
           "short": "1H",
-          "elapsed": 16,
+          "elapsed": 38,
           "extra": null
         }
       },
@@ -3570,7 +3570,7 @@
         "status": {
           "long": "First Half",
           "short": "1H",
-          "elapsed": 12,
+          "elapsed": 33,
           "extra": null
         }
       },
@@ -3588,17 +3588,17 @@
         "id": 836,
         "name": "SHANGHAI SIPG",
         "logo": "https://media.api-sports.io/football/teams/836.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 21263,
         "name": "Dalian Zhixing",
         "logo": "https://media.api-sports.io/football/teams/21263.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 1
       }
     },
     {
@@ -3759,7 +3759,7 @@
         "date": "2026-08-19T12:00:00+00:00",
         "timestamp": 1787140800,
         "periods": {
-          "first": null,
+          "first": 1787140800,
           "second": null
         },
         "venue": {
@@ -3768,9 +3768,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 8,
           "extra": null
         }
       },
@@ -3797,8 +3797,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
