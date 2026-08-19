@@ -302,7 +302,7 @@ jobs:
       # SAVE DATA
       # =========================
 
-      - name: Save data
+            - name: Save data
 
         run: |
 
@@ -332,5 +332,7 @@ jobs:
           git commit \
             -m \
             "Update football data"
+
+          git pull --rebase origin main
 
           git push
