@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T13:57:43.024515+00:00",
+  "updated": "2026-08-19T14:04:59.809640+00:00",
   "matches": [
     {
       "fixture": {
@@ -3820,7 +3820,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 75,
+          "elapsed": 82,
           "extra": null
         }
       },
@@ -3848,7 +3848,7 @@
       },
       "goals": {
         "home": 1,
-        "away": 2
+        "away": 3
       }
     },
     {
@@ -3960,7 +3960,7 @@
         "timestamp": 1787144400,
         "periods": {
           "first": 1787144400,
-          "second": null
+          "second": 1787148000
         },
         "venue": {
           "id": null,
@@ -3968,10 +3968,10 @@
           "city": "Lodz"
         },
         "status": {
-          "long": "Halftime",
-          "short": "HT",
-          "elapsed": 45,
-          "extra": 1
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 47,
+          "extra": null
         }
       },
       "league": {
@@ -4160,7 +4160,7 @@
         "timestamp": 1787144400,
         "periods": {
           "first": 1787144400,
-          "second": null
+          "second": 1787148000
         },
         "venue": {
           "id": null,
@@ -4168,10 +4168,10 @@
           "city": "Hanoi"
         },
         "status": {
-          "long": "Halftime",
-          "short": "HT",
-          "elapsed": 45,
-          "extra": 3
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 46,
+          "extra": null
         }
       },
       "league": {
@@ -4320,8 +4320,8 @@
         "status": {
           "long": "First Half",
           "short": "1H",
-          "elapsed": 39,
-          "extra": null
+          "elapsed": 45,
+          "extra": 1
         }
       },
       "league": {
@@ -4370,8 +4370,8 @@
         "status": {
           "long": "First Half",
           "short": "1H",
-          "elapsed": 43,
-          "extra": null
+          "elapsed": 45,
+          "extra": 5
         }
       },
       "league": {
@@ -4509,7 +4509,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4518,9 +4518,9 @@
           "city": "Olmaliq"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 3,
           "extra": null
         }
       },
@@ -4547,8 +4547,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
@@ -4559,7 +4559,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4568,9 +4568,9 @@
           "city": "Astana"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 4,
           "extra": null
         }
       },
@@ -4597,8 +4597,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
@@ -4609,7 +4609,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4618,9 +4618,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 3,
           "extra": null
         }
       },
@@ -4647,8 +4647,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
@@ -4759,7 +4759,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4768,9 +4768,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 3,
           "extra": null
         }
       },
@@ -4797,8 +4797,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
@@ -4809,7 +4809,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4818,9 +4818,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 5,
           "extra": null
         }
       },
@@ -4847,8 +4847,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
@@ -4859,7 +4859,7 @@
         "date": "2026-08-19T14:00:00+00:00",
         "timestamp": 1787148000,
         "periods": {
-          "first": null,
+          "first": 1787148000,
           "second": null
         },
         "venue": {
@@ -4868,9 +4868,9 @@
           "city": "Zakynthos"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "First Half",
+          "short": "1H",
+          "elapsed": 5,
           "extra": null
         }
       },
@@ -4897,8 +4897,8 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       }
     },
     {
