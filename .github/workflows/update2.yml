@@ -1,7 +1,9 @@
-name: Update Football Data
+name: Update Football Data 2
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -12,59 +14,695 @@ jobs:
 
     steps:
 
+      # ==========================================
+      # CHECKOUT
+      # ==========================================
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check API
+
+      # ==========================================
+      # CHECK API KEY
+      # ==========================================
+
+      - name: Check API key
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
-          echo "Checking API..."
+          if [ -z "$API_KEY" ]; then
+            echo "❌ API_SPORTS_KEY is missing"
+            exit 1
+          fi
 
-          curl -sS \
-            -D headers.txt \
+          echo "✅ API key found"
+
+
+      # ==========================================
+      # TODAY
+      # ==========================================
+
+      - name: Set date
+        run: |
+          echo "TODAY=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+          echo "DATE: $(date -u +%Y-%m-%d)"
+
+
+      # ==========================================
+      # MATCHES
+      # ONE API REQUEST
+      # ==========================================
+
+      - name: Get today's matches
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+
+          echo "Getting matches for $TODAY"
+
+          curl -f -sS \
+            --retry 3 \
+            --retry-delay 10 \
             -H "x-apisports-key: $API_KEY" \
             -H "Accept: application/json" \
-            "https://v3.football.api-sports.io/fixtures?date=$(date -u +%Y-%m-%d)" \
-            -o response.json
-
-          echo "=============================="
-          echo "API RESPONSE"
-          echo "=============================="
+            -A "Hersh-Football" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
+            -o matches_raw.json
 
           python3 - <<'PY'
           import json
 
-          with open("response.json", encoding="utf-8") as f:
+          with open("matches_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          print("Errors:", data.get("errors"))
-          print("Results:", data.get("results"))
-          print("Response:", len(data.get("response", [])))
+          print("MATCH API ERRORS:", data.get("errors"))
+          print("MATCH RESULTS:", data.get("results"))
+          print("MATCH RESPONSE:", len(data.get("response", [])))
 
-          if data.get("response"):
-              print("✅ API DATA IS WORKING")
-          else:
-              print("❌ API RETURNED NO DATA")
+          if data.get("errors"):
+              raise SystemExit("❌ Match API error")
+
           PY
 
-          echo "=============================="
-          echo "RATE LIMIT"
-          echo "=============================="
 
-          grep -i "ratelimit" headers.txt || true
+      # ==========================================
+      # CREATE MATCHES.JSON
+      # ==========================================
 
-      - name: Save test
+      - name: Create matches.json
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
 
-          git add response.json
+          python3 - <<'PY'
+
+          import json
+          from datetime import datetime, timezone
+
+          with open(
+              "matches_raw.json",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          matches = []
+
+          for item in data.get("response", []):
+
+              matches.append({
+
+                  "fixture":
+                      item.get("fixture", {}),
+
+                  "league":
+                      item.get("league", {}),
+
+                  "home":
+                      item.get("teams", {}).get(
+                          "home", {}
+                      ),
+
+                  "away":
+                      item.get("teams", {}).get(
+                          "away", {}
+                      ),
+
+                  "goals":
+                      item.get("goals", {}),
+
+                  "score":
+                      item.get("score", {})
+
+              })
+
+          output = {
+
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+
+              "results":
+                  len(matches),
+
+              "matches":
+                  matches
+
+          }
+
+          with open(
+              "matches.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("==============================")
+          print("FINAL MATCHES:", len(matches))
+          print("==============================")
+
+          for match in matches:
+
+              league = match["league"]
+              home = match["home"]
+              away = match["away"]
+
+              print(
+                  league.get("name"),
+                  "=>",
+                  home.get("name"),
+                  "vs",
+                  away.get("name")
+              )
+
+          PY
+
+
+      # ==========================================
+      # TRANSFERS
+      # IMPORTANT TEAMS
+      # ==========================================
+
+      - name: Get important transfers
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+
+          mkdir -p transfer_data
+
+          teams=(
+            529
+            541
+            530
+            50
+            33
+            42
+            49
+            40
+            157
+            85
+            496
+            505
+            489
+          )
+
+          for team in "${teams[@]}"; do
+
+            echo "================================"
+            echo "Getting transfers for team: $team"
+            echo "================================"
+
+            curl -f -sS \
+              --retry 2 \
+              --retry-delay 10 \
+              -H "x-apisports-key: $API_KEY" \
+              -H "Accept: application/json" \
+              -A "Hersh-Football" \
+              "https://v3.football.api-sports.io/transfers?team=$team" \
+              -o "transfer_data/$team.json"
+
+            python3 - "$team" <<'PY'
+          import json
+          import sys
+
+          team = sys.argv[1]
+
+          with open(
+              f"transfer_data/{team}.json",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          print(
+              "Team:",
+              team,
+              "Results:",
+              data.get("results"),
+              "Errors:",
+              data.get("errors")
+          )
+
+          PY
+
+            sleep 7
+
+          done
+
+
+      # ==========================================
+      # CREATE TRANSFERS.JSON
+      # ==========================================
+
+      - name: Create transfers.json
+        run: |
+
+          python3 - <<'PY'
+
+          import json
+          import glob
+
+          transfers = []
+
+          for filename in glob.glob(
+              "transfer_data/*.json"
+          ):
+
+              try:
+
+                  with open(
+                      filename,
+                      encoding="utf-8"
+                  ) as f:
+                      data = json.load(f)
+
+                  if data.get("errors"):
+                      print(
+                          "API error:",
+                          filename,
+                          data.get("errors")
+                      )
+                      continue
+
+                  for item in data.get(
+                      "response",
+                      []
+                  ):
+
+                      player = item.get(
+                          "player",
+                          {}
+                      )
+
+                      for transfer in item.get(
+                          "transfers",
+                          []
+                      ):
+
+                          transfers.append({
+
+                              "player":
+                                  player,
+
+                              "date":
+                                  transfer.get(
+                                      "date",
+                                      ""
+                                  ),
+
+                              "type":
+                                  transfer.get(
+                                      "type",
+                                      "Transfer"
+                                  ),
+
+                              "teams":
+                                  transfer.get(
+                                      "teams",
+                                      {}
+                                  )
+
+                          })
+
+              except Exception as e:
+
+                  print(
+                      "Skipping:",
+                      filename,
+                      e
+                  )
+
+
+          unique = []
+          seen = set()
+
+          for item in transfers:
+
+              player = item.get(
+                  "player",
+                  {}
+              )
+
+              teams = item.get(
+                  "teams",
+                  {}
+              )
+
+              key = (
+                  player.get("id"),
+                  item.get("date"),
+                  json.dumps(
+                      teams,
+                      sort_keys=True
+                  )
+              )
+
+              if key in seen:
+                  continue
+
+              seen.add(key)
+              unique.append(item)
+
+
+          unique.sort(
+              key=lambda x:
+                  x.get("date", ""),
+              reverse=True
+          )
+
+
+          with open(
+              "transfers.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  unique[:300],
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print("==============================")
+          print("TRANSFERS:", len(unique[:300]))
+          print("==============================")
+
+          PY
+
+
+      # ==========================================
+      # STANDINGS
+      # 7 REQUESTS
+      # ==========================================
+
+      - name: Create standings
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+
+          python3 - <<'PY'
+
+          import json
+          import urllib.request
+          import urllib.error
+          import os
+          import time
+          from datetime import datetime, timezone
+
+          API_KEY = os.environ["API_KEY"]
+
+          leagues = {
+              "Premier League": 39,
+              "La Liga": 140,
+              "Serie A": 135,
+              "Bundesliga": 78,
+              "Ligue 1": 61,
+              "Champions League": 2,
+              "Europa League": 3
+          }
+
+          # Current football season
+          season = 2026
+
+          result = {}
+
+          for name, league_id in leagues.items():
+
+              print("")
+              print("==============================")
+              print("League:", name)
+              print("==============================")
+
+              url = (
+                  "https://v3.football.api-sports.io/"
+                  "standings"
+                  "?league="
+                  + str(league_id)
+                  + "&season="
+                  + str(season)
+              )
+
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "x-apisports-key": API_KEY,
+                      "Accept": "application/json",
+                      "User-Agent": "Hersh-Football"
+                  }
+              )
+
+              try:
+
+                  with urllib.request.urlopen(
+                      request,
+                      timeout=30
+                  ) as response:
+
+                      data = json.load(response)
+
+              except Exception as e:
+
+                  print(
+                      "❌ ERROR:",
+                      str(e)
+                  )
+
+                  time.sleep(7)
+                  continue
+
+              errors = data.get(
+                  "errors",
+                  {}
+              )
+
+              if errors:
+
+                  print(
+                      "❌ API ERROR:",
+                      errors
+                  )
+
+                  time.sleep(7)
+                  continue
+
+              response_data = data.get(
+                  "response",
+                  []
+              )
+
+              if not response_data:
+
+                  print(
+                      "❌ No data"
+                  )
+
+                  time.sleep(7)
+                  continue
+
+              league_data = response_data[0].get(
+                  "league",
+                  {}
+              )
+
+              standings = league_data.get(
+                  "standings",
+                  []
+              )
+
+              if not standings:
+
+                  print(
+                      "❌ No standings"
+                  )
+
+                  time.sleep(7)
+                  continue
+
+              table = standings[0]
+
+              result[name] = {
+
+                  "id":
+                      league_id,
+
+                  "season":
+                      season,
+
+                  "name":
+                      name,
+
+                  "logo":
+                      league_data.get(
+                          "logo"
+                      ),
+
+                  "standings":
+                      table
+              }
+
+              print(
+                  "✅ SUCCESS:",
+                  name,
+                  "teams:",
+                  len(table)
+              )
+
+              time.sleep(7)
+
+
+          output = {
+
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+
+              "leagues":
+                  result
+
+          }
+
+          with open(
+              "standings.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("")
+          print("==============================")
+          print(
+              "STANDING LEAGUES:",
+              len(result)
+          )
+          print("==============================")
+
+          PY
+
+
+      # ==========================================
+      # FINAL CHECK
+      # ==========================================
+
+      - name: Check generated files
+        run: |
+
+          echo "================================"
+          echo "GENERATED FILES"
+          echo "================================"
+
+          ls -lh \
+            matches.json \
+            transfers.json \
+            standings.json
+
+          python3 - <<'PY'
+
+          import json
+
+          with open(
+              "matches.json",
+              encoding="utf-8"
+          ) as f:
+              matches = json.load(f)
+
+          with open(
+              "transfers.json",
+              encoding="utf-8"
+          ) as f:
+              transfers = json.load(f)
+
+          with open(
+              "standings.json",
+              encoding="utf-8"
+          ) as f:
+              standings = json.load(f)
+
+          print("")
+          print("==============================")
+          print(
+              "FINAL MATCHES:",
+              len(
+                  matches.get(
+                      "matches",
+                      []
+                  )
+              )
+          )
+
+          print(
+              "TRANSFERS:",
+              len(transfers)
+          )
+
+          print(
+              "STANDING LEAGUES:",
+              len(
+                  standings.get(
+                      "leagues",
+                      {}
+                  )
+              )
+          )
+
+          print("==============================")
+
+
+          if len(matches.get("matches", [])) == 0:
+              print("⚠️ No matches today")
+
+          if len(transfers) == 0:
+              print("⚠️ No transfers returned")
+
+          if len(standings.get("leagues", {})) == 0:
+              print("⚠️ No standings returned")
+
+          PY
+
+
+      # ==========================================
+      # SAVE
+      # ==========================================
+
+      - name: Save changes
+        run: |
+
+          git config \
+            user.name \
+            "github-actions"
+
+          git config \
+            user.email \
+            "github-actions@github.com"
+
+          git add -f \
+            matches.json \
+            transfers.json \
+            standings.json \
+            transfer_data
+
+          git status --short
 
           if git diff --cached --quiet; then
-            echo "No changes"
+
+            echo "No changes to commit"
+
             exit 0
+
           fi
 
-          git commit -m "Test API Football"
+          git commit \
+            -m "Update football data"
+
           git push
