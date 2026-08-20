@@ -1,11 +1,11 @@
 {
-  "updated": "2026-08-20T08:46:29.218851+00:00",
+  "updated": "2026-08-20T08:54:45.969550+00:00",
   "results": 181,
   "matches": [
     {
       "fixture": {
         "id": 1490398,
-        "referee": "Victor Rivas, USA",
+        "referee": "V. Rivas",
         "timezone": "UTC",
         "date": "2026-08-20T00:00:00+00:00",
         "timestamp": 1787184000,
@@ -957,7 +957,7 @@
     {
       "fixture": {
         "id": 1490400,
-        "referee": "Joseph Dickerson, USA",
+        "referee": "J. Dickerson",
         "timezone": "UTC",
         "date": "2026-08-20T01:30:00+00:00",
         "timestamp": 1787189400,
@@ -1025,7 +1025,7 @@
     {
       "fixture": {
         "id": 1490401,
-        "referee": "Allen Chapman, USA",
+        "referee": "A. Chapman",
         "timezone": "UTC",
         "date": "2026-08-20T01:30:00+00:00",
         "timestamp": 1787189400,
@@ -1093,7 +1093,7 @@
     {
       "fixture": {
         "id": 1490402,
-        "referee": "Armando Villarrea, USA",
+        "referee": "A. Villarreal",
         "timezone": "UTC",
         "date": "2026-08-20T01:30:00+00:00",
         "timestamp": 1787189400,
@@ -1229,7 +1229,7 @@
     {
       "fixture": {
         "id": 1490403,
-        "referee": "Ramy Touchan, USA",
+        "referee": "R. Touchan",
         "timezone": "UTC",
         "date": "2026-08-20T02:30:00+00:00",
         "timestamp": 1787193000,
@@ -1297,7 +1297,7 @@
     {
       "fixture": {
         "id": 1490404,
-        "referee": "Ricardo Montero, Costa Rica",
+        "referee": "R. Montero",
         "timezone": "UTC",
         "date": "2026-08-20T02:30:00+00:00",
         "timestamp": 1787193000,
@@ -1365,7 +1365,7 @@
     {
       "fixture": {
         "id": 1490405,
-        "referee": "Rubiel Vazquez, USA",
+        "referee": "R. Vazquez",
         "timezone": "UTC",
         "date": "2026-08-20T02:30:00+00:00",
         "timestamp": 1787193000,
