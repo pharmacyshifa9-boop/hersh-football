@@ -1,86 +1,6 @@
 [
   {
     "player": {
-      "id": 31173,
-      "name": "D. Frattesi"
-    },
-    "date": "2026-08-13",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 487,
-        "name": "Lazio",
-        "logo": "https://media.api-sports.io/football/teams/487.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 396380,
-      "name": "Z. Athekame"
-    },
-    "date": "2026-08-13",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 80,
-        "name": "Lyon",
-        "logo": "https://media.api-sports.io/football/teams/80.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 557379,
-      "name": "R. Kavuma McQueen"
-    },
-    "date": "2026-08-13",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1355,
-        "name": "Portsmouth",
-        "logo": "https://media.api-sports.io/football/teams/1355.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 445472,
-      "name": "D. Satpaev"
-    },
-    "date": "2026-08-13",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 44,
-        "name": "Burnley",
-        "logo": "https://media.api-sports.io/football/teams/44.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 293168,
       "name": "Max Alleyne"
     },
@@ -96,26 +16,6 @@
         "id": 50,
         "name": "Manchester City",
         "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 280339,
-      "name": "A. Sieb"
-    },
-    "date": "2026-08-12",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 1616,
-        "name": "Los Angeles FC",
-        "logo": "https://media.api-sports.io/football/teams/1616.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
       }
     }
   },
@@ -161,26 +61,6 @@
   },
   {
     "player": {
-      "id": 567802,
-      "name": "H. Diandaga"
-    },
-    "date": "2026-08-11",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 365664,
       "name": "Ethan Williams"
     },
@@ -196,66 +76,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 445472,
-      "name": "D. Satpaev"
-    },
-    "date": "2026-08-11",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 664,
-        "name": "Kairat Almaty",
-        "logo": "https://media.api-sports.io/football/teams/664.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 181734,
-      "name": "Pep Chavarría"
-    },
-    "date": "2026-08-11",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 728,
-        "name": "Rayo Vallecano",
-        "logo": "https://media.api-sports.io/football/teams/728.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 280339,
-      "name": "A. Sieb"
-    },
-    "date": "2026-08-11",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 1616,
-        "name": "Los Angeles FC",
-        "logo": "https://media.api-sports.io/football/teams/1616.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
       }
     }
   },
@@ -301,26 +121,6 @@
   },
   {
     "player": {
-      "id": 30415,
-      "name": "D. Vlahović"
-    },
-    "date": "2026-08-11",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 549,
-        "name": "Beşiktaş",
-        "logo": "https://media.api-sports.io/football/teams/549.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 6503,
       "name": "N. Molina"
     },
@@ -336,106 +136,6 @@
         "id": 530,
         "name": "Atletico Madrid",
         "logo": "https://media.api-sports.io/football/teams/530.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 567802,
-      "name": "H. Diandaga"
-    },
-    "date": "2026-08-10",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 286616,
-      "name": "F. Jörgensen"
-    },
-    "date": "2026-08-10",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 328093,
-      "name": "I. Samuels-Smith"
-    },
-    "date": "2026-08-10",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1376,
-        "name": "Notts County",
-        "logo": "https://media.api-sports.io/football/teams/1376.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 445472,
-      "name": "D. Satpaev"
-    },
-    "date": "2026-08-10",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 664,
-        "name": "Kairat Almaty",
-        "logo": "https://media.api-sports.io/football/teams/664.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 181734,
-      "name": "Pep Chavarría"
-    },
-    "date": "2026-08-10",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 728,
-        "name": "Rayo Vallecano",
-        "logo": "https://media.api-sports.io/football/teams/728.png"
       }
     }
   },
@@ -481,26 +181,6 @@
   },
   {
     "player": {
-      "id": 379068,
-      "name": "C. Corradi"
-    },
-    "date": "2026-08-10",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 504,
-        "name": "Hellas Verona",
-        "logo": "https://media.api-sports.io/football/teams/504.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 101814,
       "name": "R. Araújo"
     },
@@ -516,106 +196,6 @@
         "id": 529,
         "name": "Barcelona",
         "logo": "https://media.api-sports.io/football/teams/529.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 630895,
-      "name": "Bara Ndiaye"
-    },
-    "date": "2026-08-09",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      },
-      "out": {
-        "id": null,
-        "name": "Gambinos Stars",
-        "logo": null
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 335099,
-      "name": "S. Scaglia"
-    },
-    "date": "2026-08-09",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 870,
-        "name": "Padova",
-        "logo": "https://media.api-sports.io/football/teams/870.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 2724,
-      "name": "L. Digne"
-    },
-    "date": "2026-08-08",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 66,
-        "name": "Aston Villa",
-        "logo": "https://media.api-sports.io/football/teams/66.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 19720,
-      "name": "T. Chalobah"
-    },
-    "date": "2026-08-08",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 895,
-        "name": "Como",
-        "logo": "https://media.api-sports.io/football/teams/895.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 335099,
-      "name": "S. Scaglia"
-    },
-    "date": "2026-08-08",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 870,
-        "name": "Padova",
-        "logo": "https://media.api-sports.io/football/teams/870.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
       }
     }
   },
@@ -661,26 +241,6 @@
   },
   {
     "player": {
-      "id": 2724,
-      "name": "L. Digne"
-    },
-    "date": "2026-08-07",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 66,
-        "name": "Aston Villa",
-        "logo": "https://media.api-sports.io/football/teams/66.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 284361,
       "name": "R. Vítek"
     },
@@ -696,26 +256,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 19720,
-      "name": "T. Chalobah"
-    },
-    "date": "2026-08-07",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 895,
-        "name": "Como",
-        "logo": "https://media.api-sports.io/football/teams/895.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
       }
     }
   },
@@ -881,26 +421,6 @@
   },
   {
     "player": {
-      "id": 274300,
-      "name": "M. Akliouche"
-    },
-    "date": "2026-08-05",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 91,
-        "name": "Monaco",
-        "logo": "https://media.api-sports.io/football/teams/91.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 330636,
       "name": "Sonny Aljofree"
     },
@@ -916,26 +436,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 3173,
-      "name": "I. Bennacer"
-    },
-    "date": "2026-08-05",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": null,
-        "name": "Bennacer Ismael",
-        "logo": null
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
       }
     }
   },
@@ -976,26 +476,6 @@
         "id": 173,
         "name": "RB Leipzig",
         "logo": "https://media.api-sports.io/football/teams/173.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 1821,
-      "name": "F. Kostić"
-    },
-    "date": "2026-08-05",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 197,
-        "name": "PSV Eindhoven",
-        "logo": "https://media.api-sports.io/football/teams/197.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
       }
     }
   },
@@ -1021,26 +501,6 @@
   },
   {
     "player": {
-      "id": 274300,
-      "name": "M. Akliouche"
-    },
-    "date": "2026-08-04",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 91,
-        "name": "Monaco",
-        "logo": "https://media.api-sports.io/football/teams/91.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 162489,
       "name": "J. Trafford"
     },
@@ -1076,66 +536,6 @@
         "id": 173,
         "name": "RB Leipzig",
         "logo": "https://media.api-sports.io/football/teams/173.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 1821,
-      "name": "F. Kostić"
-    },
-    "date": "2026-08-04",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 197,
-        "name": "PSV Eindhoven",
-        "logo": "https://media.api-sports.io/football/teams/197.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 620020,
-      "name": "B. Zulovic"
-    },
-    "date": "2026-08-03",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 3381,
-        "name": "Velež",
-        "logo": "https://media.api-sports.io/football/teams/3381.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 306,
-      "name": "Mohamed Salah"
-    },
-    "date": "2026-08-03",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 998,
-        "name": "Trabzonspor",
-        "logo": "https://media.api-sports.io/football/teams/998.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
       }
     }
   },
@@ -1181,46 +581,6 @@
   },
   {
     "player": {
-      "id": 292,
-      "name": "J. Henderson"
-    },
-    "date": "2026-08-02",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 55,
-        "name": "Brentford",
-        "logo": "https://media.api-sports.io/football/teams/55.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 398000,
-      "name": "G. Antwi"
-    },
-    "date": "2026-08-02",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 386306,
       "name": "César Palacios"
     },
@@ -1256,106 +616,6 @@
         "id": 541,
         "name": "Real Madrid",
         "logo": "https://media.api-sports.io/football/teams/541.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 295159,
-      "name": "L. Cerri"
-    },
-    "date": "2026-08-02",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 101,
-        "name": "Grenoble",
-        "logo": "https://media.api-sports.io/football/teams/101.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 339872,
-      "name": "Vasilije Adžić"
-    },
-    "date": "2026-08-02",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 488,
-        "name": "Sassuolo",
-        "logo": "https://media.api-sports.io/football/teams/488.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 41734,
-      "name": "João Mário"
-    },
-    "date": "2026-08-02",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 502,
-        "name": "Fiorentina",
-        "logo": "https://media.api-sports.io/football/teams/502.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 21104,
-      "name": "R. Kolo Muani"
-    },
-    "date": "2026-08-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 319572,
-      "name": "V. Barco"
-    },
-    "date": "2026-08-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
       }
     }
   },
@@ -1421,46 +681,6 @@
   },
   {
     "player": {
-      "id": 295159,
-      "name": "L. Cerri"
-    },
-    "date": "2026-08-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 101,
-        "name": "Grenoble",
-        "logo": "https://media.api-sports.io/football/teams/101.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 395559,
-      "name": "Kerim-Sam Alajbegović"
-    },
-    "date": "2026-08-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 168,
-        "name": "Bayer Leverkusen",
-        "logo": "https://media.api-sports.io/football/teams/168.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 389308,
       "name": "Osman Kamara"
     },
@@ -1476,86 +696,6 @@
         "id": 42,
         "name": "Arsenal",
         "logo": "https://media.api-sports.io/football/teams/42.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 21104,
-      "name": "R. Kolo Muani"
-    },
-    "date": "2026-07-31",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 408635,
-      "name": "E. Akinsanmiro"
-    },
-    "date": "2026-07-31",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1579,
-        "name": "Monza",
-        "logo": "https://media.api-sports.io/football/teams/1579.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 1469,
-      "name": "D. Welbeck"
-    },
-    "date": "2026-07-31",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 51,
-        "name": "Brighton",
-        "logo": "https://media.api-sports.io/football/teams/51.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 319572,
-      "name": "V. Barco"
-    },
-    "date": "2026-07-31",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
       }
     }
   },
@@ -1601,26 +741,6 @@
   },
   {
     "player": {
-      "id": 395559,
-      "name": "Kerim-Sam Alajbegović"
-    },
-    "date": "2026-07-31",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 168,
-        "name": "Bayer Leverkusen",
-        "logo": "https://media.api-sports.io/football/teams/168.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 338508,
       "name": "I. Kostis"
     },
@@ -1636,86 +756,6 @@
         "id": 530,
         "name": "Atletico Madrid",
         "logo": "https://media.api-sports.io/football/teams/530.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568269,
-      "name": "T. Cordier"
-    },
-    "date": "2026-07-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 1014,
-        "name": "Lausanne",
-        "logo": "https://media.api-sports.io/football/teams/1014.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 567806,
-      "name": "Z. Chtai-Telamio"
-    },
-    "date": "2026-07-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 90,
-        "name": "Guingamp",
-        "logo": "https://media.api-sports.io/football/teams/90.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 1469,
-      "name": "D. Welbeck"
-    },
-    "date": "2026-07-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 51,
-        "name": "Brighton",
-        "logo": "https://media.api-sports.io/football/teams/51.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 394167,
-      "name": "O. Harrison"
-    },
-    "date": "2026-07-30",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1333,
-        "name": "AFC Wimbledon",
-        "logo": "https://media.api-sports.io/football/teams/1333.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
       }
     }
   },
@@ -1801,86 +841,6 @@
   },
   {
     "player": {
-      "id": 568269,
-      "name": "T. Cordier"
-    },
-    "date": "2026-07-29",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 1014,
-        "name": "Lausanne",
-        "logo": "https://media.api-sports.io/football/teams/1014.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 567806,
-      "name": "Z. Chtai-Telamio"
-    },
-    "date": "2026-07-29",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 90,
-        "name": "Guingamp",
-        "logo": "https://media.api-sports.io/football/teams/90.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 288101,
-      "name": "Oakley William Cannonier"
-    },
-    "date": "2026-07-29",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 4205,
-        "name": "Hougang United",
-        "logo": "https://media.api-sports.io/football/teams/4205.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 626,
-      "name": "J. Stones"
-    },
-    "date": "2026-07-29",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      },
-      "out": {
-        "id": 50,
-        "name": "Manchester City",
-        "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 328101,
       "name": "T. Fredricson"
     },
@@ -1901,21 +861,21 @@
   },
   {
     "player": {
-      "id": 20995,
-      "name": "M. Lacroix"
+      "id": 626,
+      "name": "J. Stones"
     },
     "date": "2026-07-29",
-    "type": "Transfer",
+    "type": "Free agent",
     "teams": {
       "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png"
       },
       "out": {
-        "id": 52,
-        "name": "Crystal Palace",
-        "logo": "https://media.api-sports.io/football/teams/52.png"
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
       }
     }
   },
@@ -1981,26 +941,6 @@
   },
   {
     "player": {
-      "id": 301286,
-      "name": "Tommy Pilling"
-    },
-    "date": "2026-07-28",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 3552,
-        "name": "Zemplín Michalovce",
-        "logo": "https://media.api-sports.io/football/teams/3552.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 328101,
       "name": "T. Fredricson"
     },
@@ -2016,46 +956,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 591991,
-      "name": "Filippo Scotti"
-    },
-    "date": "2026-07-28",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 528,
-        "name": "Avellino",
-        "logo": "https://media.api-sports.io/football/teams/528.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 20995,
-      "name": "M. Lacroix"
-    },
-    "date": "2026-07-28",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 52,
-        "name": "Crystal Palace",
-        "logo": "https://media.api-sports.io/football/teams/52.png"
       }
     }
   },
@@ -2121,66 +1021,6 @@
   },
   {
     "player": {
-      "id": 301286,
-      "name": "Tommy Pilling"
-    },
-    "date": "2026-07-27",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 3552,
-        "name": "Zemplín Michalovce",
-        "logo": "https://media.api-sports.io/football/teams/3552.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 467860,
-      "name": "S. Bocoum"
-    },
-    "date": "2026-07-27",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      },
-      "out": {
-        "id": 110,
-        "name": "Estac Troyes",
-        "logo": "https://media.api-sports.io/football/teams/110.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 292,
-      "name": "J. Henderson"
-    },
-    "date": "2026-07-27",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 55,
-        "name": "Brentford",
-        "logo": "https://media.api-sports.io/football/teams/55.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 328096,
       "name": "Joel Tshisanga Ndala"
     },
@@ -2196,46 +1036,6 @@
         "id": 50,
         "name": "Manchester City",
         "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 353419,
-      "name": "L. Villa"
-    },
-    "date": "2026-07-27",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 630,
-        "name": "FC Sion",
-        "logo": "https://media.api-sports.io/football/teams/630.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 86,
-      "name": "L. Openda"
-    },
-    "date": "2026-07-27",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 80,
-        "name": "Lyon",
-        "logo": "https://media.api-sports.io/football/teams/80.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
       }
     }
   },
@@ -2261,46 +1061,6 @@
   },
   {
     "player": {
-      "id": 467860,
-      "name": "S. Bocoum"
-    },
-    "date": "2026-07-26",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      },
-      "out": {
-        "id": 110,
-        "name": "Estac Troyes",
-        "logo": "https://media.api-sports.io/football/teams/110.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 353419,
-      "name": "L. Villa"
-    },
-    "date": "2026-07-26",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 630,
-        "name": "FC Sion",
-        "logo": "https://media.api-sports.io/football/teams/630.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 927,
       "name": "Lee Kang-In"
     },
@@ -2321,26 +1081,6 @@
   },
   {
     "player": {
-      "id": 287868,
-      "name": "Max Merrick"
-    },
-    "date": "2026-07-24",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1366,
-        "name": "Hartlepool",
-        "logo": "https://media.api-sports.io/football/teams/1366.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 927,
       "name": "Lee Kang-In"
     },
@@ -2356,46 +1096,6 @@
         "id": 85,
         "name": "Paris Saint Germain",
         "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568266,
-      "name": "M. James"
-    },
-    "date": "2026-07-23",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 192,
-        "name": "1. FC Köln",
-        "logo": "https://media.api-sports.io/football/teams/192.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 407032,
-      "name": "A. Nallo"
-    },
-    "date": "2026-07-23",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 649,
-        "name": "HJK Helsinki",
-        "logo": "https://media.api-sports.io/football/teams/649.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
       }
     }
   },
@@ -2416,86 +1116,6 @@
         "id": 569,
         "name": "Club Brugge KV",
         "logo": "https://media.api-sports.io/football/teams/569.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568266,
-      "name": "M. James"
-    },
-    "date": "2026-07-22",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 192,
-        "name": "1. FC Köln",
-        "logo": "https://media.api-sports.io/football/teams/192.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342467,
-      "name": "Á. Pécsi"
-    },
-    "date": "2026-07-22",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1072,
-        "name": "TSV Hartberg",
-        "logo": "https://media.api-sports.io/football/teams/1072.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 284324,
-      "name": "A. Garnacho"
-    },
-    "date": "2026-07-22",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 66,
-        "name": "Aston Villa",
-        "logo": "https://media.api-sports.io/football/teams/66.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568950,
-      "name": "Harrison Bettoni"
-    },
-    "date": "2026-07-22",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 61,
-        "name": "Wigan",
-        "logo": "https://media.api-sports.io/football/teams/61.png"
       }
     }
   },
@@ -2581,26 +1201,6 @@
   },
   {
     "player": {
-      "id": 392493,
-      "name": "M. Cocchi"
-    },
-    "date": "2026-07-21",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 870,
-        "name": "Padova",
-        "logo": "https://media.api-sports.io/football/teams/870.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 747,
       "name": "Casemiro"
     },
@@ -2616,26 +1216,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568950,
-      "name": "Harrison Bettoni"
-    },
-    "date": "2026-07-21",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 61,
-        "name": "Wigan",
-        "logo": "https://media.api-sports.io/football/teams/61.png"
       }
     }
   },
@@ -2716,46 +1296,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568950,
-      "name": "Harrison Bettoni"
-    },
-    "date": "2026-07-20",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 61,
-        "name": "Wigan",
-        "logo": "https://media.api-sports.io/football/teams/61.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 19170,
-      "name": "M. Rogers"
-    },
-    "date": "2026-07-20",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 66,
-        "name": "Aston Villa",
-        "logo": "https://media.api-sports.io/football/teams/66.png"
       }
     }
   },
@@ -2776,66 +1316,6 @@
         "id": 50,
         "name": "Manchester City",
         "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 588501,
-      "name": "Joshua Abe"
-    },
-    "date": "2026-07-19",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      },
-      "out": {
-        "id": 15380,
-        "name": "Liverpool U18",
-        "logo": "https://media.api-sports.io/football/teams/15380.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 511971,
-      "name": "IfeanyiIfeanyi Ndukwe"
-    },
-    "date": "2026-07-19",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      },
-      "out": {
-        "id": 7196,
-        "name": "Liverpool U21",
-        "logo": "https://media.api-sports.io/football/teams/7196.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 437561,
-      "name": "J. Lambie"
-    },
-    "date": "2026-07-19",
-    "type": "Raise",
-    "teams": {
-      "in": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
       }
     }
   },
@@ -2861,26 +1341,6 @@
   },
   {
     "player": {
-      "id": 19170,
-      "name": "M. Rogers"
-    },
-    "date": "2026-07-19",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 66,
-        "name": "Aston Villa",
-        "logo": "https://media.api-sports.io/football/teams/66.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 437550,
       "name": "Matthew Warhurst"
     },
@@ -2896,26 +1356,6 @@
         "id": 50,
         "name": "Manchester City",
         "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 441552,
-      "name": "D. Pugno"
-    },
-    "date": "2026-07-19",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 425,
-        "name": "Jong Ajax",
-        "logo": "https://media.api-sports.io/football/teams/425.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
       }
     }
   },
@@ -2981,46 +1421,6 @@
   },
   {
     "player": {
-      "id": 582072,
-      "name": "M. Ibrahimovic"
-    },
-    "date": "2026-07-17",
-    "type": "-",
-    "teams": {
-      "in": {
-        "id": 418,
-        "name": "Jong AZ",
-        "logo": "https://media.api-sports.io/football/teams/418.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342171,
-      "name": "N. Aséko Nkili"
-    },
-    "date": "2026-07-17",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 169,
-        "name": "Eintracht Frankfurt",
-        "logo": "https://media.api-sports.io/football/teams/169.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 448969,
       "name": "Reigan Heskey"
     },
@@ -3081,66 +1481,6 @@
   },
   {
     "player": {
-      "id": 582072,
-      "name": "M. Ibrahimovic"
-    },
-    "date": "2026-07-16",
-    "type": "-",
-    "teams": {
-      "in": {
-        "id": 418,
-        "name": "Jong AZ",
-        "logo": "https://media.api-sports.io/football/teams/418.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 334042,
-      "name": "Kaiden Wilson"
-    },
-    "date": "2026-07-16",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1339,
-        "name": "Rochdale",
-        "logo": "https://media.api-sports.io/football/teams/1339.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342171,
-      "name": "N. Aséko Nkili"
-    },
-    "date": "2026-07-16",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 169,
-        "name": "Eintracht Frankfurt",
-        "logo": "https://media.api-sports.io/football/teams/169.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 448969,
       "name": "Reigan Heskey"
     },
@@ -3181,46 +1521,6 @@
   },
   {
     "player": {
-      "id": 568478,
-      "name": "E. Mbemba"
-    },
-    "date": "2026-07-15",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 114,
-        "name": "Paris FC",
-        "logo": "https://media.api-sports.io/football/teams/114.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 314226,
-      "name": "L. Zvonarek"
-    },
-    "date": "2026-07-15",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 15130,
-        "name": "Estrela",
-        "logo": "https://media.api-sports.io/football/teams/15130.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 568028,
       "name": "B. Galassi"
     },
@@ -3261,26 +1561,6 @@
   },
   {
     "player": {
-      "id": 22222,
-      "name": "Z. Çelik"
-    },
-    "date": "2026-07-15",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 497,
-        "name": "AS Roma",
-        "logo": "https://media.api-sports.io/football/teams/497.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 419618,
       "name": "Daniel Muñoz Navas"
     },
@@ -3301,46 +1581,6 @@
   },
   {
     "player": {
-      "id": 568478,
-      "name": "E. Mbemba"
-    },
-    "date": "2026-07-14",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 114,
-        "name": "Paris FC",
-        "logo": "https://media.api-sports.io/football/teams/114.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 314226,
-      "name": "L. Zvonarek"
-    },
-    "date": "2026-07-14",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 15130,
-        "name": "Estrela",
-        "logo": "https://media.api-sports.io/football/teams/15130.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 624702,
       "name": "Carlos Rodriguez"
     },
@@ -3356,26 +1596,6 @@
         "id": 541,
         "name": "Real Madrid",
         "logo": "https://media.api-sports.io/football/teams/541.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 22222,
-      "name": "Z. Çelik"
-    },
-    "date": "2026-07-14",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      },
-      "out": {
-        "id": 497,
-        "name": "AS Roma",
-        "logo": "https://media.api-sports.io/football/teams/497.png"
       }
     }
   },
@@ -3436,26 +1656,6 @@
         "id": 42,
         "name": "Arsenal",
         "logo": "https://media.api-sports.io/football/teams/42.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 2802,
-      "name": "Y. Sommer"
-    },
-    "date": "2026-07-13",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 569,
-        "name": "Club Brugge KV",
-        "logo": "https://media.api-sports.io/football/teams/569.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
       }
     }
   },
@@ -3561,26 +1761,6 @@
   },
   {
     "player": {
-      "id": 354754,
-      "name": "Jonathan Asp Jensen"
-    },
-    "date": "2026-07-12",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 544,
-        "name": "Deportivo La Coruna",
-        "logo": "https://media.api-sports.io/football/teams/544.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 305834,
       "name": "Andrey Santos"
     },
@@ -3601,26 +1781,6 @@
   },
   {
     "player": {
-      "id": 354754,
-      "name": "Jonathan Asp Jensen"
-    },
-    "date": "2026-07-11",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 544,
-        "name": "Deportivo La Coruna",
-        "logo": "https://media.api-sports.io/football/teams/544.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 7712,
       "name": "M. Hjulmand"
     },
@@ -3636,26 +1796,6 @@
         "id": 228,
         "name": "Sporting CP",
         "logo": "https://media.api-sports.io/football/teams/228.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 417653,
-      "name": "J. Derry"
-    },
-    "date": "2026-07-10",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 228,
-        "name": "Sporting CP",
-        "logo": "https://media.api-sports.io/football/teams/228.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
       }
     }
   },
@@ -3721,46 +1861,6 @@
   },
   {
     "player": {
-      "id": 162952,
-      "name": "Mario Gila"
-    },
-    "date": "2026-07-09",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      },
-      "out": {
-        "id": 487,
-        "name": "Lazio",
-        "logo": "https://media.api-sports.io/football/teams/487.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 364048,
-      "name": "Harrison Murray-Campbell"
-    },
-    "date": "2026-07-09",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 734,
-        "name": "Kortrijk",
-        "logo": "https://media.api-sports.io/football/teams/734.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 460853,
       "name": "J. Monga"
     },
@@ -3801,26 +1901,6 @@
   },
   {
     "player": {
-      "id": 557008,
-      "name": "G. Di Biase"
-    },
-    "date": "2026-07-09",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 1362,
-        "name": "Crawley Town",
-        "logo": "https://media.api-sports.io/football/teams/1362.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 20619,
       "name": "I. Meslier"
     },
@@ -3841,146 +1921,6 @@
   },
   {
     "player": {
-      "id": 544571,
-      "name": "G. Stabile"
-    },
-    "date": "2026-07-08",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1578,
-        "name": "Sudtirol",
-        "logo": "https://media.api-sports.io/football/teams/1578.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 162952,
-      "name": "Mario Gila"
-    },
-    "date": "2026-07-08",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      },
-      "out": {
-        "id": 487,
-        "name": "Lazio",
-        "logo": "https://media.api-sports.io/football/teams/487.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 557008,
-      "name": "G. Di Biase"
-    },
-    "date": "2026-07-08",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 1362,
-        "name": "Crawley Town",
-        "logo": "https://media.api-sports.io/football/teams/1362.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 415089,
-      "name": "Gabriel Moscardo"
-    },
-    "date": "2026-07-07",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 540,
-        "name": "Espanyol",
-        "logo": "https://media.api-sports.io/football/teams/540.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 31037,
-      "name": "I. Provedel"
-    },
-    "date": "2026-07-07",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      },
-      "out": {
-        "id": 487,
-        "name": "Lazio",
-        "logo": "https://media.api-sports.io/football/teams/487.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 343345,
-      "name": "C. Alexiou"
-    },
-    "date": "2026-07-07",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 575,
-        "name": "AEK Athens FC",
-        "logo": "https://media.api-sports.io/football/teams/575.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 399,
-      "name": "A. Nübel"
-    },
-    "date": "2026-07-07",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 549,
-        "name": "Beşiktaş",
-        "logo": "https://media.api-sports.io/football/teams/549.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 736,
       "name": "Fran García"
     },
@@ -3996,26 +1936,6 @@
         "id": 541,
         "name": "Real Madrid",
         "logo": "https://media.api-sports.io/football/teams/541.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 31037,
-      "name": "I. Provedel"
-    },
-    "date": "2026-07-06",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      },
-      "out": {
-        "id": 487,
-        "name": "Lazio",
-        "logo": "https://media.api-sports.io/football/teams/487.png"
       }
     }
   },
@@ -4061,86 +1981,6 @@
   },
   {
     "player": {
-      "id": 437099,
-      "name": "Renato Bellucci"
-    },
-    "date": "2026-07-05",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 225,
-        "name": "Nacional",
-        "logo": "https://media.api-sports.io/football/teams/225.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 606062,
-      "name": "A. Longoni"
-    },
-    "date": "2026-07-05",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 419620,
-      "name": "G. De Pieri"
-    },
-    "date": "2026-07-05",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 507,
-        "name": "Ascoli",
-        "logo": "https://media.api-sports.io/football/teams/507.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 334037,
-      "name": "Tyrique George"
-    },
-    "date": "2026-07-05",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 45,
-        "name": "Everton",
-        "logo": "https://media.api-sports.io/football/teams/45.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 328120,
       "name": "Tomas Galvez"
     },
@@ -4156,26 +1996,6 @@
         "id": 50,
         "name": "Manchester City",
         "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 606062,
-      "name": "A. Longoni"
-    },
-    "date": "2026-07-04",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
       }
     }
   },
@@ -4196,46 +2016,6 @@
         "id": 505,
         "name": "Inter",
         "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 334037,
-      "name": "Tyrique George"
-    },
-    "date": "2026-07-04",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 45,
-        "name": "Everton",
-        "logo": "https://media.api-sports.io/football/teams/45.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 284404,
-      "name": "Jimi Weikko Tauriainen"
-    },
-    "date": "2026-07-04",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 404,
-        "name": "AC Horsens",
-        "logo": "https://media.api-sports.io/football/teams/404.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
       }
     }
   },
@@ -4281,46 +2061,6 @@
   },
   {
     "player": {
-      "id": 284404,
-      "name": "Jimi Weikko Tauriainen"
-    },
-    "date": "2026-07-03",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 404,
-        "name": "AC Horsens",
-        "logo": "https://media.api-sports.io/football/teams/404.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 567867,
-      "name": "D. Ofli"
-    },
-    "date": "2026-07-03",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 785,
-        "name": "Karlsruher SC",
-        "logo": "https://media.api-sports.io/football/teams/785.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 526,
       "name": "A. Onana"
     },
@@ -4336,26 +2076,6 @@
         "id": 33,
         "name": "Manchester United",
         "logo": "https://media.api-sports.io/football/teams/33.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 280074,
-      "name": "N. Brown"
-    },
-    "date": "2026-07-02",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      },
-      "out": {
-        "id": 169,
-        "name": "Eintracht Frankfurt",
-        "logo": "https://media.api-sports.io/football/teams/169.png"
       }
     }
   },
@@ -4396,106 +2116,6 @@
         "id": 529,
         "name": "Barcelona",
         "logo": "https://media.api-sports.io/football/teams/529.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 284367,
-      "name": "Luca Stephenson"
-    },
-    "date": "2026-07-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 68,
-        "name": "Bolton",
-        "logo": "https://media.api-sports.io/football/teams/68.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 286473,
-      "name": "F. Carboni"
-    },
-    "date": "2026-07-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 523,
-        "name": "Parma",
-        "logo": "https://media.api-sports.io/football/teams/523.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 47380,
-      "name": "Marc Cucurella"
-    },
-    "date": "2026-07-01",
-    "type": "€ 55M",
-    "teams": {
-      "in": {
-        "id": 541,
-        "name": "Real Madrid",
-        "logo": "https://media.api-sports.io/football/teams/541.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 280074,
-      "name": "N. Brown"
-    },
-    "date": "2026-07-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      },
-      "out": {
-        "id": 169,
-        "name": "Eintracht Frankfurt",
-        "logo": "https://media.api-sports.io/football/teams/169.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342171,
-      "name": "N. Aséko Nkili"
-    },
-    "date": "2026-07-01",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      },
-      "out": {
-        "id": 166,
-        "name": "Hannover 96",
-        "logo": "https://media.api-sports.io/football/teams/166.png"
       }
     }
   },
@@ -4576,6 +2196,26 @@
         "id": 529,
         "name": "Barcelona",
         "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 47380,
+      "name": "Marc Cucurella"
+    },
+    "date": "2026-07-01",
+    "type": "€ 55M",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
       }
     }
   },
@@ -4741,306 +2381,6 @@
   },
   {
     "player": {
-      "id": 386275,
-      "name": "I. Housni"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 102,
-        "name": "Nancy",
-        "logo": "https://media.api-sports.io/football/teams/102.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 441284,
-      "name": "Naoufel El Hannach"
-    },
-    "date": "2026-06-30",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 82,
-        "name": "Montpellier",
-        "logo": "https://media.api-sports.io/football/teams/82.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 493026,
-      "name": "N. Kamara"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 80,
-        "name": "Lyon",
-        "logo": "https://media.api-sports.io/football/teams/80.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 551416,
-      "name": "Y. Khafi"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 1581,
-        "name": "Carrarese",
-        "logo": "https://media.api-sports.io/football/teams/1581.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 543469,
-      "name": "Mathis Jangeal"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 242,
-        "name": "Famalicao",
-        "logo": "https://media.api-sports.io/football/teams/242.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 567805,
-      "name": "P. Mounguengue"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 572,
-        "name": "Dynamo Kyiv",
-        "logo": "https://media.api-sports.io/football/teams/572.png"
-      },
-      "out": {
-        "id": 85,
-        "name": "Paris Saint Germain",
-        "logo": "https://media.api-sports.io/football/teams/85.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 284367,
-      "name": "Luca Stephenson"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 68,
-        "name": "Bolton",
-        "logo": "https://media.api-sports.io/football/teams/68.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 1145,
-      "name": "I. Konaté"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 541,
-        "name": "Real Madrid",
-        "logo": "https://media.api-sports.io/football/teams/541.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 289,
-      "name": "A. Robertson"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 47,
-        "name": "Tottenham",
-        "logo": "https://media.api-sports.io/football/teams/47.png"
-      },
-      "out": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 367636,
-      "name": "J. Jacquet"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      },
-      "out": {
-        "id": 94,
-        "name": "Rennes",
-        "logo": "https://media.api-sports.io/football/teams/94.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 338751,
-      "name": "Víctor Muñoz"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 40,
-        "name": "Liverpool",
-        "logo": "https://media.api-sports.io/football/teams/40.png"
-      },
-      "out": {
-        "id": 727,
-        "name": "Osasuna",
-        "logo": "https://media.api-sports.io/football/teams/727.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 286473,
-      "name": "F. Carboni"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 523,
-        "name": "Parma",
-        "logo": "https://media.api-sports.io/football/teams/523.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 215,
-      "name": "S. Esposito"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 490,
-        "name": "Cagliari",
-        "logo": "https://media.api-sports.io/football/teams/490.png"
-      },
-      "out": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342230,
-      "name": "A. Stanković"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      },
-      "out": {
-        "id": 569,
-        "name": "Club Brugge KV",
-        "logo": "https://media.api-sports.io/football/teams/569.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 5,
-      "name": "M. Akanji"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 505,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/505.png"
-      },
-      "out": {
-        "id": 50,
-        "name": "Manchester City",
-        "logo": "https://media.api-sports.io/football/teams/50.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 288006,
       "name": "R. Højlund"
     },
@@ -5081,446 +2421,6 @@
   },
   {
     "player": {
-      "id": 59,
-      "name": "Álvaro Morata"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 895,
-        "name": "Como",
-        "logo": "https://media.api-sports.io/football/teams/895.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 263481,
-      "name": "L. Colombo"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 495,
-        "name": "Genoa",
-        "logo": "https://media.api-sports.io/football/teams/495.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 31273,
-      "name": "T. Pobega"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 500,
-        "name": "Bologna",
-        "logo": "https://media.api-sports.io/football/teams/500.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 330437,
-      "name": "Álex Jiménez"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 35,
-        "name": "Bournemouth",
-        "logo": "https://media.api-sports.io/football/teams/35.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 568040,
-      "name": "M. Dalpiaz"
-    },
-    "date": "2026-06-30",
-    "type": "Loan",
-    "teams": {
-      "in": {
-        "id": 1072,
-        "name": "TSV Hartberg",
-        "logo": "https://media.api-sports.io/football/teams/1072.png"
-      },
-      "out": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 449642,
-      "name": "A. Kostić"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 489,
-        "name": "AC Milan",
-        "logo": "https://media.api-sports.io/football/teams/489.png"
-      },
-      "out": {
-        "id": 573,
-        "name": "FK Partizan",
-        "logo": "https://media.api-sports.io/football/teams/573.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 47380,
-      "name": "Marc Cucurella"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 541,
-        "name": "Real Madrid",
-        "logo": "https://media.api-sports.io/football/teams/541.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 544659,
-      "name": "J. Morgan"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 60,
-        "name": "West Brom",
-        "logo": "https://media.api-sports.io/football/teams/60.png"
-      },
-      "out": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 609590,
-      "name": "Denner"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 12998,
-        "name": "Corinthians U20",
-        "logo": "https://media.api-sports.io/football/teams/12998.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 419582,
-      "name": "Geovany Tcherno Quenda"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 228,
-        "name": "Sporting CP",
-        "logo": "https://media.api-sports.io/football/teams/228.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 383018,
-      "name": "M. Palestra"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 499,
-        "name": "Atalanta",
-        "logo": "https://media.api-sports.io/football/teams/499.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 203762,
-      "name": "E. Emegha"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 49,
-        "name": "Chelsea",
-        "logo": "https://media.api-sports.io/football/teams/49.png"
-      },
-      "out": {
-        "id": 95,
-        "name": "Strasbourg",
-        "logo": "https://media.api-sports.io/football/teams/95.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342170,
-      "name": "M. Krattenmacher"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 1660,
-        "name": "SV Elversberg",
-        "logo": "https://media.api-sports.io/football/teams/1660.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 126530,
-      "name": "Daniel Peretz"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 41,
-        "name": "Southampton",
-        "logo": "https://media.api-sports.io/football/teams/41.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 344290,
-      "name": "M. Schmitt"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 177,
-        "name": "SSV Jahn Regensburg",
-        "logo": "https://media.api-sports.io/football/teams/177.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 380625,
-      "name": "Grayson Dettoni"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 181,
-        "name": "SV Darmstadt 98",
-        "logo": "https://media.api-sports.io/football/teams/181.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 436443,
-      "name": "J. Kusi-Asare"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 36,
-        "name": "Fulham",
-        "logo": "https://media.api-sports.io/football/teams/36.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 592216,
-      "name": "Robert Deziel"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 339,
-        "name": "Legia Warszawa",
-        "logo": "https://media.api-sports.io/football/teams/339.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 161897,
-      "name": "I. Saibari"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      },
-      "out": {
-        "id": 197,
-        "name": "PSV Eindhoven",
-        "logo": "https://media.api-sports.io/football/teams/197.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 342171,
-      "name": "N. Aséko Nkili"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 166,
-        "name": "Hannover 96",
-        "logo": "https://media.api-sports.io/football/teams/166.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 550832,
-      "name": "P. Scholl"
-    },
-    "date": "2026-06-30",
-    "type": "Transfer",
-    "teams": {
-      "in": {
-        "id": 785,
-        "name": "Karlsruher SC",
-        "logo": "https://media.api-sports.io/football/teams/785.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
-      "id": 330593,
-      "name": "B. Hepburn"
-    },
-    "date": "2026-06-30",
-    "type": "Free agent",
-    "teams": {
-      "in": {
-        "id": 4669,
-        "name": "Stirling Albion",
-        "logo": "https://media.api-sports.io/football/teams/4669.png"
-      },
-      "out": {
-        "id": 157,
-        "name": "Bayern München",
-        "logo": "https://media.api-sports.io/football/teams/157.png"
-      }
-    }
-  },
-  {
-    "player": {
       "id": 636,
       "name": "Bernardo Silva"
     },
@@ -5531,6 +2431,26 @@
         "id": 541,
         "name": "Real Madrid",
         "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 5,
+      "name": "M. Akanji"
+    },
+    "date": "2026-06-30",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png"
       },
       "out": {
         "id": 50,
@@ -5861,11 +2781,471 @@
   },
   {
     "player": {
-      "id": 335117,
-      "name": "G. Daffara"
+      "id": 47380,
+      "name": "Marc Cucurella"
     },
     "date": "2026-06-30",
     "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 1145,
+      "name": "I. Konaté"
+    },
+    "date": "2026-06-30",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 42642,
+      "name": "H. Moldovan"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 718,
+        "name": "Oviedo",
+        "logo": "https://media.api-sports.io/football/teams/718.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 324750,
+      "name": "Carlos Martín"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 728,
+        "name": "Rayo Vallecano",
+        "logo": "https://media.api-sports.io/football/teams/728.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 56,
+      "name": "A. Griezmann"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Orlando City",
+        "logo": null
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 56,
+      "name": "A. Griezmann"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 1598,
+        "name": "Orlando City SC",
+        "logo": "https://media.api-sports.io/football/teams/1598.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 45,
+      "name": "T. Lemar"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 547,
+        "name": "Girona",
+        "logo": "https://media.api-sports.io/football/teams/547.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 291031,
+      "name": "M. Bellotti"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "CF Intercity",
+        "logo": null
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 291031,
+      "name": "M. Bellotti"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 8160,
+        "name": "Intercity",
+        "logo": "https://media.api-sports.io/football/teams/8160.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 323869,
+      "name": "L. Nájera"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Atl. San Luis",
+        "logo": null
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 323869,
+      "name": "L. Nájera"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 2314,
+        "name": "Atletico San Luis",
+        "logo": "https://media.api-sports.io/football/teams/2314.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 264469,
+      "name": "Pablo Pérez"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 799,
+        "name": "Mirandes",
+        "logo": "https://media.api-sports.io/football/teams/799.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 336587,
+      "name": "S. El Jebari"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 799,
+        "name": "Mirandes",
+        "logo": "https://media.api-sports.io/football/teams/799.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 208670,
+      "name": "Diego Bri"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Cordoba",
+        "logo": null
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 208670,
+      "name": "Diego Bri"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 713,
+        "name": "Cordoba",
+        "logo": "https://media.api-sports.io/football/teams/713.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 208670,
+      "name": "Diego Bri"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 713,
+        "name": "Cordoba",
+        "logo": "https://media.api-sports.io/football/teams/713.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 482293,
+      "name": "Matias Barboza"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 713,
+        "name": "Cordoba",
+        "logo": "https://media.api-sports.io/football/teams/713.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 26315,
+      "name": "N. González"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 496,
+        "name": "Juventus",
+        "logo": "https://media.api-sports.io/football/teams/496.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 639940,
+      "name": "O. Bazaga"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 9578,
+        "name": "Arenas Getxo",
+        "logo": "https://media.api-sports.io/football/teams/9578.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 563,
+      "name": "Álex Grimaldo"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 168,
+        "name": "Bayer Leverkusen",
+        "logo": "https://media.api-sports.io/football/teams/168.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 297744,
+      "name": "Carlos Giménez"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 619,
+        "name": "PAOK",
+        "logo": "https://media.api-sports.io/football/teams/619.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 451594,
+      "name": "Alejandro Monserrate"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 425,
+        "name": "Jong Ajax",
+        "logo": "https://media.api-sports.io/football/teams/425.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 579838,
+      "name": "A. Mestanza"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 546,
+        "name": "Getafe",
+        "logo": "https://media.api-sports.io/football/teams/546.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 357985,
+      "name": "D. Šits"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
     "teams": {
       "in": {
         "id": 523,
@@ -5873,129 +3253,2749 @@
         "logo": "https://media.api-sports.io/football/teams/523.png"
       },
       "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
       }
     }
   },
   {
     "player": {
-      "id": 32194,
-      "name": "A. Sersanti"
+      "id": 554311,
+      "name": "D. Munoz"
     },
-    "date": "2026-06-30",
-    "type": "Transfer",
+    "date": "2026-06-29",
+    "type": "Return from loan",
     "teams": {
       "in": {
-        "id": 899,
-        "name": "Modena",
-        "logo": "https://media.api-sports.io/football/teams/899.png"
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
       },
       "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 9612,
+        "name": "Ourense CF",
+        "logo": "https://media.api-sports.io/football/teams/9612.png"
       }
     }
   },
   {
     "player": {
-      "id": 266185,
-      "name": "M. Compagnon"
+      "id": 41725,
+      "name": "Fábio Vieira"
     },
-    "date": "2026-06-30",
-    "type": "Transfer",
+    "date": "2026-06-29",
+    "type": "Return from loan",
     "teams": {
       "in": {
-        "id": 517,
-        "name": "Venezia",
-        "logo": "https://media.api-sports.io/football/teams/517.png"
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
       },
       "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 175,
+        "name": "Hamburger SV",
+        "logo": "https://media.api-sports.io/football/teams/175.png"
       }
     }
   },
   {
     "player": {
-      "id": 286595,
-      "name": "Facundo González"
+      "id": 727,
+      "name": "R. Nelson"
     },
-    "date": "2026-06-30",
-    "type": "Transfer",
+    "date": "2026-06-29",
+    "type": "Return from loan",
     "teams": {
       "in": {
-        "id": 4665,
-        "name": "Racing Santander",
-        "logo": "https://media.api-sports.io/football/teams/4665.png"
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
       },
       "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 55,
+        "name": "Brentford",
+        "logo": "https://media.api-sports.io/football/teams/55.png"
       }
     }
   },
   {
     "player": {
-      "id": 1138,
-      "name": "T. Weah"
+      "id": 61431,
+      "name": "J. Kiwior"
     },
-    "date": "2026-06-30",
+    "date": "2026-06-29",
     "type": "Transfer",
     "teams": {
       "in": {
+        "id": 212,
+        "name": "FC Porto",
+        "logo": "https://media.api-sports.io/football/teams/212.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 61431,
+      "name": "J. Kiwior"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 212,
+        "name": "FC Porto",
+        "logo": "https://media.api-sports.io/football/teams/212.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 169295,
+      "name": "K. Hein"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 162,
+        "name": "Werder Bremen",
+        "logo": "https://media.api-sports.io/football/teams/162.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 169295,
+      "name": "K. Hein"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 162,
+        "name": "Werder Bremen",
+        "logo": "https://media.api-sports.io/football/teams/162.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 127817,
+      "name": "P. Hincapié"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 168,
+        "name": "Bayer Leverkusen",
+        "logo": "https://media.api-sports.io/football/teams/168.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 127817,
+      "name": "P. Hincapié"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 168,
+        "name": "Bayer Leverkusen",
+        "logo": "https://media.api-sports.io/football/teams/168.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 396206,
+      "name": "L. Martin"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 2071,
+        "name": "Brabrand",
+        "logo": "https://media.api-sports.io/football/teams/2071.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 20619,
+      "name": "I. Meslier"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 63,
+        "name": "Leeds",
+        "logo": "https://media.api-sports.io/football/teams/63.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 313236,
+      "name": "E. Nwaneri"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
         "id": 81,
         "name": "Marseille",
         "logo": "https://media.api-sports.io/football/teams/81.png"
-      },
-      "out": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
       }
     }
   },
   {
     "player": {
-      "id": 86,
-      "name": "L. Openda"
+      "id": 284361,
+      "name": "R. Vítek"
     },
-    "date": "2026-06-30",
-    "type": "Transfer",
+    "date": "2026-06-29",
+    "type": "Return from loan",
     "teams": {
       "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
       },
       "out": {
-        "id": 173,
-        "name": "RB Leipzig",
-        "logo": "https://media.api-sports.io/football/teams/173.png"
+        "id": 56,
+        "name": "Bristol City",
+        "logo": "https://media.api-sports.io/football/teams/56.png"
       }
     }
   },
   {
     "player": {
-      "id": 30531,
-      "name": "J. Boga"
+      "id": 37145,
+      "name": "T. Malacia"
     },
-    "date": "2026-06-30",
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Malacia Tyrell",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 909,
+      "name": "M. Rashford"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 288006,
+      "name": "R. Højlund"
+    },
+    "date": "2026-06-29",
     "type": "Transfer",
     "teams": {
       "in": {
-        "id": 496,
-        "name": "Juventus",
-        "logo": "https://media.api-sports.io/football/teams/496.png"
+        "id": 492,
+        "name": "Napoli",
+        "logo": "https://media.api-sports.io/football/teams/492.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 288006,
+      "name": "R. Højlund"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 492,
+        "name": "Napoli",
+        "logo": "https://media.api-sports.io/football/teams/492.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 18,
+      "name": "J. Sancho"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Sancho Jadon",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 747,
+      "name": "Casemiro"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Casemiro",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 526,
+      "name": "A. Onana"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 998,
+        "name": "Trabzonspor",
+        "logo": "https://media.api-sports.io/football/teams/998.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 284400,
+      "name": "Tobias Christopher Collyer"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 64,
+        "name": "Hull City",
+        "logo": "https://media.api-sports.io/football/teams/64.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 403064,
+      "name": "H. Amass"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 71,
+        "name": "Norwich",
+        "logo": "https://media.api-sports.io/football/teams/71.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 504154,
+      "name": "E. Kana-Biyik"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 1014,
+        "name": "Lausanne",
+        "logo": "https://media.api-sports.io/football/teams/1014.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 418210,
+      "name": "S. Koné"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 1014,
+        "name": "Lausanne",
+        "logo": "https://media.api-sports.io/football/teams/1014.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 18885,
+      "name": "K. Darlow"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 63,
+        "name": "Leeds",
+        "logo": "https://media.api-sports.io/football/teams/63.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 158696,
+      "name": "F. Burns"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 53,
+        "name": "Reading",
+        "logo": "https://media.api-sports.io/football/teams/53.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 328120,
+      "name": "Tomas Galvez"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 420,
+        "name": "Cambuur",
+        "logo": "https://media.api-sports.io/football/teams/420.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 449509,
+      "name": "Abdulay Bah"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
       },
       "out": {
         "id": 84,
         "name": "Nice",
         "logo": "https://media.api-sports.io/football/teams/84.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 414385,
+      "name": "C. Echeverri"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 547,
+        "name": "Girona",
+        "logo": "https://media.api-sports.io/football/teams/547.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 636,
+      "name": "Bernardo Silva"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 19187,
+      "name": "J. Grealish"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 45,
+        "name": "Everton",
+        "logo": "https://media.api-sports.io/football/teams/45.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 5,
+      "name": "M. Akanji"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 5,
+      "name": "M. Akanji"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 278128,
+      "name": "J. Wilson-Esbrand"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 4248,
+        "name": "Radomiak Radom",
+        "logo": "https://media.api-sports.io/football/teams/4248.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 626,
+      "name": "J. Stones"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Stones John",
+        "logo": null
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 626,
+      "name": "J. Stones"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 414359,
+      "name": "Vitor Nunes"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 547,
+        "name": "Girona",
+        "logo": "https://media.api-sports.io/football/teams/547.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 284409,
+      "name": "D. Mubama"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 75,
+        "name": "Stoke City",
+        "logo": "https://media.api-sports.io/football/teams/75.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 404656,
+      "name": "Jahmai Simpson-Pusey"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 192,
+        "name": "1. FC Köln",
+        "logo": "https://media.api-sports.io/football/teams/192.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 404656,
+      "name": "Jahmai Simpson-Pusey"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 192,
+        "name": "1. FC Köln",
+        "logo": "https://media.api-sports.io/football/teams/192.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 382358,
+      "name": "S. Mfuni"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 38,
+        "name": "Watford",
+        "logo": "https://media.api-sports.io/football/teams/38.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 462278,
+      "name": "M. Detourbet"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 110,
+        "name": "Estac Troyes",
+        "logo": "https://media.api-sports.io/football/teams/110.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 301285,
+      "name": "P. Charles"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 74,
+        "name": "Sheffield Wednesday",
+        "logo": "https://media.api-sports.io/football/teams/74.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 138908,
+      "name": "E. Anderson"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 65,
+        "name": "Nottingham Forest",
+        "logo": "https://media.api-sports.io/football/teams/65.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 135775,
+      "name": "Ansu Fati"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Monaco",
+        "logo": null
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 135775,
+      "name": "Ansu Fati"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 91,
+        "name": "Monaco",
+        "logo": "https://media.api-sports.io/football/teams/91.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 135775,
+      "name": "Ansu Fati"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 91,
+        "name": "Monaco",
+        "logo": "https://media.api-sports.io/football/teams/91.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 521,
+      "name": "R. Lewandowski"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 1607,
+        "name": "Chicago Fire",
+        "logo": "https://media.api-sports.io/football/teams/1607.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 126,
+      "name": "Iñaki Peña"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 617,
+        "name": "Panathinaikos",
+        "logo": "https://media.api-sports.io/football/teams/617.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 126,
+      "name": "Iñaki Peña"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 797,
+        "name": "Elche",
+        "logo": "https://media.api-sports.io/football/teams/797.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 127,
+      "name": "M. ter Stegen"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 547,
+        "name": "Girona",
+        "logo": "https://media.api-sports.io/football/teams/547.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 855,
+      "name": "João Cancelo"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Al Hilal",
+        "logo": null
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 855,
+      "name": "João Cancelo"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 2932,
+        "name": "Al-Hilal Saudi FC",
+        "logo": "https://media.api-sports.io/football/teams/2932.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 909,
+      "name": "M. Rashford"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Manchester Utd",
+        "logo": null
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 551388,
+      "name": "A. Yaakobishvili"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Andorra",
+        "logo": null
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 551388,
+      "name": "A. Yaakobishvili"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 8157,
+        "name": "FC Andorra",
+        "logo": "https://media.api-sports.io/football/teams/8157.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 182556,
+      "name": "Alan Godoy"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 9593,
+        "name": "Sabadell",
+        "logo": "https://media.api-sports.io/football/teams/9593.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 336653,
+      "name": "Ander Astralaga"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Astralaga Ander",
+        "logo": null
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 336653,
+      "name": "Ander Astralaga"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 715,
+        "name": "Granada CF",
+        "logo": "https://media.api-sports.io/football/teams/715.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 386859,
+      "name": "Héctor Fort"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 797,
+        "name": "Elche",
+        "logo": "https://media.api-sports.io/football/teams/797.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 441244,
+      "name": "Andrés Cuenca"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Gijon",
+        "logo": null
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 441244,
+      "name": "Andrés Cuenca"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 895,
+        "name": "Como",
+        "logo": "https://media.api-sports.io/football/teams/895.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 441244,
+      "name": "Andrés Cuenca"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 731,
+        "name": "Sporting Gijon",
+        "logo": "https://media.api-sports.io/football/teams/731.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 550547,
+      "name": "H. Abdelkarim"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 1577,
+        "name": "Al Ahly",
+        "logo": "https://media.api-sports.io/football/teams/1577.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 138787,
+      "name": "A. Gordon"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 34,
+        "name": "Newcastle",
+        "logo": "https://media.api-sports.io/football/teams/34.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 449128,
+      "name": "Quim Junyent"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 723,
+        "name": "Almeria",
+        "logo": "https://media.api-sports.io/football/teams/723.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 336554,
+      "name": "Victor Barberá"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 720,
+        "name": "Valladolid",
+        "logo": "https://media.api-sports.io/football/teams/720.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 377122,
+      "name": "Endrick"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 80,
+        "name": "Lyon",
+        "logo": "https://media.api-sports.io/football/teams/80.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 748,
+      "name": "Dani Ceballos"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Ceballos Dani",
+        "logo": null
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 343205,
+      "name": "Mario Martín"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 546,
+        "name": "Getafe",
+        "logo": "https://media.api-sports.io/football/teams/546.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 343205,
+      "name": "Mario Martín"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 546,
+        "name": "Getafe",
+        "logo": "https://media.api-sports.io/football/teams/546.png"
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 733,
+      "name": "Dani Carvajal"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Carvajal Daniel",
+        "logo": null
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 505,
+      "name": "D. Alaba"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Alaba David",
+        "logo": null
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 47380,
+      "name": "Marc Cucurella"
+    },
+    "date": "2026-06-29",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 49,
+        "name": "Chelsea",
+        "logo": "https://media.api-sports.io/football/teams/49.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 1145,
+      "name": "I. Konaté"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      },
+      "out": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 568243,
+      "name": "A. Gonzalez"
+    },
+    "date": "2026-06-29",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Gonzalez Alvaro",
+        "logo": null
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 440339,
+      "name": "Adrian Arnuncio"
+    },
+    "date": "2026-06-29",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 720,
+        "name": "Valladolid",
+        "logo": "https://media.api-sports.io/football/teams/720.png"
+      },
+      "out": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 336587,
+      "name": "S. El Jebari"
+    },
+    "date": "2026-06-02",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 713,
+        "name": "Cordoba",
+        "logo": "https://media.api-sports.io/football/teams/713.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 407033,
+      "name": "Ismeal Kabia"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 1352,
+        "name": "Shrewsbury",
+        "logo": "https://media.api-sports.io/football/teams/1352.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 409798,
+      "name": "Louie George Copley"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 1362,
+        "name": "Crawley Town",
+        "logo": "https://media.api-sports.io/football/teams/1362.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 18,
+      "name": "J. Sancho"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 66,
+        "name": "Aston Villa",
+        "logo": "https://media.api-sports.io/football/teams/66.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 365664,
+      "name": "Ethan Williams"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 1389,
+        "name": "Falkirk",
+        "logo": "https://media.api-sports.io/football/teams/1389.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 362270,
+      "name": "E. Wheatley"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 1343,
+        "name": "Bradford",
+        "logo": "https://media.api-sports.io/football/teams/1343.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 408896,
+      "name": "J. Devaney"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 251,
+        "name": "ST Mirren",
+        "logo": "https://media.api-sports.io/football/teams/251.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 546754,
+      "name": "J. Scanlon"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 1353,
+        "name": "Swindon Town",
+        "logo": "https://media.api-sports.io/football/teams/1353.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 328096,
+      "name": "Joel Tshisanga Ndala"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 74,
+        "name": "Sheffield Wednesday",
+        "logo": "https://media.api-sports.io/football/teams/74.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 19130,
+      "name": "K. Phillips"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 62,
+        "name": "Sheffield Utd",
+        "logo": "https://media.api-sports.io/football/teams/62.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 140947,
+      "name": "I. Kaboré"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 1837,
+        "name": "Wrexham",
+        "logo": "https://media.api-sports.io/football/teams/1837.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 347305,
+      "name": "Jaden Heskey"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 74,
+        "name": "Sheffield Wednesday",
+        "logo": "https://media.api-sports.io/football/teams/74.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 337936,
+      "name": "L. Samuel"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 1832,
+        "name": "Bromley",
+        "logo": "https://media.api-sports.io/football/teams/1832.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 307858,
+      "name": "Emilio Lawrence"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 1359,
+        "name": "Luton",
+        "logo": "https://media.api-sports.io/football/teams/1359.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 380681,
+      "name": "D. Mukasa"
+    },
+    "date": "2026-05-30",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 46,
+        "name": "Leicester",
+        "logo": "https://media.api-sports.io/football/teams/46.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 303010,
+      "name": "Daniel Gore"
+    },
+    "date": "2026-05-02",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      },
+      "out": {
+        "id": 73,
+        "name": "Rotherham",
+        "logo": "https://media.api-sports.io/football/teams/73.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 557442,
+      "name": "C. O'Neill"
+    },
+    "date": "2026-04-04",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "O'Neill Ceadach",
+        "logo": null
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 646997,
+      "name": "Álvaro Moreno"
+    },
+    "date": "2026-03-12",
+    "type": "Raise",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 557505,
+      "name": "D. Oyetunde"
+    },
+    "date": "2026-02-19",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 16679,
+        "name": "Fort Wayne",
+        "logo": "https://media.api-sports.io/football/teams/16679.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 557505,
+      "name": "D. Oyetunde"
+    },
+    "date": "2026-02-18",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 16679,
+        "name": "Fort Wayne",
+        "logo": "https://media.api-sports.io/football/teams/16679.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 644242,
+      "name": "Gabriel Carvalho"
+    },
+    "date": "2026-02-12",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 1427,
+        "name": "Dobrudzha",
+        "logo": "https://media.api-sports.io/football/teams/1427.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 284571,
+      "name": "C. Sagoe"
+    },
+    "date": "2026-02-09",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 374,
+        "name": "Kalmar FF",
+        "logo": "https://media.api-sports.io/football/teams/374.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 588434,
+      "name": "Edward Ibrovic-Fletcher"
+    },
+    "date": "2026-02-04",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 14430,
+        "name": "Leeds United U21",
+        "logo": "https://media.api-sports.io/football/teams/14430.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 588434,
+      "name": "Edward Ibrovic-Fletcher"
+    },
+    "date": "2026-02-03",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 15379,
+        "name": "Leeds United U18",
+        "logo": "https://media.api-sports.io/football/teams/15379.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 588434,
+      "name": "Edward Ibrovic-Fletcher"
+    },
+    "date": "2026-02-03",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 14430,
+        "name": "Leeds United U21",
+        "logo": "https://media.api-sports.io/football/teams/14430.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 632747,
+      "name": "J. Fernandez"
+    },
+    "date": "2026-02-01",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 9710,
+        "name": "Leganés II",
+        "logo": "https://media.api-sports.io/football/teams/9710.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 313383,
+      "name": "O. Vargas"
+    },
+    "date": "2026-02-01",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 1595,
+        "name": "Seattle Sounders",
+        "logo": "https://media.api-sports.io/football/teams/1595.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 18767,
+      "name": "A. Lookman"
+    },
+    "date": "2026-02-01",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 499,
+        "name": "Atalanta",
+        "logo": "https://media.api-sports.io/football/teams/499.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 341371,
+      "name": "Rodrigo Mendoza"
+    },
+    "date": "2026-02-01",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 797,
+        "name": "Elche",
+        "logo": "https://media.api-sports.io/football/teams/797.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 418403,
+      "name": "Jaden Dixon"
+    },
+    "date": "2026-02-01",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 75,
+        "name": "Stoke City",
+        "logo": "https://media.api-sports.io/football/teams/75.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 389308,
+      "name": "Osman Kamara"
+    },
+    "date": "2026-02-01",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 19744,
+        "name": "Blackburn Rovers U21",
+        "logo": "https://media.api-sports.io/football/teams/19744.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 362270,
+      "name": "E. Wheatley"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Bradford City",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 362270,
+      "name": "E. Wheatley"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 1343,
+        "name": "Bradford",
+        "logo": "https://media.api-sports.io/football/teams/1343.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 408896,
+      "name": "J. Devaney"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "St. Mirren",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 408896,
+      "name": "J. Devaney"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 251,
+        "name": "ST Mirren",
+        "logo": "https://media.api-sports.io/football/teams/251.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 546754,
+      "name": "J. Scanlon"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Swindon",
+        "logo": null
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 546754,
+      "name": "J. Scanlon"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 1353,
+        "name": "Swindon Town",
+        "logo": "https://media.api-sports.io/football/teams/1353.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 418210,
+      "name": "S. Koné"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 1014,
+        "name": "Lausanne",
+        "logo": "https://media.api-sports.io/football/teams/1014.png"
+      },
+      "out": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 328096,
+      "name": "Joel Tshisanga Ndala"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Sheffield Wed",
+        "logo": null
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 328096,
+      "name": "Joel Tshisanga Ndala"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 74,
+        "name": "Sheffield Wednesday",
+        "logo": "https://media.api-sports.io/football/teams/74.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 19130,
+      "name": "K. Phillips"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 62,
+        "name": "Sheffield Utd",
+        "logo": "https://media.api-sports.io/football/teams/62.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 25004,
+      "name": "S. Ortega"
+    },
+    "date": "2026-02-01",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 65,
+        "name": "Nottingham Forest",
+        "logo": "https://media.api-sports.io/football/teams/65.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 337941,
+      "name": "J. Oboavwoduo"
+    },
+    "date": "2026-02-01",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 24744,
+        "name": "Juventus U20",
+        "logo": "https://media.api-sports.io/football/teams/24744.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 337941,
+      "name": "J. Oboavwoduo"
+    },
+    "date": "2026-02-01",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 1715,
+        "name": "Juventus U23",
+        "logo": "https://media.api-sports.io/football/teams/1715.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 323591,
+      "name": "S. Nypan"
+    },
+    "date": "2026-02-01",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": 70,
+        "name": "Middlesbrough",
+        "logo": "https://media.api-sports.io/football/teams/70.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 380681,
+      "name": "D. Mukasa"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 46,
+        "name": "Leicester",
+        "logo": "https://media.api-sports.io/football/teams/46.png"
+      },
+      "out": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 441244,
+      "name": "Andrés Cuenca"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Gijon",
+        "logo": null
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 441244,
+      "name": "Andrés Cuenca"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 731,
+        "name": "Sporting Gijon",
+        "logo": "https://media.api-sports.io/football/teams/731.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 414433,
+      "name": "P. PacÃ­fico"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Defensor Sp.",
+        "logo": null
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 414433,
+      "name": "P. PacÃ­fico"
+    },
+    "date": "2026-02-01",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 2350,
+        "name": "Defensor Sporting",
+        "logo": "https://media.api-sports.io/football/teams/2350.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 632747,
+      "name": "J. Fernandez"
+    },
+    "date": "2026-01-31",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Leganes B",
+        "logo": null
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 632747,
+      "name": "J. Fernandez"
+    },
+    "date": "2026-01-31",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 9710,
+        "name": "Leganés II",
+        "logo": "https://media.api-sports.io/football/teams/9710.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 313383,
+      "name": "O. Vargas"
+    },
+    "date": "2026-01-31",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 1595,
+        "name": "Seattle Sounders",
+        "logo": "https://media.api-sports.io/football/teams/1595.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 18767,
+      "name": "A. Lookman"
+    },
+    "date": "2026-01-31",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 499,
+        "name": "Atalanta",
+        "logo": "https://media.api-sports.io/football/teams/499.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 639940,
+      "name": "O. Bazaga"
+    },
+    "date": "2026-01-31",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 9578,
+        "name": "Arenas Getxo",
+        "logo": "https://media.api-sports.io/football/teams/9578.png"
+      },
+      "out": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 341371,
+      "name": "Rodrigo Mendoza"
+    },
+    "date": "2026-01-31",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 530,
+        "name": "Atletico Madrid",
+        "logo": "https://media.api-sports.io/football/teams/530.png"
+      },
+      "out": {
+        "id": 797,
+        "name": "Elche",
+        "logo": "https://media.api-sports.io/football/teams/797.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 418403,
+      "name": "Jaden Dixon"
+    },
+    "date": "2026-01-31",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      },
+      "out": {
+        "id": 75,
+        "name": "Stoke City",
+        "logo": "https://media.api-sports.io/football/teams/75.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 389308,
+      "name": "Osman Kamara"
+    },
+    "date": "2026-01-31",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 19744,
+        "name": "Blackburn Rovers U21",
+        "logo": "https://media.api-sports.io/football/teams/19744.png"
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 389308,
+      "name": "Osman Kamara"
+    },
+    "date": "2026-01-31",
+    "type": "Free agent",
+    "teams": {
+      "in": {
+        "id": null,
+        "name": "Kamara Osman",
+        "logo": null
+      },
+      "out": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 328096,
+      "name": "Joel Tshisanga Ndala"
+    },
+    "date": "2026-01-31",
+    "type": "Return from loan",
+    "teams": {
+      "in": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png"
+      },
+      "out": {
+        "id": null,
+        "name": "Hull",
+        "logo": null
       }
     }
   }
