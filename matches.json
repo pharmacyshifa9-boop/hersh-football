@@ -1,5 +1,356 @@
 {
-  "updated": "2026-08-20T19:45:47.771687+00:00",
-  "results": 0,
-  "matches": []
+  "updated": "2026-08-21T03:31:47.216105+00:00",
+  "results": 7,
+  "matches": [
+    {
+      "fixture": {
+        "id": 1627044,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-21T14:30:00+00:00",
+        "timestamp": 1787322600,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 26598,
+        "name": "Mosul",
+        "logo": "https://media.api-sports.io/football/teams/26598.png",
+        "winner": null
+      },
+      "away": {
+        "id": 25061,
+        "name": "Diyala",
+        "logo": "https://media.api-sports.io/football/teams/25061.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627045,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-21T15:30:00+00:00",
+        "timestamp": 1787326200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 20464,
+        "name": "Karbala",
+        "logo": "https://media.api-sports.io/football/teams/20464.png",
+        "winner": null
+      },
+      "away": {
+        "id": 8010,
+        "name": "Al Zawra'a",
+        "logo": "https://media.api-sports.io/football/teams/8010.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627046,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-21T18:00:00+00:00",
+        "timestamp": 1787335200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 25063,
+        "name": "Al-Karma",
+        "logo": "https://media.api-sports.io/football/teams/25063.png",
+        "winner": null
+      },
+      "away": {
+        "id": 5242,
+        "name": "Al Shorta",
+        "logo": "https://media.api-sports.io/football/teams/5242.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627047,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-21T18:30:00+00:00",
+        "timestamp": 1787337000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Franso Hariri Stadium",
+          "city": "Arbil"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 11070,
+        "name": "Erbil",
+        "logo": "https://media.api-sports.io/football/teams/11070.png",
+        "winner": null
+      },
+      "away": {
+        "id": 8009,
+        "name": "Al Quwa Al Jawiya",
+        "logo": "https://media.api-sports.io/football/teams/8009.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552733,
+        "referee": "R. Buquet",
+        "timezone": "UTC",
+        "date": "2026-08-21T18:45:00+00:00",
+        "timestamp": 1787337900,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Marseille"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 81,
+        "name": "Marseille",
+        "logo": "https://media.api-sports.io/football/teams/81.png",
+        "winner": null
+      },
+      "away": {
+        "id": 95,
+        "name": "Strasbourg",
+        "logo": "https://media.api-sports.io/football/teams/95.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557367,
+        "referee": "T. Bramall",
+        "timezone": "UTC",
+        "date": "2026-08-21T19:00:00+00:00",
+        "timestamp": 1787338800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 494,
+          "name": "Emirates Stadium",
+          "city": "London"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 42,
+        "name": "Arsenal",
+        "logo": "https://media.api-sports.io/football/teams/42.png",
+        "winner": null
+      },
+      "away": {
+        "id": 1346,
+        "name": "Coventry",
+        "logo": "https://media.api-sports.io/football/teams/1346.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1570345,
+        "referee": "I. Diaz",
+        "timezone": "UTC",
+        "date": "2026-08-21T19:00:00+00:00",
+        "timestamp": 1787338800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Estadio de La Cartuja",
+          "city": "Sevilla"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 543,
+        "name": "Real Betis",
+        "logo": "https://media.api-sports.io/football/teams/543.png",
+        "winner": null
+      },
+      "away": {
+        "id": 548,
+        "name": "Real Sociedad",
+        "logo": "https://media.api-sports.io/football/teams/548.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    }
+  ]
 }
