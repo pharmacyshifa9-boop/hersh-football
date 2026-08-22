@@ -658,40 +658,184 @@ jobs:
               )
 
               if key in seen:
-                  continue
 
-              seen.add(key)
+# ==============================
+      # CREATE RESULTS FROM TODAY
+      # ==============================
 
-              unique.append(item)
+      - name: Create results.json
+        run: |
 
-          unique.sort(
-              key=lambda x:
-                  x.get("date") or "",
-              reverse=True
-          )
+          python3 - <<'PY'
 
-          unique = unique[:300]
+          import json
+          from datetime import datetime, timezone
+
+          BIG_LEAGUES = {
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3
+          }
 
           with open(
-              "transfers.json",
+              "matches_raw.json",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          response = data.get(
+              "response",
+              []
+          )
+
+          print("==============================")
+          print(
+              "TODAY API MATCHES:",
+              len(response)
+          )
+          print("==============================")
+
+          results = []
+
+          for item in response:
+
+              league = item.get(
+                  "league",
+                  {}
+              )
+
+              if league.get("id") not in BIG_LEAGUES:
+                  continue
+
+              fixture = item.get(
+                  "fixture",
+                  {}
+              )
+
+              status = fixture.get(
+                  "status",
+                  {}
+              ).get(
+                  "short"
+              )
+
+              if status not in {
+                  "FT",
+                  "AET",
+                  "PEN"
+              }:
+                  continue
+
+              teams = item.get(
+                  "teams",
+                  {}
+              )
+
+              results.append({
+
+                  "fixture":
+                      fixture,
+
+                  "league":
+                      league,
+
+                  "home":
+                      teams.get(
+                          "home",
+                          {}
+                      ),
+
+                  "away":
+                      teams.get(
+                          "away",
+                          {}
+                      ),
+
+                  "goals":
+                      item.get(
+                          "goals",
+                          {}
+                      )
+
+              })
+
+          output = {
+
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+
+              "results":
+                  len(results),
+
+              "matches":
+                  results
+
+          }
+
+          with open(
+              "results.json",
               "w",
               encoding="utf-8"
           ) as f:
 
               json.dump(
-                  unique,
+                  output,
                   f,
                   ensure_ascii=False,
                   indent=2
               )
 
+          print("==============================")
           print(
-              "TRANSFERS:",
-              len(unique)
+              "FINAL RESULTS:",
+              len(results)
           )
+          print("==============================")
+
+          for item in results:
+
+              print(
+                  item.get(
+                      "league",
+                      {}
+                  ).get("name"),
+
+                  "=>",
+
+                  item.get(
+                      "home",
+                      {}
+                  ).get("name"),
+
+                  "vs",
+
+                  item.get(
+                      "away",
+                      {}
+                  ).get("name"),
+
+                  "|",
+
+                  item.get(
+                      "goals",
+                      {}
+                  ).get("home"),
+
+                  "-",
+
+                  item.get(
+                      "goals",
+                      {}
+                  ).get("away")
+              )
 
           PY
-
       # ==============================
       # STANDINGS
       # ==============================
