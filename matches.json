@@ -1,5 +1,856 @@
 {
-  "updated": "2026-08-21T19:16:09.867995+00:00",
-  "results": 0,
-  "matches": []
+  "updated": "2026-08-22T03:09:34.840792+00:00",
+  "results": 17,
+  "matches": [
+    {
+      "fixture": {
+        "id": 1557368,
+        "referee": "D. England",
+        "timezone": "UTC",
+        "date": "2026-08-22T11:30:00+00:00",
+        "timestamp": 1787398200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "MKM Stadium",
+          "city": "Hull"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 64,
+        "name": "Hull City",
+        "logo": "https://media.api-sports.io/football/teams/64.png",
+        "winner": null
+      },
+      "away": {
+        "id": 33,
+        "name": "Manchester United",
+        "logo": "https://media.api-sports.io/football/teams/33.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557369,
+        "referee": "P. Tierney",
+        "timezone": "UTC",
+        "date": "2026-08-22T14:00:00+00:00",
+        "timestamp": 1787407200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Hill Dickinson Stadium",
+          "city": "Liverpool"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 45,
+        "name": "Everton",
+        "logo": "https://media.api-sports.io/football/teams/45.png",
+        "winner": null
+      },
+      "away": {
+        "id": 52,
+        "name": "Crystal Palace",
+        "logo": "https://media.api-sports.io/football/teams/52.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557370,
+        "referee": "F. Hallam",
+        "timezone": "UTC",
+        "date": "2026-08-22T14:00:00+00:00",
+        "timestamp": 1787407200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Portman Road",
+          "city": "Ipswich"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 57,
+        "name": "Ipswich",
+        "logo": "https://media.api-sports.io/football/teams/57.png",
+        "winner": null
+      },
+      "away": {
+        "id": 746,
+        "name": "Sunderland",
+        "logo": "https://media.api-sports.io/football/teams/746.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557371,
+        "referee": "R. Jones",
+        "timezone": "UTC",
+        "date": "2026-08-22T14:00:00+00:00",
+        "timestamp": 1787407200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "City Ground",
+          "city": "Nottingham"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 65,
+        "name": "Nottingham Forest",
+        "logo": "https://media.api-sports.io/football/teams/65.png",
+        "winner": null
+      },
+      "away": {
+        "id": 63,
+        "name": "Leeds",
+        "logo": "https://media.api-sports.io/football/teams/63.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1570343,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-22T15:00:00+00:00",
+        "timestamp": 1787410800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Bilbao"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 531,
+        "name": "Athletic Club",
+        "logo": "https://media.api-sports.io/football/teams/531.png",
+        "winner": null
+      },
+      "away": {
+        "id": 536,
+        "name": "Sevilla",
+        "logo": "https://media.api-sports.io/football/teams/536.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552732,
+        "referee": "M. Vernice",
+        "timezone": "UTC",
+        "date": "2026-08-22T15:15:00+00:00",
+        "timestamp": 1787411700,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 654,
+          "name": "Stade Bollaert-Delelis",
+          "city": "Lens"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 116,
+        "name": "Lens",
+        "logo": "https://media.api-sports.io/football/teams/116.png",
+        "winner": null
+      },
+      "away": {
+        "id": 108,
+        "name": "Auxerre",
+        "logo": "https://media.api-sports.io/football/teams/108.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1550092,
+        "referee": "L. Marinelli",
+        "timezone": "UTC",
+        "date": "2026-08-22T16:30:00+00:00",
+        "timestamp": 1787416200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Milan"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 505,
+        "name": "Inter",
+        "logo": "https://media.api-sports.io/football/teams/505.png",
+        "winner": null
+      },
+      "away": {
+        "id": 1579,
+        "name": "Monza",
+        "logo": "https://media.api-sports.io/football/teams/1579.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1550095,
+        "referee": "A. Arena",
+        "timezone": "UTC",
+        "date": "2026-08-22T16:30:00+00:00",
+        "timestamp": 1787416200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Bluenergy Stadium - Stadio Friuli",
+          "city": "Udine"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 494,
+        "name": "Udinese",
+        "logo": "https://media.api-sports.io/football/teams/494.png",
+        "winner": null
+      },
+      "away": {
+        "id": 895,
+        "name": "Como",
+        "logo": "https://media.api-sports.io/football/teams/895.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557372,
+        "referee": "M. Oliver",
+        "timezone": "UTC",
+        "date": "2026-08-22T16:30:00+00:00",
+        "timestamp": 1787416200,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Brentford Community Stadium",
+          "city": "London"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 55,
+        "name": "Brentford",
+        "logo": "https://media.api-sports.io/football/teams/55.png",
+        "winner": null
+      },
+      "away": {
+        "id": 47,
+        "name": "Tottenham",
+        "logo": "https://media.api-sports.io/football/teams/47.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1570352,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-22T17:30:00+00:00",
+        "timestamp": 1787419800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 1497,
+          "name": "Estadio de Mestalla",
+          "city": "Valencia"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 532,
+        "name": "Valencia",
+        "logo": "https://media.api-sports.io/football/teams/532.png",
+        "winner": null
+      },
+      "away": {
+        "id": 538,
+        "name": "Celta Vigo",
+        "logo": "https://media.api-sports.io/football/teams/538.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1550091,
+        "referee": "M. Di Bello",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Stadio Luigi Ferraris",
+          "city": "Genoa"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 495,
+        "name": "Genoa",
+        "logo": "https://media.api-sports.io/football/teams/495.png",
+        "winner": null
+      },
+      "away": {
+        "id": 492,
+        "name": "Napoli",
+        "logo": "https://media.api-sports.io/football/teams/492.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1550093,
+        "referee": "D. Perenzoni",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 921,
+          "name": "Stadio Ennio Tardini",
+          "city": "Parma"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 523,
+        "name": "Parma",
+        "logo": "https://media.api-sports.io/football/teams/523.png",
+        "winner": null
+      },
+      "away": {
+        "id": 490,
+        "name": "Cagliari",
+        "logo": "https://media.api-sports.io/football/teams/490.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552731,
+        "referee": "A. Petit",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 19206,
+          "name": "Stade Marie-Marvingt",
+          "city": "Le Mans"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 1298,
+        "name": "Le Mans",
+        "logo": "https://media.api-sports.io/football/teams/1298.png",
+        "winner": null
+      },
+      "away": {
+        "id": 106,
+        "name": "Stade Brestois 29",
+        "logo": "https://media.api-sports.io/football/teams/106.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552734,
+        "referee": "R. Lissorgue",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 663,
+          "name": "Allianz Riviera",
+          "city": "Nice"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 84,
+        "name": "Nice",
+        "logo": "https://media.api-sports.io/football/teams/84.png",
+        "winner": null
+      },
+      "away": {
+        "id": 97,
+        "name": "Lorient",
+        "logo": "https://media.api-sports.io/football/teams/97.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552736,
+        "referee": "G. Paradis",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": 682,
+          "name": "Stadium de Toulouse",
+          "city": "Toulouse"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 96,
+        "name": "Toulouse",
+        "logo": "https://media.api-sports.io/football/teams/96.png",
+        "winner": null
+      },
+      "away": {
+        "id": 80,
+        "name": "Lyon",
+        "logo": "https://media.api-sports.io/football/teams/80.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552737,
+        "referee": "M. Bollengier",
+        "timezone": "UTC",
+        "date": "2026-08-22T18:45:00+00:00",
+        "timestamp": 1787424300,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Troyes"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 110,
+        "name": "Estac Troyes",
+        "logo": "https://media.api-sports.io/football/teams/110.png",
+        "winner": null
+      },
+      "away": {
+        "id": 114,
+        "name": "Paris FC",
+        "logo": "https://media.api-sports.io/football/teams/114.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1570347,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-22T19:30:00+00:00",
+        "timestamp": 1787427000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "RCDE Stadium",
+          "city": "Cornella de Llobregat"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 540,
+        "name": "Espanyol",
+        "logo": "https://media.api-sports.io/football/teams/540.png",
+        "winner": null
+      },
+      "away": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    }
+  ]
 }
