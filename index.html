@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 <title>Hersh Football ⚽</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -31,7 +33,12 @@
 body{
   font-family:Arial,"Noto Sans Arabic",sans-serif;
   background:
-    radial-gradient(circle at top,#123b25 0,#04100b 40%,#020906 100%);
+    radial-gradient(
+      circle at top,
+      #123b25 0,
+      #04100b 40%,
+      #020906 100%
+    );
   color:var(--white);
   min-height:100vh;
 }
@@ -39,7 +46,12 @@ body{
 header{
   padding:28px 15px 22px;
   text-align:center;
-  background:linear-gradient(180deg,#0c2819aa,#04100b00);
+  background:
+    linear-gradient(
+      180deg,
+      #0c2819aa,
+      #04100b00
+    );
   border-bottom:1px solid var(--line);
 }
 
@@ -127,8 +139,15 @@ header{
 }
 
 @keyframes fade{
-  from{opacity:0;transform:translateY(5px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(5px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .section-title{
@@ -179,10 +198,17 @@ header{
   color:var(--red);
 }
 
-/* MATCHES */
+/* =========================
+   MATCHES
+========================= */
 
 .match{
-  background:linear-gradient(145deg,#0d2519,#07150f);
+  background:
+    linear-gradient(
+      145deg,
+      #0d2519,
+      #07150f
+    );
   border:1px solid var(--line);
   border-radius:19px;
   padding:15px;
@@ -210,7 +236,7 @@ header{
 
 .match-team{
   background:var(--card2);
-  border:1px solid #1b3b2b;
+  border:1px solid var(--line);
   border-radius:15px;
   min-height:112px;
   padding:10px 5px;
@@ -249,10 +275,17 @@ header{
   font-size:11px;
 }
 
-/* TRANSFERS */
+/* =========================
+   TRANSFERS
+========================= */
 
 .transfer{
-  background:linear-gradient(145deg,#0d2519,#07150f);
+  background:
+    linear-gradient(
+      145deg,
+      #0d2519,
+      #07150f
+    );
   border:1px solid var(--line);
   border-radius:19px;
   padding:16px;
@@ -322,7 +355,9 @@ header{
   font-size:11px;
 }
 
-/* STANDINGS */
+/* =========================
+   STANDINGS
+========================= */
 
 .league-card{
   background:var(--card);
@@ -333,7 +368,12 @@ header{
 }
 
 .league-header{
-  background:linear-gradient(90deg,var(--card2),#0b2016);
+  background:
+    linear-gradient(
+      90deg,
+      var(--card2),
+      #0b2016
+    );
   padding:14px;
   display:flex;
   align-items:center;
@@ -402,7 +442,9 @@ header{
   font-size:14px!important;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   text-align:center;
@@ -417,6 +459,10 @@ footer{
   font-weight:900;
   margin-bottom:5px;
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:500px){
 
@@ -455,64 +501,92 @@ footer{
     font-size:17px;
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Hersh Football ⚽</div>
+
+  <div class="logo">
+    Hersh Football ⚽
+  </div>
 
   <div class="subtitle">
     نوێترین یاری، ئەنجام، گواستنەوە و خشتەکانی لیگ
   </div>
 
   <div class="live">
+
     <span class="live-dot"></span>
+
     داتا بە شێوەی خۆکار نوێ دەکرێتەوە
+
   </div>
+
 </header>
 
 <main class="container">
 
   <div class="nav">
 
-    <button class="active"
-      onclick="showSection('matches',this)">
+    <button
+      class="active"
+      onclick="showSection('matches',this)"
+    >
       ⚽ یارییەکان
     </button>
 
     <button
-      onclick="showSection('results',this)">
+      onclick="showSection('results',this)"
+    >
       🏁 ئەنجامەکان
     </button>
 
     <button
-      onclick="showSection('transfers',this)">
+      onclick="showSection('transfers',this)"
+    >
       🔄 گواستنەوە
     </button>
 
     <button
-      onclick="showSection('standings',this)">
+      onclick="showSection('standings',this)"
+    >
       🏆 خشتە
     </button>
 
   </div>
 
-  <!-- MATCHES -->
 
-  <section id="matchesSection" class="section active">
+  <!-- =========================
+       MATCHES
+  ========================== -->
+
+  <section
+    id="matchesSection"
+    class="section active"
+  >
 
     <div class="section-title">
-      <h1>⚽ یارییەکانی ئەمڕۆ</h1>
 
-      <button class="refresh"
-        onclick="loadMatches()">
+      <h1>
+        ⚽ یارییەکانی ئەمڕۆ
+      </h1>
+
+      <button
+        class="refresh"
+        onclick="loadMatches()"
+      >
         🔄 نوێکردنەوە
       </button>
+
     </div>
 
-    <div id="matchStatus" class="status">
+    <div
+      id="matchStatus"
+      class="status"
+    >
       ⏳ چاوەڕێی داتا...
     </div>
 
@@ -520,20 +594,35 @@ footer{
 
   </section>
 
-  <!-- RESULTS -->
 
-  <section id="resultsSection" class="section">
+  <!-- =========================
+       RESULTS
+  ========================== -->
+
+  <section
+    id="resultsSection"
+    class="section"
+  >
 
     <div class="section-title">
-      <h1>🏁 ئەنجامەکان</h1>
 
-      <button class="refresh"
-        onclick="loadResults()">
+      <h1>
+        🏁 ئەنجامەکان
+      </h1>
+
+      <button
+        class="refresh"
+        onclick="loadResults()"
+      >
         🔄 نوێکردنەوە
       </button>
+
     </div>
 
-    <div id="resultStatus" class="status">
+    <div
+      id="resultStatus"
+      class="status"
+    >
       ⏳ چاوەڕێی داتا...
     </div>
 
@@ -541,20 +630,35 @@ footer{
 
   </section>
 
-  <!-- TRANSFERS -->
 
-  <section id="transfersSection" class="section">
+  <!-- =========================
+       TRANSFERS
+  ========================== -->
+
+  <section
+    id="transfersSection"
+    class="section"
+  >
 
     <div class="section-title">
-      <h1>🔄 گواستنەوەکانی یاریزانان</h1>
 
-      <button class="refresh"
-        onclick="loadTransfers()">
+      <h1>
+        🔄 گواستنەوەکانی یاریزانان
+      </h1>
+
+      <button
+        class="refresh"
+        onclick="loadTransfers()"
+      >
         🔄 نوێکردنەوە
       </button>
+
     </div>
 
-    <div id="transferStatus" class="status">
+    <div
+      id="transferStatus"
+      class="status"
+    >
       ⏳ چاوەڕێی داتا...
     </div>
 
@@ -562,20 +666,35 @@ footer{
 
   </section>
 
-  <!-- STANDINGS -->
 
-  <section id="standingsSection" class="section">
+  <!-- =========================
+       STANDINGS
+  ========================== -->
+
+  <section
+    id="standingsSection"
+    class="section"
+  >
 
     <div class="section-title">
-      <h1>🏆 خشتەکانی لیگ</h1>
 
-      <button class="refresh"
-        onclick="loadStandings()">
+      <h1>
+        🏆 خشتەکانی لیگ
+      </h1>
+
+      <button
+        class="refresh"
+        onclick="loadStandings()"
+      >
         🔄 نوێکردنەوە
       </button>
+
     </div>
 
-    <div id="standingsStatus" class="status">
+    <div
+      id="standingsStatus"
+      class="status"
+    >
       ⏳ خشتەکان دەخوێندرێنەوە...
     </div>
 
@@ -585,28 +704,41 @@ footer{
 
 </main>
 
+
 <footer>
-  <div class="footer-logo">Hersh Football ⚽</div>
+
+  <div class="footer-logo">
+    Hersh Football ⚽
+  </div>
+
   Kurdish Football App
+
 </footer>
+
 
 <script>
 
-/* =========================
+/* =====================================================
    HELPERS
-========================= */
+===================================================== */
 
 function escapeHTML(value){
+
   return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
+
 function teamLogo(team){
-  if(!team || !team.logo) return "";
+
+  if(!team || !team.logo){
+    return "";
+  }
 
   return `
     <img
@@ -616,115 +748,187 @@ function teamLogo(team){
       onerror="this.style.display='none'"
     >
   `;
+
 }
 
+
 function teamName(team){
+
   return escapeHTML(
     team && team.name
       ? team.name
       : "یانە"
   );
+
 }
 
-/* =========================
+
+/* =====================================================
    NAVIGATION
-========================= */
+===================================================== */
 
 function showSection(name,button){
 
-  document.querySelectorAll(".nav button")
+  document
+    .querySelectorAll(".nav button")
     .forEach(function(btn){
+
       btn.classList.remove("active");
+
     });
+
 
   button.classList.add("active");
 
-  document.querySelectorAll(".section")
+
+  document
+    .querySelectorAll(".section")
     .forEach(function(section){
+
       section.classList.remove("active");
+
     });
+
 
   document
     .getElementById(name+"Section")
     .classList.add("active");
 
-  if(name === "matches") loadMatches();
-  if(name === "results") loadResults();
-  if(name === "transfers") loadTransfers();
-  if(name === "standings") loadStandings();
+
+  if(name === "matches"){
+    loadMatches();
+  }
+
+  if(name === "results"){
+    loadResults();
+  }
+
+  if(name === "transfers"){
+    loadTransfers();
+  }
+
+  if(name === "standings"){
+    loadStandings();
+  }
+
 }
 
-/* =========================
+
+/* =====================================================
    LOAD JSON
-========================= */
+   FIXED
+===================================================== */
 
 async function getJSON(file){
 
-  const response =
-  await fetch(
-    "results.json?t="+Date.now()
+  const response = await fetch(
+    file + "?t=" + Date.now(),
+    {
+      cache:"no-store"
+    }
   );
 
+
   if(!response.ok){
+
     throw new Error(
-      file + " HTTP " + response.status
+      file +
+      " HTTP " +
+      response.status
     );
+
   }
 
+
   return await response.json();
+
 }
 
-/* =========================
+
+/* =====================================================
    MATCHES
-========================= */
+===================================================== */
 
 async function loadMatches(){
 
   const status =
-    document.getElementById("matchStatus");
+    document.getElementById(
+      "matchStatus"
+    );
 
   const box =
-    document.getElementById("matches");
+    document.getElementById(
+      "matches"
+    );
+
 
   status.textContent =
     "⏳ یارییەکان دەخوێندرێنەوە...";
 
+
   box.innerHTML = "";
+
 
   try{
 
     const json =
-      await getJSON("matches.json");
+      await getJSON(
+        "matches.json"
+      );
+
 
     const matches =
-      Array.isArray(json.matches)
+      Array.isArray(
+        json.matches
+      )
         ? json.matches
         : [];
+
 
     if(!matches.length){
 
       status.textContent =
         "هیچ یارییەک نییە";
 
+
       box.innerHTML = `
+
         <div class="empty">
+
           ⚽ هیچ یارییەک بەردەست نییە
+
         </div>
+
       `;
 
       return;
+
     }
 
+
     status.textContent =
-      "✅ "+matches.length+" یاری بەردەستە";
+      "✅ "+
+      matches.length+
+      " یاری بەردەستە";
+
 
     matches.forEach(function(item){
 
-      const fixture = item.fixture || {};
-      const league = item.league || {};
-      const home = item.home || {};
-      const away = item.away || {};
-      const goals = item.goals || {};
+      const fixture =
+        item.fixture || {};
+
+      const league =
+        item.league || {};
+
+      const home =
+        item.home || {};
+
+      const away =
+        item.away || {};
+
+      const goals =
+        item.goals || {};
+
 
       const homeScore =
         goals.home !== null &&
@@ -732,240 +936,381 @@ async function loadMatches(){
           ? goals.home
           : "-";
 
+
       const awayScore =
         goals.away !== null &&
         goals.away !== undefined
           ? goals.away
           : "-";
 
-      const card =
-        document.createElement("div");
 
-      card.className = "match";
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "match";
+
 
       card.innerHTML = `
 
         <div class="match-league">
-          🏆 ${escapeHTML(league.name || "Football")}
+
+          🏆
+
+          ${escapeHTML(
+            league.name ||
+            "Football"
+          )}
+
         </div>
+
 
         <div class="match-teams">
 
           <div class="match-team">
+
             ${teamLogo(home)}
+
             <div class="team-name">
+
               ${teamName(home)}
+
             </div>
+
           </div>
+
 
           <div class="score">
+
             ${escapeHTML(homeScore)}
+
             -
+
             ${escapeHTML(awayScore)}
+
           </div>
 
+
           <div class="match-team">
+
             ${teamLogo(away)}
+
             <div class="team-name">
+
               ${teamName(away)}
+
             </div>
+
           </div>
 
         </div>
 
+
         <div class="match-time">
-          🕐 ${escapeHTML(
+
+          🕐
+
+          ${escapeHTML(
             fixture.status?.long ||
             fixture.status?.short ||
             "Scheduled"
           )}
+
         </div>
+
       `;
 
+
       box.appendChild(card);
+
     });
+
 
   }catch(error){
 
     console.error(error);
 
+
     status.innerHTML = `
+
       <span class="error">
+
         ❌ نەتوانرا matches.json بخوێندرێتەوە
+
       </span>
+
     `;
+
   }
+
 }
 
-/* =========================
+
+/* =====================================================
    RESULTS
-========================= */
+===================================================== */
 
 async function loadResults(){
 
   const status =
-    document.getElementById("resultStatus");
+    document.getElementById(
+      "resultStatus"
+    );
 
   const box =
-    document.getElementById("results");
+    document.getElementById(
+      "results"
+    );
+
 
   status.textContent =
     "⏳ ئەنجامەکان دەخوێندرێنەوە...";
 
+
   box.innerHTML = "";
+
 
   try{
 
     const json =
-      await getJSON("matches.json");
+      await getJSON(
+        "results.json"
+      );
 
-    const matches =
-      Array.isArray(json.matches)
+
+    const results =
+      Array.isArray(
+        json.matches
+      )
         ? json.matches
         : [];
 
-    const results =
-      matches.filter(function(item){
-
-        const short =
-          item?.fixture?.status?.short;
-
-        return (
-          short === "FT" ||
-          short === "AET" ||
-          short === "PEN"
-        );
-      });
 
     if(!results.length){
 
       status.textContent =
         "هیچ ئەنجامێکی تەواو نییە";
 
+
       box.innerHTML = `
+
         <div class="empty">
+
           🏁 هێشتا ئەنجامی تەواو نییە
+
         </div>
+
       `;
 
       return;
+
     }
 
+
     status.textContent =
-      "✅ "+results.length+" ئەنجام";
+      "✅ "+
+      results.length+
+      " ئەنجام";
+
 
     results.forEach(function(item){
 
-      const fixture = item.fixture || {};
-      const league = item.league || {};
-      const home = item.home || {};
-      const away = item.away || {};
-      const goals = item.goals || {};
+      const fixture =
+        item.fixture || {};
+
+      const league =
+        item.league || {};
+
+      const home =
+        item.home || {};
+
+      const away =
+        item.away || {};
+
+      const goals =
+        item.goals || {};
+
 
       const card =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
-      card.className = "match";
+
+      card.className =
+        "match";
+
 
       card.innerHTML = `
 
         <div class="match-league">
-          🏆 ${escapeHTML(league.name || "Football")}
+
+          🏆
+
+          ${escapeHTML(
+            league.name ||
+            "Football"
+          )}
+
         </div>
+
 
         <div class="match-teams">
 
           <div class="match-team">
+
             ${teamLogo(home)}
+
             <div class="team-name">
+
               ${teamName(home)}
+
             </div>
+
           </div>
+
 
           <div class="score">
-            ${escapeHTML(goals.home ?? 0)}
+
+            ${escapeHTML(
+              goals.home ?? 0
+            )}
+
             -
-            ${escapeHTML(goals.away ?? 0)}
+
+            ${escapeHTML(
+              goals.away ?? 0
+            )}
+
           </div>
 
+
           <div class="match-team">
+
             ${teamLogo(away)}
+
             <div class="team-name">
+
               ${teamName(away)}
+
             </div>
+
           </div>
 
         </div>
 
+
         <div class="match-time">
-          🏁 ${escapeHTML(
+
+          🏁
+
+          ${escapeHTML(
             fixture.status?.long ||
             fixture.status?.short ||
             "FT"
           )}
+
         </div>
+
       `;
 
+
       box.appendChild(card);
+
     });
+
 
   }catch(error){
 
     console.error(error);
 
+
     status.innerHTML = `
+
       <span class="error">
-        ❌ کێشە لە خوێندنەوەی matches.json
+
+        ❌ نەتوانرا results.json بخوێندرێتەوە
+
       </span>
+
     `;
+
   }
+
 }
 
-/* =========================
+
+/* =====================================================
    TRANSFERS
-========================= */
+===================================================== */
 
 async function loadTransfers(){
 
   const status =
-    document.getElementById("transferStatus");
+    document.getElementById(
+      "transferStatus"
+    );
 
   const box =
-    document.getElementById("transfers");
+    document.getElementById(
+      "transfers"
+    );
+
 
   status.textContent =
     "⏳ گواستنەوەکان دەخوێندرێنەوە...";
 
+
   box.innerHTML = "";
+
 
   try{
 
     const json =
-      await getJSON("transfers.json");
+      await getJSON(
+        "transfers.json"
+      );
+
 
     const transfers =
       Array.isArray(json)
         ? json
-        : Array.isArray(json.transfers)
+        : Array.isArray(
+            json.transfers
+          )
           ? json.transfers
           : [];
+
 
     if(!transfers.length){
 
       status.textContent =
         "هیچ گواستنەوەیەک نییە";
 
+
       box.innerHTML = `
+
         <div class="empty">
+
           🔄 هیچ گواستنەوەیەک بەردەست نییە
+
         </div>
+
       `;
 
       return;
+
     }
 
+
     status.textContent =
-      "✅ "+transfers.length+" گواستنەوە";
+      "✅ "+
+      transfers.length+
+      " گواستنەوە";
+
 
     transfers.forEach(function(item){
 
@@ -981,138 +1326,218 @@ async function loadTransfers(){
       const inTeam =
         teams.in || {};
 
-      const card =
-        document.createElement("div");
 
-      card.className = "transfer";
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "transfer";
+
 
       card.innerHTML = `
 
         <div class="player">
-          ⚽ ${escapeHTML(
-            player.name || "یاریزان"
+
+          ⚽
+
+          ${escapeHTML(
+            player.name ||
+            "یاریزان"
           )}
+
         </div>
+
 
         <div class="transfer-teams">
 
           <div class="transfer-team">
+
             ${teamLogo(outTeam)}
 
             <div class="team-name">
+
               ${escapeHTML(
-                outTeam.name || "لە یانەکەی پێشوو"
+                outTeam.name ||
+                "یانەی پێشوو"
               )}
+
             </div>
+
           </div>
+
 
           <div class="arrow">
+
             →
+
           </div>
 
+
           <div class="transfer-team">
+
             ${teamLogo(inTeam)}
 
             <div class="team-name">
+
               ${escapeHTML(
-                inTeam.name || "یانەی نوێ"
+                inTeam.name ||
+                "یانەی نوێ"
               )}
+
             </div>
+
           </div>
 
         </div>
+
 
         <div class="transfer-info">
 
           <div class="date">
-            📅 ${escapeHTML(
+
+            📅
+
+            ${escapeHTML(
               item.date || ""
             )}
+
           </div>
 
+
           <div class="type">
+
             ${escapeHTML(
-              item.type || "Transfer"
+              item.type ||
+              "Transfer"
             )}
+
           </div>
 
         </div>
+
       `;
 
+
       box.appendChild(card);
+
     });
+
 
   }catch(error){
 
     console.error(error);
 
+
     status.innerHTML = `
+
       <span class="error">
+
         ❌ نەتوانرا transfers.json بخوێندرێتەوە
+
       </span>
+
     `;
+
   }
+
 }
 
-/* =========================
+
+/* =====================================================
    STANDINGS
-========================= */
+===================================================== */
 
 async function loadStandings(){
 
   const status =
-    document.getElementById("standingsStatus");
+    document.getElementById(
+      "standingsStatus"
+    );
 
   const box =
-    document.getElementById("standings");
+    document.getElementById(
+      "standings"
+    );
+
 
   status.textContent =
     "⏳ خشتەکان دەخوێندرێنەوە...";
 
+
   box.innerHTML = "";
+
 
   try{
 
     const json =
-      await getJSON("standings.json");
+      await getJSON(
+        "standings.json"
+      );
+
 
     const leagues =
       json.leagues || {};
 
+
     const names =
-      Object.keys(leagues);
+      Object.keys(
+        leagues
+      );
+
 
     if(!names.length){
 
       status.textContent =
         "هیچ خشتەیەک نییە";
 
+
       box.innerHTML = `
+
         <div class="empty">
+
           🏆 هیچ خشتەیەک بەردەست نییە
+
         </div>
+
       `;
 
       return;
+
     }
 
+
     status.textContent =
-      "✅ "+names.length+" لیگ";
+      "✅ "+
+      names.length+
+      " لیگ";
+
 
     names.forEach(function(name){
 
       const league =
         leagues[name] || {};
 
+
       const rows =
-        Array.isArray(league.standings)
+        Array.isArray(
+          league.standings
+        )
           ? league.standings
           : [];
 
-      const card =
-        document.createElement("div");
 
-      card.className = "league-card";
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "league-card";
+
 
       let html = `
 
@@ -1120,40 +1545,63 @@ async function loadStandings(){
 
           ${
             league.logo
+
               ? `
+
                 <img
                   class="league-logo"
-                  src="${escapeHTML(league.logo)}"
+                  src="${escapeHTML(
+                    league.logo
+                  )}"
                   alt=""
                   loading="lazy"
-                  onerror="this.style.display='none'"
+                  onerror="
+                    this.style.display='none'
+                  "
                 >
+
               `
+
               : "🏆"
           }
+
 
           ${escapeHTML(name)}
 
         </div>
+
 
         <div class="table-scroll">
 
           <table class="standings-table">
 
             <thead>
+
               <tr>
+
                 <th>#</th>
+
                 <th>یانە</th>
+
                 <th>یاری</th>
+
                 <th>بردنەوە</th>
+
                 <th>مساوی</th>
+
                 <th>دۆڕان</th>
+
                 <th>خاڵ</th>
+
               </tr>
+
             </thead>
 
+
             <tbody>
+
       `;
+
 
       rows.forEach(function(row){
 
@@ -1163,28 +1611,43 @@ async function loadStandings(){
         const all =
           row.all || {};
 
+
         html += `
 
           <tr>
 
             <td class="rank">
-              ${escapeHTML(row.rank ?? "-")}
+
+              ${escapeHTML(
+                row.rank ?? "-"
+              )}
+
             </td>
+
 
             <td class="club">
 
               ${
                 team.logo
+
                   ? `
+
                     <img
-                      src="${escapeHTML(team.logo)}"
+                      src="${escapeHTML(
+                        team.logo
+                      )}"
                       alt=""
                       loading="lazy"
-                      onerror="this.style.display='none'"
+                      onerror="
+                        this.style.display='none'
+                      "
                     >
+
                   `
+
                   : ""
               }
+
 
               ${escapeHTML(
                 team.name || ""
@@ -1192,39 +1655,57 @@ async function loadStandings(){
 
             </td>
 
+
             <td>
+
               ${escapeHTML(
                 all.played ?? "-"
               )}
+
             </td>
 
+
             <td>
+
               ${escapeHTML(
                 all.win ?? "-"
               )}
+
             </td>
 
+
             <td>
+
               ${escapeHTML(
                 all.draw ?? "-"
               )}
+
             </td>
 
+
             <td>
+
               ${escapeHTML(
                 all.lose ?? "-"
               )}
+
             </td>
 
+
             <td class="points">
+
               ${escapeHTML(
                 row.points ?? "-"
               )}
+
             </td>
 
           </tr>
+
         `;
+
       });
+
 
       html += `
 
@@ -1233,28 +1714,44 @@ async function loadStandings(){
           </table>
 
         </div>
+
       `;
 
-      card.innerHTML = html;
 
-      box.appendChild(card);
+      card.innerHTML =
+        html;
+
+
+      box.appendChild(
+        card
+      );
+
     });
+
 
   }catch(error){
 
     console.error(error);
 
+
     status.innerHTML = `
+
       <span class="error">
+
         ❌ نەتوانرا standings.json بخوێندرێتەوە
+
       </span>
+
     `;
+
   }
+
 }
 
-/* =========================
+
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 loadMatches();
 
