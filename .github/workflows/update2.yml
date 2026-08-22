@@ -194,6 +194,14 @@ jobs:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
+          TODAY=$(date -u +"%Y-%m-%d")
+          FROM_DATE=$(date -u -d "7 days ago" +"%Y-%m-%d")
+
+          echo "================================"
+          echo "RESULTS FROM: $FROM_DATE"
+          echo "RESULTS TO:   $TODAY"
+          echo "================================"
+
           curl -f -sS \
             --retry 5 \
             --retry-delay 5 \
@@ -218,25 +226,91 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-          BIG_LEAGUES = {
-              39,
-              140,
-              135,
-              78,
-              61,
-              2,
-              3
-          }
+          try:
 
-          with open(
-              "results_raw.json",
-              encoding="utf-8"
-          ) as f:
-              data = json.load(f)
+              with open(
+                  "results_raw.json",
+                  encoding="utf-8"
+              ) as f:
+                  data = json.load(f)
+
+          except Exception as e:
+
+              print("❌ Cannot read results_raw.json:", e)
+
+              data = {}
 
           response = data.get(
               "response",
               []
+          )
+
+          print("==============================")
+          print("ALL RESULTS FROM API:", len(response))
+          print("==============================")
+
+          BIG_LEAGUES = {
+              39,   # Premier League
+              140,  # La Liga
+              135,  # Serie A
+              78,   # Bundesliga
+              61,   # Ligue 1
+              2,    # Champions League
+              3     # Europa League
+          }
+
+          important_teams = {
+              529,
+              541,
+              530,
+              50,
+              33,
+              42,
+              49,
+              40,
+              157,
+              85,
+              496,
+              505,
+              489
+          }
+
+          iraq_ids = set()
+
+          try:
+
+              with open(
+                  "iraq_leagues.json",
+                  encoding="utf-8"
+              ) as f:
+
+                  iraq_data = json.load(f)
+
+              for item in iraq_data.get(
+                  "response",
+                  []
+              ):
+
+                  league = item.get(
+                      "league",
+                      {}
+                  )
+
+                  league_id = league.get("id")
+
+                  if league_id:
+                      iraq_ids.add(league_id)
+
+          except Exception as e:
+
+              print(
+                  "Iraq leagues file not available:",
+                  e
+              )
+
+          print(
+              "IRAQ LEAGUE IDS:",
+              sorted(iraq_ids)
           )
 
           results = []
@@ -248,13 +322,64 @@ jobs:
                   {}
               )
 
-              if league.get("id") not in BIG_LEAGUES:
-                  continue
-
               teams = item.get(
                   "teams",
                   {}
               )
+
+              home = teams.get(
+                  "home",
+                  {}
+              )
+
+              away = teams.get(
+                  "away",
+                  {}
+              )
+
+              league_id = league.get("id")
+
+              home_id = home.get("id")
+              away_id = away.get("id")
+
+              status = item.get(
+                  "fixture",
+                  {}
+              ).get(
+                  "status",
+                  {}
+              ).get(
+                  "short"
+              )
+
+              if status not in {
+                  "FT",
+                  "AET",
+                  "PEN"
+              }:
+
+                  continue
+
+              keep = False
+
+              # 7 major leagues
+              if league_id in BIG_LEAGUES:
+                  keep = True
+
+              # Iraq / Kurdistan
+              if league_id in iraq_ids:
+                  keep = True
+
+              # Important teams
+              if (
+                  home_id in important_teams
+                  or
+                  away_id in important_teams
+              ):
+                  keep = True
+
+              if not keep:
+                  continue
 
               results.append({
 
@@ -268,16 +393,10 @@ jobs:
                       league,
 
                   "home":
-                      teams.get(
-                          "home",
-                          {}
-                      ),
+                      home,
 
                   "away":
-                      teams.get(
-                          "away",
-                          {}
-                      ),
+                      away,
 
                   "goals":
                       item.get(
@@ -286,18 +405,6 @@ jobs:
                       )
 
               })
-
-          results.sort(
-              key=lambda x:
-                  x.get(
-                      "fixture",
-                      {}
-                  ).get(
-                      "date",
-                      ""
-                  ),
-              reverse=True
-          )
 
           output = {
 
@@ -327,10 +434,49 @@ jobs:
                   indent=2
               )
 
+          print("==============================")
           print(
               "FINAL RESULTS:",
               len(results)
           )
+          print("==============================")
+
+          for match in results:
+
+              print(
+                  match.get(
+                      "league",
+                      {}
+                  ).get("name"),
+
+                  "=>",
+
+                  match.get(
+                      "home",
+                      {}
+                  ).get("name"),
+
+                  "vs",
+
+                  match.get(
+                      "away",
+                      {}
+                  ).get("name"),
+
+                  "|",
+
+                  match.get(
+                      "goals",
+                      {}
+                  ).get("home"),
+
+                  "-",
+
+                  match.get(
+                      "goals",
+                      {}
+                  ).get("away")
+              )
 
           PY
 
