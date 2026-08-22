@@ -3,6 +3,9 @@ name: Update Football Data 2
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: "0 */6 * * *"
+
 permissions:
   contents: write
 
@@ -40,13 +43,14 @@ jobs:
 
 
       # =========================================
-      # DATE
+      # SET DATES
       # =========================================
 
       - name: Set dates
         run: |
 
           TODAY=$(date -u +"%Y-%m-%d")
+
           FROM_DATE=$(date -u -d "7 days ago" +"%Y-%m-%d")
 
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
@@ -81,6 +85,16 @@ jobs:
 
           echo "✅ Matches downloaded"
 
+          python3 - <<'PY'
+          import json
+
+          with open("matches_raw.json", encoding="utf-8") as f:
+              data = json.load(f)
+
+          print("API errors:", data.get("errors"))
+          print("API matches:", len(data.get("response", [])))
+          PY
+
 
       # =========================================
       # GET IRAQ LEAGUES
@@ -91,7 +105,7 @@ jobs:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
-          curl -f -sS \
+          curl -sS \
             --retry 3 \
             --retry-delay 5 \
             --retry-max-time 90 \
@@ -117,37 +131,28 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-          with open(
-              "matches_raw.json",
-              encoding="utf-8"
-          ) as f:
+          with open("matches_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          response = data.get(
-              "response",
-              []
-          )
+          response = data.get("response", [])
 
           print("==============================")
-          print(
-              "ALL API MATCHES:",
-              len(response)
-          )
+          print("ALL API MATCHES:", len(response))
           print("==============================")
 
 
           # =====================================
-          # 7 MAJOR LEAGUES
+          # MAJOR LEAGUES
           # =====================================
 
           BIG_LEAGUES = {
-              39,   # Premier League
-              140,  # La Liga
-              135,  # Serie A
-              78,   # Bundesliga
-              61,   # Ligue 1
-              2,    # Champions League
-              3     # Europa League
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3
           }
 
 
@@ -156,16 +161,16 @@ jobs:
           # =====================================
 
           IMPORTANT_TEAMS = {
-              529,  # Barcelona
-              541,  # Real Madrid
-              530,  # Atletico Madrid
-              50,   # Manchester City
-              33,   # Manchester United
-              49,   # Chelsea
-              40,   # Liverpool
-              42,   # Arsenal
-              157,  # Bayern Munich
-              85,   # PSG
+              529,
+              541,
+              530,
+              50,
+              33,
+              49,
+              40,
+              42,
+              157,
+              85,
               496,
               505,
               489
@@ -173,7 +178,7 @@ jobs:
 
 
           # =====================================
-          # IRAQ LEAGUE IDS
+          # IRAQ LEAGUES
           # =====================================
 
           iraq_ids = set()
@@ -186,13 +191,6 @@ jobs:
               ) as f:
 
                   iraq_data = json.load(f)
-
-              if iraq_data.get("errors"):
-
-                  print(
-                      "IRAQ API ERRORS:",
-                      iraq_data.get("errors")
-                  )
 
               for item in iraq_data.get(
                   "response",
@@ -209,9 +207,7 @@ jobs:
                   )
 
                   if league_id:
-                      iraq_ids.add(
-                          league_id
-                      )
+                      iraq_ids.add(league_id)
 
           except Exception as e:
 
@@ -228,7 +224,7 @@ jobs:
 
 
           # =====================================
-          # FILTER MATCHES
+          # FILTER
           # =====================================
 
           matches = []
@@ -270,7 +266,7 @@ jobs:
               keep = False
 
 
-              # Iraq competitions
+              # Iraq
               if league_id in iraq_ids:
                   keep = True
 
@@ -284,9 +280,7 @@ jobs:
                   keep = True
 
 
-              # Major leagues:
-              # only important clubs,
-              # so small clubs are excluded.
+              # Major leagues
               if league_id in BIG_LEAGUES:
 
                   if (
@@ -358,10 +352,7 @@ jobs:
 
 
           print("==============================")
-          print(
-              "FINAL MATCHES:",
-              len(matches)
-          )
+          print("FINAL MATCHES:", len(matches))
           print("==============================")
 
 
@@ -392,17 +383,6 @@ jobs:
               "response",
               []
           )
-
-
-          BIG_LEAGUES = {
-              39,
-              140,
-              135,
-              78,
-              61,
-              2,
-              3
-          }
 
 
           IMPORTANT_TEAMS = {
@@ -439,22 +419,14 @@ jobs:
                   "short"
               )
 
+
               if status not in {
                   "FT",
                   "AET",
                   "PEN"
               }:
+
                   continue
-
-
-              league = item.get(
-                  "league",
-                  {}
-              )
-
-              league_id = league.get(
-                  "id"
-              )
 
 
               teams = item.get(
@@ -482,30 +454,12 @@ jobs:
               )
 
 
-              keep = False
-
-
-              if (
-                  league_id in BIG_LEAGUES
-                  and
-                  (
-                      home_id in IMPORTANT_TEAMS
-                      or
-                      away_id in IMPORTANT_TEAMS
-                  )
-              ):
-                  keep = True
-
-
-              if (
+              if not (
                   home_id in IMPORTANT_TEAMS
                   or
                   away_id in IMPORTANT_TEAMS
               ):
-                  keep = True
 
-
-              if not keep:
                   continue
 
 
@@ -515,7 +469,10 @@ jobs:
                       fixture,
 
                   "league":
-                      league,
+                      item.get(
+                          "league",
+                          {}
+                      ),
 
                   "home":
                       home,
@@ -563,10 +520,7 @@ jobs:
 
 
           print("==============================")
-          print(
-              "FINAL RESULTS:",
-              len(results)
-          )
+          print("FINAL RESULTS:", len(results))
           print("==============================")
 
 
@@ -653,7 +607,7 @@ jobs:
               except Exception as e:
 
                   print(
-                      "Skipping",
+                      "Skipping:",
                       filename,
                       e
                   )
@@ -812,10 +766,7 @@ jobs:
 
 
           print("==============================")
-          print(
-              "TRANSFERS:",
-              len(unique)
-          )
+          print("TRANSFERS:", len(unique))
           print("==============================")
 
 
@@ -823,7 +774,7 @@ jobs:
 
 
       # =========================================
-      # STANDINGS
+      # CREATE STANDINGS
       # =========================================
 
       - name: Create standings
@@ -835,14 +786,11 @@ jobs:
 
           import json
           import urllib.request
-          import urllib.error
           import os
           from datetime import datetime, timezone
 
 
-          API_KEY = os.environ[
-              "API_KEY"
-          ]
+          API_KEY = os.environ["API_KEY"]
 
 
           leagues = {
@@ -864,10 +812,6 @@ jobs:
           }
 
 
-          # Free Plan:
-          # 2026 is restricted.
-          # Use available historical seasons.
-
           seasons = [
               2024,
               2023,
@@ -882,13 +826,7 @@ jobs:
 
               print("")
               print("==============================")
-              print(
-                  "League:",
-                  name
-              )
-
-
-              found = False
+              print("League:", name)
 
 
               for season in seasons:
@@ -934,7 +872,6 @@ jobs:
                               response
                           )
 
-
                   except Exception as e:
 
                       print(
@@ -951,9 +888,7 @@ jobs:
 
                       print(
                           "API ERROR:",
-                          data.get(
-                              "errors"
-                          )
+                          data.get("errors")
                       )
 
                       continue
@@ -1024,17 +959,7 @@ jobs:
                   )
 
 
-                  found = True
-
                   break
-
-
-              if not found:
-
-                  print(
-                      "❌ FAILED:",
-                      name
-                  )
 
 
           output = {
@@ -1095,9 +1020,6 @@ jobs:
             standings.json
 
 
-          echo ""
-
-
           python3 - <<'PY'
 
           import json
@@ -1108,18 +1030,7 @@ jobs:
               encoding="utf-8"
           ) as f:
 
-              matches_data = json.load(f)
-
-
-          print(
-              "FINAL MATCHES:",
-              len(
-                  matches_data.get(
-                      "matches",
-                      []
-                  )
-              )
-          )
+              matches = json.load(f)
 
 
           with open(
@@ -1127,18 +1038,7 @@ jobs:
               encoding="utf-8"
           ) as f:
 
-              results_data = json.load(f)
-
-
-          print(
-              "FINAL RESULTS:",
-              len(
-                  results_data.get(
-                      "matches",
-                      []
-                  )
-              )
-          )
+              results = json.load(f)
 
 
           with open(
@@ -1147,12 +1047,6 @@ jobs:
           ) as f:
 
               transfers = json.load(f)
-
-
-          print(
-              "TRANSFERS:",
-              len(transfers)
-          )
 
 
           with open(
@@ -1164,13 +1058,26 @@ jobs:
 
 
           print(
+              "FINAL MATCHES:",
+              len(matches.get("matches", []))
+          )
+
+
+          print(
+              "FINAL RESULTS:",
+              len(results.get("matches", []))
+          )
+
+
+          print(
+              "TRANSFERS:",
+              len(transfers)
+          )
+
+
+          print(
               "STANDING LEAGUES:",
-              len(
-                  standings.get(
-                      "leagues",
-                      {}
-                  )
-              )
+              len(standings.get("leagues", {}))
           )
 
 
@@ -1184,13 +1091,9 @@ jobs:
       - name: Save data
         run: |
 
-          git config \
-            user.name \
-            "github-actions"
+          git config user.name "github-actions"
 
-          git config \
-            user.email \
-            "github-actions@github.com"
+          git config user.email "github-actions@github.com"
 
 
           git add -f \
@@ -1200,34 +1103,16 @@ jobs:
             standings.json
 
 
-          if git diff \
-            --cached \
-            --quiet; then
+          if git diff --cached --quiet; then
 
-            echo "No changes"
+            echo "No changes to commit"
 
             exit 0
 
           fi
 
 
-          - name: Save data
-        run: |
-
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git add -f \
-            matches.json \
-            results.json \
-            transfers.json \
-            standings.json
-
-          git diff --cached --quiet && {
-            echo "No changes to commit"
-            exit 0
-          }
-
           git commit -m "Update football data"
+
 
           git push origin HEAD:main
