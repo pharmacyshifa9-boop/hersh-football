@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-22T10:52:57.238650+00:00",
-  "results": 6,
+  "updated": "2026-08-22T11:03:15.122657+00:00",
+  "results": 4,
   "matches": [
     {
       "fixture": {
@@ -54,56 +54,6 @@
     },
     {
       "fixture": {
-        "id": 1627048,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-08-22T15:30:00+00:00",
-        "timestamp": 1787412600,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 542,
-        "name": "Iraqi League",
-        "country": "Iraq",
-        "logo": "https://media.api-sports.io/football/leagues/542.png",
-        "flag": "https://media.api-sports.io/flags/iq.svg",
-        "season": 2026,
-        "round": "Regular Season - 2",
-        "standings": true
-      },
-      "home": {
-        "id": 26600,
-        "name": "Gharraf",
-        "logo": "https://media.api-sports.io/football/teams/26600.png",
-        "winner": null
-      },
-      "away": {
-        "id": 25062,
-        "name": "Newroz",
-        "logo": "https://media.api-sports.io/football/teams/25062.png",
-        "winner": null
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      }
-    },
-    {
-      "fixture": {
         "id": 1550092,
         "referee": "L. Marinelli",
         "timezone": "UTC",
@@ -145,56 +95,6 @@
         "id": 1579,
         "name": "Monza",
         "logo": "https://media.api-sports.io/football/teams/1579.png",
-        "winner": null
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      }
-    },
-    {
-      "fixture": {
-        "id": 1627049,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-08-22T18:00:00+00:00",
-        "timestamp": 1787421600,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": "Duhok Stadium",
-          "city": "Duhok"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 542,
-        "name": "Iraqi League",
-        "country": "Iraq",
-        "logo": "https://media.api-sports.io/football/leagues/542.png",
-        "flag": "https://media.api-sports.io/flags/iq.svg",
-        "season": 2026,
-        "round": "Regular Season - 2",
-        "standings": true
-      },
-      "home": {
-        "id": 20463,
-        "name": "Duhok",
-        "logo": "https://media.api-sports.io/football/teams/20463.png",
-        "winner": null
-      },
-      "away": {
-        "id": 11067,
-        "name": "Al Talaba",
-        "logo": "https://media.api-sports.io/football/teams/11067.png",
         "winner": null
       },
       "goals": {
