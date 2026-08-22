@@ -2,9 +2,14 @@
 <html lang="ku" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06110d">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#06110d">
 
 <title>Hersh Football ⚽</title>
 
@@ -59,7 +64,8 @@ header{
   font-size:31px;
   font-weight:900;
   color:var(--green);
-  text-shadow:0 0 25px #28e88933;
+  text-shadow:
+    0 0 25px #28e88933;
 }
 
 .subtitle{
@@ -87,7 +93,8 @@ header{
   height:7px;
   border-radius:50%;
   background:var(--green);
-  box-shadow:0 0 10px var(--green);
+  box-shadow:
+    0 0 10px var(--green);
 }
 
 .container{
@@ -101,14 +108,21 @@ header{
   position:sticky;
   top:8px;
   z-index:20;
+
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:7px;
   margin-bottom:18px;
   padding:6px;
+
   border-radius:17px;
+
   background:#07150fdd;
+
   backdrop-filter:blur(12px);
+
   border:1px solid var(--line);
 }
 
@@ -116,17 +130,24 @@ header{
   border:0;
   background:transparent;
   color:var(--muted);
+
   padding:12px 5px;
+
   border-radius:12px;
+
   font-weight:bold;
+
   cursor:pointer;
+
   transition:.2s;
 }
 
 .nav button.active{
   background:var(--green);
   color:#031109;
-  box-shadow:0 5px 20px #28e88925;
+
+  box-shadow:
+    0 5px 20px #28e88925;
 }
 
 .section{
@@ -135,10 +156,13 @@ header{
 
 .section.active{
   display:block;
-  animation:fade .25s ease;
+
+  animation:
+    fade .25s ease;
 }
 
 @keyframes fade{
+
   from{
     opacity:0;
     transform:translateY(5px);
@@ -148,12 +172,14 @@ header{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 .section-title{
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   margin-bottom:14px;
 }
 
@@ -163,11 +189,17 @@ header{
 
 .refresh{
   border:0;
+
   background:var(--green);
+
   color:#031109;
+
   padding:9px 14px;
+
   border-radius:11px;
+
   font-weight:900;
+
   cursor:pointer;
 }
 
@@ -177,20 +209,31 @@ header{
 
 .status{
   background:var(--card);
+
   border:1px solid var(--line);
+
   padding:12px;
+
   border-radius:14px;
+
   margin-bottom:13px;
+
   text-align:center;
+
   color:var(--muted);
 }
 
 .empty{
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:17px;
+
   padding:35px 15px;
+
   text-align:center;
+
   color:var(--muted);
 }
 
@@ -199,7 +242,7 @@ header{
 }
 
 /* =========================
-   MATCHES
+   MATCH
 ========================= */
 
 .match{
@@ -209,69 +252,106 @@ header{
       #0d2519,
       #07150f
     );
+
   border:1px solid var(--line);
+
   border-radius:19px;
+
   padding:15px;
+
   margin-bottom:12px;
-  box-shadow:0 8px 25px #00000018;
+
+  box-shadow:
+    0 8px 25px #00000018;
 }
 
 .match-league{
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:5px;
+
   color:var(--green);
+
   font-size:12px;
+
   font-weight:900;
+
   margin-bottom:13px;
 }
 
 .match-teams{
   display:grid;
-  grid-template-columns:1fr auto 1fr;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
   align-items:center;
+
   gap:8px;
 }
 
 .match-team{
   background:var(--card2);
-  border:1px solid var(--line);
+
+  border:1px solid #1b3b2b;
+
   border-radius:15px;
+
   min-height:112px;
+
   padding:10px 5px;
+
   display:flex;
+
   flex-direction:column;
+
   justify-content:center;
+
   align-items:center;
+
   text-align:center;
 }
 
 .match-team img{
   width:48px;
   height:48px;
+
   object-fit:contain;
+
   margin-bottom:7px;
 }
 
 .team-name{
   font-size:12px;
+
   font-weight:900;
+
   line-height:1.4;
 }
 
 .score{
   min-width:55px;
+
   text-align:center;
+
   color:var(--green);
+
   font-size:23px;
+
   font-weight:900;
 }
 
 .match-time{
   margin-top:10px;
+
   text-align:center;
+
   color:var(--muted);
+
   font-size:11px;
 }
 
@@ -286,72 +366,107 @@ header{
       #0d2519,
       #07150f
     );
+
   border:1px solid var(--line);
+
   border-radius:19px;
+
   padding:16px;
+
   margin-bottom:12px;
 }
 
 .player{
   color:var(--green);
+
   font-size:18px;
+
   font-weight:900;
+
   margin-bottom:13px;
 }
 
 .transfer-teams{
   display:grid;
-  grid-template-columns:1fr auto 1fr;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
   align-items:center;
+
   gap:7px;
 }
 
 .transfer-team{
   background:var(--card2);
+
   border:1px solid var(--line);
+
   border-radius:15px;
+
   min-height:95px;
+
   padding:10px 5px;
+
   display:flex;
+
   flex-direction:column;
+
   justify-content:center;
+
   align-items:center;
+
   text-align:center;
 }
 
 .transfer-team img{
   width:42px;
   height:42px;
+
   object-fit:contain;
+
   margin-bottom:6px;
 }
 
 .arrow{
   color:var(--green);
+
   font-size:27px;
+
   font-weight:900;
 }
 
 .transfer-info{
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   margin-top:12px;
+
   padding-top:10px;
+
   border-top:1px solid var(--line);
 }
 
 .date{
   color:var(--muted);
+
   font-size:12px;
 }
 
 .type{
   color:var(--green);
+
   background:#28e88914;
+
   border:1px solid #28e88925;
+
   padding:5px 10px;
+
   border-radius:20px;
+
   font-size:11px;
 }
 
@@ -361,9 +476,13 @@ header{
 
 .league-card{
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:19px;
+
   overflow:hidden;
+
   margin-bottom:18px;
 }
 
@@ -374,18 +493,26 @@ header{
       var(--card2),
       #0b2016
     );
+
   padding:14px;
+
   display:flex;
+
   align-items:center;
+
   gap:9px;
+
   color:var(--green);
+
   font-size:17px;
+
   font-weight:900;
 }
 
 .league-logo{
   width:36px;
   height:36px;
+
   object-fit:contain;
 }
 
@@ -395,21 +522,29 @@ header{
 
 .standings-table{
   width:100%;
+
   min-width:570px;
+
   border-collapse:collapse;
 }
 
 .standings-table th{
   color:var(--muted);
+
   font-size:11px;
+
   padding:11px 5px;
+
   border-bottom:1px solid var(--line);
 }
 
 .standings-table td{
   padding:10px 5px;
+
   text-align:center;
+
   font-size:12px;
+
   border-bottom:1px solid var(--line);
 }
 
@@ -419,26 +554,34 @@ header{
 
 .rank{
   color:var(--green);
+
   font-weight:900;
 }
 
 .club{
   text-align:right!important;
+
   font-weight:bold;
+
   white-space:nowrap;
 }
 
 .club img{
   width:28px;
   height:28px;
+
   object-fit:contain;
+
   vertical-align:middle;
+
   margin-left:6px;
 }
 
 .points{
   color:var(--green);
+
   font-weight:900;
+
   font-size:14px!important;
 }
 
@@ -448,15 +591,21 @@ header{
 
 footer{
   text-align:center;
+
   color:var(--muted);
+
   padding:35px 15px;
+
   font-size:12px;
 }
 
 .footer-logo{
   color:var(--green);
+
   font-size:15px;
+
   font-weight:900;
+
   margin-bottom:5px;
 }
 
@@ -476,6 +625,7 @@ footer{
 
   .nav button{
     font-size:10px;
+
     padding:11px 3px;
   }
 
@@ -494,15 +644,18 @@ footer{
 
   .score{
     font-size:20px;
+
     min-width:45px;
   }
 
   .player{
     font-size:17px;
   }
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -529,181 +682,164 @@ footer{
 
 <main class="container">
 
-  <div class="nav">
+<!-- =========================
+     NAV
+========================= -->
+
+<div class="nav">
+
+  <button
+    class="active"
+    onclick="showSection('matches',this)">
+    ⚽ یارییەکان
+  </button>
+
+  <button
+    onclick="showSection('results',this)">
+    🏁 ئەنجامەکان
+  </button>
+
+  <button
+    onclick="showSection('transfers',this)">
+    🔄 گواستنەوە
+  </button>
+
+  <button
+    onclick="showSection('standings',this)">
+    🏆 خشتە
+  </button>
+
+</div>
+
+<!-- =========================
+     MATCHES
+========================= -->
+
+<section
+  id="matchesSection"
+  class="section active">
+
+  <div class="section-title">
+
+    <h1>
+      ⚽ یارییەکانی ئەمڕۆ
+    </h1>
 
     <button
-      class="active"
-      onclick="showSection('matches',this)"
-    >
-      ⚽ یارییەکان
-    </button>
-
-    <button
-      onclick="showSection('results',this)"
-    >
-      🏁 ئەنجامەکان
-    </button>
-
-    <button
-      onclick="showSection('transfers',this)"
-    >
-      🔄 گواستنەوە
-    </button>
-
-    <button
-      onclick="showSection('standings',this)"
-    >
-      🏆 خشتە
+      class="refresh"
+      onclick="loadMatches()">
+      🔄 نوێکردنەوە
     </button>
 
   </div>
 
+  <div
+    id="matchStatus"
+    class="status">
+    ⏳ چاوەڕێی داتا...
+  </div>
 
-  <!-- =========================
-       MATCHES
-  ========================== -->
+  <div id="matches"></div>
 
-  <section
-    id="matchesSection"
-    class="section active"
-  >
+</section>
 
-    <div class="section-title">
+<!-- =========================
+     RESULTS
+========================= -->
 
-      <h1>
-        ⚽ یارییەکانی ئەمڕۆ
-      </h1>
+<section
+  id="resultsSection"
+  class="section">
 
-      <button
-        class="refresh"
-        onclick="loadMatches()"
-      >
-        🔄 نوێکردنەوە
-      </button>
+  <div class="section-title">
 
-    </div>
+    <h1>
+      🏁 ئەنجامەکان
+    </h1>
 
-    <div
-      id="matchStatus"
-      class="status"
-    >
-      ⏳ چاوەڕێی داتا...
-    </div>
+    <button
+      class="refresh"
+      onclick="loadResults()">
+      🔄 نوێکردنەوە
+    </button>
 
-    <div id="matches"></div>
+  </div>
 
-  </section>
+  <div
+    id="resultStatus"
+    class="status">
+    ⏳ چاوەڕێی داتا...
+  </div>
 
+  <div id="results"></div>
 
-  <!-- =========================
-       RESULTS
-  ========================== -->
+</section>
 
-  <section
-    id="resultsSection"
-    class="section"
-  >
+<!-- =========================
+     TRANSFERS
+========================= -->
 
-    <div class="section-title">
+<section
+  id="transfersSection"
+  class="section">
 
-      <h1>
-        🏁 ئەنجامەکان
-      </h1>
+  <div class="section-title">
 
-      <button
-        class="refresh"
-        onclick="loadResults()"
-      >
-        🔄 نوێکردنەوە
-      </button>
+    <h1>
+      🔄 گواستنەوەکانی یاریزانان
+    </h1>
 
-    </div>
+    <button
+      class="refresh"
+      onclick="loadTransfers()">
+      🔄 نوێکردنەوە
+    </button>
 
-    <div
-      id="resultStatus"
-      class="status"
-    >
-      ⏳ چاوەڕێی داتا...
-    </div>
+  </div>
 
-    <div id="results"></div>
+  <div
+    id="transferStatus"
+    class="status">
+    ⏳ چاوەڕێی داتا...
+  </div>
 
-  </section>
+  <div id="transfers"></div>
 
+</section>
 
-  <!-- =========================
-       TRANSFERS
-  ========================== -->
+<!-- =========================
+     STANDINGS
+========================= -->
 
-  <section
-    id="transfersSection"
-    class="section"
-  >
+<section
+  id="standingsSection"
+  class="section">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <h1>
-        🔄 گواستنەوەکانی یاریزانان
-      </h1>
+    <h1>
+      🏆 خشتەکانی لیگ
+    </h1>
 
-      <button
-        class="refresh"
-        onclick="loadTransfers()"
-      >
-        🔄 نوێکردنەوە
-      </button>
+    <button
+      class="refresh"
+      onclick="loadStandings()">
+      🔄 نوێکردنەوە
+    </button>
 
-    </div>
+  </div>
 
-    <div
-      id="transferStatus"
-      class="status"
-    >
-      ⏳ چاوەڕێی داتا...
-    </div>
+  <div
+    id="standingsStatus"
+    class="status">
+    ⏳ خشتەکان دەخوێندرێنەوە...
+  </div>
 
-    <div id="transfers"></div>
+  <div id="standings"></div>
 
-  </section>
-
-
-  <!-- =========================
-       STANDINGS
-  ========================== -->
-
-  <section
-    id="standingsSection"
-    class="section"
-  >
-
-    <div class="section-title">
-
-      <h1>
-        🏆 خشتەکانی لیگ
-      </h1>
-
-      <button
-        class="refresh"
-        onclick="loadStandings()"
-      >
-        🔄 نوێکردنەوە
-      </button>
-
-    </div>
-
-    <div
-      id="standingsStatus"
-      class="status"
-    >
-      ⏳ خشتەکان دەخوێندرێنەوە...
-    </div>
-
-    <div id="standings"></div>
-
-  </section>
+</section>
 
 </main>
-
 
 <footer>
 
@@ -715,7 +851,6 @@ footer{
 
 </footer>
 
-
 <script>
 
 /* =====================================================
@@ -725,12 +860,12 @@ footer{
 function escapeHTML(value){
 
   return String(value ?? "")
+
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
 
 
@@ -748,7 +883,6 @@ function teamLogo(team){
       onerror="this.style.display='none'"
     >
   `;
-
 }
 
 
@@ -759,7 +893,34 @@ function teamName(team){
       ? team.name
       : "یانە"
   );
+}
 
+
+/* =====================================================
+   IMPORTANT FIX
+   هەر فایلێک بە ناوی خۆی دەخوێندرێتەوە
+===================================================== */
+
+async function getJSON(file){
+
+  const response = await fetch(
+    "./" + file + "?t=" + Date.now(),
+    {
+      cache:"no-store"
+    }
+  );
+
+  if(!response.ok){
+
+    throw new Error(
+      file +
+      " HTTP " +
+      response.status
+    );
+
+  }
+
+  return await response.json();
 }
 
 
@@ -790,9 +951,17 @@ function showSection(name,button){
     });
 
 
-  document
-    .getElementById(name+"Section")
-    .classList.add("active");
+  const section =
+    document.getElementById(
+      name + "Section"
+    );
+
+
+  if(section){
+
+    section.classList.add("active");
+
+  }
 
 
   if(name === "matches"){
@@ -810,37 +979,6 @@ function showSection(name,button){
   if(name === "standings"){
     loadStandings();
   }
-
-}
-
-
-/* =====================================================
-   LOAD JSON
-   FIXED
-===================================================== */
-
-async function getJSON(file){
-
-  const response = await fetch(
-    file + "?t=" + Date.now(),
-    {
-      cache:"no-store"
-    }
-  );
-
-
-  if(!response.ok){
-
-    throw new Error(
-      file +
-      " HTTP " +
-      response.status
-    );
-
-  }
-
-
-  return await response.json();
 
 }
 
@@ -878,14 +1016,12 @@ async function loadMatches(){
 
 
     const matches =
-      Array.isArray(
-        json.matches
-      )
+      Array.isArray(json.matches)
         ? json.matches
         : [];
 
 
-    if(!matches.length){
+    if(matches.length === 0){
 
       status.textContent =
         "هیچ یارییەک نییە";
@@ -907,8 +1043,8 @@ async function loadMatches(){
 
 
     status.textContent =
-      "✅ "+
-      matches.length+
+      "✅ " +
+      matches.length +
       " یاری بەردەستە";
 
 
@@ -931,17 +1067,13 @@ async function loadMatches(){
 
 
       const homeScore =
-        goals.home !== null &&
-        goals.home !== undefined
-          ? goals.home
-          : "-";
+        goals.home ??
+        "-";
 
 
       const awayScore =
-        goals.away !== null &&
-        goals.away !== undefined
-          ? goals.away
-          : "-";
+        goals.away ??
+        "-";
 
 
       const card =
@@ -1082,14 +1214,12 @@ async function loadResults(){
 
 
     const results =
-      Array.isArray(
-        json.matches
-      )
+      Array.isArray(json.matches)
         ? json.matches
         : [];
 
 
-    if(!results.length){
+    if(results.length === 0){
 
       status.textContent =
         "هیچ ئەنجامێکی تەواو نییە";
@@ -1111,8 +1241,8 @@ async function loadResults(){
 
 
     status.textContent =
-      "✅ "+
-      results.length+
+      "✅ " +
+      results.length +
       " ئەنجام";
 
 
@@ -1285,7 +1415,7 @@ async function loadTransfers(){
           : [];
 
 
-    if(!transfers.length){
+    if(transfers.length === 0){
 
       status.textContent =
         "هیچ گواستنەوەیەک نییە";
@@ -1307,8 +1437,8 @@ async function loadTransfers(){
 
 
     status.textContent =
-      "✅ "+
-      transfers.length+
+      "✅ " +
+      transfers.length +
       " گواستنەوە";
 
 
@@ -1370,9 +1500,7 @@ async function loadTransfers(){
 
 
           <div class="arrow">
-
             →
-
           </div>
 
 
@@ -1401,7 +1529,8 @@ async function loadTransfers(){
             📅
 
             ${escapeHTML(
-              item.date || ""
+              item.date ||
+              ""
             )}
 
           </div>
@@ -1483,12 +1612,10 @@ async function loadStandings(){
 
 
     const names =
-      Object.keys(
-        leagues
-      );
+      Object.keys(leagues);
 
 
-    if(!names.length){
+    if(names.length === 0){
 
       status.textContent =
         "هیچ خشتەیەک نییە";
@@ -1500,6 +1627,10 @@ async function loadStandings(){
 
           🏆 هیچ خشتەیەک بەردەست نییە
 
+          <br><br>
+
+          داتای خشتەکان لە API ـەکە نەهاتووە.
+
         </div>
 
       `;
@@ -1510,8 +1641,8 @@ async function loadStandings(){
 
 
     status.textContent =
-      "✅ "+
-      names.length+
+      "✅ " +
+      names.length +
       " لیگ";
 
 
@@ -1650,7 +1781,8 @@ async function loadStandings(){
 
 
               ${escapeHTML(
-                team.name || ""
+                team.name ||
+                "یانە"
               )}
 
             </td>
@@ -1758,4 +1890,5 @@ loadMatches();
 </script>
 
 </body>
+
 </html>
