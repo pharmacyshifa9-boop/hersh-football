@@ -1,4 +1,4 @@
-name: Update Football Data 3
+name: Update Football Data
 
 on:
   workflow_dispatch:
