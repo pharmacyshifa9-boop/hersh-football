@@ -208,7 +208,8 @@ jobs:
 
           PY
 
-      # ==========================================
+      
+# ==========================================
       # RESULTS
       # ==========================================
 
@@ -220,133 +221,77 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-          with open(
-              "matches_raw.json",
-              encoding="utf-8"
-          ) as f:
+          try:
+              with open(
+                  "matches_raw.json",
+                  encoding="utf-8"
+              ) as f:
+                  data = json.load(f)
 
-              data = json.load(f)
+          except Exception as e:
+              print("❌ Cannot read matches_raw.json:", e)
+              data = {}
 
-          response = data.get(
-              "response",
-              []
-          )
+          response = data.get("response", [])
 
           IMPORTANT_TEAMS = {
-              529,
-              541,
-              530,
-              50,
-              33,
-              49,
-              40,
-              42,
-              157,
-              85
+              529, 541, 530, 50, 33,
+              49, 40, 42, 157, 85
           }
 
           BIG_LEAGUES = {
-              39,
-              140,
-              135,
-              78,
-              61,
-              2,
-              3
+              39, 140, 135, 78, 61, 2, 3
           }
 
           results = []
 
           for item in response:
 
-              fixture = item.get(
-                  "fixture"
-              ) or {}
+              fixture = item.get("fixture") or {}
+              status = fixture.get("status") or {}
+              short = status.get("short")
 
-              status = fixture.get(
-                  "status"
-              ) or {}
-
-              short = status.get(
-                  "short"
-              )
-
-              if short not in {
-                  "FT",
-                  "AET",
-                  "PEN"
-              }:
-
+              if short not in {"FT", "AET", "PEN"}:
                   continue
 
-              league = item.get(
-                  "league"
-              ) or {}
+              league = item.get("league") or {}
+              teams = item.get("teams") or {}
 
-              teams = item.get(
-                  "teams"
-              ) or {}
+              home = teams.get("home") or {}
+              away = teams.get("away") or {}
 
-              home = teams.get(
-                  "home"
-              ) or {}
-
-              away = teams.get(
-                  "away"
-              ) or {}
-
-              league_id = league.get(
-                  "id"
-              )
-
-              home_id = home.get(
-                  "id"
-              )
-
-              away_id = away.get(
-                  "id"
-              )
+              league_id = league.get("id")
+              home_id = home.get("id")
+              away_id = away.get("id")
 
               keep = False
 
-              if league_id in BIG_LEAGUES:
-
-                  if (
-                      home_id in IMPORTANT_TEAMS
-                      or
-                      away_id in IMPORTANT_TEAMS
-                  ):
-
-                      keep = True
-
+              # یارییەکانی یانە گرنگەکان
               if (
                   home_id in IMPORTANT_TEAMS
                   or
                   away_id in IMPORTANT_TEAMS
               ):
+                  keep = True
 
+              # لیگە بەهێزەکان
+              if league_id in BIG_LEAGUES:
                   keep = True
 
               if keep:
 
                   results.append({
 
-                      "fixture":
-                          fixture,
+                      "fixture": fixture,
 
-                      "league":
-                          league,
+                      "league": league,
 
-                      "home":
-                          home,
+                      "home": home,
 
-                      "away":
-                          away,
+                      "away": away,
 
                       "goals":
-                          item.get(
-                              "goals"
-                          ) or {}
+                          item.get("goals") or {}
 
                   })
 
@@ -378,13 +323,12 @@ jobs:
                   indent=2
               )
 
-          print(
-              "FINAL RESULTS:",
-              len(results)
-          )
+          print("==============================")
+          print("ALL RESULTS FROM API:", len(response))
+          print("FINAL RESULTS:", len(results))
+          print("==============================")
 
           PY
-
       # ==========================================
       # TRANSFERS
       # ONLY 1 REQUEST
