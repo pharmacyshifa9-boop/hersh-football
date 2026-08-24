@@ -14,6 +14,10 @@ jobs:
 
     steps:
 
+      # =========================
+      # CHECKOUT
+      # =========================
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -26,11 +30,24 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
-          curl -f -sS \
+
+          curl -sS --retry 3 --retry-delay 5 \
+            --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers_raw.json
 
+          if [ ! -s transfers_raw.json ]; then
+            echo "transfers_raw.json is empty"
+            echo '{"response":[],"results":0}' > transfers_raw.json
+          fi
+
+          echo "Transfers API response saved."
+
+
+      # =========================
+      # CREATE TRANSFERS.JSON
+      # =========================
 
       - name: Create transfers.json
         run: |
@@ -45,43 +62,18 @@ jobs:
           start_date = today - timedelta(days=7)
 
           strong_teams = {
-              # Barcelona
               529,
-
-              # Real Madrid
               541,
-
-              # Atletico Madrid
               530,
-
-              # Manchester City
               50,
-
-              # Manchester United
               33,
-
-              # Arsenal
               42,
-
-              # Chelsea
               49,
-
-              # Liverpool
               40,
-
-              # Bayern
               157,
-
-              # PSG
               85,
-
-              # Inter
               505,
-
-              # Milan
               489,
-
-              # Juventus
               496
           }
 
@@ -144,9 +136,7 @@ jobs:
                   indent=2
               )
 
-          print(
-              f"Transfers: {len(filtered)}"
-          )
+          print("Transfers:", len(filtered))
           PY
 
 
@@ -161,16 +151,34 @@ jobs:
 
           TODAY=$(date -u +"%Y-%m-%d")
 
-          echo "Getting important matches for $TODAY"
+          echo "⚽ Getting today's matches..."
+          echo "Date: $TODAY"
 
-
-          curl -f -sS \
+          curl -sS --retry 3 --retry-delay 5 \
+            --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
+          if [ ! -s matches_raw.json ]; then
+            echo "matches_raw.json is empty"
+            echo '{"response":[],"results":0}' > matches_raw.json
+          fi
 
-          echo "API response saved."
+          python3 - <<'PY'
+          import json
+
+          with open(
+              "matches_raw.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          print("API errors:", data.get("errors", []))
+          print("API results:", data.get("results", 0))
+          print("API response:", len(data.get("response", [])))
+          PY
 
 
       # =========================
@@ -183,112 +191,53 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-
           with open(
               "matches_raw.json",
               "r",
               encoding="utf-8"
           ) as f:
-
               data = json.load(f)
 
+          response = data.get("response", [])
 
-          response = data.get(
-              "response",
-              []
-          )
-
-
-          print(
-              "API results:",
-              data.get("results")
-          )
-
-          print(
-              "All matches:",
-              len(response)
-          )
+          print("API results:", data.get("results", 0))
+          print("All matches:", len(response))
 
 
-          # =====================================
-          # IMPORTANT LEAGUE IDS
-          # =====================================
+          # =========================
+          # IMPORTANT LEAGUES
+          # =========================
 
           IMPORTANT_LEAGUES = {
-
-              # England
-              39,
-
-              # Spain
-              140,
-
-              # Italy
-              135,
-
-              # Germany
-              78,
-
-              # France
-              61,
-
-              # Champions League
-              2,
-
-              # Europa League
-              3,
-
-              # Iraq Stars League
-              290
+              39,   # Premier League
+              140,  # La Liga
+              135,  # Serie A
+              78,   # Bundesliga
+              61,   # Ligue 1
+              2,    # Champions League
+              3,    # Europa League
+              290   # Iraq Stars League
           }
 
 
-          # =====================================
-          # IMPORTANT TEAM IDS
-          #
-          # ئەمانە یانە گەورەکانن.
-          # دواتر دەتوانین ID ـی کوردستان زیاد بکەین.
-          # =====================================
+          # =========================
+          # IMPORTANT TEAMS
+          # =========================
 
           IMPORTANT_TEAMS = {
-
-              # Barcelona
-              529,
-
-              # Real Madrid
-              541,
-
-              # Atletico Madrid
-              530,
-
-              # Manchester City
-              50,
-
-              # Manchester United
-              33,
-
-              # Arsenal
-              42,
-
-              # Chelsea
-              49,
-
-              # Liverpool
-              40,
-
-              # Bayern Munich
-              157,
-
-              # PSG
-              85,
-
-              # Juventus
-              496,
-
-              # Inter
-              505,
-
-              # AC Milan
-              489
+              529,  # Barcelona
+              541,  # Real Madrid
+              530,  # Atletico Madrid
+              50,   # Manchester City
+              33,   # Manchester United
+              42,   # Arsenal
+              49,   # Chelsea
+              40,   # Liverpool
+              157,  # Bayern
+              85,   # PSG
+              496,  # Juventus
+              505,  # Inter
+              489   # AC Milan
           }
 
 
@@ -317,58 +266,117 @@ jobs:
                   {}
               )
 
+              league_id = league.get("id")
 
-              league_id = league.get(
-                  "id"
+              home_id = home.get("id")
+
+              away_id = away.get("id")
+
+
+              # =========================
+              # FILTER
+              # =========================
+
+              keep = False
+
+              if league_id in IMPORTANT_LEAGUES:
+                  keep = True
+
+              if home_id in IMPORTANT_TEAMS:
+                  keep = True
+
+              if away_id in IMPORTANT_TEAMS:
+                  keep = True
+
+
+              if not keep:
+                  continue
+
+
+              fixture = item.get(
+                  "fixture",
+                  {}
               )
 
-              home_id = home.get(
-                  "id"
-              )
-
-              away_id = away.get(
-                  "id"
+              goals = item.get(
+                  "goals",
+                  {}
               )
 
 
-              # =================================
-              # KEEP IMPORTANT LEAGUES
-              # =================================
+              matches.append({
 
-      # =========================
-      # TODAY MATCHES
-      # =========================
+                  "fixture": fixture,
 
-      - name: Get today's matches
-        env:
-          API_KEY: ${{ secrets.API_SPORTS_KEY }}
-        run: |
+                  "league": league,
 
-          TODAY=$(date -u +"%Y-%m-%d")
+                  "home": home,
 
-          echo "Getting matches for $TODAY"
+                  "away": away,
 
-          curl -sS --retry 3 --retry-delay 5 \
-            --max-time 60 \
-            -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
-            -o matches_raw.json
+                  "goals": goals
 
-          echo "Checking matches_raw.json..."
+              })
 
-          if [ ! -s matches_raw.json ]; then
-            echo "matches_raw.json is empty"
-            echo '{"response":[],"results":0}' > matches_raw.json
-          fi
 
-          python3 - <<'PY'
-          import json
+          output = {
 
-          with open("matches_raw.json", "r", encoding="utf-8") as f:
-              data = json.load(f)
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
 
-          print("API results:", data.get("results"))
-          print("API response:", len(data.get("response", [])))
+              "results": len(matches),
+
+              "matches": matches
+
+          }
+
+
+          with open(
+              "matches.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print(
+              "IMPORTANT MATCHES:",
+              len(matches)
+          )
+
+
+          for match in matches:
+
+              league = match.get(
+                  "league",
+                  {}
+              )
+
+              home = match.get(
+                  "home",
+                  {}
+              )
+
+              away = match.get(
+                  "away",
+                  {}
+              )
+
+              print(
+                  league.get("name"),
+                  "|",
+                  home.get("name"),
+                  "vs",
+                  away.get("name")
+              )
+
           PY
 
 
@@ -380,7 +388,7 @@ jobs:
         run: |
 
           echo "=============================="
-          echo "FILTERED MATCHES"
+          echo "FINAL FOOTBALL DATA"
           echo "=============================="
 
           python3 - <<'PY'
@@ -400,7 +408,7 @@ jobs:
           )
 
           print(
-              "Final matches:",
+              "FINAL MATCHES:",
               len(matches)
           )
 
@@ -444,18 +452,14 @@ jobs:
           git config \
             user.email "github-actions@github.com"
 
-
           git add -f \
             transfers.json \
             matches.json
 
-
           git status --short
-
 
           git commit \
             -m "Update filtered football data" \
             || true
-
 
           git push
