@@ -1,0 +1,638 @@
+name: Update Football Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # =========================
+      # CHECKOUT
+      # =========================
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+
+      # =========================
+      # TRANSFERS
+      # =========================
+
+      - name: Get transfers
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+
+          echo "Getting transfers..."
+
+          curl -sS --retry 3 --retry-delay 5 \
+            --max-time 60 \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/transfers?team=529" \
+            -o transfers_raw.json
+
+          if [ ! -s transfers_raw.json ]; then
+            echo "transfers_raw.json is empty"
+            echo '{"response":[],"results":0}' > transfers_raw.json
+          fi
+
+          python3 - <<'PY'
+          import json
+
+          with open(
+              "transfers_raw.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          print("Transfer API errors:", data.get("errors", []))
+          print("Transfer API results:", data.get("results", 0))
+          print("Transfer response:", len(data.get("response", [])))
+          PY
+
+
+      # =========================
+      # CREATE TRANSFERS.JSON
+      # =========================
+
+      - name: Create transfers.json
+        run: |
+
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timedelta, timezone
+
+          with open(
+              "transfers_raw.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          today = datetime.now(
+              timezone.utc
+          ).date()
+
+          start_date = today - timedelta(
+              days=7
+          )
+
+          strong_teams = {
+              # Barcelona
+              529,
+
+              # Real Madrid
+              541,
+
+              # Atletico Madrid
+              530,
+
+              # Manchester City
+              50,
+
+              # Manchester United
+              33,
+
+              # Arsenal
+              42,
+
+              # Chelsea
+              49,
+
+              # Liverpool
+              40,
+
+              # Bayern Munich
+              157,
+
+              # PSG
+              85,
+
+              # Inter
+              505,
+
+              # AC Milan
+              489,
+
+              # Juventus
+              496
+          }
+
+          filtered = []
+
+          for player in data.get(
+              "response",
+              []
+          ):
+
+              for transfer in player.get(
+                  "transfers",
+                  []
+              ):
+
+                  date_text = transfer.get(
+                      "date",
+                      ""
+                  )
+
+                  try:
+                      transfer_date = datetime.strptime(
+                          date_text,
+                          "%Y-%m-%d"
+                      ).date()
+                  except:
+                      continue
+
+                  if transfer_date < start_date:
+                      continue
+
+                  if transfer_date > today:
+                      continue
+
+                  teams = transfer.get(
+                      "teams",
+                      {}
+                  )
+
+                  team_in = teams.get(
+                      "in",
+                      {}
+                  )
+
+                  team_out = teams.get(
+                      "out",
+                      {}
+                  )
+
+                  in_id = team_in.get(
+                      "id"
+                  )
+
+                  out_id = team_out.get(
+                      "id"
+                  )
+
+                  if (
+                      in_id not in strong_teams
+                      and
+                      out_id not in strong_teams
+                  ):
+                      continue
+
+                  filtered.append({
+                      "player": player.get(
+                          "player",
+                          {}
+                      ),
+                      "date": date_text,
+                      "type": transfer.get(
+                          "type"
+                      ),
+                      "teams": {
+                          "in": team_in,
+                          "out": team_out
+                      }
+                  })
+
+          with open(
+              "transfers.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  filtered,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print(
+              "TRANSFERS:",
+              len(filtered)
+          )
+
+          PY
+
+
+      # =========================
+      # TODAY MATCHES
+      # =========================
+
+      - name: Get today's matches
+        env:
+          API_KEY: ${{ secrets.API_SPORTS_KEY }}
+        run: |
+
+          TODAY=$(date -u +"%Y-%m-%d")
+
+          echo "================================"
+          echo "⚽ GETTING TODAY'S MATCHES"
+          echo "DATE: $TODAY"
+          echo "================================"
+
+          curl -sS --retry 3 --retry-delay 5 \
+            --max-time 60 \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
+            -o matches_raw.json
+
+          if [ ! -s matches_raw.json ]; then
+            echo "matches_raw.json is empty"
+            echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
+          fi
+
+          python3 - <<'PY'
+          import json
+
+          with open(
+              "matches_raw.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          print(
+              "API errors:",
+              data.get("errors", [])
+          )
+
+          print(
+              "API results:",
+              data.get("results", 0)
+          )
+
+          print(
+              "API response:",
+              len(data.get("response", []))
+          )
+
+          PY
+
+
+      # =========================
+      # FILTER MATCHES
+      # =========================
+
+      - name: Create filtered matches.json
+        run: |
+
+          python3 - <<'PY'
+
+          import json
+          from datetime import datetime, timezone
+
+          with open(
+              "matches_raw.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          response = data.get(
+              "response",
+              []
+          )
+
+          print(
+              "ALL MATCHES:",
+              len(response)
+          )
+
+
+          # =========================
+          # IMPORTANT LEAGUES
+          # =========================
+
+          IMPORTANT_LEAGUES = {
+
+              # Premier League
+              39,
+
+              # La Liga
+              140,
+
+              # Serie A
+              135,
+
+              # Bundesliga
+              78,
+
+              # Ligue 1
+              61,
+
+              # Champions League
+              2,
+
+              # Europa League
+              3,
+
+              # Iraq Stars League
+              290
+          }
+
+
+          # =========================
+          # IMPORTANT TEAMS
+          # =========================
+
+          IMPORTANT_TEAMS = {
+
+              # Barcelona
+              529,
+
+              # Real Madrid
+              541,
+
+              # Atletico Madrid
+              530,
+
+              # Manchester City
+              50,
+
+              # Manchester United
+              33,
+
+              # Arsenal
+              42,
+
+              # Chelsea
+              49,
+
+              # Liverpool
+              40,
+
+              # Bayern Munich
+              157,
+
+              # PSG
+              85,
+
+              # Juventus
+              496,
+
+              # Inter
+              505,
+
+              # AC Milan
+              489
+          }
+
+
+          matches = []
+
+
+          for item in response:
+
+              league = item.get(
+                  "league",
+                  {}
+              )
+
+              teams = item.get(
+                  "teams",
+                  {}
+              )
+
+              home = teams.get(
+                  "home",
+                  {}
+              )
+
+              away = teams.get(
+                  "away",
+                  {}
+              )
+
+              league_id = league.get(
+                  "id"
+              )
+
+              home_id = home.get(
+                  "id"
+              )
+
+              away_id = away.get(
+                  "id"
+              )
+
+
+              # =========================
+              # KEEP IMPORTANT LEAGUES
+              # =========================
+
+              keep = False
+
+              if league_id in IMPORTANT_LEAGUES:
+                  keep = True
+
+
+              # =========================
+              # KEEP IMPORTANT TEAMS
+              # =========================
+
+              if home_id in IMPORTANT_TEAMS:
+                  keep = True
+
+              if away_id in IMPORTANT_TEAMS:
+                  keep = True
+
+
+              if not keep:
+                  continue
+
+
+              fixture = item.get(
+                  "fixture",
+                  {}
+              )
+
+              goals = item.get(
+                  "goals",
+                  {}
+              )
+
+
+              matches.append({
+
+                  "fixture": fixture,
+
+                  "league": league,
+
+                  "home": home,
+
+                  "away": away,
+
+                  "goals": goals
+
+              })
+
+
+          output = {
+
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
+              "results": len(matches),
+
+              "matches": matches
+
+          }
+
+
+          with open(
+              "matches.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+
+          print(
+              "IMPORTANT MATCHES:",
+              len(matches)
+          )
+
+
+          for match in matches:
+
+              league = match.get(
+                  "league",
+                  {}
+              )
+
+              home = match.get(
+                  "home",
+                  {}
+              )
+
+              away = match.get(
+                  "away",
+                  {}
+              )
+
+              print(
+                  league.get("name"),
+                  "|",
+                  home.get("name"),
+                  "vs",
+                  away.get("name")
+              )
+
+          PY
+
+
+      # =========================
+      # CHECK FINAL DATA
+      # =========================
+
+      - name: Check final data
+        run: |
+
+          echo "================================"
+          echo "FINAL FOOTBALL DATA"
+          echo "================================"
+
+          python3 - <<'PY'
+
+          import json
+
+          with open(
+              "matches.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              matches_data = json.load(f)
+
+          with open(
+              "transfers.json",
+              "r",
+              encoding="utf-8"
+          ) as f:
+              transfers_data = json.load(f)
+
+          matches = matches_data.get(
+              "matches",
+              []
+          )
+
+          print(
+              "FINAL MATCHES:",
+              len(matches)
+          )
+
+          print(
+              "FINAL TRANSFERS:",
+              len(transfers_data)
+          )
+
+
+          for item in matches:
+
+              league = item.get(
+                  "league",
+                  {}
+              )
+
+              home = item.get(
+                  "home",
+                  {}
+              )
+
+              away = item.get(
+                  "away",
+                  {}
+              )
+
+              print(
+                  league.get("name"),
+                  ":",
+                  home.get("name"),
+                  "-",
+                  away.get("name")
+              )
+
+          PY
+
+
+      # =========================
+      # SAVE
+      # =========================
+
+      - name: Save changes
+        run: |
+
+          git config \
+            user.name "github-actions"
+
+          git config \
+            user.email "github-actions@github.com"
+
+          git add -f \
+            transfers.json \
+            matches.json
+
+          echo "Changed files:"
+          git status --short
+
+          git commit \
+            -m "Update football data" \
+            || true
+
+          git push
