@@ -35,14 +35,13 @@ jobs:
           echo "GETTING TRANSFERS"
           echo "================================"
 
-          curl -sS --retry 3 --retry-delay 5 \
+          curl -sS --retry 2 --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers_raw.json
 
           if [ ! -s transfers_raw.json ]; then
-            echo "transfers_raw.json is empty"
             echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
           fi
 
@@ -74,7 +73,7 @@ jobs:
               data = json.load(f)
 
           today = datetime.now(timezone.utc).date()
-          start_date = today - timedelta(days=7)
+          start_date = today - timedelta(days=30)
 
           strong_teams = {
               529,  # Barcelona
@@ -173,14 +172,13 @@ jobs:
           echo "DATE: $TODAY"
           echo "================================"
 
-          curl -sS --retry 3 --retry-delay 5 \
+          curl -sS --retry 2 --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
           if [ ! -s matches_raw.json ]; then
-            echo "matches_raw.json is empty"
             echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
           fi
 
@@ -202,7 +200,7 @@ jobs:
       # FILTER MATCHES
       # =========================
 
-      - name: Create filtered matches.json
+      - name: Create matches.json
         run: |
 
           python3 - <<'PY'
@@ -215,11 +213,7 @@ jobs:
 
           response = data.get("response", [])
 
-          print("ALL MATCHES:", len(response))
-
-
           IMPORTANT_LEAGUES = {
-
               39,   # Premier League
               140,  # La Liga
               135,  # Serie A
@@ -230,9 +224,7 @@ jobs:
               290   # Iraq Stars League
           }
 
-
           IMPORTANT_TEAMS = {
-
               529,  # Barcelona
               541,  # Real Madrid
               530,  # Atletico Madrid
@@ -248,7 +240,6 @@ jobs:
               489   # AC Milan
           }
 
-
           matches = []
 
           for item in response:
@@ -263,16 +254,11 @@ jobs:
               home_id = home.get("id")
               away_id = away.get("id")
 
-              keep = False
-
-              if league_id in IMPORTANT_LEAGUES:
-                  keep = True
-
-              if home_id in IMPORTANT_TEAMS:
-                  keep = True
-
-              if away_id in IMPORTANT_TEAMS:
-                  keep = True
+              keep = (
+                  league_id in IMPORTANT_LEAGUES
+                  or home_id in IMPORTANT_TEAMS
+                  or away_id in IMPORTANT_TEAMS
+              )
 
               if not keep:
                   continue
@@ -285,17 +271,13 @@ jobs:
                   "goals": item.get("goals", {})
               })
 
-
           output = {
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
-
               "results": len(matches),
-
               "matches": matches
           }
-
 
           with open(
               "matches.json",
@@ -310,26 +292,7 @@ jobs:
                   indent=2
               )
 
-
-          print(
-              "IMPORTANT MATCHES:",
-              len(matches)
-          )
-
-
-          for match in matches:
-
-              league = match.get("league", {})
-              home = match.get("home", {})
-              away = match.get("away", {})
-
-              print(
-                  league.get("name"),
-                  "|",
-                  home.get("name"),
-                  "vs",
-                  away.get("name")
-              )
+          print("IMPORTANT MATCHES:", len(matches))
 
           PY
 
@@ -382,7 +345,6 @@ jobs:
             transfers.json \
             matches.json
 
-          echo "Changed files:"
           git status --short
 
           git commit \
