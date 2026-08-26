@@ -468,7 +468,7 @@ jobs:
 
               params = {
                   "league": league_id,
-                  "season": 2025
+                  "season": 2024
               }
 
               try:
