@@ -3,7 +3,7 @@ name: Update Football Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -14,8 +14,13 @@ jobs:
 
     steps:
 
+      # =========================
+      # CHECKOUT
+      # =========================
+
       - name: Checkout
         uses: actions/checkout@v4
+
 
       # =========================
       # GET TRANSFERS
@@ -26,15 +31,18 @@ jobs:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
-          echo "Getting transfers..."
+          echo "================================"
+          echo "GETTING TRANSFERS"
+          echo "================================"
 
-          curl -sS \
+          curl -sS --retry 3 --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers_raw.json
 
           if [ ! -s transfers_raw.json ]; then
+            echo "transfers_raw.json is empty"
             echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
           fi
 
@@ -46,7 +54,9 @@ jobs:
 
           print("Transfer API errors:", data.get("errors", []))
           print("Transfer API results:", data.get("results", 0))
+          print("Transfer response:", len(data.get("response", [])))
           PY
+
 
       # =========================
       # CREATE TRANSFERS.JSON
@@ -56,6 +66,7 @@ jobs:
         run: |
 
           python3 - <<'PY'
+
           import json
           from datetime import datetime, timedelta, timezone
 
@@ -66,10 +77,19 @@ jobs:
           start_date = today - timedelta(days=7)
 
           strong_teams = {
-              529, 541, 530,
-              50, 33, 42, 49, 40,
-              157, 85,
-              505, 489, 496
+              529,  # Barcelona
+              541,  # Real Madrid
+              530,  # Atletico Madrid
+              50,   # Manchester City
+              33,   # Manchester United
+              42,   # Arsenal
+              49,   # Chelsea
+              40,   # Liverpool
+              157,  # Bayern Munich
+              85,   # PSG
+              505,  # Inter
+              489,  # AC Milan
+              496   # Juventus
           }
 
           filtered = []
@@ -88,20 +108,24 @@ jobs:
                   except:
                       continue
 
-                  if not (start_date <= transfer_date <= today):
+                  if transfer_date < start_date:
+                      continue
+
+                  if transfer_date > today:
                       continue
 
                   teams = transfer.get("teams", {})
 
-                  team_in = teams.get("in", {})
-                  team_out = teams.get("out", {})
+                  team_in = teams.get("in", {}) or {}
+                  team_out = teams.get("out", {}) or {}
 
                   in_id = team_in.get("id")
                   out_id = team_out.get("id")
 
                   if (
                       in_id not in strong_teams
-                      and out_id not in strong_teams
+                      and
+                      out_id not in strong_teams
                   ):
                       continue
 
@@ -120,6 +144,7 @@ jobs:
               "w",
               encoding="utf-8"
           ) as f:
+
               json.dump(
                   filtered,
                   f,
@@ -128,10 +153,12 @@ jobs:
               )
 
           print("TRANSFERS:", len(filtered))
+
           PY
 
+
       # =========================
-      # GET TODAY'S MATCHES
+      # TODAY MATCHES
       # =========================
 
       - name: Get today's matches
@@ -142,21 +169,23 @@ jobs:
           TODAY=$(date -u +"%Y-%m-%d")
 
           echo "================================"
-          echo "⚽ GETTING TODAY'S MATCHES"
+          echo "GETTING TODAY'S MATCHES"
           echo "DATE: $TODAY"
           echo "================================"
 
-          curl -sS \
+          curl -sS --retry 3 --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
           if [ ! -s matches_raw.json ]; then
+            echo "matches_raw.json is empty"
             echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
           fi
 
           python3 - <<'PY'
+
           import json
 
           with open("matches_raw.json", encoding="utf-8") as f:
@@ -164,16 +193,20 @@ jobs:
 
           print("API errors:", data.get("errors", []))
           print("API results:", data.get("results", 0))
+          print("API response:", len(data.get("response", [])))
+
           PY
+
 
       # =========================
       # FILTER MATCHES
       # =========================
 
-      - name: Create matches.json
+      - name: Create filtered matches.json
         run: |
 
           python3 - <<'PY'
+
           import json
           from datetime import datetime, timezone
 
@@ -182,7 +215,11 @@ jobs:
 
           response = data.get("response", [])
 
+          print("ALL MATCHES:", len(response))
+
+
           IMPORTANT_LEAGUES = {
+
               39,   # Premier League
               140,  # La Liga
               135,  # Serie A
@@ -193,12 +230,24 @@ jobs:
               290   # Iraq Stars League
           }
 
+
           IMPORTANT_TEAMS = {
-              529, 541, 530,
-              50, 33, 42, 49, 40,
-              157, 85,
-              496, 505, 489
+
+              529,  # Barcelona
+              541,  # Real Madrid
+              530,  # Atletico Madrid
+              50,   # Manchester City
+              33,   # Manchester United
+              42,   # Arsenal
+              49,   # Chelsea
+              40,   # Liverpool
+              157,  # Bayern Munich
+              85,   # PSG
+              496,  # Juventus
+              505,  # Inter
+              489   # AC Milan
           }
+
 
           matches = []
 
@@ -207,18 +256,23 @@ jobs:
               league = item.get("league", {})
               teams = item.get("teams", {})
 
-              home = teams.get("home", {})
-              away = teams.get("away", {})
+              home = teams.get("home", {}) or {}
+              away = teams.get("away", {}) or {}
 
               league_id = league.get("id")
               home_id = home.get("id")
               away_id = away.get("id")
 
-              keep = (
-                  league_id in IMPORTANT_LEAGUES
-                  or home_id in IMPORTANT_TEAMS
-                  or away_id in IMPORTANT_TEAMS
-              )
+              keep = False
+
+              if league_id in IMPORTANT_LEAGUES:
+                  keep = True
+
+              if home_id in IMPORTANT_TEAMS:
+                  keep = True
+
+              if away_id in IMPORTANT_TEAMS:
+                  keep = True
 
               if not keep:
                   continue
@@ -231,17 +285,24 @@ jobs:
                   "goals": item.get("goals", {})
               })
 
+
           output = {
-              "updated": datetime.now(timezone.utc).isoformat(),
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
               "results": len(matches),
+
               "matches": matches
           }
+
 
           with open(
               "matches.json",
               "w",
               encoding="utf-8"
           ) as f:
+
               json.dump(
                   output,
                   f,
@@ -249,12 +310,32 @@ jobs:
                   indent=2
               )
 
-          print("IMPORTANT MATCHES:", len(matches))
+
+          print(
+              "IMPORTANT MATCHES:",
+              len(matches)
+          )
+
+
+          for match in matches:
+
+              league = match.get("league", {})
+              home = match.get("home", {})
+              away = match.get("away", {})
+
+              print(
+                  league.get("name"),
+                  "|",
+                  home.get("name"),
+                  "vs",
+                  away.get("name")
+              )
 
           PY
 
+
       # =========================
-      # CHECK FINAL DATA
+      # FINAL CHECK
       # =========================
 
       - name: Check final data
@@ -265,6 +346,7 @@ jobs:
           echo "================================"
 
           python3 - <<'PY'
+
           import json
 
           with open("matches.json", encoding="utf-8") as f:
@@ -282,7 +364,9 @@ jobs:
               "FINAL TRANSFERS:",
               len(transfers_data)
           )
+
           PY
+
 
       # =========================
       # SAVE
@@ -294,10 +378,15 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add -f matches.json transfers.json
+          git add -f \
+            transfers.json \
+            matches.json
 
+          echo "Changed files:"
           git status --short
 
-          git commit -m "Update football data" || true
+          git commit \
+            -m "Update football data" \
+            || true
 
           git push
