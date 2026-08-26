@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T20:39:47.051878+00:00",
+  "updated": "2026-08-26T20:43:48.929066+00:00",
   "results": 5,
   "matches": [
     {
@@ -21,7 +21,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 77,
+          "elapsed": 81,
           "extra": null
         }
       },
@@ -48,7 +48,7 @@
         "winner": false
       },
       "goals": {
-        "home": 3,
+        "home": 4,
         "away": 1
       }
     },
@@ -71,7 +71,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 83,
+          "elapsed": 87,
           "extra": null
         }
       },
@@ -121,7 +121,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 82,
+          "elapsed": 86,
           "extra": null
         }
       },
@@ -171,7 +171,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 83,
+          "elapsed": 87,
           "extra": null
         }
       },
@@ -221,7 +221,7 @@
         "status": {
           "long": "Second Half",
           "short": "2H",
-          "elapsed": 81,
+          "elapsed": 85,
           "extra": null
         }
       },
