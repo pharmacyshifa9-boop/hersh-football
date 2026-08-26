@@ -1,27 +1,27 @@
 {
-  "updated": "2026-08-26T14:25:38.508767+00:00",
+  "updated": "2026-08-26T20:39:47.051878+00:00",
   "results": 5,
   "matches": [
     {
       "fixture": {
         "id": 1570340,
-        "referee": "M. Busquets",
+        "referee": "Mateo Busquets Ferrer, Spain",
         "timezone": "UTC",
         "date": "2026-08-26T19:00:00+00:00",
         "timestamp": 1787770800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787770800,
+          "second": 1787774400
         },
         "venue": {
-          "id": null,
-          "name": null,
+          "id": 3989,
+          "name": "Bernabéu",
           "city": "Madrid"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 77,
           "extra": null
         }
       },
@@ -39,39 +39,39 @@
         "id": 541,
         "name": "Real Madrid",
         "logo": "https://media.api-sports.io/football/teams/541.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 548,
         "name": "Real Sociedad",
         "logo": "https://media.api-sports.io/football/teams/548.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 1
       }
     },
     {
       "fixture": {
         "id": 1622628,
-        "referee": "A. Hernandez",
+        "referee": "Alejandro Hernandez, Spain",
         "timezone": "UTC",
         "date": "2026-08-26T19:00:00+00:00",
         "timestamp": 1787770800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787770800,
+          "second": 1787774400
         },
         "venue": {
           "id": null,
-          "name": null,
+          "name": "Arena Z’dezele",
           "city": "Celje"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 83,
           "extra": null
         }
       },
@@ -98,20 +98,20 @@
         "winner": null
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       }
     },
     {
       "fixture": {
         "id": 1622629,
-        "referee": "C. Turpin",
+        "referee": "Clement Turpin, France",
         "timezone": "UTC",
         "date": "2026-08-26T19:00:00+00:00",
         "timestamp": 1787770800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787770800,
+          "second": 1787774400
         },
         "venue": {
           "id": null,
@@ -119,9 +119,9 @@
           "city": "Athens"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 82,
           "extra": null
         }
       },
@@ -139,39 +139,39 @@
         "id": 575,
         "name": "AEK Athens FC",
         "logo": "https://media.api-sports.io/football/teams/575.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 646,
         "name": "Levski Sofia",
         "logo": "https://media.api-sports.io/football/teams/646.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 4,
+        "away": 0
       }
     },
     {
       "fixture": {
         "id": 1622630,
-        "referee": "M. Mariani",
+        "referee": "Maurizio Mariani, Italy",
         "timezone": "UTC",
         "date": "2026-08-26T19:00:00+00:00",
         "timestamp": 1787770800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787770800,
+          "second": 1787774400
         },
         "venue": {
           "id": null,
-          "name": "Parc Olympique Lyonnais",
+          "name": "Groupama Stadium",
           "city": "Lyon"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 83,
           "extra": null
         }
       },
@@ -189,39 +189,39 @@
         "id": 80,
         "name": "Lyon",
         "logo": "https://media.api-sports.io/football/teams/80.png",
-        "winner": null
+        "winner": false
       },
       "away": {
         "id": 611,
         "name": "Fenerbahçe",
         "logo": "https://media.api-sports.io/football/teams/611.png",
-        "winner": null
+        "winner": true
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 2
       }
     },
     {
       "fixture": {
         "id": 1622631,
-        "referee": "J. Sanchez",
+        "referee": "José María Sánchez Martínez, Spain",
         "timezone": "UTC",
         "date": "2026-08-26T19:00:00+00:00",
         "timestamp": 1787770800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1787770800,
+          "second": 1787774400
         },
         "venue": {
           "id": null,
-          "name": "Lyse Arena",
+          "name": "SR-Bank Arena",
           "city": "Stavanger"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 81,
           "extra": null
         }
       },
@@ -239,17 +239,17 @@
         "id": 759,
         "name": "Viking",
         "logo": "https://media.api-sports.io/football/teams/759.png",
-        "winner": null
+        "winner": true
       },
       "away": {
         "id": 620,
         "name": "Dinamo Zagreb",
         "logo": "https://media.api-sports.io/football/teams/620.png",
-        "winner": null
+        "winner": false
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 1
       }
     }
   ]
