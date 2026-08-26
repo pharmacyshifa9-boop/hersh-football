@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "player": {
+      "id": 127,
+      "name": "M. ter Stegen"
+    },
+    "date": "2026-08-03",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 194,
+        "name": "Ajax",
+        "logo": "https://media.api-sports.io/football/teams/194.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 101814,
+      "name": "R. Araújo"
+    },
+    "date": "2026-08-09",
+    "type": "Loan",
+    "teams": {
+      "in": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 426446,
+      "name": "J. Bisiwu"
+    },
+    "date": "2026-07-31",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 14130,
+        "name": "Club Brugge II",
+        "logo": "https://media.api-sports.io/football/teams/14130.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 426446,
+      "name": "J. Bisiwu"
+    },
+    "date": "2026-07-30",
+    "type": "Transfer",
+    "teams": {
+      "in": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      },
+      "out": {
+        "id": 14130,
+        "name": "Club Brugge II",
+        "logo": "https://media.api-sports.io/football/teams/14130.png"
+      }
+    }
+  },
+  {
+    "player": {
+      "id": 412699,
+      "name": "Alexis Olmedo"
+    },
+    "date": "2026-08-03",
+    "type": "-",
+    "teams": {
+      "in": {
+        "id": 9571,
+        "name": "Celta de Vigo II",
+        "logo": "https://media.api-sports.io/football/teams/9571.png"
+      },
+      "out": {
+        "id": 529,
+        "name": "Barcelona",
+        "logo": "https://media.api-sports.io/football/teams/529.png"
+      }
+    }
+  }
+]
