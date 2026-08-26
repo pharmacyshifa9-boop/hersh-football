@@ -186,7 +186,7 @@ jobs:
           curl -sS --retry 3 --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/fixtures?date=$TODAY&status=FT-AET-PEN" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY
             -o results_raw.json
 
           if [ ! -s results_raw.json ]; then
