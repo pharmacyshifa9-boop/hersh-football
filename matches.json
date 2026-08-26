@@ -1,5 +1,256 @@
 {
-  "updated": "2026-08-26T08:10:40.392010+00:00",
-  "results": 0,
-  "matches": []
+  "updated": "2026-08-26T10:17:04.268053+00:00",
+  "results": 5,
+  "matches": [
+    {
+      "fixture": {
+        "id": 1570340,
+        "referee": "M. Busquets",
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Madrid"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 541,
+        "name": "Real Madrid",
+        "logo": "https://media.api-sports.io/football/teams/541.png",
+        "winner": null
+      },
+      "away": {
+        "id": 548,
+        "name": "Real Sociedad",
+        "logo": "https://media.api-sports.io/football/teams/548.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1622628,
+        "referee": "A. Hernandez",
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": "Celje"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "home": {
+        "id": 4360,
+        "name": "Celje",
+        "logo": "https://media.api-sports.io/football/teams/4360.png",
+        "winner": null
+      },
+      "away": {
+        "id": 656,
+        "name": "Slovan Bratislava",
+        "logo": "https://media.api-sports.io/football/teams/656.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1622629,
+        "referee": "C. Turpin",
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Allwyn Arena",
+          "city": "Athens"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "home": {
+        "id": 575,
+        "name": "AEK Athens FC",
+        "logo": "https://media.api-sports.io/football/teams/575.png",
+        "winner": null
+      },
+      "away": {
+        "id": 646,
+        "name": "Levski Sofia",
+        "logo": "https://media.api-sports.io/football/teams/646.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1622630,
+        "referee": "M. Mariani",
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Parc Olympique Lyonnais",
+          "city": "Lyon"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "home": {
+        "id": 80,
+        "name": "Lyon",
+        "logo": "https://media.api-sports.io/football/teams/80.png",
+        "winner": null
+      },
+      "away": {
+        "id": 611,
+        "name": "Fenerbahçe",
+        "logo": "https://media.api-sports.io/football/teams/611.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    },
+    {
+      "fixture": {
+        "id": 1622631,
+        "referee": "J. Sanchez",
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Lyse Arena",
+          "city": "Stavanger"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 2,
+        "name": "UEFA Champions League",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/2.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Play-offs",
+        "standings": false
+      },
+      "home": {
+        "id": 759,
+        "name": "Viking",
+        "logo": "https://media.api-sports.io/football/teams/759.png",
+        "winner": null
+      },
+      "away": {
+        "id": 620,
+        "name": "Dinamo Zagreb",
+        "logo": "https://media.api-sports.io/football/teams/620.png",
+        "winner": null
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      }
+    }
+  ]
 }
