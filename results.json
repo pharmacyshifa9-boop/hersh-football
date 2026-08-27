@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-27T11:37:10.509582+00:00",
-  "results": 5,
+  "updated": "2026-08-27T11:43:17.587931+00:00",
+  "results": 10,
   "matches": [
     {
       "fixture": {
@@ -249,6 +249,256 @@
       },
       "goals": {
         "home": 3,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627936,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-26T19:00:00+00:00",
+        "timestamp": 1787770800,
+        "periods": {
+          "first": 1787770800,
+          "second": 1787774400
+        },
+        "venue": {
+          "id": null,
+          "name": "Al Talaba Stadium",
+          "city": "Baghdad"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 11
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 11067,
+        "name": "Al Talaba",
+        "logo": "https://media.api-sports.io/football/teams/11067.png",
+        "winner": true
+      },
+      "away": {
+        "id": 25062,
+        "name": "Newroz",
+        "logo": "https://media.api-sports.io/football/teams/25062.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627932,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-26T18:00:00+00:00",
+        "timestamp": 1787767200,
+        "periods": {
+          "first": 1787767200,
+          "second": 1787770800
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 4
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 11065,
+        "name": "Al Minaa Basra",
+        "logo": "https://media.api-sports.io/football/teams/11065.png",
+        "winner": true
+      },
+      "away": {
+        "id": 26600,
+        "name": "Gharraf",
+        "logo": "https://media.api-sports.io/football/teams/26600.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627933,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-26T18:00:00+00:00",
+        "timestamp": 1787767200,
+        "periods": {
+          "first": 1787767200,
+          "second": 1787770800
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 9
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 26598,
+        "name": "Mosul",
+        "logo": "https://media.api-sports.io/football/teams/26598.png",
+        "winner": true
+      },
+      "away": {
+        "id": 20464,
+        "name": "Karbala",
+        "logo": "https://media.api-sports.io/football/teams/20464.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627930,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-26T15:45:00+00:00",
+        "timestamp": 1787759100,
+        "periods": {
+          "first": 1787759100,
+          "second": 1787762700
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 11
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 11064,
+        "name": "Al Kahrabaa",
+        "logo": "https://media.api-sports.io/football/teams/11064.png",
+        "winner": null
+      },
+      "away": {
+        "id": 25063,
+        "name": "Al-Karma",
+        "logo": "https://media.api-sports.io/football/teams/25063.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627934,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-26T15:30:00+00:00",
+        "timestamp": 1787758200,
+        "periods": {
+          "first": 1787758200,
+          "second": 1787761800
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 5
+        }
+      },
+      "league": {
+        "id": 542,
+        "name": "Iraqi League",
+        "country": "Iraq",
+        "logo": "https://media.api-sports.io/football/leagues/542.png",
+        "flag": "https://media.api-sports.io/flags/iq.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 11071,
+        "name": "Naft",
+        "logo": "https://media.api-sports.io/football/teams/11071.png",
+        "winner": null
+      },
+      "away": {
+        "id": 20463,
+        "name": "Duhok",
+        "logo": "https://media.api-sports.io/football/teams/20463.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 1,
         "away": 1
       }
     }
