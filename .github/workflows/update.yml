@@ -208,12 +208,27 @@ jobs:
 
           import json
 
-          with open("results_raw.json", encoding="utf-8") as f:
+          with open(
+              "results_raw.json",
+              encoding="utf-8"
+          ) as f:
+
               data = json.load(f)
 
-          print("RESULT API ERRORS:", data.get("errors", []))
-          print("RESULT API RESULTS:", data.get("results", 0))
-          print("RESULT API RESPONSE:", len(data.get("response", [])))
+          print(
+              "RESULT API ERRORS:",
+              data.get("errors", [])
+          )
+
+          print(
+              "RESULT API RESULTS:",
+              data.get("results", 0)
+          )
+
+          print(
+              "RESULT API RESPONSE:",
+              len(data.get("response", []))
+          )
 
           PY
 
@@ -242,9 +257,76 @@ jobs:
               []
           )
 
+          # ======================================
+          # IMPORTANT LEAGUES
+          # ======================================
+
+          IMPORTANT_LEAGUES = {
+              39: "Premier League",
+              140: "La Liga",
+              135: "Serie A",
+              78: "Bundesliga",
+              61: "Ligue 1",
+              290: "Iraq Stars League",
+              2: "UEFA Champions League",
+              3: "UEFA Europa League"
+          }
+
           results = []
 
           for item in response:
+
+              league = item.get(
+                  "league",
+                  {}
+              ) or {}
+
+              league_id = league.get("id")
+
+              # تەنها خولە دیاریکراوەکان
+              if league_id not in IMPORTANT_LEAGUES:
+                  continue
+
+              # ======================================
+              # CHECK WOMEN
+              # ======================================
+
+              league_name = str(
+                  league.get(
+                      "name",
+                      ""
+                  )
+              ).lower()
+
+              country_name = str(
+                  league.get(
+                      "country",
+                      ""
+                  )
+              ).lower()
+
+              women_words = [
+                  "women",
+                  "woman",
+                  "female",
+                  "feminine",
+                  "feminin",
+                  "women's",
+                  "womens"
+              ]
+
+              is_women = any(
+                  word in league_name
+                  or word in country_name
+                  for word in women_words
+              )
+
+              if is_women:
+                  continue
+
+              # ======================================
+              # FIXTURE STATUS
+              # ======================================
 
               fixture = item.get(
                   "fixture",
@@ -270,6 +352,10 @@ jobs:
                   )
               ).lower()
 
+              # ======================================
+              # FINISHED ONLY
+              # ======================================
+
               finished = (
                   status_short in {
                       "FT",
@@ -282,6 +368,10 @@ jobs:
 
               if not finished:
                   continue
+
+              # ======================================
+              # TEAMS
+              # ======================================
 
               teams = item.get(
                   "teams",
@@ -298,28 +388,50 @@ jobs:
                   {}
               ) or {}
 
+              # ======================================
+              # GOALS
+              # ======================================
+
+              goals = item.get(
+                  "goals",
+                  {}
+              ) or {}
+
+              # ======================================
+              # SAVE RESULT
+              # ======================================
+
               results.append({
+
                   "fixture": fixture,
-                  "league": item.get(
-                      "league",
-                      {}
-                  ) or {},
+
+                  "league": league,
+
                   "home": home,
+
                   "away": away,
-                  "goals": item.get(
-                      "goals",
-                      {}
-                  ) or {}
+
+                  "goals": goals
+
               })
 
+          # ======================================
+          # OUTPUT
+          # ======================================
+
           output = {
-              "updated": datetime.now(
-                  timezone.utc
-              ).isoformat(),
 
-              "results": len(results),
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
 
-              "matches": results
+              "results":
+                  len(results),
+
+              "matches":
+                  results
+
           }
 
           with open(
@@ -338,6 +450,44 @@ jobs:
           print(
               "FINAL RESULTS:",
               len(results)
+          )
+
+          print(
+              "================================"
+          )
+
+          for item in results:
+
+              league = item.get(
+                  "league",
+                  {}
+              )
+
+              home = item.get(
+                  "home",
+                  {}
+              )
+
+              away = item.get(
+                  "away",
+                  {}
+              )
+
+              goals = item.get(
+                  "goals",
+                  {}
+              )
+
+              print(
+                  f"{league.get('name')} | "
+                  f"{home.get('name')} "
+                  f"{goals.get('home')} - "
+                  f"{goals.get('away')} "
+                  f"{away.get('name')}"
+              )
+
+          print(
+              "================================"
           )
 
           PY
@@ -589,11 +739,13 @@ jobs:
                   )
 
                   if errors:
+
                       print(
                           name,
                           "ERROR:",
                           errors
                       )
+
                       continue
 
                   api_response = api_data.get(
@@ -602,10 +754,12 @@ jobs:
                   )
 
                   if not api_response:
+
                       print(
                           name,
                           "NO DATA"
                       )
+
                       continue
 
                   league = api_response[0].get(
@@ -629,10 +783,13 @@ jobs:
                       standings = standings[0]
 
                   output["leagues"][name] = {
+
                       "logo": league.get(
                           "logo"
                       ),
+
                       "standings": standings
+
                   }
 
                   print(
