@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-27T09:18:31.238890+00:00",
-  "results": 19,
+  "updated": "2026-08-27T09:58:13.855634+00:00",
+  "results": 20,
   "matches": [
     {
       "fixture": {
@@ -950,6 +950,56 @@
       "goals": {
         "home": 2,
         "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1627022,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-27T08:00:00+00:00",
+        "timestamp": 1787817600,
+        "periods": {
+          "first": 1787817600,
+          "second": 1787821200
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
+        }
+      },
+      "league": {
+        "id": 667,
+        "name": "Friendlies Clubs",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/667.png",
+        "flag": null,
+        "season": 2026,
+        "round": "Club Friendlies",
+        "standings": false
+      },
+      "home": {
+        "id": 9719,
+        "name": "Unión Adarve",
+        "logo": "https://media.api-sports.io/football/teams/9719.png",
+        "winner": null
+      },
+      "away": {
+        "id": 9572,
+        "name": "Getafe II",
+        "logo": "https://media.api-sports.io/football/teams/9572.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 2,
+        "away": 2
       }
     }
   ]
