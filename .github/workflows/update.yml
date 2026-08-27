@@ -34,6 +34,11 @@ jobs:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
+          echo "================================"
+          echo "GETTING TODAY'S MATCHES"
+          echo "DATE: $TODAY"
+          echo "================================"
+
           curl -sS \
             --retry 3 \
             --retry-delay 5 \
@@ -72,19 +77,21 @@ jobs:
               data = json.load(f)
 
           IMPORTANT_LEAGUES = {
-              39,    # Premier League
-              140,   # La Liga
-              135,   # Serie A
-              78,    # Bundesliga
-              61,    # Ligue 1
-              2,     # Champions League
-              3,     # Europa League
-              290    # Iraq Stars League
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3,
+              290
           }
 
           IMPORTANT_TEAMS = {
-              529, 541, 530, 50, 33, 42, 49, 40,
-              157, 85, 496, 505, 489
+              529, 541, 530,
+              50, 33, 42,
+              49, 40, 157,
+              85, 496, 505, 489
           }
 
           matches = []
@@ -178,15 +185,15 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-          IMPORTANT_LEAGUES = {
-              39,    # Premier League
-              140,   # La Liga
-              135,   # Serie A
-              78,    # Bundesliga
-              61,    # Ligue 1
-              2,     # Champions League
-              3,     # Europa League
-              290    # Iraq Stars League
+          IMPORTANT_LEAGUE_IDS = {
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3,
+              290
           }
 
           results = []
@@ -205,10 +212,17 @@ jobs:
                   except Exception:
                       continue
 
+                  if data.get("errors"):
+                      print(
+                          "RESULT API ERROR:",
+                          data.get("errors")
+                      )
+
                   for item in data.get("response", []):
 
                       fixture = item.get("fixture", {}) or {}
                       status = fixture.get("status", {}) or {}
+                      league = item.get("league", {}) or {}
 
                       short_status = str(
                           status.get("short", "")
@@ -231,26 +245,23 @@ jobs:
                       if not finished:
                           continue
 
-                      league = item.get("league", {}) or {}
                       league_id = league.get("id")
 
-                      # 5 خولی بەهێز + Champions + Europa + Iraq
-                      if league_id not in IMPORTANT_LEAGUES:
-                          continue
-
-                      teams = item.get("teams", {}) or {}
-
-                      home = teams.get("home", {}) or {}
-                      away = teams.get("away", {}) or {}
-
-                      # دەرکردنی یاریی ژنان
                       league_name = str(
                           league.get("name", "")
+                      ).lower()
+
+                      country_name = str(
+                          league.get("country", "")
                       ).lower()
 
                       league_type = str(
                           league.get("type", "")
                       ).lower()
+
+                      # ==================================
+                      # WOMEN FILTER
+                      # ==================================
 
                       is_women = (
                           "women" in league_name
@@ -258,11 +269,60 @@ jobs:
                           or "feminine" in league_name
                           or "feminin" in league_name
                           or "female" in league_name
-                          or league_type == "women"
+                          or "women" in league_type
                       )
 
                       if is_women:
                           continue
+
+                      # ==================================
+                      # IMPORTANT LEAGUES
+                      # ==================================
+
+                      is_important = (
+                          league_id in IMPORTANT_LEAGUE_IDS
+                      )
+
+                      # ==================================
+                      # IRAQ DETECTION
+                      #
+                      # بە ID یان بە ناو/وڵات
+                      # ==================================
+
+                      is_iraq = (
+                          league_id == 290
+                          or "iraq" in league_name
+                          or "iraq" in country_name
+                          or "iraqi" in league_name
+                          or "stars league" in league_name
+                          or "premier league" in league_name
+                          and "iraq" in country_name
+                      )
+
+                      # ==================================
+                      # KEEP
+                      # ==================================
+
+                      if not (
+                          is_important
+                          or is_iraq
+                      ):
+                          continue
+
+                      teams = item.get(
+                          "teams",
+                          {}
+                      ) or {}
+
+                      home = teams.get(
+                          "home",
+                          {}
+                      ) or {}
+
+                      away = teams.get(
+                          "away",
+                          {}
+                      ) or {}
 
                       results.append({
                           "fixture": fixture,
@@ -275,13 +335,17 @@ jobs:
                           ) or {}
                       })
 
-          # دووبارەکان لابە
+          # ==========================================
+          # REMOVE DUPLICATES
+          # ==========================================
+
           unique = {}
 
           for item in results:
 
               fixture_id = (
-                  item.get("fixture", {})
+                  item
+                  .get("fixture", {})
                   .get("id")
               )
 
@@ -290,15 +354,25 @@ jobs:
 
           results = list(unique.values())
 
-          # نوێترین یارییەکان سەرەتا
+          # ==========================================
+          # SORT
+          # ==========================================
+
           results.sort(
               key=lambda x:
-              x.get("fixture", {}).get(
+              x.get(
+                  "fixture",
+                  {}
+              ).get(
                   "timestamp",
                   0
               ),
               reverse=True
           )
+
+          # ==========================================
+          # SAVE
+          # ==========================================
 
           output = {
               "updated": datetime.now(
@@ -323,21 +397,86 @@ jobs:
                   indent=2
               )
 
-          print(
-              "FINAL RESULTS:",
-              len(results)
-          )
+          print("================================")
+          print("FINAL RESULTS:", len(results))
+          print("================================")
 
-          # چاپی تایبەت بۆ عێراق
-          iraq = [
-              x for x in results
-              if x.get("league", {}).get("id") == 290
-          ]
+          # ==========================================
+          # IRAQ RESULTS
+          # ==========================================
+
+          iraq = []
+
+          for item in results:
+
+              league = item.get(
+                  "league",
+                  {}
+              ) or {}
+
+              league_id = league.get("id")
+
+              league_name = str(
+                  league.get(
+                      "name",
+                      ""
+                  )
+              ).lower()
+
+              country = str(
+                  league.get(
+                      "country",
+                      ""
+                  )
+              ).lower()
+
+              if (
+                  league_id == 290
+                  or "iraq" in league_name
+                  or "iraq" in country
+                  or "iraqi" in league_name
+                  or "stars league" in league_name
+              ):
+                  iraq.append(item)
 
           print(
               "IRAQ RESULTS:",
               len(iraq)
           )
+
+          for item in iraq:
+
+              league = item.get(
+                  "league",
+                  {}
+              )
+
+              home = item.get(
+                  "home",
+                  {}
+              )
+
+              away = item.get(
+                  "away",
+                  {}
+              )
+
+              goals = item.get(
+                  "goals",
+                  {}
+              )
+
+              print(
+                  "IRAQ:",
+                  league.get("name"),
+                  "|",
+                  home.get("name"),
+                  goals.get("home"),
+                  "-",
+                  goals.get("away"),
+                  away.get("name")
+              )
+
           PY
 
       # ==========================================
@@ -348,6 +487,10 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
+
+          echo "================================"
+          echo "GETTING TRANSFERS"
+          echo "================================"
 
           curl -sS \
             --retry 3 \
@@ -360,6 +503,10 @@ jobs:
           if [ ! -s transfers_raw.json ]; then
             echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
           fi
+
+      # ==========================================
+      # CREATE TRANSFERS
+      # ==========================================
 
       - name: Create transfers.json
         run: |
@@ -378,7 +525,10 @@ jobs:
               timezone.utc
           ).date()
 
-          start_date = today - timedelta(days=30)
+          start_date = (
+              today -
+              timedelta(days=30)
+          )
 
           transfers = []
 
@@ -407,7 +557,7 @@ jobs:
                           date_text,
                           "%Y-%m-%d"
                       ).date()
-                  except:
+                  except Exception:
                       continue
 
                   if not (
@@ -425,7 +575,9 @@ jobs:
                   transfers.append({
                       "player": player,
                       "date": date_text,
-                      "type": transfer.get("type"),
+                      "type": transfer.get(
+                          "type"
+                      ),
                       "teams": {
                           "in": teams.get(
                               "in",
@@ -639,12 +791,22 @@ jobs:
 
           print(
               "FINAL MATCHES:",
-              len(matches.get("matches", []))
+              len(
+                  matches.get(
+                      "matches",
+                      []
+                  )
+              )
           )
 
           print(
               "FINAL RESULTS:",
-              len(results.get("matches", []))
+              len(
+                  results.get(
+                      "matches",
+                      []
+                  )
+              )
           )
 
           print(
@@ -654,7 +816,12 @@ jobs:
 
           print(
               "STANDING LEAGUES:",
-              len(standings.get("leagues", {}))
+              len(
+                  standings.get(
+                      "leagues",
+                      {}
+                  )
+              )
           )
           PY
 
