@@ -25,6 +25,7 @@
  --muted:#91aaa0;
  --line:#1b3b2b;
  --red:#ff6565;
+ --gold:#ffd45c;
 }
 
 body{
@@ -165,7 +166,8 @@ header{
  color:var(--red);
 }
 
-.match{
+.match,
+.transfer{
  background:linear-gradient(145deg,#0d2519,#07150f);
  border:1px solid var(--line);
  border-radius:19px;
@@ -177,7 +179,7 @@ header{
  display:flex;
  align-items:center;
  justify-content:center;
- gap:5px;
+ gap:6px;
  color:var(--green);
  font-size:12px;
  font-weight:900;
@@ -230,18 +232,6 @@ header{
  text-align:center;
  color:var(--muted);
  font-size:11px;
-}
-
-/* =========================
-   TRANSFERS
-========================= */
-
-.transfer{
- background:linear-gradient(145deg,#0d2519,#07150f);
- border:1px solid var(--line);
- border-radius:19px;
- padding:16px;
- margin-bottom:12px;
 }
 
 .player{
@@ -306,10 +296,6 @@ header{
  border-radius:20px;
  font-size:11px;
 }
-
-/* =========================
-   STANDINGS
-========================= */
 
 .league-card{
  background:var(--card);
@@ -428,19 +414,6 @@ footer{
   min-width:45px;
  }
 
- .transfer{
-  padding:14px;
- }
-
- .transfer-team img{
-  width:42px;
-  height:42px;
- }
-
- .transfer-team .team-name{
-  font-size:12px;
- }
-
  .player{
   font-size:16px;
  }
@@ -473,6 +446,7 @@ footer{
 
 </header>
 
+
 <main class="container">
 
 <div class="nav">
@@ -500,10 +474,6 @@ footer{
 </div>
 
 
-<!-- =========================
-     MATCHES
-========================= -->
-
 <section id="matchesSection" class="section active">
 
  <div class="section-title">
@@ -525,10 +495,6 @@ footer{
 
 </section>
 
-
-<!-- =========================
-     RESULTS
-========================= -->
 
 <section id="resultsSection" class="section">
 
@@ -552,10 +518,6 @@ footer{
 </section>
 
 
-<!-- =========================
-     TRANSFERS
-========================= -->
-
 <section id="transfersSection" class="section">
 
  <div class="section-title">
@@ -577,10 +539,6 @@ footer{
 
 </section>
 
-
-<!-- =========================
-     STANDINGS
-========================= -->
 
 <section id="standingsSection" class="section">
 
@@ -605,6 +563,7 @@ footer{
 
 </main>
 
+
 <footer>
 
  <div class="footer-logo">
@@ -618,9 +577,9 @@ footer{
 
 <script>
 
-/* ===============================
-   HELPERS
-=============================== */
+/* ==========================================
+   BASIC HELPERS
+========================================== */
 
 function escapeHTML(value){
 
@@ -641,12 +600,12 @@ function teamLogo(team){
  }
 
  return `
-  <img
-   src="${escapeHTML(team.logo)}"
-   alt=""
-   loading="lazy"
-   onerror="this.style.display='none'"
-  >
+ <img
+  src="${escapeHTML(team.logo)}"
+  alt=""
+  loading="lazy"
+  onerror="this.style.display='none'"
+ >
  `;
 
 }
@@ -655,9 +614,7 @@ function teamLogo(team){
 function teamName(team){
 
  return escapeHTML(
-  team && team.name
-   ? team.name
-   : "یانە"
+  team?.name || "یانە"
  );
 
 }
@@ -665,20 +622,17 @@ function teamName(team){
 
 async function getJSON(file){
 
- const response =
-  await fetch(
-   file + "?v=" + Date.now(),
-   {
-    cache:"no-store"
-   }
-  );
+ const response = await fetch(
+  file + "?v=" + Date.now(),
+  {
+   cache:"no-store"
+  }
+ );
 
  if(!response.ok){
 
   throw new Error(
-   file +
-   " HTTP " +
-   response.status
+   file + " HTTP " + response.status
   );
 
  }
@@ -688,71 +642,172 @@ async function getJSON(file){
 }
 
 
-/* ===============================
+/* ==========================================
    NAVIGATION
-=============================== */
+========================================== */
 
 function showSection(name,button){
 
  document
   .querySelectorAll(".nav button")
-  .forEach(function(btn){
-
-   btn.classList.remove("active");
-
-  });
+  .forEach(btn =>
+   btn.classList.remove("active")
+  );
 
  button.classList.add("active");
 
  document
   .querySelectorAll(".section")
-  .forEach(function(section){
-
-   section.classList.remove("active");
-
-  });
+  .forEach(section =>
+   section.classList.remove("active")
+  );
 
  document
-  .getElementById(
-   name + "Section"
-  )
+  .getElementById(name + "Section")
   .classList.add("active");
 
 
- if(name === "matches"){
+ if(name === "matches")
   loadMatches();
- }
 
- if(name === "results"){
+ if(name === "results")
   loadResults();
- }
 
- if(name === "transfers"){
+ if(name === "transfers")
   loadTransfers();
- }
 
- if(name === "standings"){
+ if(name === "standings")
   loadStandings();
- }
 
 }
 
 
-/* ===============================
+/* ==========================================
+   LEAGUE FILTER
+   تەنها:
+   Premier League
+   La Liga
+   Serie A
+   Bundesliga
+   Ligue 1
+   Champions League
+   Europa League
+   Iraq
+========================================== */
+
+const ALLOWED_LEAGUE_IDS = new Set([
+
+ 39,   // Premier League
+ 140,  // La Liga
+ 135,  // Serie A
+ 78,   // Bundesliga
+ 61,   // Ligue 1
+ 2,    // Champions League
+ 3,    // Europa League
+ 290   // Iraq Stars League
+
+]);
+
+
+/* ==========================================
+   WOMEN FILTER
+========================================== */
+
+function isWomenMatch(item){
+
+ const league =
+  item?.league || {};
+
+ const leagueName =
+  String(league.name || "")
+   .toLowerCase();
+
+ const country =
+  String(league.country || "")
+   .toLowerCase();
+
+ const homeName =
+  String(
+   item?.home?.name ||
+   item?.teams?.home?.name ||
+   ""
+  )
+  .toLowerCase();
+
+ const awayName =
+  String(
+   item?.away?.name ||
+   item?.teams?.away?.name ||
+   ""
+  )
+  .toLowerCase();
+
+
+ const text =
+  leagueName + " " +
+  country + " " +
+  homeName + " " +
+  awayName;
+
+
+ return (
+
+  text.includes("women") ||
+  text.includes("woman") ||
+  text.includes("female") ||
+  text.includes("feminine") ||
+  text.includes("femminile") ||
+  text.includes("feminino") ||
+  text.includes("wsl") ||
+  text.includes("women's") ||
+
+  homeName.endsWith(" w") ||
+  awayName.endsWith(" w")
+
+ );
+
+}
+
+
+/* ==========================================
+   FINISHED
+========================================== */
+
+function isFinished(item){
+
+ const short =
+  String(
+   item?.fixture?.status?.short || ""
+  ).toUpperCase();
+
+ const long =
+  String(
+   item?.fixture?.status?.long || ""
+  ).toLowerCase();
+
+ return (
+
+  short === "FT" ||
+  short === "AET" ||
+  short === "PEN" ||
+  long.includes("finished")
+
+ );
+
+}
+
+
+/* ==========================================
    MATCHES
-=============================== */
+========================================== */
 
 async function loadMatches(){
 
  const status =
-  document.getElementById(
-   "matchStatus"
-  );
+  document.getElementById("matchStatus");
 
  const box =
-  document.getElementById(
-   "matches"
-  );
+  document.getElementById("matches");
 
  status.textContent =
   "⏳ یارییەکان دەخوێندرێنەوە...";
@@ -762,37 +817,63 @@ async function loadMatches(){
  try{
 
   const json =
-   await getJSON(
-    "matches.json"
-   );
+   await getJSON("matches.json");
 
-  const matches =
-   Array.isArray(json.matches)
-    ? json.matches
-    : [];
+  let matches =
+   Array.isArray(json)
+    ? json
+    : Array.isArray(json.matches)
+     ? json.matches
+     : Array.isArray(json.data)
+      ? json.data
+      : [];
+
+
+  /*
+   تەنها خولە دیاریکراوەکان
+  */
+
+  matches =
+   matches.filter(item => {
+
+    const league =
+     item?.league || {};
+
+    return (
+
+     ALLOWED_LEAGUE_IDS.has(
+      Number(league.id)
+     ) &&
+
+     !isWomenMatch(item)
+
+    );
+
+   });
+
 
   if(!matches.length){
 
    status.textContent =
-    "هیچ یارییەک نییە";
+    "هیچ یارییەکی گونجاو نییە";
 
    box.innerHTML = `
-    <div class="empty">
-     ⚽ هیچ یارییەک بەردەست نییە
-    </div>
+   <div class="empty">
+    ⚽ هیچ یارییەک لە خولە دیاریکراوەکان نییە
+   </div>
    `;
 
    return;
 
   }
 
+
   status.textContent =
-   "✅ " +
-   matches.length +
-   " یاری بەردەستە";
+   "✅ " + matches.length +
+   " یاری";
 
 
-  matches.forEach(function(item){
+  matches.forEach(item => {
 
    const fixture =
     item.fixture || {};
@@ -801,26 +882,26 @@ async function loadMatches(){
     item.league || {};
 
    const home =
-    item.home || {};
+    item.home ||
+    item.teams?.home ||
+    {};
 
    const away =
-    item.away || {};
+    item.away ||
+    item.teams?.away ||
+    {};
 
    const goals =
     item.goals || {};
 
 
    const homeScore =
-    goals.home !== null &&
-    goals.home !== undefined
-     ? goals.home
-     : "-";
+    goals.home ??
+    "-";
 
    const awayScore =
-    goals.away !== null &&
-    goals.away !== undefined
-     ? goals.away
-     : "-";
+    goals.away ??
+    "-";
 
 
    const card =
@@ -828,14 +909,19 @@ async function loadMatches(){
 
    card.className = "match";
 
+
    card.innerHTML = `
 
     <div class="match-league">
+
      🏆
+
      ${escapeHTML(
       league.name || "Football"
      )}
+
     </div>
+
 
     <div class="match-teams">
 
@@ -849,11 +935,15 @@ async function loadMatches(){
 
      </div>
 
+
      <div class="score">
+
       ${escapeHTML(homeScore)}
       -
       ${escapeHTML(awayScore)}
+
      </div>
+
 
      <div class="match-team">
 
@@ -867,9 +957,11 @@ async function loadMatches(){
 
     </div>
 
+
     <div class="match-time">
 
      🕐
+
      ${escapeHTML(
       fixture.status?.long ||
       fixture.status?.short ||
@@ -879,6 +971,7 @@ async function loadMatches(){
     </div>
 
    `;
+
 
    box.appendChild(card);
 
@@ -894,7 +987,7 @@ async function loadMatches(){
 
   status.innerHTML = `
    <span class="error">
-    ❌ نەتوانرا matches.json بخوێندرێتەوە
+    ❌ کێشە لە خوێندنەوەی matches.json
    </span>
   `;
 
@@ -903,71 +996,45 @@ async function loadMatches(){
 }
 
 
-/* ===============================
+/* ==========================================
    RESULTS
-   تەنها خولی دیاریکراو
-   تەنها یاریی پیاوان
-=============================== */
+========================================== */
 
 async function loadResults(){
 
  const status =
-  document.getElementById(
-   "resultStatus"
-  );
+  document.getElementById("resultStatus");
 
  const box =
-  document.getElementById(
-   "results"
-  );
+  document.getElementById("results");
 
  status.textContent =
   "⏳ ئەنجامەکان دەخوێندرێنەوە...";
 
  box.innerHTML = "";
 
+
  try{
 
-  let json = null;
+  let json;
 
-
-  /*
-   سەرەتا results.json
-  */
 
   try{
 
    json =
-    await getJSON(
-     "results.json"
-    );
+    await getJSON("results.json");
 
-  }catch(error){
+  }catch(e){
 
    console.log(
-    "results.json نەدۆزرایەوە، matches.json دەپشکنرێت"
+    "results.json نییە، matches.json بەکاردێت"
    );
 
-  }
-
-
-  /*
-   ئەگەر results.json نەبوو
-  */
-
-  if(!json){
-
    json =
-    await getJSON(
-     "matches.json"
-    );
+    await getJSON("matches.json");
 
   }
 
-
-  /*
-   دۆزینەوەی list
-  */
 
   let results = [];
 
@@ -995,108 +1062,27 @@ async function loadResults(){
 
 
   /*
-   خولە گرنگەکان
-  */
-
-  const IMPORTANT_LEAGUES = new Set([
-
-   39,   // Premier League
-   140,  // La Liga
-   135,  // Serie A
-   78,   // Bundesliga
-   61,   // Ligue 1
-   2,    // Champions League
-   3,    // Europa League
-   290   // Iraq Stars League
-
-  ]);
-
-
-  /*
-   فلتەرکردنی:
-   1- خولی دروست
-   2- یاری تەواوبووە
-   3- یاری ژنان نەبێت
+   گرنگ:
+   تەنها 8 خولی دیاریکراو
+   و تەنها پیاوان
+   و تەنها یاری تەواوبووەکان
   */
 
   results =
-   results.filter(function(item){
+   results.filter(item => {
 
     const league =
      item?.league || {};
 
-    const leagueId =
-     league.id;
-
-    const leagueName =
-     String(
-      league.name || ""
-     ).toLowerCase();
-
-
-    const shortStatus =
-     item?.fixture
-      ?.status
-      ?.short || "";
-
-
-    const longStatus =
-     String(
-      item?.fixture
-       ?.status
-       ?.long || ""
-     ).toLowerCase();
-
-
-    const finished =
-
-     shortStatus === "FT" ||
-
-     shortStatus === "AET" ||
-
-     shortStatus === "PEN" ||
-
-     longStatus.includes(
-      "finished"
-     );
-
-
-    /*
-     وشەکانی یاریی ژنان
-    */
-
-    const isWomen =
-
-     leagueName.includes(
-      "women"
-     ) ||
-
-     leagueName.includes(
-      "woman"
-     ) ||
-
-     leagueName.includes(
-      "feminine"
-     ) ||
-
-     leagueName.includes(
-      "feminin"
-     ) ||
-
-     leagueName.includes(
-      "female"
-     );
-
-
     return (
 
-     IMPORTANT_LEAGUES.has(
-      leagueId
+     ALLOWED_LEAGUE_IDS.has(
+      Number(league.id)
      ) &&
 
-     finished &&
+     isFinished(item) &&
 
-     !isWomen
+     !isWomenMatch(item)
 
     );
 
@@ -1104,8 +1090,35 @@ async function loadResults(){
 
 
   /*
-   هیچ ئەنجامێک نییە
+   کۆکردنەوەی ئەنجامە دووبارەکان
   */
+
+  const unique =
+   new Map();
+
+
+  results.forEach(item => {
+
+   const id =
+    item?.fixture?.id;
+
+   if(id != null){
+
+    unique.set(
+     String(id),
+     item
+    );
+
+   }
+
+  });
+
+
+  results =
+   Array.from(
+    unique.values()
+   );
+
 
   if(!results.length){
 
@@ -1113,16 +1126,16 @@ async function loadResults(){
     "هیچ ئەنجامێکی گونجاو نییە";
 
    box.innerHTML = `
-    <div class="empty">
+   <div class="empty">
 
-     🏁
+    🏁
 
-     <br><br>
+    <br><br>
 
-     هیچ ئەنجامێکی تەواو
-     لە خولە دیاریکراوەکان نییە
+    هیچ ئەنجامێکی تەواو
+    لە خولە دیاریکراوەکان نییە
 
-    </div>
+   </div>
    `;
 
    return;
@@ -1131,16 +1144,11 @@ async function loadResults(){
 
 
   status.textContent =
-   "✅ " +
-   results.length +
+   "✅ " + results.length +
    " ئەنجام";
 
 
-  /*
-   پیشاندانی ئەنجام
-  */
-
-  results.forEach(function(item){
+  results.forEach(item => {
 
    const fixture =
     item.fixture || {};
@@ -1163,12 +1171,9 @@ async function loadResults(){
 
 
    const card =
-    document.createElement(
-     "div"
-    );
+    document.createElement("div");
 
-   card.className =
-    "match";
+   card.className = "match";
 
 
    card.innerHTML = `
@@ -1178,8 +1183,7 @@ async function loadResults(){
      🏆
 
      ${escapeHTML(
-      league.name ||
-      "Football"
+      league.name || "Football"
      )}
 
     </div>
@@ -1187,15 +1191,12 @@ async function loadResults(){
 
     <div class="match-teams">
 
-
      <div class="match-team">
 
       ${teamLogo(home)}
 
       <div class="team-name">
-
        ${teamName(home)}
-
       </div>
 
      </div>
@@ -1221,13 +1222,10 @@ async function loadResults(){
       ${teamLogo(away)}
 
       <div class="team-name">
-
        ${teamName(away)}
-
       </div>
 
      </div>
-
 
     </div>
 
@@ -1270,21 +1268,17 @@ async function loadResults(){
 }
 
 
-/* ===============================
+/* ==========================================
    TRANSFERS
-=============================== */
+========================================== */
 
 async function loadTransfers(){
 
  const status =
-  document.getElementById(
-   "transferStatus"
-  );
+  document.getElementById("transferStatus");
 
  const box =
-  document.getElementById(
-   "transfers"
-  );
+  document.getElementById("transfers");
 
  status.textContent =
   "⏳ گواستنەوەکان دەخوێندرێنەوە...";
@@ -1295,19 +1289,155 @@ async function loadTransfers(){
  try{
 
   const json =
-   await getJSON(
-    "transfers.json"
+   await getJSON("transfers.json");
+
+
+  let transfers = [];
+
+
+  /*
+   پشتگیری لە چەند شێوازی JSON
+  */
+
+  if(Array.isArray(json)){
+
+   transfers = json;
+
+  }
+  else if(Array.isArray(json.transfers)){
+
+   transfers =
+    json.transfers;
+
+  }
+  else if(Array.isArray(json.data)){
+
+   transfers =
+    json.data;
+
+  }
+  else if(Array.isArray(json.results)){
+
+   transfers =
+    json.results;
+
+  }
+
+
+  /*
+   هەندێک جار API:
+   [
+     {
+       player:{},
+       transfers:[]
+     }
+   ]
+  */
+
+  const flattened = [];
+
+
+  transfers.forEach(item => {
+
+   if(
+    Array.isArray(item?.transfers)
+   ){
+
+    item.transfers.forEach(t => {
+
+     flattened.push({
+      player:
+       item.player || t.player || {},
+      teams:
+       t.teams ||
+       item.teams ||
+       {},
+      date:
+       t.date ||
+       item.date ||
+       "",
+      type:
+       t.type ||
+       item.type ||
+       "Transfer"
+     });
+
+    });
+
+   }else{
+
+    flattened.push(item);
+
+   }
+
+  });
+
+
+  transfers =
+   flattened;
+
+
+  /*
+   پاککردنەوەی داتای بێ ناو
+  */
+
+  transfers =
+   transfers.filter(item => {
+
+    const player =
+     item?.player || {};
+
+    return Boolean(
+     player.name ||
+     item?.name
+    );
+
+   });
+
+
+  /*
+   دووبارەکان لابەرە
+  */
+
+  const unique =
+   new Map();
+
+
+  transfers.forEach(item => {
+
+   const player =
+    item?.player?.name ||
+    item?.name ||
+    "unknown";
+
+   const date =
+    item?.date || "";
+
+   const inTeam =
+    item?.teams?.in?.id ||
+    item?.teams?.in?.name ||
+    "";
+
+   const outTeam =
+    item?.teams?.out?.id ||
+    item?.teams?.out?.name ||
+    "";
+
+   const key =
+    player + "|" +
+    date + "|" +
+    inTeam + "|" +
+    outTeam;
+
+   unique.set(key,item);
+
+  });
+
+
+  transfers =
+   Array.from(
+    unique.values()
    );
-
-
-  const transfers =
-   Array.isArray(json)
-    ? json
-    : Array.isArray(
-       json.transfers
-      )
-     ? json.transfers
-     : [];
 
 
   if(!transfers.length){
@@ -1316,9 +1446,16 @@ async function loadTransfers(){
     "هیچ گواستنەوەیەک نییە";
 
    box.innerHTML = `
-    <div class="empty">
-     🔄 هیچ گواستنەوەیەک بەردەست نییە
-    </div>
+   <div class="empty">
+
+    🔄
+
+    <br><br>
+
+    هیچ گواستنەوەیەک
+    لە transfers.json نییە
+
+   </div>
    `;
 
    return;
@@ -1332,7 +1469,7 @@ async function loadTransfers(){
    " گواستنەوە";
 
 
-  transfers.forEach(function(item){
+  transfers.forEach(item => {
 
    const player =
     item.player || {};
@@ -1348,9 +1485,7 @@ async function loadTransfers(){
 
 
    const card =
-    document.createElement(
-     "div"
-    );
+    document.createElement("div");
 
    card.className =
     "transfer";
@@ -1364,6 +1499,7 @@ async function loadTransfers(){
 
      ${escapeHTML(
       player.name ||
+      item.name ||
       "یاریزان"
      )}
 
@@ -1371,7 +1507,6 @@ async function loadTransfers(){
 
 
     <div class="transfer-teams">
-
 
      <div class="transfer-team">
 
@@ -1381,7 +1516,7 @@ async function loadTransfers(){
 
        ${escapeHTML(
         outTeam.name ||
-        "لە یانەی پێشوو"
+        "یانەی پێشوو"
        )}
 
       </div>
@@ -1408,7 +1543,6 @@ async function loadTransfers(){
       </div>
 
      </div>
-
 
     </div>
 
@@ -1454,7 +1588,7 @@ async function loadTransfers(){
 
   status.innerHTML = `
    <span class="error">
-    ❌ نەتوانرا transfers.json بخوێندرێتەوە
+    ❌ کێشە لە خوێندنەوەی transfers.json
    </span>
   `;
 
@@ -1463,9 +1597,9 @@ async function loadTransfers(){
 }
 
 
-/* ===============================
+/* ==========================================
    STANDINGS
-=============================== */
+========================================== */
 
 async function loadStandings(){
 
@@ -1488,13 +1622,11 @@ async function loadStandings(){
  try{
 
   const json =
-   await getJSON(
-    "standings.json"
-   );
+   await getJSON("standings.json");
 
 
   const leagues =
-   json.leagues || {};
+   json?.leagues || {};
 
   const names =
    Object.keys(leagues);
@@ -1506,9 +1638,9 @@ async function loadStandings(){
     "هیچ خشتەیەک نییە";
 
    box.innerHTML = `
-    <div class="empty">
-     🏆 هیچ خشتەیەک بەردەست نییە
-    </div>
+   <div class="empty">
+    🏆 هیچ خشتەیەک بەردەست نییە
+   </div>
    `;
 
    return;
@@ -1517,12 +1649,11 @@ async function loadStandings(){
 
 
   status.textContent =
-   "✅ " +
-   names.length +
+   "✅ " + names.length +
    " لیگ";
 
 
-  names.forEach(function(name){
+  names.forEach(name => {
 
    const league =
     leagues[name] || {};
@@ -1535,10 +1666,12 @@ async function loadStandings(){
      : [];
 
 
+   if(!rows.length)
+    return;
+
+
    const card =
-    document.createElement(
-     "div"
-    );
+    document.createElement("div");
 
    card.className =
     "league-card";
@@ -1596,7 +1729,7 @@ async function loadStandings(){
    `;
 
 
-   rows.forEach(function(row){
+   rows.forEach(row => {
 
     const team =
      row.team || {};
@@ -1645,47 +1778,37 @@ async function loadStandings(){
 
 
       <td>
-
        ${escapeHTML(
         all.played ?? "-"
        )}
-
       </td>
 
 
       <td>
-
        ${escapeHTML(
         all.win ?? "-"
        )}
-
       </td>
 
 
       <td>
-
        ${escapeHTML(
         all.draw ?? "-"
        )}
-
       </td>
 
 
       <td>
-
        ${escapeHTML(
         all.lose ?? "-"
        )}
-
       </td>
 
 
       <td class="points">
-
        ${escapeHTML(
         row.points ?? "-"
        )}
-
       </td>
 
      </tr>
@@ -1732,30 +1855,46 @@ async function loadStandings(){
 }
 
 
-/* ===============================
+/* ==========================================
    START
-=============================== */
+========================================== */
 
 loadMatches();
 
-loadResults();
 
-loadTransfers();
+/*
+   تەنها کاتێک tab ـەکە کرایەوە
+   داتا بخوێنەوە.
+   ئەمە request ـەکان کەم دەکات.
+*/
 
-loadStandings();
 
-
-/* ===============================
+/* ==========================================
    AUTO REFRESH
-   هەر 10 خولەک
-=============================== */
+========================================== */
 
 setInterval(function(){
 
- loadMatches();
- loadResults();
- loadTransfers();
- loadStandings();
+ const active =
+  document.querySelector(
+   ".section.active"
+  );
+
+ if(!active)
+  return;
+
+
+ if(active.id === "matchesSection")
+  loadMatches();
+
+ else if(active.id === "resultsSection")
+  loadResults();
+
+ else if(active.id === "transfersSection")
+  loadTransfers();
+
+ else if(active.id === "standingsSection")
+  loadStandings();
 
 },10 * 60 * 1000);
 
