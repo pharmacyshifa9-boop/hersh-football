@@ -125,7 +125,6 @@ header{
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:10px;
  margin-bottom:14px;
 }
 
@@ -165,10 +164,6 @@ header{
 .error{
  color:var(--red);
 }
-
-/* =========================
-   MATCH / RESULT
-========================= */
 
 .match{
  background:linear-gradient(145deg,#0d2519,#07150f);
@@ -223,7 +218,7 @@ header{
 }
 
 .score{
- min-width:65px;
+ min-width:55px;
  text-align:center;
  color:var(--green);
  font-size:23px;
@@ -254,7 +249,6 @@ header{
  font-size:18px;
  font-weight:900;
  margin-bottom:13px;
- text-align:center;
 }
 
 .transfer-teams{
@@ -278,8 +272,8 @@ header{
 }
 
 .transfer-team img{
- width:45px;
- height:45px;
+ width:42px;
+ height:42px;
  object-fit:contain;
  margin-bottom:6px;
 }
@@ -294,7 +288,6 @@ header{
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:10px;
  margin-top:12px;
  padding-top:10px;
  border-top:1px solid var(--line);
@@ -432,7 +425,7 @@ footer{
 
  .score{
   font-size:20px;
-  min-width:50px;
+  min-width:45px;
  }
 
  .transfer{
@@ -440,12 +433,12 @@ footer{
  }
 
  .transfer-team img{
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
  }
 
  .transfer-team .team-name{
-  font-size:10px;
+  font-size:12px;
  }
 
  .player{
@@ -507,7 +500,9 @@ footer{
 </div>
 
 
-<!-- MATCHES -->
+<!-- =========================
+     MATCHES
+========================= -->
 
 <section id="matchesSection" class="section active">
 
@@ -531,7 +526,9 @@ footer{
 </section>
 
 
-<!-- RESULTS -->
+<!-- =========================
+     RESULTS
+========================= -->
 
 <section id="resultsSection" class="section">
 
@@ -555,7 +552,9 @@ footer{
 </section>
 
 
-<!-- TRANSFERS -->
+<!-- =========================
+     TRANSFERS
+========================= -->
 
 <section id="transfersSection" class="section">
 
@@ -579,7 +578,9 @@ footer{
 </section>
 
 
-<!-- STANDINGS -->
+<!-- =========================
+     STANDINGS
+========================= -->
 
 <section id="standingsSection" class="section">
 
@@ -604,7 +605,6 @@ footer{
 
 </main>
 
-
 <footer>
 
  <div class="footer-logo">
@@ -618,9 +618,9 @@ footer{
 
 <script>
 
-/* ==========================================
+/* ===============================
    HELPERS
-========================================== */
+=============================== */
 
 function escapeHTML(value){
 
@@ -665,17 +665,20 @@ function teamName(team){
 
 async function getJSON(file){
 
- const response = await fetch(
-  file + "?v=" + Date.now(),
-  {
-   cache:"no-store"
-  }
- );
+ const response =
+  await fetch(
+   file + "?v=" + Date.now(),
+   {
+    cache:"no-store"
+   }
+  );
 
  if(!response.ok){
 
   throw new Error(
-   file + " HTTP " + response.status
+   file +
+   " HTTP " +
+   response.status
   );
 
  }
@@ -685,9 +688,9 @@ async function getJSON(file){
 }
 
 
-/* ==========================================
+/* ===============================
    NAVIGATION
-========================================== */
+=============================== */
 
 function showSection(name,button){
 
@@ -709,14 +712,12 @@ function showSection(name,button){
 
   });
 
- const section =
-  document.getElementById(
+ document
+  .getElementById(
    name + "Section"
-  );
+  )
+  .classList.add("active");
 
- if(section){
-  section.classList.add("active");
- }
 
  if(name === "matches"){
   loadMatches();
@@ -737,9 +738,9 @@ function showSection(name,button){
 }
 
 
-/* ==========================================
+/* ===============================
    MATCHES
-========================================== */
+=============================== */
 
 async function loadMatches(){
 
@@ -761,14 +762,14 @@ async function loadMatches(){
  try{
 
   const json =
-   await getJSON("matches.json");
+   await getJSON(
+    "matches.json"
+   );
 
   const matches =
-   Array.isArray(json)
-    ? json
-    : Array.isArray(json.matches)
-     ? json.matches
-     : [];
+   Array.isArray(json.matches)
+    ? json.matches
+    : [];
 
   if(!matches.length){
 
@@ -800,14 +801,10 @@ async function loadMatches(){
     item.league || {};
 
    const home =
-    item.home ||
-    item.teams?.home ||
-    {};
+    item.home || {};
 
    const away =
-    item.away ||
-    item.teams?.away ||
-    {};
+    item.away || {};
 
    const goals =
     item.goals || {};
@@ -871,12 +868,14 @@ async function loadMatches(){
     </div>
 
     <div class="match-time">
+
      🕐
      ${escapeHTML(
       fixture.status?.long ||
       fixture.status?.short ||
       "Scheduled"
      )}
+
     </div>
 
    `;
@@ -904,15 +903,11 @@ async function loadMatches(){
 }
 
 
-/* ==========================================
+/* ===============================
    RESULTS
-   IMPORTANT:
-   results.json:
-   {
-     results: 19,
-     matches: [...]
-   }
-========================================== */
+   تەنها خولی دیاریکراو
+   تەنها یاریی پیاوان
+=============================== */
 
 async function loadResults(){
 
@@ -933,64 +928,200 @@ async function loadResults(){
 
  try{
 
-  const json =
-   await getJSON("results.json");
+  let json = null;
 
+
+  /*
+   سەرەتا results.json
+  */
+
+  try{
+
+   json =
+    await getJSON(
+     "results.json"
+    );
+
+  }catch(error){
+
+   console.log(
+    "results.json نەدۆزرایەوە، matches.json دەپشکنرێت"
+   );
+
+  }
+
+
+  /*
+   ئەگەر results.json نەبوو
+  */
+
+  if(!json){
+
+   json =
+    await getJSON(
+     "matches.json"
+    );
+
+  }
+
+
+  /*
+   دۆزینەوەی list
+  */
 
   let results = [];
 
 
-  /*
-     شێوازی نوێ
-  */
-
-  if(
-   json &&
-   Array.isArray(json.matches)
-  ){
-
-   results = json.matches;
-
-  }
-
-  /*
-     ئەگەر json خۆی array بوو
-  */
-
-  else if(
-   Array.isArray(json)
-  ){
+  if(Array.isArray(json)){
 
    results = json;
 
   }
-
-  /*
-     شێوازی results[]
-  */
-
-  else if(
-   json &&
-   Array.isArray(json.results)
-  ){
+  else if(Array.isArray(json.results)){
 
    results = json.results;
+
+  }
+  else if(Array.isArray(json.matches)){
+
+   results = json.matches;
+
+  }
+  else if(Array.isArray(json.data)){
+
+   results = json.data;
 
   }
 
 
   /*
-     هیچ داتا نییە
+   خولە گرنگەکان
+  */
+
+  const IMPORTANT_LEAGUES = new Set([
+
+   39,   // Premier League
+   140,  // La Liga
+   135,  // Serie A
+   78,   // Bundesliga
+   61,   // Ligue 1
+   2,    // Champions League
+   3,    // Europa League
+   290   // Iraq Stars League
+
+  ]);
+
+
+  /*
+   فلتەرکردنی:
+   1- خولی دروست
+   2- یاری تەواوبووە
+   3- یاری ژنان نەبێت
+  */
+
+  results =
+   results.filter(function(item){
+
+    const league =
+     item?.league || {};
+
+    const leagueId =
+     league.id;
+
+    const leagueName =
+     String(
+      league.name || ""
+     ).toLowerCase();
+
+
+    const shortStatus =
+     item?.fixture
+      ?.status
+      ?.short || "";
+
+
+    const longStatus =
+     String(
+      item?.fixture
+       ?.status
+       ?.long || ""
+     ).toLowerCase();
+
+
+    const finished =
+
+     shortStatus === "FT" ||
+
+     shortStatus === "AET" ||
+
+     shortStatus === "PEN" ||
+
+     longStatus.includes(
+      "finished"
+     );
+
+
+    /*
+     وشەکانی یاریی ژنان
+    */
+
+    const isWomen =
+
+     leagueName.includes(
+      "women"
+     ) ||
+
+     leagueName.includes(
+      "woman"
+     ) ||
+
+     leagueName.includes(
+      "feminine"
+     ) ||
+
+     leagueName.includes(
+      "feminin"
+     ) ||
+
+     leagueName.includes(
+      "female"
+     );
+
+
+    return (
+
+     IMPORTANT_LEAGUES.has(
+      leagueId
+     ) &&
+
+     finished &&
+
+     !isWomen
+
+    );
+
+   });
+
+
+  /*
+   هیچ ئەنجامێک نییە
   */
 
   if(!results.length){
 
    status.textContent =
-    "هیچ ئەنجامێکی تەواو نییە";
+    "هیچ ئەنجامێکی گونجاو نییە";
 
    box.innerHTML = `
     <div class="empty">
-     🏁 هێشتا ئەنجامێکی تەواو نییە
+
+     🏁
+
+     <br><br>
+
+     هیچ ئەنجامێکی تەواو
+     لە خولە دیاریکراوەکان نییە
+
     </div>
    `;
 
@@ -1004,6 +1135,10 @@ async function loadResults(){
    results.length +
    " ئەنجام";
 
+
+  /*
+   پیشاندانی ئەنجام
+  */
 
   results.forEach(function(item){
 
@@ -1027,23 +1162,13 @@ async function loadResults(){
     item.goals || {};
 
 
-   const homeGoals =
-    goals.home !== null &&
-    goals.home !== undefined
-     ? goals.home
-     : "-";
-
-   const awayGoals =
-    goals.away !== null &&
-    goals.away !== undefined
-     ? goals.away
-     : "-";
-
-
    const card =
-    document.createElement("div");
+    document.createElement(
+     "div"
+    );
 
-   card.className = "match";
+   card.className =
+    "match";
 
 
    card.innerHTML = `
@@ -1068,7 +1193,9 @@ async function loadResults(){
       ${teamLogo(home)}
 
       <div class="team-name">
+
        ${teamName(home)}
+
       </div>
 
      </div>
@@ -1076,11 +1203,15 @@ async function loadResults(){
 
      <div class="score">
 
-      ${escapeHTML(homeGoals)}
+      ${escapeHTML(
+       goals.home ?? "-"
+      )}
 
       -
 
-      ${escapeHTML(awayGoals)}
+      ${escapeHTML(
+       goals.away ?? "-"
+      )}
 
      </div>
 
@@ -1090,7 +1221,9 @@ async function loadResults(){
       ${teamLogo(away)}
 
       <div class="team-name">
+
        ${teamName(away)}
+
       </div>
 
      </div>
@@ -1106,7 +1239,7 @@ async function loadResults(){
      ${escapeHTML(
       fixture.status?.long ||
       fixture.status?.short ||
-      "Finished"
+      "FT"
      )}
 
     </div>
@@ -1137,22 +1270,9 @@ async function loadResults(){
 }
 
 
-/* ==========================================
+/* ===============================
    TRANSFERS
-   IMPORTANT:
-   transfers.json:
-   [
-     {
-       player:{...},
-       date:"...",
-       type:"...",
-       teams:{
-         in:{...},
-         out:{...}
-       }
-     }
-   ]
-========================================== */
+=============================== */
 
 async function loadTransfers(){
 
@@ -1171,37 +1291,23 @@ async function loadTransfers(){
 
  box.innerHTML = "";
 
+
  try{
 
   const json =
-   await getJSON("transfers.json");
+   await getJSON(
+    "transfers.json"
+   );
 
 
-  let transfers = [];
-
-
-  /*
-     شێوازی ئێستای transfers.json
-  */
-
-  if(Array.isArray(json)){
-
-   transfers = json;
-
-  }
-
-  /*
-     ئەگەر بە transfers پێچراوە
-  */
-
-  else if(
-   json &&
-   Array.isArray(json.transfers)
-  ){
-
-   transfers = json.transfers;
-
-  }
+  const transfers =
+   Array.isArray(json)
+    ? json
+    : Array.isArray(
+       json.transfers
+      )
+     ? json.transfers
+     : [];
 
 
   if(!transfers.length){
@@ -1242,7 +1348,9 @@ async function loadTransfers(){
 
 
    const card =
-    document.createElement("div");
+    document.createElement(
+     "div"
+    );
 
    card.className =
     "transfer";
@@ -1307,14 +1415,12 @@ async function loadTransfers(){
 
     <div class="transfer-info">
 
-
      <div class="date">
 
       📅
 
       ${escapeHTML(
-       item.date ||
-       ""
+       item.date || ""
       )}
 
      </div>
@@ -1328,7 +1434,6 @@ async function loadTransfers(){
       )}
 
      </div>
-
 
     </div>
 
@@ -1358,9 +1463,9 @@ async function loadTransfers(){
 }
 
 
-/* ==========================================
+/* ===============================
    STANDINGS
-========================================== */
+=============================== */
 
 async function loadStandings(){
 
@@ -1379,12 +1484,14 @@ async function loadStandings(){
 
  box.innerHTML = "";
 
+
  try{
 
   const json =
    await getJSON(
     "standings.json"
    );
+
 
   const leagues =
    json.leagues || {};
@@ -1540,9 +1647,7 @@ async function loadStandings(){
       <td>
 
        ${escapeHTML(
-        all.played ??
-        all.gp ??
-        "-"
+        all.played ?? "-"
        )}
 
       </td>
@@ -1551,9 +1656,7 @@ async function loadStandings(){
       <td>
 
        ${escapeHTML(
-        all.win ??
-        all.w ??
-        "-"
+        all.win ?? "-"
        )}
 
       </td>
@@ -1562,9 +1665,7 @@ async function loadStandings(){
       <td>
 
        ${escapeHTML(
-        all.draw ??
-        all.d ??
-        "-"
+        all.draw ?? "-"
        )}
 
       </td>
@@ -1573,9 +1674,7 @@ async function loadStandings(){
       <td>
 
        ${escapeHTML(
-        all.lose ??
-        all.l ??
-        "-"
+        all.lose ?? "-"
        )}
 
       </td>
@@ -1633,9 +1732,9 @@ async function loadStandings(){
 }
 
 
-/* ==========================================
+/* ===============================
    START
-========================================== */
+=============================== */
 
 loadMatches();
 
@@ -1646,10 +1745,10 @@ loadTransfers();
 loadStandings();
 
 
-/* ==========================================
+/* ===============================
    AUTO REFRESH
    هەر 10 خولەک
-========================================== */
+=============================== */
 
 setInterval(function(){
 
