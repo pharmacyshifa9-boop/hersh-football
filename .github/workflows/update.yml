@@ -2,6 +2,7 @@ name: Update Football Data
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "0 */6 * * *"
 
@@ -10,6 +11,7 @@ permissions:
   id-token: write
 
 jobs:
+
   update:
     runs-on: ubuntu-latest
 
@@ -24,7 +26,7 @@ jobs:
 
 
       # ==========================================
-      # TODAY
+      # DATE
       # ==========================================
 
       - name: Set date
@@ -44,6 +46,7 @@ jobs:
       - name: Get today's matches
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
+
         run: |
 
           echo "================================"
@@ -51,7 +54,9 @@ jobs:
           echo "DATE: $TODAY"
           echo "================================"
 
-          curl -sS --retry 3 --retry-delay 5 \
+          curl -sS \
+            --retry 3 \
+            --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
@@ -81,6 +86,7 @@ jobs:
         run: |
 
           python3 - <<'PY'
+
           import json
           from datetime import datetime, timezone
 
@@ -153,7 +159,12 @@ jobs:
               "matches": matches
           }
 
-          with open("matches.json", "w", encoding="utf-8") as f:
+          with open(
+              "matches.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
               json.dump(
                   output,
                   f,
@@ -162,6 +173,7 @@ jobs:
               )
 
           print("FINAL MATCHES:", len(matches))
+
           PY
 
 
@@ -172,6 +184,7 @@ jobs:
       - name: Get today's results
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
+
         run: |
 
           echo "================================"
@@ -179,7 +192,9 @@ jobs:
           echo "DATE: $TODAY"
           echo "================================"
 
-          curl -sS --retry 3 --retry-delay 5 \
+          curl -sS \
+            --retry 3 \
+            --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
@@ -190,6 +205,7 @@ jobs:
           fi
 
           python3 - <<'PY'
+
           import json
 
           with open("results_raw.json", encoding="utf-8") as f:
@@ -198,6 +214,7 @@ jobs:
           print("RESULT API ERRORS:", data.get("errors", []))
           print("RESULT API RESULTS:", data.get("results", 0))
           print("RESULT API RESPONSE:", len(data.get("response", [])))
+
           PY
 
 
@@ -209,54 +226,48 @@ jobs:
         run: |
 
           python3 - <<'PY'
+
           import json
           from datetime import datetime, timezone
 
-          with open("results_raw.json", encoding="utf-8") as f:
+          with open(
+              "results_raw.json",
+              encoding="utf-8"
+          ) as f:
+
               data = json.load(f)
 
-          response = data.get("response", [])
-
-          IMPORTANT_LEAGUES = {
-              39,
-              140,
-              135,
-              78,
-              61,
-              2,
-              3,
-              290
-          }
-
-          IMPORTANT_TEAMS = {
-              529,
-              541,
-              530,
-              50,
-              33,
-              42,
-              49,
-              40,
-              157,
-              85,
-              496,
-              505,
-              489
-          }
+          response = data.get(
+              "response",
+              []
+          )
 
           results = []
 
           for item in response:
 
-              fixture = item.get("fixture", {}) or {}
-              status = fixture.get("status", {}) or {}
+              fixture = item.get(
+                  "fixture",
+                  {}
+              ) or {}
+
+              status = fixture.get(
+                  "status",
+                  {}
+              ) or {}
 
               status_short = str(
-                  status.get("short", "")
+                  status.get(
+                      "short",
+                      ""
+                  )
               ).upper()
 
               status_long = str(
-                  status.get("long", "")
+                  status.get(
+                      "long",
+                      ""
+                  )
               ).lower()
 
               finished = (
@@ -267,47 +278,56 @@ jobs:
                   }
                   or
                   "finished" in status_long
-                  or
-                  "match finished" in status_long
               )
 
               if not finished:
                   continue
 
-              league = item.get("league", {}) or {}
-              teams = item.get("teams", {}) or {}
+              teams = item.get(
+                  "teams",
+                  {}
+              ) or {}
 
-              home = teams.get("home", {}) or {}
-              away = teams.get("away", {}) or {}
+              home = teams.get(
+                  "home",
+                  {}
+              ) or {}
 
-              league_id = league.get("id")
-              home_id = home.get("id")
-              away_id = away.get("id")
-
-              keep = (
-                  league_id in IMPORTANT_LEAGUES
-                  or home_id in IMPORTANT_TEAMS
-                  or away_id in IMPORTANT_TEAMS
-              )
-
-              if not keep:
-                  continue
+              away = teams.get(
+                  "away",
+                  {}
+              ) or {}
 
               results.append({
                   "fixture": fixture,
-                  "league": league,
+                  "league": item.get(
+                      "league",
+                      {}
+                  ) or {},
                   "home": home,
                   "away": away,
-                  "goals": item.get("goals", {})
+                  "goals": item.get(
+                      "goals",
+                      {}
+                  ) or {}
               })
 
           output = {
-              "updated": datetime.now(timezone.utc).isoformat(),
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
               "results": len(results),
+
               "matches": results
           }
 
-          with open("results.json", "w", encoding="utf-8") as f:
+          with open(
+              "results.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
               json.dump(
                   output,
                   f,
@@ -315,7 +335,11 @@ jobs:
                   indent=2
               )
 
-          print("FINAL RESULTS:", len(results))
+          print(
+              "FINAL RESULTS:",
+              len(results)
+          )
+
           PY
 
 
@@ -326,13 +350,16 @@ jobs:
       - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
+
         run: |
 
           echo "================================"
           echo "GETTING TRANSFERS"
           echo "================================"
 
-          curl -sS --retry 3 --retry-delay 5 \
+          curl -sS \
+            --retry 3 \
+            --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
@@ -343,14 +370,31 @@ jobs:
           fi
 
           python3 - <<'PY'
+
           import json
 
-          with open("transfers_raw.json", encoding="utf-8") as f:
+          with open(
+              "transfers_raw.json",
+              encoding="utf-8"
+          ) as f:
+
               data = json.load(f)
 
-          print("TRANSFER API ERRORS:", data.get("errors", []))
-          print("TRANSFER API RESULTS:", data.get("results", 0))
-          print("TRANSFER API RESPONSE:", len(data.get("response", [])))
+          print(
+              "TRANSFER API ERRORS:",
+              data.get("errors", [])
+          )
+
+          print(
+              "TRANSFER API RESULTS:",
+              data.get("results", 0)
+          )
+
+          print(
+              "TRANSFER API RESPONSE:",
+              len(data.get("response", []))
+          )
+
           PY
 
 
@@ -362,34 +406,32 @@ jobs:
         run: |
 
           python3 - <<'PY'
+
           import json
           from datetime import datetime, timedelta, timezone
 
-          with open("transfers_raw.json", encoding="utf-8") as f:
+          with open(
+              "transfers_raw.json",
+              encoding="utf-8"
+          ) as f:
+
               data = json.load(f)
 
-          today = datetime.now(timezone.utc).date()
-          start_date = today - timedelta(days=7)
+          today = datetime.now(
+              timezone.utc
+          ).date()
 
-          strong_teams = {
-              529,
-              541,
-              530,
-              50,
-              33,
-              42,
-              49,
-              40,
-              157,
-              85,
-              505,
-              489,
-              496
-          }
+          start_date = (
+              today -
+              timedelta(days=30)
+          )
 
           transfers = []
 
-          for player_item in data.get("response", []):
+          for player_item in data.get(
+              "response",
+              []
+          ):
 
               player = player_item.get(
                   "player",
@@ -407,11 +449,14 @@ jobs:
                   )
 
                   try:
+
                       transfer_date = datetime.strptime(
                           date_text,
                           "%Y-%m-%d"
                       ).date()
+
                   except:
+
                       continue
 
                   if transfer_date < start_date:
@@ -435,20 +480,12 @@ jobs:
                       {}
                   ) or {}
 
-                  in_id = team_in.get("id")
-                  out_id = team_out.get("id")
-
-                  if (
-                      in_id not in strong_teams
-                      and
-                      out_id not in strong_teams
-                  ):
-                      continue
-
                   transfers.append({
                       "player": player,
                       "date": date_text,
-                      "type": transfer.get("type"),
+                      "type": transfer.get(
+                          "type"
+                      ),
                       "teams": {
                           "in": team_in,
                           "out": team_out
@@ -468,7 +505,11 @@ jobs:
                   indent=2
               )
 
-          print("FINAL TRANSFERS:", len(transfers))
+          print(
+              "FINAL TRANSFERS:",
+              len(transfers)
+          )
+
           PY
 
 
@@ -479,6 +520,7 @@ jobs:
       - name: Get standings
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
+
         run: |
 
           echo "================================"
@@ -486,6 +528,7 @@ jobs:
           echo "================================"
 
           python3 - <<'PY'
+
           import json
           import urllib.request
           import urllib.parse
@@ -505,6 +548,7 @@ jobs:
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
+
               "leagues": {}
           }
 
@@ -535,9 +579,11 @@ jobs:
                       timeout=30
                   ) as response:
 
-                      data = json.load(response)
+                      api_data = json.load(
+                          response
+                      )
 
-                  errors = data.get(
+                  errors = api_data.get(
                       "errors",
                       {}
                   )
@@ -550,7 +596,7 @@ jobs:
                       )
                       continue
 
-                  api_response = data.get(
+                  api_response = api_data.get(
                       "response",
                       []
                   )
@@ -573,20 +619,19 @@ jobs:
                   )
 
                   if (
-                      isinstance(
-                          standings,
-                          list
-                      )
-                      and standings
+                      standings
                       and isinstance(
                           standings[0],
                           list
                       )
                   ):
+
                       standings = standings[0]
 
                   output["leagues"][name] = {
-                      "logo": league.get("logo"),
+                      "logo": league.get(
+                          "logo"
+                      ),
                       "standings": standings
                   }
 
@@ -619,8 +664,11 @@ jobs:
 
           print(
               "STANDING LEAGUES:",
-              len(output["leagues"])
+              len(
+                  output["leagues"]
+              )
           )
+
           PY
 
 
@@ -636,30 +684,35 @@ jobs:
           echo "================================"
 
           python3 - <<'PY'
+
           import json
 
           with open(
               "matches.json",
               encoding="utf-8"
           ) as f:
+
               matches = json.load(f)
 
           with open(
               "results.json",
               encoding="utf-8"
           ) as f:
+
               results = json.load(f)
 
           with open(
               "transfers.json",
               encoding="utf-8"
           ) as f:
+
               transfers = json.load(f)
 
           with open(
               "standings.json",
               encoding="utf-8"
           ) as f:
+
               standings = json.load(f)
 
           print(
@@ -684,7 +737,9 @@ jobs:
 
           print(
               "FINAL TRANSFERS:",
-              len(transfers)
+              len(
+                  transfers
+              )
           )
 
           print(
@@ -696,6 +751,7 @@ jobs:
                   )
               )
           )
+
           PY
 
 
@@ -723,7 +779,8 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update football data"
+          git commit \
+            -m "Update football data"
 
           git pull --rebase origin main
 
