@@ -68,7 +68,6 @@ jobs:
           fi
 
           python3 - <<'PY'
-
           import json
 
           with open("matches_raw.json", encoding="utf-8") as f:
@@ -77,7 +76,6 @@ jobs:
           print("MATCH API ERRORS:", data.get("errors", []))
           print("MATCH API RESULTS:", data.get("results", 0))
           print("MATCH API RESPONSE:", len(data.get("response", [])))
-
           PY
 
 
@@ -181,115 +179,150 @@ jobs:
 
 
       # ==========================================
-      # RESULTS
-      # 7 DAYS
+      # RESULTS - LAST 8 DAYS
       # ==========================================
 
-      - name: Get results - last 7 days
+      - name: Get results - last 8 days
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
 
         run: |
 
           echo "================================"
-          echo "GETTING RESULTS - LAST 7 DAYS"
+          echo "GETTING RESULTS - LAST 8 DAYS"
           echo "================================"
 
-          rm -f results_raw.jsonl
+          python3 - <<'PY'
 
-          for DAYS_AGO in 0 1 2 3 4 5 6 7
-          do
+          import json
+          import urllib.request
+          import os
+          from datetime import datetime, timedelta, timezone
 
-            DATE=$(date -u -d "$DAYS_AGO days ago" +"%Y-%m-%d")
+          API_KEY = os.environ.get("API_KEY")
 
-            echo "Getting results for: $DATE"
+          all_matches = []
+          all_errors = []
 
-            curl -sS \
-              --retry 2 \
-              --retry-delay 3 \
-              --max-time 60 \
-              -H "x-apisports-key: $API_KEY" \
-              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
-              >> results_raw.jsonl
+          today = datetime.now(
+              timezone.utc
+          ).date()
 
-            echo "" >> results_raw.jsonl
+          for days_ago in range(8):
 
-          done
+              date = today - timedelta(
+                  days=days_ago
+              )
 
+              date_text = date.strftime(
+                  "%Y-%m-%d"
+              )
 
-          if [ ! -s results_raw.jsonl ]; then
+              print(
+                  "Getting results for:",
+                  date_text
+              )
 
-            echo '{"response":[],"results":0,"errors":[]}' \
-              > results_raw.json
+              url = (
+                  "https://v3.football.api-sports.io/"
+                  "fixtures?date="
+                  + date_text
+              )
 
-          else
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "x-apisports-key": API_KEY
+                  }
+              )
 
-            python3 - <<'PY'
+              try:
 
-            import json
+                  with urllib.request.urlopen(
+                      request,
+                      timeout=60
+                  ) as response:
 
-            all_response = []
-            all_errors = []
+                      data = json.load(
+                          response
+                      )
 
-            with open(
-                "results_raw.jsonl",
-                encoding="utf-8"
-            ) as f:
+                  errors = data.get(
+                      "errors",
+                      []
+                  )
 
-                for line in f:
+                  if errors:
 
-                    line = line.strip()
+                      all_errors.append({
+                          "date": date_text,
+                          "errors": errors
+                      })
 
-                    if not line:
-                        continue
+                  response_data = data.get(
+                      "response",
+                      []
+                  )
 
-                    try:
+                  print(
+                      "API matches:",
+                      len(response_data)
+                  )
 
-                        data = json.loads(line)
+                  all_matches.extend(
+                      response_data
+                  )
 
-                        all_response.extend(
-                            data.get("response", [])
-                        )
+              except Exception as e:
 
-                        errors = data.get("errors", [])
+                  print(
+                      "ERROR:",
+                      str(e)
+                  )
 
-                        if errors:
-                            all_errors.append(errors)
+                  all_errors.append({
+                      "date": date_text,
+                      "errors": [str(e)]
+                  })
 
-                    except Exception:
-                        pass
+          output = {
+              "response": all_matches,
+              "results": len(all_matches),
+              "errors": all_errors
+          }
 
-            output = {
-                "response": all_response,
-                "results": len(all_response),
-                "errors": all_errors
-            }
+          with open(
+              "results_raw.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
 
-            with open(
-                "results_raw.json",
-                "w",
-                encoding="utf-8"
-            ) as f:
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
 
-                json.dump(
-                    output,
-                    f,
-                    ensure_ascii=False
-                )
+          print(
+              "================================"
+          )
 
-            print(
-                "RESULT API RESPONSE:",
-                len(all_response)
-            )
+          print(
+              "RESULT API RESPONSE:",
+              len(all_matches)
+          )
 
-            print(
-                "RESULT API ERRORS:",
-                all_errors
-            )
+          print(
+              "RESULT API ERRORS:",
+              all_errors
+          )
 
-            PY
+          print(
+              "================================"
+          )
 
-          fi
+          PY
 
 
       # ==========================================
@@ -354,12 +387,16 @@ jobs:
                   {}
               ) or {}
 
-              fixture_id = fixture.get("id")
+              fixture_id = fixture.get(
+                  "id"
+              )
 
               if fixture_id in seen:
                   continue
 
-              seen.add(fixture_id)
+              seen.add(
+                  fixture_id
+              )
 
               status = fixture.get(
                   "status",
@@ -380,10 +417,6 @@ jobs:
                   )
               ).lower()
 
-              # --------------------------------
-              # FINISHED MATCH
-              # --------------------------------
-
               finished = (
                   status_short in {
                       "FT",
@@ -397,17 +430,14 @@ jobs:
               if not finished:
                   continue
 
-
-              # --------------------------------
-              # LEAGUE
-              # --------------------------------
-
               league = item.get(
                   "league",
                   {}
               ) or {}
 
-              league_id = league.get("id")
+              league_id = league.get(
+                  "id"
+              )
 
               league_name = str(
                   league.get(
@@ -415,11 +445,6 @@ jobs:
                       ""
                   )
               ).lower()
-
-
-              # --------------------------------
-              # TEAMS
-              # --------------------------------
 
               teams = item.get(
                   "teams",
@@ -436,13 +461,17 @@ jobs:
                   {}
               ) or {}
 
-              home_id = home.get("id")
-              away_id = away.get("id")
+              home_id = home.get(
+                  "id"
+              )
 
+              away_id = away.get(
+                  "id"
+              )
 
-              # --------------------------------
+              # -------------------------------
               # WOMEN FILTER
-              # --------------------------------
+              # -------------------------------
 
               is_women = any(
                   word in league_name
@@ -458,10 +487,9 @@ jobs:
               if is_women:
                   continue
 
-
-              # --------------------------------
-              # IMPORTANT FILTER
-              # --------------------------------
+              # -------------------------------
+              # IMPORTANT LEAGUES / TEAMS
+              # -------------------------------
 
               keep = (
                   league_id in IMPORTANT_LEAGUES
@@ -473,11 +501,6 @@ jobs:
 
               if not keep:
                   continue
-
-
-              # --------------------------------
-              # SAVE
-              # --------------------------------
 
               results.append({
 
@@ -496,20 +519,21 @@ jobs:
 
               })
 
-
-          # --------------------------------
-          # SORT NEWEST FIRST
-          # --------------------------------
+          # -------------------------------
+          # SORT BY DATE
+          # -------------------------------
 
           results.sort(
               key=lambda x:
-              x.get("fixture", {}).get(
+              x.get(
+                  "fixture",
+                  {}
+              ).get(
                   "date",
                   ""
               ),
               reverse=True
           )
-
 
           output = {
 
@@ -526,7 +550,6 @@ jobs:
 
           }
 
-
           with open(
               "results.json",
               "w",
@@ -539,7 +562,6 @@ jobs:
                   ensure_ascii=False,
                   indent=2
               )
-
 
           print(
               "FINAL RESULTS:",
@@ -599,9 +621,8 @@ jobs:
               timezone.utc
           ).date()
 
-          start_date = (
-              today -
-              timedelta(days=30)
+          start_date = today - timedelta(
+              days=30
           )
 
           transfers = []
@@ -678,7 +699,6 @@ jobs:
 
                   })
 
-
           with open(
               "transfers.json",
               "w",
@@ -719,8 +739,8 @@ jobs:
           import json
           import urllib.request
           import urllib.parse
-          from datetime import datetime, timezone
           import os
+          from datetime import datetime, timezone
 
           API_KEY = os.environ.get(
               "API_KEY"
@@ -863,7 +883,6 @@ jobs:
                       "ERROR:",
                       str(e)
                   )
-
 
           with open(
               "standings.json",
