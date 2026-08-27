@@ -619,12 +619,17 @@ jobs:
         run: |
 
           python3 - <<'PY'
+
           import json
           import urllib.request
           import urllib.parse
           from datetime import datetime, timezone
 
           API_KEY = "${{ secrets.API_SPORTS_KEY }}"
+
+          # ==========================================
+          # 5 LEAGUES
+          # ==========================================
 
           leagues = {
               "Premier League": 39,
@@ -634,18 +639,35 @@ jobs:
               "Ligue 1": 61
           }
 
+          # ==========================================
+          # FREE PLAN
+          # Try available older seasons
+          # 2024 -> 2023 -> 2022
+          # ==========================================
+
+          seasons = [
+              2024,
+              2023,
+              2022
+          ]
+
           output = {
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
+
               "leagues": {}
           }
 
-          for name, league_id in leagues.items():
+          # ==========================================
+          # FUNCTION
+          # ==========================================
+
+          def get_standing(league_id, season):
 
               params = urllib.parse.urlencode({
                   "league": league_id,
-                  "season": 2024
+                  "season": season
               })
 
               url = (
@@ -668,16 +690,61 @@ jobs:
                       timeout=30
                   ) as response:
 
-                      api_data = json.load(
-                          response
-                      )
+                      return json.load(response)
 
-                  if api_data.get("errors"):
+              except Exception as e:
+
+                  print(
+                      "REQUEST ERROR:",
+                      league_id,
+                      season,
+                      str(e)
+                  )
+
+                  return None
+
+          # ==========================================
+          # GET 5 LEAGUES
+          # ==========================================
+
+          for name, league_id in leagues.items():
+
+              print("--------------------------------")
+              print("GETTING:", name)
+              print("LEAGUE ID:", league_id)
+              print("--------------------------------")
+
+              found = False
+
+              for season in seasons:
+
+                  print(
+                      "Trying season:",
+                      season
+                  )
+
+                  api_data = get_standing(
+                      league_id,
+                      season
+                  )
+
+                  if not api_data:
+                      continue
+
+                  errors = api_data.get(
+                      "errors",
+                      {}
+                  )
+
+                  if errors:
+
                       print(
                           name,
-                          "ERROR:",
-                          api_data.get("errors")
+                          season,
+                          "API ERROR:",
+                          errors
                       )
+
                       continue
 
                   response_data = api_data.get(
@@ -686,16 +753,19 @@ jobs:
                   )
 
                   if not response_data:
+
                       print(
                           name,
+                          season,
                           "NO DATA"
                       )
+
                       continue
 
                   league = response_data[0].get(
                       "league",
                       {}
-                  )
+                  ) or {}
 
                   standings = league.get(
                       "standings",
@@ -709,26 +779,57 @@ jobs:
                           list
                       )
                   ):
+
                       standings = standings[0]
 
+                  if not standings:
+
+                      print(
+                          name,
+                          season,
+                          "EMPTY STANDINGS"
+                      )
+
+                      continue
+
                   output["leagues"][name] = {
-                      "logo": league.get("logo"),
+
+                      "id": league_id,
+
+                      "season": season,
+
+                      "logo": league.get(
+                          "logo"
+                      ),
+
                       "standings": standings
                   }
 
                   print(
+                      "✅",
                       name,
-                      "OK:",
+                      "OK",
+                      "| SEASON:",
+                      season,
+                      "| TEAMS:",
                       len(standings)
                   )
 
-              except Exception as e:
+                  found = True
+
+                  break
+
+              if not found:
 
                   print(
+                      "❌",
                       name,
-                      "ERROR:",
-                      str(e)
+                      "NO STANDINGS AVAILABLE"
                   )
+
+          # ==========================================
+          # SAVE
+          # ==========================================
 
           with open(
               "standings.json",
@@ -743,86 +844,35 @@ jobs:
                   indent=2
               )
 
+          # ==========================================
+          # FINAL
+          # ==========================================
+
+          print("================================")
           print(
               "STANDING LEAGUES:",
               len(
                   output["leagues"]
               )
           )
-          PY
+          print("================================")
 
-      # ==========================================
-      # FINAL CHECK
-      # ==========================================
+          for name, league in output["leagues"].items():
 
-      - name: Final football data
-        run: |
-
-          echo "================================"
-          echo "FINAL FOOTBALL DATA"
-          echo "================================"
-
-          python3 - <<'PY'
-          import json
-
-          with open(
-              "matches.json",
-              encoding="utf-8"
-          ) as f:
-              matches = json.load(f)
-
-          with open(
-              "results.json",
-              encoding="utf-8"
-          ) as f:
-              results = json.load(f)
-
-          with open(
-              "transfers.json",
-              encoding="utf-8"
-          ) as f:
-              transfers = json.load(f)
-
-          with open(
-              "standings.json",
-              encoding="utf-8"
-          ) as f:
-              standings = json.load(f)
-
-          print(
-              "FINAL MATCHES:",
-              len(
-                  matches.get(
-                      "matches",
-                      []
+              print(
+                  "TABLE:",
+                  name,
+                  "| SEASON:",
+                  league.get("season"),
+                  "| TEAMS:",
+                  len(
+                      league.get(
+                          "standings",
+                          []
+                      )
                   )
               )
-          )
 
-          print(
-              "FINAL RESULTS:",
-              len(
-                  results.get(
-                      "matches",
-                      []
-                  )
-              )
-          )
-
-          print(
-              "FINAL TRANSFERS:",
-              len(transfers)
-          )
-
-          print(
-              "STANDING LEAGUES:",
-              len(
-                  standings.get(
-                      "leagues",
-                      {}
-                  )
-              )
-          )
           PY
 
       # ==========================================
