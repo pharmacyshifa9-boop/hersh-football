@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-29T00:02:02.343601+00:00",
+  "updated": "2026-08-29T06:02:14.600111+00:00",
   "results": 25,
   "matches": [
     {
@@ -405,7 +405,7 @@
     {
       "fixture": {
         "id": 1570357,
-        "referee": null,
+        "referee": "R. De Burgos",
         "timezone": "UTC",
         "date": "2026-08-29T15:00:00+00:00",
         "timestamp": 1788015600,
@@ -905,7 +905,7 @@
     {
       "fixture": {
         "id": 1570361,
-        "referee": null,
+        "referee": "M. Orellana",
         "timezone": "UTC",
         "date": "2026-08-29T17:00:00+00:00",
         "timestamp": 1788022800,
@@ -1205,7 +1205,7 @@
     {
       "fixture": {
         "id": 1570362,
-        "referee": null,
+        "referee": "J. Alberola",
         "timezone": "UTC",
         "date": "2026-08-29T19:30:00+00:00",
         "timestamp": 1788031800,
