@@ -27,10 +27,13 @@ jobs:
         run: |
           TODAY=$(date -u +"%Y-%m-%d")
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
+
+          echo "================================"
           echo "TODAY: $TODAY"
+          echo "================================"
 
       # ==========================================
-      # TODAY'S MATCHES
+      # GET TODAY MATCHES
       # ==========================================
 
       - name: Get today's matches
@@ -52,7 +55,7 @@ jobs:
             -o matches_raw.json
 
           if [ ! -s matches_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
+            echo '{"response":[],"results":0,"errors":{"local":"empty response"}}' > matches_raw.json
           fi
 
           python3 - <<'PY'
@@ -61,7 +64,7 @@ jobs:
           with open("matches_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          print("MATCH API ERRORS:", data.get("errors", []))
+          print("MATCH API ERRORS:", data.get("errors", {}))
           print("MATCH API RESULTS:", data.get("results", 0))
           print("MATCH API RESPONSE:", len(data.get("response", [])))
           PY
@@ -78,14 +81,14 @@ jobs:
           from datetime import datetime, timezone
 
           IMPORTANT_LEAGUES = {
-              39,    # Premier League
-              140,   # La Liga
-              135,   # Serie A
-              78,    # Bundesliga
-              61,    # Ligue 1
-              2,     # Champions League
-              3,     # Europa League
-              290    # Iraq Stars League
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3,
+              290
           }
 
           IMPORTANT_TEAMS = {
@@ -112,14 +115,14 @@ jobs:
               home_id = home.get("id")
               away_id = away.get("id")
 
-              league_name = str(league.get("name", "")).lower()
+              name = str(league.get("name", "")).lower()
               country = str(league.get("country", "")).lower()
 
               is_women = (
-                  "women" in league_name
-                  or "woman" in league_name
-                  or "feminine" in league_name
-                  or "female" in league_name
+                  "women" in name
+                  or "woman" in name
+                  or "feminine" in name
+                  or "female" in name
               )
 
               if is_women:
@@ -129,9 +132,9 @@ jobs:
                   league_id in IMPORTANT_LEAGUES
                   or home_id in IMPORTANT_TEAMS
                   or away_id in IMPORTANT_TEAMS
-                  or "iraq" in league_name
+                  or "iraq" in name
                   or "iraq" in country
-                  or "iraqi" in league_name
+                  or "iraqi" in name
               )
 
               if not is_important:
@@ -152,26 +155,30 @@ jobs:
           }
 
           with open("matches.json", "w", encoding="utf-8") as f:
-              json.dump(output, f, ensure_ascii=False, indent=2)
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
 
           print("FINAL MATCHES:", len(matches))
           PY
 
       # ==========================================
-      # RESULTS
+      # GET RESULTS
       #
-      # IMPORTANT:
-      # Free API plan only allows available dates.
-      # We use TODAY only, not 7 days.
+      # Free API plan:
+      # use only the date API allows.
       # ==========================================
 
-      - name: Get today's results
+      - name: Get results
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
           echo "================================"
-          echo "GETTING TODAY'S RESULTS"
+          echo "GETTING RESULTS"
           echo "DATE: $TODAY"
           echo "================================"
 
@@ -184,7 +191,7 @@ jobs:
             -o results_raw.json
 
           if [ ! -s results_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":[]}' > results_raw.json
+            echo '{"response":[],"results":0,"errors":{"local":"empty response"}}' > results_raw.json
           fi
 
           python3 - <<'PY'
@@ -193,9 +200,11 @@ jobs:
           with open("results_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          print("RESULT API ERRORS:", data.get("errors", []))
+          print("================================")
+          print("RESULT API ERRORS:", data.get("errors", {}))
           print("RESULT API RESULTS:", data.get("results", 0))
           print("RESULT API RESPONSE:", len(data.get("response", [])))
+          print("================================")
           PY
 
       # ==========================================
@@ -225,8 +234,10 @@ jobs:
           with open("results_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          if data.get("errors"):
-              print("RESULT API ERROR:", data.get("errors"))
+          api_errors = data.get("errors", {})
+
+          if api_errors:
+              print("RESULT API ERROR:", api_errors)
 
           for item in data.get("response", []):
 
@@ -242,12 +253,10 @@ jobs:
                   status.get("long", "")
               ).lower()
 
-              finished = (
+              if not (
                   short_status in {"FT", "AET", "PEN"}
                   or "finished" in long_status
-              )
-
-              if not finished:
+              ):
                   continue
 
               league_id = league.get("id")
@@ -260,8 +269,12 @@ jobs:
                   league.get("country", "")
               ).lower()
 
+              league_type = str(
+                  league.get("type", "")
+              ).lower()
+
               # ==================================
-              # WOMEN FILTER
+              # REMOVE WOMEN
               # ==================================
 
               is_women = (
@@ -269,9 +282,7 @@ jobs:
                   or "woman" in league_name
                   or "feminine" in league_name
                   or "female" in league_name
-                  or "women" in str(
-                      league.get("type", "")
-                  ).lower()
+                  or "women" in league_type
               )
 
               if is_women:
@@ -290,7 +301,7 @@ jobs:
               )
 
               # ==================================
-              # IMPORTANT LEAGUES
+              # IMPORTANT
               # ==================================
 
               if (
@@ -375,10 +386,7 @@ jobs:
 
           for item in results:
 
-              league = item.get(
-                  "league",
-                  {}
-              ) or {}
+              league = item.get("league", {}) or {}
 
               league_id = league.get("id")
 
@@ -441,8 +449,12 @@ jobs:
             -o transfers_raw.json
 
           if [ ! -s transfers_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
+            echo '{"response":[],"results":0,"errors":{}}' > transfers_raw.json
           fi
+
+      # ==========================================
+      # CREATE TRANSFERS
+      # ==========================================
 
       - name: Create transfers.json
         run: |
@@ -468,10 +480,7 @@ jobs:
 
           transfers = []
 
-          for player_item in data.get(
-              "response",
-              []
-          ):
+          for player_item in data.get("response", []):
 
               player = player_item.get(
                   "player",
@@ -671,9 +680,7 @@ jobs:
 
           print(
               "STANDING LEAGUES:",
-              len(
-                  output["leagues"]
-              )
+              len(output["leagues"])
           )
           PY
 
