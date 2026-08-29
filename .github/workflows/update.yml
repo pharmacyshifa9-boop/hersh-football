@@ -10,6 +10,7 @@ permissions:
   contents: write
 
 jobs:
+
   update:
     runs-on: ubuntu-latest
 
@@ -33,7 +34,8 @@ jobs:
           echo "TODAY: $TODAY"
 
       # ==========================================
-      # TODAY MATCHES
+      # GET TODAY MATCHES
+      # تەنها 7 خول
       # ==========================================
 
       - name: Get today's matches
@@ -55,7 +57,7 @@ jobs:
             -o matches_raw.json
 
           if [ ! -s matches_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
+            echo '{"response":[],"results":0,"errors":{"local":"empty"}}' > matches_raw.json
           fi
 
           python3 - <<'PY'
@@ -78,26 +80,34 @@ jobs:
 
           python3 - <<'PY'
           import json
+          import os
           from datetime import datetime, timezone
 
           with open("matches_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          IMPORTANT_LEAGUES = {
-              39,
-              140,
-              135,
-              78,
-              61,
-              2,
-              3
-          }
+          errors = data.get("errors", {})
 
-          IMPORTANT_TEAMS = {
-              529, 541, 530,
-              50, 33, 42,
-              49, 40, 157,
-              85, 496, 505, 489
+          # API quota / error
+          if errors:
+              print("MATCH API ERROR - KEEPING OLD DATA")
+
+              if os.path.exists("matches.json"):
+                  print("Old matches.json kept")
+                  raise SystemExit(0)
+
+          # ==========================================
+          # ONLY THESE 7 LEAGUES
+          # ==========================================
+
+          IMPORTANT_LEAGUES = {
+              39,   # Premier League
+              140,  # La Liga
+              135,  # Serie A
+              78,   # Bundesliga
+              61,   # Ligue 1
+              2,    # UEFA Champions League
+              3     # UEFA Europa League
           }
 
           matches = []
@@ -105,67 +115,87 @@ jobs:
           for item in data.get("response", []):
 
               league = item.get("league", {}) or {}
-              teams = item.get("teams", {}) or {}
-
-              home = teams.get("home", {}) or {}
-              away = teams.get("away", {}) or {}
 
               league_id = league.get("id")
-              home_id = home.get("id")
-              away_id = away.get("id")
 
-              name = str(league.get("name", "")).lower()
-              country = str(league.get("country", "")).lower()
-              ltype = str(league.get("type", "")).lower()
-
-              is_women = (
-                  "women" in name
-                  or "woman" in name
-                  or "feminine" in name
-                  or "female" in name
-                  or "women" in ltype
-              )
-
-              if is_women:
+              # تەنها 7 خول
+              if league_id not in IMPORTANT_LEAGUES:
                   continue
 
-              # عێراق تەنها بە country=Iraq
-              is_iraq = (
-                  country == "iraq"
-                  or "iraq stars league" in name
-              )
+              league_name = str(
+                  league.get("name", "")
+              ).lower()
 
+              league_type = str(
+                  league.get("type", "")
+              ).lower()
+
+              # ژنان لابە
               if (
-                  league_id in IMPORTANT_LEAGUES
-                  or is_iraq
-                  or home_id in IMPORTANT_TEAMS
-                  or away_id in IMPORTANT_TEAMS
+                  "women" in league_name
+                  or "woman" in league_name
+                  or "feminine" in league_name
+                  or "female" in league_name
+                  or "women" in league_type
               ):
+                  continue
 
-                  matches.append({
-                      "fixture": item.get("fixture", {}),
-                      "league": league,
-                      "home": home,
-                      "away": away,
-                      "goals": item.get("goals", {}) or {}
-                  })
+              teams = item.get(
+                  "teams",
+                  {}
+              ) or {}
+
+              matches.append({
+                  "fixture": item.get(
+                      "fixture",
+                      {}
+                  ),
+                  "league": league,
+                  "home": teams.get(
+                      "home",
+                      {}
+                  ) or {},
+                  "away": teams.get(
+                      "away",
+                      {}
+                  ) or {},
+                  "goals": item.get(
+                      "goals",
+                      {}
+                  ) or {}
+              })
 
           unique = {}
 
           for item in matches:
-              fid = item.get("fixture", {}).get("id")
-              if fid:
-                  unique[fid] = item
+
+              fixture_id = (
+                  item
+                  .get("fixture", {})
+                  .get("id")
+              )
+
+              if fixture_id:
+                  unique[fixture_id] = item
 
           matches = list(unique.values())
 
           output = {
-              "updated": datetime.now(timezone.utc).isoformat(),
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
               "results": len(matches),
+
               "matches": matches
           }
 
-          with open("matches.json", "w", encoding="utf-8") as f:
+          with open(
+              "matches.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+
               json.dump(
                   output,
                   f,
@@ -173,45 +203,38 @@ jobs:
                   indent=2
               )
 
-          print("FINAL MATCHES:", len(matches))
+          print(
+              "FINAL MATCHES:",
+              len(matches)
+          )
           PY
 
       # ==========================================
       # RESULTS
-      #
-      # Free plan:
-      # تەنها بەروارە بەردەستەکان بەکاربهێنە
+      # تەنها ئەمڕۆ
       # ==========================================
 
-      - name: Get available results
+      - name: Get today's results
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
           echo "================================"
-          echo "GETTING AVAILABLE RESULTS"
+          echo "GETTING TODAY'S RESULTS"
+          echo "DATE: $TODAY"
           echo "================================"
 
-          rm -f results_raw.jsonl
-          touch results_raw.jsonl
+          curl -sS \
+            --retry 2 \
+            --retry-delay 5 \
+            --max-time 60 \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
+            -o results_raw.json
 
-          # Free plan ـەکەت بەروارەکانی 28-30 دەدات
-          for DATE in 2026-08-28 2026-08-29 2026-08-30
-          do
-
-            echo "Getting results for: $DATE"
-
-            curl -sS \
-              --retry 2 \
-              --retry-delay 5 \
-              --max-time 60 \
-              -H "x-apisports-key: $API_KEY" \
-              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
-              >> results_raw.jsonl
-
-            echo "" >> results_raw.jsonl
-
-          done
+          if [ ! -s results_raw.json ]; then
+            echo '{"response":[],"results":0,"errors":{"local":"empty"}}' > results_raw.json
+          fi
 
       # ==========================================
       # CREATE RESULTS
@@ -222,7 +245,33 @@ jobs:
 
           python3 - <<'PY'
           import json
+          import os
           from datetime import datetime, timezone
+
+          with open(
+              "results_raw.json",
+              encoding="utf-8"
+          ) as f:
+              data = json.load(f)
+
+          errors = data.get("errors", {})
+
+          if errors:
+              print(
+                  "RESULT API ERROR:",
+                  errors
+              )
+
+              print(
+                  "KEEPING OLD results.json"
+              )
+
+              if os.path.exists("results.json"):
+                  raise SystemExit(0)
+
+          # ==========================================
+          # ONLY 7 LEAGUES
+          # ==========================================
 
           IMPORTANT_LEAGUES = {
               39,
@@ -236,157 +285,123 @@ jobs:
 
           results = []
 
-          with open(
-              "results_raw.jsonl",
-              encoding="utf-8"
-          ) as f:
+          for item in data.get(
+              "response",
+              []
+          ):
 
-              for line in f:
+              fixture = item.get(
+                  "fixture",
+                  {}
+              ) or {}
 
-                  line = line.strip()
+              status = fixture.get(
+                  "status",
+                  {}
+              ) or {}
 
-                  if not line:
-                      continue
+              league = item.get(
+                  "league",
+                  {}
+              ) or {}
 
-                  try:
-                      data = json.loads(line)
-                  except Exception:
-                      continue
+              league_id = league.get(
+                  "id"
+              )
 
-                  if data.get("errors"):
-                      print(
-                          "RESULT API ERROR:",
-                          data.get("errors")
-                      )
+              # تەنها 7 خول
+              if league_id not in IMPORTANT_LEAGUES:
+                  continue
 
-                  for item in data.get("response", []):
+              short_status = str(
+                  status.get(
+                      "short",
+                      ""
+                  )
+              ).upper()
 
-                      fixture = item.get(
-                          "fixture",
-                          {}
-                      ) or {}
+              long_status = str(
+                  status.get(
+                      "long",
+                      ""
+                  )
+              ).lower()
 
-                      status = fixture.get(
-                          "status",
-                          {}
-                      ) or {}
+              finished = (
+                  short_status in {
+                      "FT",
+                      "AET",
+                      "PEN"
+                  }
+                  or
+                  "finished" in long_status
+              )
 
-                      league = item.get(
-                          "league",
-                          {}
-                      ) or {}
+              if not finished:
+                  continue
 
-                      short = str(
-                          status.get(
-                              "short",
-                              ""
-                          )
-                      ).upper()
+              league_name = str(
+                  league.get(
+                      "name",
+                      ""
+                  )
+              ).lower()
 
-                      long_status = str(
-                          status.get(
-                              "long",
-                              ""
-                          )
-                      ).lower()
+              league_type = str(
+                  league.get(
+                      "type",
+                      ""
+                  )
+              ).lower()
 
-                      finished = (
-                          short in {
-                              "FT",
-                              "AET",
-                              "PEN"
-                          }
-                          or
-                          "finished" in long_status
-                      )
+              # ژنان لابە
+              if (
+                  "women" in league_name
+                  or "woman" in league_name
+                  or "feminine" in league_name
+                  or "female" in league_name
+                  or "women" in league_type
+              ):
+                  continue
 
-                      if not finished:
-                          continue
+              teams = item.get(
+                  "teams",
+                  {}
+              ) or {}
 
-                      name = str(
-                          league.get(
-                              "name",
-                              ""
-                          )
-                      ).lower()
+              results.append({
+                  "fixture": fixture,
+                  "league": league,
+                  "home": teams.get(
+                      "home",
+                      {}
+                  ) or {},
+                  "away": teams.get(
+                      "away",
+                      {}
+                  ) or {},
+                  "goals": item.get(
+                      "goals",
+                      {}
+                  ) or {}
+              })
 
-                      country = str(
-                          league.get(
-                              "country",
-                              ""
-                          )
-                      ).lower()
-
-                      ltype = str(
-                          league.get(
-                              "type",
-                              ""
-                          )
-                      ).lower()
-
-                      # ژنان لابە
-                      is_women = (
-                          "women" in name
-                          or "woman" in name
-                          or "feminine" in name
-                          or "female" in name
-                          or "women" in ltype
-                      )
-
-                      if is_women:
-                          continue
-
-                      league_id = league.get("id")
-
-                      # عێراق تەنها ئەگەر API ـەکە country=Iraq بڵێت
-                      is_iraq = (
-                          country == "iraq"
-                          or "iraq stars league" in name
-                      )
-
-                      if not (
-                          league_id in IMPORTANT_LEAGUES
-                          or is_iraq
-                      ):
-                          continue
-
-                      teams = item.get(
-                          "teams",
-                          {}
-                      ) or {}
-
-                      results.append({
-                          "fixture": fixture,
-                          "league": league,
-                          "home": teams.get(
-                              "home",
-                              {}
-                          ) or {},
-                          "away": teams.get(
-                              "away",
-                              {}
-                          ) or {},
-                          "goals": item.get(
-                              "goals",
-                              {}
-                          ) or {}
-                      })
-
-          # دووبارەکان لابە
           unique = {}
 
           for item in results:
 
-              fid = (
+              fixture_id = (
                   item
                   .get("fixture", {})
                   .get("id")
               )
 
-              if fid:
-                  unique[fid] = item
+              if fixture_id:
+                  unique[fixture_id] = item
 
-          results = list(unique.values())
+          results = list(
+              unique.values()
+          )
 
           results.sort(
               key=lambda x:
@@ -404,7 +419,9 @@ jobs:
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
+
               "results": len(results),
+
               "matches": results
           }
 
@@ -421,80 +438,18 @@ jobs:
                   indent=2
               )
 
-          print("================================")
-          print("FINAL RESULTS:", len(results))
-          print("================================")
-
-          # ==================================
-          # IRAQ
-          # ==================================
-
-          iraq = []
-
-          for item in results:
-
-              league = item.get(
-                  "league",
-                  {}
-              ) or {}
-
-              name = str(
-                  league.get(
-                      "name",
-                      ""
-                  )
-              ).lower()
-
-              country = str(
-                  league.get(
-                      "country",
-                      ""
-                  )
-              ).lower()
-
-              if (
-                  country == "iraq"
-                  or "iraq stars league" in name
-              ):
-                  iraq.append(item)
-
           print(
-              "IRAQ RESULTS:",
-              len(iraq)
+              "================================"
           )
 
-          for item in iraq:
+          print(
+              "FINAL RESULTS:",
+              len(results)
+          )
 
-              league = item.get(
-                  "league",
-                  {}
-              )
-
-              home = item.get(
-                  "home",
-                  {}
-              )
-
-              away = item.get(
-                  "away",
-                  {}
-              )
-
-              goals = item.get(
-                  "goals",
-                  {}
-              )
-
-              print(
-                  "IRAQ:",
-                  league.get("name"),
-                  "|",
-                  home.get("name"),
-                  goals.get("home"),
-                  "-",
-                  goals.get("away"),
-                  away.get("name")
-              )
+          print(
+              "================================"
+          )
           PY
 
       # ==========================================
@@ -515,7 +470,7 @@ jobs:
             -o transfers_raw.json
 
           if [ ! -s transfers_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
+            echo '{"response":[],"results":0,"errors":{"local":"empty"}}' > transfers_raw.json
           fi
 
       # ==========================================
@@ -527,6 +482,7 @@ jobs:
 
           python3 - <<'PY'
           import json
+          import os
           from datetime import datetime, timedelta, timezone
 
           with open(
@@ -535,11 +491,35 @@ jobs:
           ) as f:
               data = json.load(f)
 
+          errors = data.get(
+              "errors",
+              {}
+          )
+
+          if errors:
+
+              print(
+                  "TRANSFER API ERROR:",
+                  errors
+              )
+
+              print(
+                  "KEEPING OLD transfers.json"
+              )
+
+              if os.path.exists(
+                  "transfers.json"
+              ):
+                  raise SystemExit(0)
+
           today = datetime.now(
               timezone.utc
           ).date()
 
-          start = today - timedelta(days=30)
+          start_date = (
+              today -
+              timedelta(days=30)
+          )
 
           transfers = []
 
@@ -564,15 +544,19 @@ jobs:
                   )
 
                   try:
-                      d = datetime.strptime(
+
+                      transfer_date = datetime.strptime(
                           date_text,
                           "%Y-%m-%d"
                       ).date()
+
                   except Exception:
                       continue
 
                   if not (
-                      start <= d <= today
+                      start_date
+                      <= transfer_date
+                      <= today
                   ):
                       continue
 
@@ -584,7 +568,9 @@ jobs:
                   transfers.append({
                       "player": player,
                       "date": date_text,
-                      "type": transfer.get("type"),
+                      "type": transfer.get(
+                          "type"
+                      ),
                       "teams": {
                           "in": teams.get(
                               "in",
@@ -618,9 +604,7 @@ jobs:
 
       # ==========================================
       # STANDINGS
-      #
-      # تەنها ئەگەر standings.json نییە
-      # یان کۆنتر لە 24 کاتژمێرە
+      # تەنها 5 خولی بەهێز
       # ==========================================
 
       - name: Update standings
@@ -629,37 +613,16 @@ jobs:
         run: |
 
           python3 - <<'PY'
-          import os
-          import time
-
-          path = "standings.json"
-
-          if os.path.exists(path):
-              age = time.time() - os.path.getmtime(path)
-
-              if age < 86400:
-                  print(
-                      "STANDINGS CACHE IS FRESH - SKIPPING API"
-                  )
-                  open(
-                      "/tmp/SKIP_STANDINGS",
-                      "w"
-                  ).write("yes")
-          PY
-
-          if [ -f /tmp/SKIP_STANDINGS ]; then
-            echo "Using existing standings.json"
-            exit 0
-          fi
-
-          python3 - <<'PY'
           import json
           import urllib.request
           import urllib.parse
           import os
           from datetime import datetime, timezone
 
-          API_KEY = os.environ["API_KEY"]
+          API_KEY = os.environ.get(
+              "API_KEY",
+              ""
+          )
 
           leagues = {
               "Premier League": 39,
@@ -669,15 +632,18 @@ jobs:
               "Ligue 1": 61
           }
 
-          # ئەگەر standings ـی پێشوو هەبێت،
-          # لە دەستیدان نەپارێزێت
+          # داتای کۆن پارێزراوە
           try:
+
               with open(
                   "standings.json",
                   encoding="utf-8"
               ) as f:
+
                   output = json.load(f)
+
           except Exception:
+
               output = {
                   "updated": datetime.now(
                       timezone.utc
@@ -688,7 +654,7 @@ jobs:
           for name, league_id in leagues.items():
 
               print(
-                  "Getting:",
+                  "Getting standings:",
                   name
               )
 
@@ -721,11 +687,13 @@ jobs:
                           response
                       )
 
-                  if api_data.get("errors"):
+                  if api_data.get(
+                      "errors"
+                  ):
 
                       print(
                           name,
-                          "API ERROR:",
+                          "ERROR:",
                           api_data.get(
                               "errors"
                           )
@@ -743,6 +711,7 @@ jobs:
                           name,
                           "NO DATA"
                       )
+
                       continue
 
                   league = response_data[0].get(
@@ -762,9 +731,12 @@ jobs:
                           list
                       )
                   ):
+
                       standings = standings[0]
 
-                  output["leagues"][name] = {
+                  output[
+                      "leagues"
+                  ][name] = {
                       "logo": league.get(
                           "logo"
                       ),
@@ -784,6 +756,8 @@ jobs:
                       "ERROR:",
                       str(e)
                   )
+
+                  # هیچ داتای کۆن ناسڕێتەوە
 
           output["updated"] = datetime.now(
               timezone.utc
@@ -828,13 +802,18 @@ jobs:
           import json
 
           def read(path, default):
+
               try:
+
                   with open(
                       path,
                       encoding="utf-8"
                   ) as f:
+
                       return json.load(f)
+
               except Exception:
+
                   return default
 
           matches = read(
@@ -891,6 +870,7 @@ jobs:
                   )
               )
           )
+
           PY
 
       # ==========================================
