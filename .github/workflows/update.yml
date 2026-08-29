@@ -16,13 +16,8 @@ jobs:
 
     steps:
 
-      # ==========================================
-      # CHECKOUT
-      # ==========================================
-
       - name: Checkout
         uses: actions/checkout@v4
-
 
       # ==========================================
       # DATE
@@ -32,20 +27,15 @@ jobs:
         run: |
           TODAY=$(date -u +"%Y-%m-%d")
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
-
-          echo "================================"
           echo "TODAY: $TODAY"
-          echo "================================"
-
 
       # ==========================================
-      # MATCHES - TODAY
+      # TODAY'S MATCHES
       # ==========================================
 
       - name: Get today's matches
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
-
         run: |
 
           echo "================================"
@@ -54,8 +44,8 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 3 \
-            --retry-delay 5 \
+            --retry 2 \
+            --retry-delay 3 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
@@ -76,7 +66,6 @@ jobs:
           print("MATCH API RESPONSE:", len(data.get("response", [])))
           PY
 
-
       # ==========================================
       # CREATE MATCHES
       # ==========================================
@@ -88,9 +77,6 @@ jobs:
           import json
           from datetime import datetime, timezone
 
-          with open("matches_raw.json", encoding="utf-8") as f:
-              data = json.load(f)
-
           IMPORTANT_LEAGUES = {
               39,    # Premier League
               140,   # La Liga
@@ -98,26 +84,21 @@ jobs:
               78,    # Bundesliga
               61,    # Ligue 1
               2,     # Champions League
-              3      # Europa League
+              3,     # Europa League
+              290    # Iraq Stars League
           }
 
           IMPORTANT_TEAMS = {
-              529,
-              541,
-              530,
-              50,
-              33,
-              42,
-              49,
-              40,
-              157,
-              85,
-              496,
-              505,
-              489
+              529, 541, 530,
+              50, 33, 42,
+              49, 40, 157,
+              85, 496, 505, 489
           }
 
           matches = []
+
+          with open("matches_raw.json", encoding="utf-8") as f:
+              data = json.load(f)
 
           for item in data.get("response", []):
 
@@ -131,158 +112,91 @@ jobs:
               home_id = home.get("id")
               away_id = away.get("id")
 
-              league_name = str(
-                  league.get("name", "")
-              ).lower()
-
-              country = str(
-                  league.get("country", "")
-              ).lower()
-
-              league_type = str(
-                  league.get("type", "")
-              ).lower()
-
-              # ==================================
-              # REMOVE WOMEN
-              # ==================================
+              league_name = str(league.get("name", "")).lower()
+              country = str(league.get("country", "")).lower()
 
               is_women = (
                   "women" in league_name
                   or "woman" in league_name
                   or "feminine" in league_name
-                  or "feminin" in league_name
                   or "female" in league_name
-                  or "women" in league_type
               )
 
               if is_women:
                   continue
 
-              # ==================================
-              # IRAQ
-              #
-              # بە ناوی وڵات دۆزرێتەوە
-              # نە بە "Stars League"
-              # ==================================
-
-              is_iraq = (
-                  country == "iraq"
-                  or country == "iraq "
-                  or "iraq" in country
-              )
-
-              # ==================================
-              # KEEP
-              # ==================================
-
-              keep = (
+              is_important = (
                   league_id in IMPORTANT_LEAGUES
-                  or is_iraq
                   or home_id in IMPORTANT_TEAMS
                   or away_id in IMPORTANT_TEAMS
+                  or "iraq" in league_name
+                  or "iraq" in country
+                  or "iraqi" in league_name
               )
 
-              if not keep:
+              if not is_important:
                   continue
 
               matches.append({
-                  "fixture": item.get(
-                      "fixture",
-                      {}
-                  ),
+                  "fixture": item.get("fixture", {}),
                   "league": league,
                   "home": home,
                   "away": away,
-                  "goals": item.get(
-                      "goals",
-                      {}
-                  ) or {}
+                  "goals": item.get("goals", {}) or {}
               })
 
-          # Remove duplicates
-          unique = {}
-
-          for item in matches:
-
-              fixture_id = (
-                  item.get(
-                      "fixture",
-                      {}
-                  ).get("id")
-              )
-
-              if fixture_id:
-                  unique[fixture_id] = item
-
-          matches = list(unique.values())
-
           output = {
-              "updated": datetime.now(
-                  timezone.utc
-              ).isoformat(),
-
+              "updated": datetime.now(timezone.utc).isoformat(),
               "results": len(matches),
-
               "matches": matches
           }
 
-          with open(
-              "matches.json",
-              "w",
-              encoding="utf-8"
-          ) as f:
+          with open("matches.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
 
-              json.dump(
-                  output,
-                  f,
-                  ensure_ascii=False,
-                  indent=2
-              )
-
-          print(
-              "FINAL MATCHES:",
-              len(matches)
-          )
+          print("FINAL MATCHES:", len(matches))
           PY
 
-
       # ==========================================
-      # RESULTS - LAST 7 DAYS
+      # RESULTS
+      #
+      # IMPORTANT:
+      # Free API plan only allows available dates.
+      # We use TODAY only, not 7 days.
       # ==========================================
 
-      - name: Get results - last 7 days
+      - name: Get today's results
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
-
         run: |
 
           echo "================================"
-          echo "GETTING RESULTS - LAST 7 DAYS"
+          echo "GETTING TODAY'S RESULTS"
+          echo "DATE: $TODAY"
           echo "================================"
 
-          rm -f results_raw.jsonl
-          touch results_raw.jsonl
+          curl -sS \
+            --retry 2 \
+            --retry-delay 3 \
+            --max-time 60 \
+            -H "x-apisports-key: $API_KEY" \
+            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
+            -o results_raw.json
 
-          for i in 0 1 2 3 4 5 6
-          do
+          if [ ! -s results_raw.json ]; then
+            echo '{"response":[],"results":0,"errors":[]}' > results_raw.json
+          fi
 
-            DATE=$(date -u -d "$i days ago" +"%Y-%m-%d")
+          python3 - <<'PY'
+          import json
 
-            echo "Getting results for: $DATE"
+          with open("results_raw.json", encoding="utf-8") as f:
+              data = json.load(f)
 
-            curl -sS \
-              --retry 2 \
-              --retry-delay 3 \
-              --max-time 60 \
-              -H "x-apisports-key: $API_KEY" \
-              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
-              >> results_raw.jsonl
-
-            echo "" >> results_raw.jsonl
-
-          done
-
+          print("RESULT API ERRORS:", data.get("errors", []))
+          print("RESULT API RESULTS:", data.get("results", 0))
+          print("RESULT API RESPONSE:", len(data.get("response", [])))
+          PY
 
       # ==========================================
       # CREATE RESULTS
@@ -302,296 +216,141 @@ jobs:
               78,
               61,
               2,
-              3
+              3,
+              290
           }
 
           results = []
 
-          with open(
-              "results_raw.jsonl",
-              encoding="utf-8"
-          ) as f:
+          with open("results_raw.json", encoding="utf-8") as f:
+              data = json.load(f)
 
-              for line in f:
+          if data.get("errors"):
+              print("RESULT API ERROR:", data.get("errors"))
 
-                  line = line.strip()
+          for item in data.get("response", []):
 
-                  if not line:
-                      continue
+              fixture = item.get("fixture", {}) or {}
+              status = fixture.get("status", {}) or {}
+              league = item.get("league", {}) or {}
 
-                  try:
-                      data = json.loads(line)
-                  except Exception:
-                      continue
+              short_status = str(
+                  status.get("short", "")
+              ).upper()
 
-                  if data.get("errors"):
-                      print(
-                          "RESULT API ERROR:",
-                          data.get("errors")
-                      )
+              long_status = str(
+                  status.get("long", "")
+              ).lower()
 
-                  for item in data.get(
-                      "response",
-                      []
-                  ):
+              finished = (
+                  short_status in {"FT", "AET", "PEN"}
+                  or "finished" in long_status
+              )
 
-                      fixture = item.get(
-                          "fixture",
-                          {}
-                      ) or {}
+              if not finished:
+                  continue
 
-                      status = fixture.get(
-                          "status",
-                          {}
-                      ) or {}
+              league_id = league.get("id")
 
-                      league = item.get(
-                          "league",
-                          {}
-                      ) or {}
+              league_name = str(
+                  league.get("name", "")
+              ).lower()
 
-                      teams = item.get(
-                          "teams",
-                          {}
-                      ) or {}
+              country = str(
+                  league.get("country", "")
+              ).lower()
 
-                      home = teams.get(
-                          "home",
-                          {}
-                      ) or {}
+              # ==================================
+              # WOMEN FILTER
+              # ==================================
 
-                      away = teams.get(
-                          "away",
-                          {}
-                      ) or {}
+              is_women = (
+                  "women" in league_name
+                  or "woman" in league_name
+                  or "feminine" in league_name
+                  or "female" in league_name
+                  or "women" in str(
+                      league.get("type", "")
+                  ).lower()
+              )
 
-                      short_status = str(
-                          status.get(
-                              "short",
-                              ""
-                          )
-                      ).upper()
+              if is_women:
+                  continue
 
-                      long_status = str(
-                          status.get(
-                              "long",
-                              ""
-                          )
-                      ).lower()
+              # ==================================
+              # IRAQ
+              # ==================================
 
-                      # ==================================
-                      # FINISHED ONLY
-                      # ==================================
+              is_iraq = (
+                  league_id == 290
+                  or "iraq" in league_name
+                  or "iraq" in country
+                  or "iraqi" in league_name
+                  or "stars league" in league_name
+              )
 
-                      finished = (
-                          short_status in {
-                              "FT",
-                              "AET",
-                              "PEN"
-                          }
-                          or
-                          "finished" in long_status
-                      )
+              # ==================================
+              # IMPORTANT LEAGUES
+              # ==================================
 
-                      if not finished:
-                          continue
+              if (
+                  league_id not in IMPORTANT_LEAGUES
+                  and not is_iraq
+              ):
+                  continue
 
-                      league_id = league.get("id")
+              teams = item.get("teams", {}) or {}
 
-                      league_name = str(
-                          league.get(
-                              "name",
-                              ""
-                          )
-                      ).lower()
+              home = teams.get("home", {}) or {}
+              away = teams.get("away", {}) or {}
 
-                      country = str(
-                          league.get(
-                              "country",
-                              ""
-                          )
-                      ).lower()
+              results.append({
+                  "fixture": fixture,
+                  "league": league,
+                  "home": home,
+                  "away": away,
+                  "goals": item.get("goals", {}) or {}
+              })
 
-                      league_type = str(
-                          league.get(
-                              "type",
-                              ""
-                          )
-                      ).lower()
-
-                      # ==================================
-                      # REMOVE WOMEN
-                      # ==================================
-
-                      is_women = (
-                          "women" in league_name
-                          or "woman" in league_name
-                          or "feminine" in league_name
-                          or "feminin" in league_name
-                          or "female" in league_name
-                          or "women" in league_type
-                      )
-
-                      if is_women:
-                          continue
-
-                      # ==================================
-                      # IMPORTANT LEAGUES
-                      # ==================================
-
-                      is_important = (
-                          league_id
-                          in IMPORTANT_LEAGUES
-                      )
-
-                      # ==================================
-                      # IRAQ
-                      #
-                      # تەنها بە country
-                      # ==================================
-
-                      is_iraq = (
-                          country == "iraq"
-                          or "iraq" in country
-                      )
-
-                      # ==================================
-                      # IRAQ TEAM SAFETY FILTER
-                      #
-                      # ئەگەر country لە API هەڵە بوو،
-                      # بە ناوی یانەکانی عێراق دایدەگرین.
-                      # ==================================
-
-                      IRAQ_TEAMS = {
-                          "al shorta",
-                          "al-shorta",
-                          "al quwa al jawiya",
-                          "al-quwa al-jawiya",
-                          "al zawraa",
-                          "al-zawraa",
-                          "erbil",
-                          "zakho",
-                          "duhok",
-                          "newroz",
-                          "al talaba",
-                          "al-talaba",
-                          "al karkh",
-                          "al-karkh",
-                          "al minaa",
-                          "al-minaa",
-                          "al naft",
-                          "al-naft",
-                          "naft maysan",
-                          "diyala",
-                          "al karma",
-                          "al-karma",
-                          "al kahrabaa",
-                          "al-kahrabaa",
-                          "karbalaa",
-                          "al garaf",
-                          "al-gharaf",
-                          "ghaz al-shamal",
-                          "al mosul",
-                          "mosul"
-                      }
-
-                      home_name = str(
-                          home.get(
-                              "name",
-                              ""
-                          )
-                      ).lower().strip()
-
-                      away_name = str(
-                          away.get(
-                              "name",
-                              ""
-                          )
-                      ).lower().strip()
-
-                      is_iraq_team = (
-                          home_name in IRAQ_TEAMS
-                          or
-                          away_name in IRAQ_TEAMS
-                      )
-
-                      # ==================================
-                      # KEEP ONLY:
-                      # 5 BIG LEAGUES
-                      # Champions League
-                      # Europa League
-                      # Iraq
-                      # ==================================
-
-                      if not (
-                          is_important
-                          or is_iraq
-                          or is_iraq_team
-                      ):
-                          continue
-
-                      results.append({
-                          "fixture": fixture,
-                          "league": league,
-                          "home": home,
-                          "away": away,
-                          "goals": item.get(
-                              "goals",
-                              {}
-                          ) or {}
-                      })
-
-          # ==========================================
+          # ==================================
           # REMOVE DUPLICATES
-          # ==========================================
+          # ==================================
 
           unique = {}
 
           for item in results:
 
               fixture_id = (
-                  item
-                  .get(
-                      "fixture",
-                      {}
-                  )
-                  .get("id")
+                  item.get("fixture", {}).get("id")
               )
 
               if fixture_id:
                   unique[fixture_id] = item
 
-          results = list(
-              unique.values()
-          )
+          results = list(unique.values())
 
-          # ==========================================
+          # ==================================
           # SORT
-          # ==========================================
+          # ==================================
 
           results.sort(
               key=lambda x:
-              x.get(
-                  "fixture",
-                  {}
-              ).get(
+              x.get("fixture", {}).get(
                   "timestamp",
                   0
               ),
               reverse=True
           )
 
-          # ==========================================
+          # ==================================
           # SAVE
-          # ==========================================
+          # ==================================
 
           output = {
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
-
               "results": len(results),
-
               "matches": results
           }
 
@@ -609,15 +368,8 @@ jobs:
               )
 
           print("================================")
-          print(
-              "FINAL RESULTS:",
-              len(results)
-          )
+          print("FINAL RESULTS:", len(results))
           print("================================")
-
-          # ==========================================
-          # IRAQ RESULTS ONLY
-          # ==========================================
 
           iraq = []
 
@@ -628,70 +380,32 @@ jobs:
                   {}
               ) or {}
 
-              teams = item.get(
-                  "home",
-                  {}
-              ) or {}
+              league_id = league.get("id")
 
-              home_name = str(
-                  teams.get(
-                      "name",
-                      ""
-                  )
-              ).lower().strip()
-
-              away = item.get(
-                  "away",
-                  {}
-              ) or {}
-
-              away_name = str(
-                  away.get(
-                      "name",
-                      ""
-                  )
-              ).lower().strip()
+              name = str(
+                  league.get("name", "")
+              ).lower()
 
               country = str(
-                  league.get(
-                      "country",
-                      ""
-                  )
+                  league.get("country", "")
               ).lower()
 
               if (
-                  "iraq" in country
-                  or home_name in IRAQ_TEAMS
-                  or away_name in IRAQ_TEAMS
+                  league_id == 290
+                  or "iraq" in name
+                  or "iraq" in country
+                  or "iraqi" in name
               ):
                   iraq.append(item)
 
-          print(
-              "IRAQ RESULTS:",
-              len(iraq)
-          )
+          print("IRAQ RESULTS:", len(iraq))
 
           for item in iraq:
 
-              league = item.get(
-                  "league",
-                  {}
-              )
-
-              home = item.get(
-                  "home",
-                  {}
-              )
-
-              away = item.get(
-                  "away",
-                  {}
-              )
-
-              goals = item.get(
-                  "goals",
-                  {}
-              )
+              league = item.get("league", {})
+              home = item.get("home", {})
+              away = item.get("away", {})
+              goals = item.get("goals", {})
 
               print(
                   "IRAQ:",
@@ -703,9 +417,7 @@ jobs:
                   goals.get("away"),
                   away.get("name")
               )
-
           PY
-
 
       # ==========================================
       # TRANSFERS
@@ -714,7 +426,6 @@ jobs:
       - name: Get transfers
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
-
         run: |
 
           echo "================================"
@@ -722,8 +433,8 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 3 \
-            --retry-delay 5 \
+            --retry 2 \
+            --retry-delay 3 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
@@ -732,11 +443,6 @@ jobs:
           if [ ! -s transfers_raw.json ]; then
             echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
           fi
-
-
-      # ==========================================
-      # CREATE TRANSFERS
-      # ==========================================
 
       - name: Create transfers.json
         run: |
@@ -805,18 +511,10 @@ jobs:
                   transfers.append({
                       "player": player,
                       "date": date_text,
-                      "type": transfer.get(
-                          "type"
-                      ),
+                      "type": transfer.get("type"),
                       "teams": {
-                          "in": teams.get(
-                              "in",
-                              {}
-                          ) or {},
-                          "out": teams.get(
-                              "out",
-                              {}
-                          ) or {}
+                          "in": teams.get("in", {}) or {},
+                          "out": teams.get("out", {}) or {}
                       }
                   })
 
@@ -839,7 +537,6 @@ jobs:
           )
           PY
 
-
       # ==========================================
       # STANDINGS
       # ==========================================
@@ -847,7 +544,6 @@ jobs:
       - name: Get standings
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
-
         run: |
 
           python3 - <<'PY'
@@ -900,17 +596,13 @@ jobs:
                       timeout=30
                   ) as response:
 
-                      api_data = json.load(
-                          response
-                      )
+                      api_data = json.load(response)
 
                   if api_data.get("errors"):
                       print(
                           name,
                           "ERROR:",
-                          api_data.get(
-                              "errors"
-                          )
+                          api_data.get("errors")
                       )
                       continue
 
@@ -946,9 +638,7 @@ jobs:
                       standings = standings[0]
 
                   output["leagues"][name] = {
-                      "logo": league.get(
-                          "logo"
-                      ),
+                      "logo": league.get("logo"),
                       "standings": standings
                   }
 
@@ -987,7 +677,6 @@ jobs:
           )
           PY
 
-
       # ==========================================
       # FINAL CHECK
       # ==========================================
@@ -1002,48 +691,26 @@ jobs:
           python3 - <<'PY'
           import json
 
-          with open(
-              "matches.json",
-              encoding="utf-8"
-          ) as f:
+          with open("matches.json", encoding="utf-8") as f:
               matches = json.load(f)
 
-          with open(
-              "results.json",
-              encoding="utf-8"
-          ) as f:
+          with open("results.json", encoding="utf-8") as f:
               results = json.load(f)
 
-          with open(
-              "transfers.json",
-              encoding="utf-8"
-          ) as f:
+          with open("transfers.json", encoding="utf-8") as f:
               transfers = json.load(f)
 
-          with open(
-              "standings.json",
-              encoding="utf-8"
-          ) as f:
+          with open("standings.json", encoding="utf-8") as f:
               standings = json.load(f)
 
           print(
               "FINAL MATCHES:",
-              len(
-                  matches.get(
-                      "matches",
-                      []
-                  )
-              )
+              len(matches.get("matches", []))
           )
 
           print(
               "FINAL RESULTS:",
-              len(
-                  results.get(
-                      "matches",
-                      []
-                  )
-              )
+              len(results.get("matches", []))
           )
 
           print(
@@ -1053,15 +720,9 @@ jobs:
 
           print(
               "STANDING LEAGUES:",
-              len(
-                  standings.get(
-                      "leagues",
-                      {}
-                  )
-              )
+              len(standings.get("leagues", {}))
           )
           PY
-
 
       # ==========================================
       # SAVE
@@ -1084,8 +745,7 @@ jobs:
             exit 0
           fi
 
-          git commit \
-            -m "Update football data"
+          git commit -m "Update football data"
 
           git pull --rebase origin main
 
