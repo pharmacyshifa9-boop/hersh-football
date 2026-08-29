@@ -1,5 +1,706 @@
 {
-  "updated": "2026-08-29T07:18:58.075862+00:00",
-  "results": 0,
-  "matches": []
+  "updated": "2026-08-29T10:15:11.707533+00:00",
+  "results": 14,
+  "matches": [
+    {
+      "fixture": {
+        "id": 1570353,
+        "referee": "Isidro Diaz de Mera Escuderos, Spain",
+        "timezone": "UTC",
+        "date": "2026-08-28T19:30:00+00:00",
+        "timestamp": 1787945400,
+        "periods": {
+          "first": 1787945400,
+          "second": 1787949000
+        },
+        "venue": {
+          "id": 1470,
+          "name": "Estadio Mendizorrotza",
+          "city": "Vitoria-Gasteiz"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 5
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 542,
+        "name": "Alaves",
+        "logo": "https://media.api-sports.io/football/teams/542.png",
+        "winner": true
+      },
+      "away": {
+        "id": 533,
+        "name": "Villarreal",
+        "logo": "https://media.api-sports.io/football/teams/533.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 1,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1557381,
+        "referee": "Andy Madley, England",
+        "timezone": "UTC",
+        "date": "2026-08-28T19:00:00+00:00",
+        "timestamp": 1787943600,
+        "periods": {
+          "first": 1787943600,
+          "second": 1787947200
+        },
+        "venue": {
+          "id": 525,
+          "name": "Selhurst Park",
+          "city": "London"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "country": "England",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 52,
+        "name": "Crystal Palace",
+        "logo": "https://media.api-sports.io/football/teams/52.png",
+        "winner": false
+      },
+      "away": {
+        "id": 50,
+        "name": "Manchester City",
+        "logo": "https://media.api-sports.io/football/teams/50.png",
+        "winner": true
+      },
+      "goals": {
+        "home": 1,
+        "away": 4
+      }
+    },
+    {
+      "fixture": {
+        "id": 1550097,
+        "referee": "Gianluca Manganiello, Italy",
+        "timezone": "UTC",
+        "date": "2026-08-28T18:45:00+00:00",
+        "timestamp": 1787942700,
+        "periods": {
+          "first": 1787942700,
+          "second": 1787946300
+        },
+        "venue": {
+          "id": null,
+          "name": "San Siro/Giuseppe Meazza",
+          "city": "Milano"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 4
+        }
+      },
+      "league": {
+        "id": 135,
+        "name": "Serie A",
+        "country": "Italy",
+        "logo": "https://media.api-sports.io/football/leagues/135.png",
+        "flag": "https://media.api-sports.io/flags/it.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 489,
+        "name": "AC Milan",
+        "logo": "https://media.api-sports.io/football/teams/489.png",
+        "winner": true
+      },
+      "away": {
+        "id": 517,
+        "name": "Venezia",
+        "logo": "https://media.api-sports.io/football/teams/517.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1552746,
+        "referee": "Eric Wattellier, France",
+        "timezone": "UTC",
+        "date": "2026-08-28T18:45:00+00:00",
+        "timestamp": 1787942700,
+        "periods": {
+          "first": 1787942700,
+          "second": 1787946300
+        },
+        "venue": {
+          "id": null,
+          "name": "Decathlon Arena - Stade Pierre Mauroy",
+          "city": "Lille"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 61,
+        "name": "Ligue 1",
+        "country": "France",
+        "logo": "https://media.api-sports.io/football/leagues/61.png",
+        "flag": "https://media.api-sports.io/flags/fr.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 79,
+        "name": "Lille",
+        "logo": "https://media.api-sports.io/football/teams/79.png",
+        "winner": null
+      },
+      "away": {
+        "id": 85,
+        "name": "Paris Saint Germain",
+        "logo": "https://media.api-sports.io/football/teams/85.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "fixture": {
+        "id": 1575140,
+        "referee": "Sören Storks, Germany",
+        "timezone": "UTC",
+        "date": "2026-08-28T18:30:00+00:00",
+        "timestamp": 1787941800,
+        "periods": {
+          "first": 1787941800,
+          "second": 1787945400
+        },
+        "venue": {
+          "id": 0,
+          "name": "Allianz Arena",
+          "city": "Munich"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
+        }
+      },
+      "league": {
+        "id": 78,
+        "name": "Bundesliga",
+        "country": "Germany",
+        "logo": "https://media.api-sports.io/football/leagues/78.png",
+        "flag": "https://media.api-sports.io/flags/de.svg",
+        "season": 2026,
+        "round": "Regular Season - 1",
+        "standings": true
+      },
+      "home": {
+        "id": 157,
+        "name": "Bayern München",
+        "logo": "https://media.api-sports.io/football/teams/157.png",
+        "winner": true
+      },
+      "away": {
+        "id": 172,
+        "name": "VfB Stuttgart",
+        "logo": "https://media.api-sports.io/football/teams/172.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 5,
+        "away": 1
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631566,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T17:30:00+00:00",
+        "timestamp": 1787938200,
+        "periods": {
+          "first": 1787938200,
+          "second": 1787941800
+        },
+        "venue": {
+          "id": null,
+          "name": "Foolad Arena",
+          "city": "Ahvaz"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 5
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 2734,
+        "name": "Foolad FC",
+        "logo": "https://media.api-sports.io/football/teams/2734.png",
+        "winner": null
+      },
+      "away": {
+        "id": 2733,
+        "name": "Esteghlal FC",
+        "logo": "https://media.api-sports.io/football/teams/2733.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1570359,
+        "referee": "Carlos Muniz Munoz, Spain",
+        "timezone": "UTC",
+        "date": "2026-08-28T17:00:00+00:00",
+        "timestamp": 1787936400,
+        "periods": {
+          "first": 1787936400,
+          "second": 1787940000
+        },
+        "venue": {
+          "id": null,
+          "name": "El Sardinero",
+          "city": "Santander"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
+        }
+      },
+      "league": {
+        "id": 140,
+        "name": "La Liga",
+        "country": "Spain",
+        "logo": "https://media.api-sports.io/football/leagues/140.png",
+        "flag": "https://media.api-sports.io/flags/es.svg",
+        "season": 2026,
+        "round": "Regular Season - 3",
+        "standings": true
+      },
+      "home": {
+        "id": 4665,
+        "name": "Racing Santander",
+        "logo": "https://media.api-sports.io/football/teams/4665.png",
+        "winner": true
+      },
+      "away": {
+        "id": 797,
+        "name": "Elche",
+        "logo": "https://media.api-sports.io/football/teams/797.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    {
+      "fixture": {
+        "id": 1597917,
+        "referee": "M. Al Mazyed",
+        "timezone": "UTC",
+        "date": "2026-08-28T16:30:00+00:00",
+        "timestamp": 1787934600,
+        "periods": {
+          "first": 1787934600,
+          "second": 1787938200
+        },
+        "venue": {
+          "id": null,
+          "name": "Qatar SC Stadium",
+          "city": "Doha"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
+        }
+      },
+      "league": {
+        "id": 305,
+        "name": "Stars League",
+        "country": "Qatar",
+        "logo": "https://media.api-sports.io/football/leagues/305.png",
+        "flag": "https://media.api-sports.io/flags/qa.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 2907,
+        "name": "Qatar SC",
+        "logo": "https://media.api-sports.io/football/teams/2907.png",
+        "winner": false
+      },
+      "away": {
+        "id": 2895,
+        "name": "Al Sadd",
+        "logo": "https://media.api-sports.io/football/teams/2895.png",
+        "winner": true
+      },
+      "goals": {
+        "home": 2,
+        "away": 6
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631565,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T16:00:00+00:00",
+        "timestamp": 1787932800,
+        "periods": {
+          "first": 1787932800,
+          "second": 1787936400
+        },
+        "venue": {
+          "id": 857,
+          "name": "Naghsh-e-Jahan Stadium",
+          "city": "Isfahan"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 10
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 2744,
+        "name": "Sepahan FC",
+        "logo": "https://media.api-sports.io/football/teams/2744.png",
+        "winner": true
+      },
+      "away": {
+        "id": 2714,
+        "name": "Gol Gohar",
+        "logo": "https://media.api-sports.io/football/teams/2714.png",
+        "winner": false
+      },
+      "goals": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631563,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T15:45:00+00:00",
+        "timestamp": 1787931900,
+        "periods": {
+          "first": 1787931900,
+          "second": 1787935500
+        },
+        "venue": {
+          "id": null,
+          "name": "Imam Khomeini",
+          "city": "Arak"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 4
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 2703,
+        "name": "Aluminium Arak",
+        "logo": "https://media.api-sports.io/football/teams/2703.png",
+        "winner": null
+      },
+      "away": {
+        "id": 2716,
+        "name": "Kheybar Khorramabad",
+        "logo": "https://media.api-sports.io/football/teams/2716.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631564,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T15:45:00+00:00",
+        "timestamp": 1787931900,
+        "periods": {
+          "first": 1787931900,
+          "second": 1787935500
+        },
+        "venue": {
+          "id": null,
+          "name": "Vatani Stadium",
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 2719,
+        "name": "Nassaji Mazandaran",
+        "logo": "https://media.api-sports.io/football/teams/2719.png",
+        "winner": false
+      },
+      "away": {
+        "id": 18159,
+        "name": "Shams Azar Qazvin",
+        "logo": "https://media.api-sports.io/football/teams/18159.png",
+        "winner": true
+      },
+      "goals": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631561,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T15:30:00+00:00",
+        "timestamp": 1787931000,
+        "periods": {
+          "first": 1787931000,
+          "second": 1787934600
+        },
+        "venue": {
+          "id": null,
+          "name": "Nassiri Stadium",
+          "city": "Yazd"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 15
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 20299,
+        "name": "Chadormalu SC",
+        "logo": "https://media.api-sports.io/football/teams/20299.png",
+        "winner": false
+      },
+      "away": {
+        "id": 2737,
+        "name": "Tractor Sazi",
+        "logo": "https://media.api-sports.io/football/teams/2737.png",
+        "winner": true
+      },
+      "goals": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "fixture": {
+        "id": 1631562,
+        "referee": null,
+        "timezone": "UTC",
+        "date": "2026-08-28T15:30:00+00:00",
+        "timestamp": 1787931000,
+        "periods": {
+          "first": 1787931000,
+          "second": 1787934600
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 5
+        }
+      },
+      "league": {
+        "id": 290,
+        "name": "Persian Gulf Pro League",
+        "country": "Iran",
+        "logo": "https://media.api-sports.io/football/leagues/290.png",
+        "flag": "https://media.api-sports.io/flags/ir.svg",
+        "season": 2026,
+        "round": "Regular Season - 4",
+        "standings": true
+      },
+      "home": {
+        "id": 2741,
+        "name": "Paykan",
+        "logo": "https://media.api-sports.io/football/teams/2741.png",
+        "winner": null
+      },
+      "away": {
+        "id": 2739,
+        "name": "Esteghlal Khuzestan",
+        "logo": "https://media.api-sports.io/football/teams/2739.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    },
+    {
+      "fixture": {
+        "id": 1597916,
+        "referee": "M. N. Ahmed",
+        "timezone": "UTC",
+        "date": "2026-08-28T14:15:00+00:00",
+        "timestamp": 1787926500,
+        "periods": {
+          "first": 1787926500,
+          "second": 1787930100
+        },
+        "venue": {
+          "id": 20419,
+          "name": "Hamad bin Khalifa Stadium",
+          "city": "Doha"
+        },
+        "status": {
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 8
+        }
+      },
+      "league": {
+        "id": 305,
+        "name": "Stars League",
+        "country": "Qatar",
+        "logo": "https://media.api-sports.io/football/leagues/305.png",
+        "flag": "https://media.api-sports.io/flags/qa.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "home": {
+        "id": 2896,
+        "name": "Al Ahli Doha",
+        "logo": "https://media.api-sports.io/football/teams/2896.png",
+        "winner": null
+      },
+      "away": {
+        "id": 7527,
+        "name": "Lusail City",
+        "logo": "https://media.api-sports.io/football/teams/7527.png",
+        "winner": null
+      },
+      "goals": {
+        "home": 3,
+        "away": 3
+      }
+    }
+  ]
 }
