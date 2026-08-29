@@ -1,10 +1,7 @@
 {
-  "updated": "2026-08-29T06:07:50.959631+00:00",
+  "updated": "2026-08-29T07:18:58.461570+00:00",
   "leagues": {
     "Premier League": {
-      "id": 39,
-      "season": 2024,
-      "name": "Premier League",
       "logo": "https://media.api-sports.io/football/leagues/39.png",
       "standings": [
         {
@@ -910,9 +907,6 @@
       ]
     },
     "La Liga": {
-      "id": 140,
-      "season": 2024,
-      "name": "La Liga",
       "logo": "https://media.api-sports.io/football/leagues/140.png",
       "standings": [
         {
@@ -1818,9 +1812,6 @@
       ]
     },
     "Serie A": {
-      "id": 135,
-      "season": 2024,
-      "name": "Serie A",
       "logo": "https://media.api-sports.io/football/leagues/135.png",
       "standings": [
         {
@@ -2726,9 +2717,6 @@
       ]
     },
     "Bundesliga": {
-      "id": 78,
-      "season": 2024,
-      "name": "Bundesliga",
       "logo": "https://media.api-sports.io/football/leagues/78.png",
       "standings": [
         {
@@ -3544,9 +3532,6 @@
       ]
     },
     "Ligue 1": {
-      "id": 61,
-      "season": 2024,
-      "name": "Ligue 1",
       "logo": "https://media.api-sports.io/football/leagues/61.png",
       "standings": [
         {
