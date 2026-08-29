@@ -39,7 +39,7 @@ jobs:
 
 
       # ==========================================
-      # GET TODAY'S MATCHES
+      # MATCHES - TODAY
       # ==========================================
 
       - name: Get today's matches
@@ -54,15 +54,15 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 2 \
-            --retry-delay 3 \
+            --retry 3 \
+            --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
             -o matches_raw.json
 
           if [ ! -s matches_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":{"local":"empty response"}}' > matches_raw.json
+            echo '{"response":[],"results":0,"errors":[]}' > matches_raw.json
           fi
 
           python3 - <<'PY'
@@ -71,7 +71,7 @@ jobs:
           with open("matches_raw.json", encoding="utf-8") as f:
               data = json.load(f)
 
-          print("MATCH API ERRORS:", data.get("errors", {}))
+          print("MATCH API ERRORS:", data.get("errors", []))
           print("MATCH API RESULTS:", data.get("results", 0))
           print("MATCH API RESPONSE:", len(data.get("response", [])))
           PY
@@ -98,15 +98,23 @@ jobs:
               78,    # Bundesliga
               61,    # Ligue 1
               2,     # Champions League
-              3,     # Europa League
-              290    # Iraq
+              3      # Europa League
           }
 
           IMPORTANT_TEAMS = {
-              529, 541, 530,
-              50, 33, 42,
-              49, 40, 157,
-              85, 496, 505, 489
+              529,
+              541,
+              530,
+              50,
+              33,
+              42,
+              49,
+              40,
+              157,
+              85,
+              496,
+              505,
+              489
           }
 
           matches = []
@@ -135,6 +143,10 @@ jobs:
                   league.get("type", "")
               ).lower()
 
+              # ==================================
+              # REMOVE WOMEN
+              # ==================================
+
               is_women = (
                   "women" in league_name
                   or "woman" in league_name
@@ -147,49 +159,63 @@ jobs:
               if is_women:
                   continue
 
+              # ==================================
+              # IRAQ
+              #
+              # بە ناوی وڵات دۆزرێتەوە
+              # نە بە "Stars League"
+              # ==================================
+
               is_iraq = (
-                  league_id == 290
-                  or "iraq" in league_name
+                  country == "iraq"
+                  or country == "iraq "
                   or "iraq" in country
-                  or "iraqi" in league_name
               )
+
+              # ==================================
+              # KEEP
+              # ==================================
 
               keep = (
                   league_id in IMPORTANT_LEAGUES
+                  or is_iraq
                   or home_id in IMPORTANT_TEAMS
                   or away_id in IMPORTANT_TEAMS
-                  or is_iraq
               )
 
               if not keep:
                   continue
 
               matches.append({
-                  "fixture": item.get("fixture", {}) or {},
+                  "fixture": item.get(
+                      "fixture",
+                      {}
+                  ),
                   "league": league,
                   "home": home,
                   "away": away,
-                  "goals": item.get("goals", {}) or {}
+                  "goals": item.get(
+                      "goals",
+                      {}
+                  ) or {}
               })
 
+          # Remove duplicates
           unique = {}
 
           for item in matches:
-              fixture_id = item.get(
-                  "fixture", {}
-              ).get("id")
+
+              fixture_id = (
+                  item.get(
+                      "fixture",
+                      {}
+                  ).get("id")
+              )
 
               if fixture_id:
                   unique[fixture_id] = item
 
           matches = list(unique.values())
-
-          matches.sort(
-              key=lambda x:
-              x.get("fixture", {}).get(
-                  "timestamp", 0
-              )
-          )
 
           output = {
               "updated": datetime.now(
@@ -214,7 +240,10 @@ jobs:
                   indent=2
               )
 
-          print("FINAL MATCHES:", len(matches))
+          print(
+              "FINAL MATCHES:",
+              len(matches)
+          )
           PY
 
 
@@ -222,7 +251,7 @@ jobs:
       # RESULTS - LAST 7 DAYS
       # ==========================================
 
-      - name: Get results last 7 days
+      - name: Get results - last 7 days
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
 
@@ -273,8 +302,7 @@ jobs:
               78,
               61,
               2,
-              3,
-              290
+              3
           }
 
           results = []
@@ -296,12 +324,10 @@ jobs:
                   except Exception:
                       continue
 
-                  errors = data.get("errors", {})
-
-                  if errors:
+                  if data.get("errors"):
                       print(
                           "RESULT API ERROR:",
-                          errors
+                          data.get("errors")
                       )
 
                   for item in data.get(
@@ -324,6 +350,21 @@ jobs:
                           {}
                       ) or {}
 
+                      teams = item.get(
+                          "teams",
+                          {}
+                      ) or {}
+
+                      home = teams.get(
+                          "home",
+                          {}
+                      ) or {}
+
+                      away = teams.get(
+                          "away",
+                          {}
+                      ) or {}
+
                       short_status = str(
                           status.get(
                               "short",
@@ -337,6 +378,10 @@ jobs:
                               ""
                           )
                       ).lower()
+
+                      # ==================================
+                      # FINISHED ONLY
+                      # ==================================
 
                       finished = (
                           short_status in {
@@ -374,9 +419,9 @@ jobs:
                           )
                       ).lower()
 
-                      # ----------------------------------
-                      # WOMEN
-                      # ----------------------------------
+                      # ==================================
+                      # REMOVE WOMEN
+                      # ==================================
 
                       is_women = (
                           "women" in league_name
@@ -390,47 +435,100 @@ jobs:
                       if is_women:
                           continue
 
-                      # ----------------------------------
+                      # ==================================
                       # IMPORTANT LEAGUES
-                      # ----------------------------------
+                      # ==================================
 
                       is_important = (
                           league_id
                           in IMPORTANT_LEAGUES
                       )
 
-                      # ----------------------------------
+                      # ==================================
                       # IRAQ
-                      # ----------------------------------
+                      #
+                      # تەنها بە country
+                      # ==================================
 
                       is_iraq = (
-                          league_id == 290
-                          or "iraq" in league_name
+                          country == "iraq"
                           or "iraq" in country
-                          or "iraqi" in league_name
-                          or "stars league" in league_name
                       )
+
+                      # ==================================
+                      # IRAQ TEAM SAFETY FILTER
+                      #
+                      # ئەگەر country لە API هەڵە بوو،
+                      # بە ناوی یانەکانی عێراق دایدەگرین.
+                      # ==================================
+
+                      IRAQ_TEAMS = {
+                          "al shorta",
+                          "al-shorta",
+                          "al quwa al jawiya",
+                          "al-quwa al-jawiya",
+                          "al zawraa",
+                          "al-zawraa",
+                          "erbil",
+                          "zakho",
+                          "duhok",
+                          "newroz",
+                          "al talaba",
+                          "al-talaba",
+                          "al karkh",
+                          "al-karkh",
+                          "al minaa",
+                          "al-minaa",
+                          "al naft",
+                          "al-naft",
+                          "naft maysan",
+                          "diyala",
+                          "al karma",
+                          "al-karma",
+                          "al kahrabaa",
+                          "al-kahrabaa",
+                          "karbalaa",
+                          "al garaf",
+                          "al-gharaf",
+                          "ghaz al-shamal",
+                          "al mosul",
+                          "mosul"
+                      }
+
+                      home_name = str(
+                          home.get(
+                              "name",
+                              ""
+                          )
+                      ).lower().strip()
+
+                      away_name = str(
+                          away.get(
+                              "name",
+                              ""
+                          )
+                      ).lower().strip()
+
+                      is_iraq_team = (
+                          home_name in IRAQ_TEAMS
+                          or
+                          away_name in IRAQ_TEAMS
+                      )
+
+                      # ==================================
+                      # KEEP ONLY:
+                      # 5 BIG LEAGUES
+                      # Champions League
+                      # Europa League
+                      # Iraq
+                      # ==================================
 
                       if not (
                           is_important
                           or is_iraq
+                          or is_iraq_team
                       ):
                           continue
-
-                      teams = item.get(
-                          "teams",
-                          {}
-                      ) or {}
-
-                      home = teams.get(
-                          "home",
-                          {}
-                      ) or {}
-
-                      away = teams.get(
-                          "away",
-                          {}
-                      ) or {}
 
                       results.append({
                           "fixture": fixture,
@@ -443,7 +541,6 @@ jobs:
                           ) or {}
                       })
 
-
           # ==========================================
           # REMOVE DUPLICATES
           # ==========================================
@@ -452,10 +549,14 @@ jobs:
 
           for item in results:
 
-              fixture_id = item.get(
-                  "fixture",
-                  {}
-              ).get("id")
+              fixture_id = (
+                  item
+                  .get(
+                      "fixture",
+                      {}
+                  )
+                  .get("id")
+              )
 
               if fixture_id:
                   unique[fixture_id] = item
@@ -463,7 +564,6 @@ jobs:
           results = list(
               unique.values()
           )
-
 
           # ==========================================
           # SORT
@@ -480,7 +580,6 @@ jobs:
               ),
               reverse=True
           )
-
 
           # ==========================================
           # SAVE
@@ -509,14 +608,15 @@ jobs:
                   indent=2
               )
 
-
           print("================================")
-          print("FINAL RESULTS:", len(results))
+          print(
+              "FINAL RESULTS:",
+              len(results)
+          )
           print("================================")
-
 
           # ==========================================
-          # IRAQ CHECK
+          # IRAQ RESULTS ONLY
           # ==========================================
 
           iraq = []
@@ -528,14 +628,29 @@ jobs:
                   {}
               ) or {}
 
-              league_id = league.get("id")
+              teams = item.get(
+                  "home",
+                  {}
+              ) or {}
 
-              league_name = str(
-                  league.get(
+              home_name = str(
+                  teams.get(
                       "name",
                       ""
                   )
-              ).lower()
+              ).lower().strip()
+
+              away = item.get(
+                  "away",
+                  {}
+              ) or {}
+
+              away_name = str(
+                  away.get(
+                      "name",
+                      ""
+                  )
+              ).lower().strip()
 
               country = str(
                   league.get(
@@ -545,11 +660,9 @@ jobs:
               ).lower()
 
               if (
-                  league_id == 290
-                  or "iraq" in league_name
-                  or "iraq" in country
-                  or "iraqi" in league_name
-                  or "stars league" in league_name
+                  "iraq" in country
+                  or home_name in IRAQ_TEAMS
+                  or away_name in IRAQ_TEAMS
               ):
                   iraq.append(item)
 
@@ -609,15 +722,15 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 2 \
-            --retry-delay 3 \
+            --retry 3 \
+            --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/transfers?team=529" \
             -o transfers_raw.json
 
           if [ ! -s transfers_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":{}}' > transfers_raw.json
+            echo '{"response":[],"results":0,"errors":[]}' > transfers_raw.json
           fi
 
 
@@ -734,6 +847,7 @@ jobs:
       - name: Get standings
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
+
         run: |
 
           python3 - <<'PY'
@@ -756,7 +870,6 @@ jobs:
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
-
               "leagues": {}
           }
 
