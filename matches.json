@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-29T10:15:10.219550+00:00",
-  "results": 29,
+  "updated": "2026-08-29T10:27:14.076392+00:00",
+  "results": 26,
   "matches": [
     {
       "fixture": {
@@ -504,106 +504,6 @@
     },
     {
       "fixture": {
-        "id": 1631567,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-08-29T15:30:00+00:00",
-        "timestamp": 1788017400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 290,
-        "name": "Persian Gulf Pro League",
-        "country": "Iran",
-        "logo": "https://media.api-sports.io/football/leagues/290.png",
-        "flag": "https://media.api-sports.io/flags/ir.svg",
-        "season": 2026,
-        "round": "Regular Season - 4",
-        "standings": true
-      },
-      "home": {
-        "id": 2713,
-        "name": "Fajr Sepasi",
-        "logo": "https://media.api-sports.io/football/teams/2713.png",
-        "winner": null
-      },
-      "away": {
-        "id": 2738,
-        "name": "ZOB Ahan",
-        "logo": "https://media.api-sports.io/football/teams/2738.png",
-        "winner": null
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      }
-    },
-    {
-      "fixture": {
-        "id": 1631568,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-08-29T15:30:00+00:00",
-        "timestamp": 1788017400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 290,
-        "name": "Persian Gulf Pro League",
-        "country": "Iran",
-        "logo": "https://media.api-sports.io/football/leagues/290.png",
-        "flag": "https://media.api-sports.io/flags/ir.svg",
-        "season": 2026,
-        "round": "Regular Season - 4",
-        "standings": true
-      },
-      "home": {
-        "id": 10388,
-        "name": "Mes Shahr-e Babak",
-        "logo": "https://media.api-sports.io/football/teams/10388.png",
-        "winner": null
-      },
-      "away": {
-        "id": 2743,
-        "name": "Sanat Naft",
-        "logo": "https://media.api-sports.io/football/teams/2743.png",
-        "winner": null
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      }
-    },
-    {
-      "fixture": {
         "id": 1627942,
         "referee": null,
         "timezone": "UTC",
@@ -695,56 +595,6 @@
         "id": 28222,
         "name": "Al-Jolan SC",
         "logo": "https://media.api-sports.io/football/teams/28222.png",
-        "winner": null
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      }
-    },
-    {
-      "fixture": {
-        "id": 1631569,
-        "referee": null,
-        "timezone": "UTC",
-        "date": "2026-08-29T15:45:00+00:00",
-        "timestamp": 1788018300,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": 22428,
-          "name": "Azadi Stadium",
-          "city": "Tehran"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 290,
-        "name": "Persian Gulf Pro League",
-        "country": "Iran",
-        "logo": "https://media.api-sports.io/football/leagues/290.png",
-        "flag": "https://media.api-sports.io/flags/ir.svg",
-        "season": 2026,
-        "round": "Regular Season - 4",
-        "standings": true
-      },
-      "home": {
-        "id": 2742,
-        "name": "Persepolis FC",
-        "logo": "https://media.api-sports.io/football/teams/2742.png",
-        "winner": null
-      },
-      "away": {
-        "id": 2717,
-        "name": "Malavan",
-        "logo": "https://media.api-sports.io/football/teams/2717.png",
         "winner": null
       },
       "goals": {
