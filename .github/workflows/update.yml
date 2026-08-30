@@ -30,11 +30,20 @@ jobs:
       - name: Set date
         run: |
           TODAY=$(date -u +"%Y-%m-%d")
+          YESTERDAY=$(date -u -d "1 day ago" +"%Y-%m-%d")
+
           echo "TODAY=$TODAY" >> "$GITHUB_ENV"
+          echo "YESTERDAY=$YESTERDAY" >> "$GITHUB_ENV"
+
           echo "TODAY: $TODAY"
+          echo "YESTERDAY: $YESTERDAY"
 
       # ==========================================
       # ONLY 7 LEAGUES
+      #
+      # 5 Strong Leagues
+      # Champions League
+      # Europa League
       # ==========================================
 
       - name: Set leagues
@@ -56,7 +65,7 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 2 \
+            --retry 1 \
             --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
@@ -116,7 +125,7 @@ jobs:
           )
 
           # API هەڵەیەتی؟
-          # داتای کۆن مەسڕەوە
+          # داتای کۆن نەپڕێنەوە
           if errors:
 
               print(
@@ -124,27 +133,24 @@ jobs:
                   errors
               )
 
-              print(
-                  "KEEPING OLD matches.json"
-              )
-
               if os.path.exists(
                   "matches.json"
               ):
+
+                  print(
+                      "KEEPING OLD matches.json"
+                  )
+
                   raise SystemExit(0)
 
-          # ==========================================
-          # ONLY 7 LEAGUES
-          # ==========================================
-
           IMPORTANT_LEAGUES = {
-              39,   # Premier League
-              140,  # La Liga
-              135,  # Serie A
-              78,   # Bundesliga
-              61,   # Ligue 1
-              2,    # Champions League
-              3     # Europa League
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3
           }
 
           matches = []
@@ -180,7 +186,6 @@ jobs:
                   )
               ).lower()
 
-              # ژنان لابە
               if (
                   "women" in league_name
                   or "woman" in league_name
@@ -215,7 +220,6 @@ jobs:
                   ) or {}
               })
 
-          # دووبارەکان
           unique = {}
 
           for item in matches:
@@ -237,9 +241,7 @@ jobs:
               "updated": datetime.now(
                   timezone.utc
               ).isoformat(),
-
               "results": len(matches),
-
               "matches": matches
           }
 
@@ -260,56 +262,17 @@ jobs:
               "FINAL MATCHES:",
               len(matches)
           )
+
           PY
 
       # ==========================================
-      # RESULTS - LAST 7 DAYS
+      # RESULTS
+      #
+      # ONLY TODAY + YESTERDAY
+      # NOT LAST 7 DAYS
       # ==========================================
 
-      - name: Get results - last 7 days
-        env:
-          API_KEY: ${{ secrets.API_SPORTS_KEY }}
-        run: |
-
-          echo "================================"
-          echo "GETTING RESULTS - LAST 7 DAYS"
-          echo "================================"
-
-          rm -f results_raw.jsonl
-          touch results_raw.jsonl
-
-          for i in 0 1 2 3 4 5 6
-          do
-
-            DATE=$(date -u -d "$i days ago" +"%Y-%m-%d")
-
-            echo "Getting results for: $DATE"
-
-            curl -sS \
-              --retry 2 \
-              --retry-delay 3 \
-              --max-time 60 \
-              -H "x-apisports-key: $API_KEY" \
-              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
-              >> results_raw.jsonl
-
-            echo "" >> results_raw.jsonl
-
-          done
-
-      # ==========================================
-      # RESULTS - LAST 7 DAYS
-      # ONLY:
-      # Premier League
-      # La Liga
-      # Serie A
-      # Bundesliga
-      # Ligue 1
-      # Champions League
-      # Europa League
-      # ==========================================
-
-      - name: Get results - last 7 days
+      - name: Get results
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
@@ -321,24 +284,22 @@ jobs:
           rm -f results_raw.jsonl
           touch results_raw.jsonl
 
-          for i in 0 1 2 3 4 5 6
+          for DATE in "$TODAY" "$YESTERDAY"
           do
 
-            DATE=$(date -u -d "$i days ago" +"%Y-%m-%d")
+            echo "Getting results for: $DATE"
 
-            echo "Getting: $DATE"
-
-            RESPONSE=$(curl -sS \
+            curl -sS \
               --retry 1 \
-              --retry-delay 3 \
-              --max-time 45 \
+              --retry-delay 5 \
+              --max-time 60 \
               -H "x-apisports-key: $API_KEY" \
-              "https://v3.football.api-sports.io/fixtures?date=$DATE")
+              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
+              >> results_raw.jsonl
 
-            echo "$RESPONSE" >> results_raw.jsonl
+            echo "" >> results_raw.jsonl
 
           done
-
 
       # ==========================================
       # CREATE RESULTS
@@ -353,19 +314,19 @@ jobs:
           from datetime import datetime, timezone
 
           IMPORTANT_LEAGUES = {
-              39,    # Premier League
-              140,   # La Liga
-              135,   # Serie A
-              78,    # Bundesliga
-              61,    # Ligue 1
-              2,     # Champions League
-              3      # Europa League
+              39,
+              140,
+              135,
+              78,
+              61,
+              2,
+              3
           }
 
           results = []
 
-          api_ok = 0
-          api_errors = 0
+          api_success = 0
+          api_failed = 0
 
           with open(
               "results_raw.jsonl",
@@ -391,7 +352,7 @@ jobs:
 
                   if errors:
 
-                      api_errors += 1
+                      api_failed += 1
 
                       print(
                           "RESULT API ERROR:",
@@ -400,7 +361,7 @@ jobs:
 
                       continue
 
-                  api_ok += 1
+                  api_success += 1
 
                   for item in data.get(
                       "response",
@@ -427,14 +388,14 @@ jobs:
                       )
 
                       # ==================================
-                      # ONLY IMPORTANT LEAGUES
+                      # ONLY 7 LEAGUES
                       # ==================================
 
                       if league_id not in IMPORTANT_LEAGUES:
                           continue
 
                       # ==================================
-                      # FINISHED
+                      # FINISHED ONLY
                       # ==================================
 
                       short_status = str(
@@ -504,9 +465,9 @@ jobs:
                           ) or {}
                       })
 
-          # ==================================
+          # ==========================================
           # REMOVE DUPLICATES
-          # ==================================
+          # ==========================================
 
           unique = {}
 
@@ -525,9 +486,9 @@ jobs:
               unique.values()
           )
 
-          # ==================================
-          # SORT
-          # ==================================
+          # ==========================================
+          # SORT NEWEST FIRST
+          # ==========================================
 
           results.sort(
               key=lambda x:
@@ -541,15 +502,14 @@ jobs:
               reverse=True
           )
 
-          # ==================================
-          # IMPORTANT:
-          # If ALL API requests failed,
-          # KEEP OLD RESULTS
-          # ==================================
+          # ==========================================
+          # API FAILED COMPLETELY
+          # KEEP OLD DATA
+          # ==========================================
 
           if (
-              api_ok == 0
-              and api_errors > 0
+              api_success == 0
+              and api_failed > 0
           ):
 
               print(
@@ -566,9 +526,9 @@ jobs:
 
                   raise SystemExit(0)
 
-          # ==================================
+          # ==========================================
           # SAVE
-          # ==================================
+          # ==========================================
 
           output = {
               "updated": datetime.now(
@@ -616,7 +576,7 @@ jobs:
           echo "================================"
 
           curl -sS \
-            --retry 2 \
+            --retry 1 \
             --retry-delay 5 \
             --max-time 60 \
             -H "x-apisports-key: $API_KEY" \
@@ -657,13 +617,14 @@ jobs:
                   errors
               )
 
-              print(
-                  "KEEPING OLD transfers.json"
-              )
-
               if os.path.exists(
                   "transfers.json"
               ):
+
+                  print(
+                      "KEEPING OLD transfers.json"
+                  )
+
                   raise SystemExit(0)
 
           today = datetime.now(
@@ -759,13 +720,18 @@ jobs:
           PY
 
       # ==========================================
-      # STANDINGS - ONLY 5 LEAGUES
+      # STANDINGS
+      # ONLY 5 STRONG LEAGUES
       # ==========================================
 
       - name: Get standings
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
+
+          echo "================================"
+          echo "GETTING STANDINGS"
+          echo "================================"
 
           python3 - <<'PY'
           import json
@@ -788,7 +754,7 @@ jobs:
           }
 
           # ==========================================
-          # LOAD OLD DATA
+          # LOAD OLD STANDINGS
           # ==========================================
 
           try:
@@ -806,11 +772,12 @@ jobs:
                   "updated": datetime.now(
                       timezone.utc
                   ).isoformat(),
+
                   "leagues": {}
               }
 
           # ==========================================
-          # GET 5 STANDINGS
+          # GET STANDINGS
           # ==========================================
 
           for name, league_id in leagues.items():
