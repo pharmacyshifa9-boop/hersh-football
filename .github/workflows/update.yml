@@ -34,8 +34,15 @@ jobs:
           echo "TODAY: $TODAY"
 
       # ==========================================
-      # GET TODAY MATCHES
-      # تەنها 7 خول
+      # ONLY 7 LEAGUES
+      # ==========================================
+
+      - name: Set leagues
+        run: |
+          echo "IMPORTANT_LEAGUES=39,140,135,78,61,2,3" >> "$GITHUB_ENV"
+
+      # ==========================================
+      # MATCHES - TODAY
       # ==========================================
 
       - name: Get today's matches
@@ -63,12 +70,26 @@ jobs:
           python3 - <<'PY'
           import json
 
-          with open("matches_raw.json", encoding="utf-8") as f:
+          with open(
+              "matches_raw.json",
+              encoding="utf-8"
+          ) as f:
               data = json.load(f)
 
-          print("MATCH API ERRORS:", data.get("errors", []))
-          print("MATCH API RESULTS:", data.get("results", 0))
-          print("MATCH API RESPONSE:", len(data.get("response", [])))
+          print(
+              "MATCH API ERRORS:",
+              data.get("errors", {})
+          )
+
+          print(
+              "MATCH API RESULTS:",
+              data.get("results", 0)
+          )
+
+          print(
+              "MATCH API RESPONSE:",
+              len(data.get("response", []))
+          )
           PY
 
       # ==========================================
@@ -83,21 +104,37 @@ jobs:
           import os
           from datetime import datetime, timezone
 
-          with open("matches_raw.json", encoding="utf-8") as f:
+          with open(
+              "matches_raw.json",
+              encoding="utf-8"
+          ) as f:
               data = json.load(f)
 
-          errors = data.get("errors", {})
+          errors = data.get(
+              "errors",
+              {}
+          )
 
-          # API quota / error
+          # API هەڵەیەتی؟
+          # داتای کۆن مەسڕەوە
           if errors:
-              print("MATCH API ERROR - KEEPING OLD DATA")
 
-              if os.path.exists("matches.json"):
-                  print("Old matches.json kept")
+              print(
+                  "MATCH API ERROR:",
+                  errors
+              )
+
+              print(
+                  "KEEPING OLD matches.json"
+              )
+
+              if os.path.exists(
+                  "matches.json"
+              ):
                   raise SystemExit(0)
 
           # ==========================================
-          # ONLY THESE 7 LEAGUES
+          # ONLY 7 LEAGUES
           # ==========================================
 
           IMPORTANT_LEAGUES = {
@@ -106,28 +143,41 @@ jobs:
               135,  # Serie A
               78,   # Bundesliga
               61,   # Ligue 1
-              2,    # UEFA Champions League
-              3     # UEFA Europa League
+              2,    # Champions League
+              3     # Europa League
           }
 
           matches = []
 
-          for item in data.get("response", []):
+          for item in data.get(
+              "response",
+              []
+          ):
 
-              league = item.get("league", {}) or {}
+              league = item.get(
+                  "league",
+                  {}
+              ) or {}
 
-              league_id = league.get("id")
+              league_id = league.get(
+                  "id"
+              )
 
-              # تەنها 7 خول
               if league_id not in IMPORTANT_LEAGUES:
                   continue
 
               league_name = str(
-                  league.get("name", "")
+                  league.get(
+                      "name",
+                      ""
+                  )
               ).lower()
 
               league_type = str(
-                  league.get("type", "")
+                  league.get(
+                      "type",
+                      ""
+                  )
               ).lower()
 
               # ژنان لابە
@@ -165,6 +215,7 @@ jobs:
                   ) or {}
               })
 
+          # دووبارەکان
           unique = {}
 
           for item in matches:
@@ -178,7 +229,9 @@ jobs:
               if fixture_id:
                   unique[fixture_id] = item
 
-          matches = list(unique.values())
+          matches = list(
+              unique.values()
+          )
 
           output = {
               "updated": datetime.now(
@@ -210,31 +263,39 @@ jobs:
           PY
 
       # ==========================================
-      # RESULTS
-      # تەنها ئەمڕۆ
+      # RESULTS - LAST 7 DAYS
       # ==========================================
 
-      - name: Get today's results
+      - name: Get results - last 7 days
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
 
           echo "================================"
-          echo "GETTING TODAY'S RESULTS"
-          echo "DATE: $TODAY"
+          echo "GETTING RESULTS - LAST 7 DAYS"
           echo "================================"
 
-          curl -sS \
-            --retry 2 \
-            --retry-delay 5 \
-            --max-time 60 \
-            -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/fixtures?date=$TODAY" \
-            -o results_raw.json
+          rm -f results_raw.jsonl
+          touch results_raw.jsonl
 
-          if [ ! -s results_raw.json ]; then
-            echo '{"response":[],"results":0,"errors":{"local":"empty"}}' > results_raw.json
-          fi
+          for i in 0 1 2 3 4 5 6
+          do
+
+            DATE=$(date -u -d "$i days ago" +"%Y-%m-%d")
+
+            echo "Getting results for: $DATE"
+
+            curl -sS \
+              --retry 2 \
+              --retry-delay 3 \
+              --max-time 60 \
+              -H "x-apisports-key: $API_KEY" \
+              "https://v3.football.api-sports.io/fixtures?date=$DATE" \
+              >> results_raw.jsonl
+
+            echo "" >> results_raw.jsonl
+
+          done
 
       # ==========================================
       # CREATE RESULTS
@@ -248,31 +309,6 @@ jobs:
           import os
           from datetime import datetime, timezone
 
-          with open(
-              "results_raw.json",
-              encoding="utf-8"
-          ) as f:
-              data = json.load(f)
-
-          errors = data.get("errors", {})
-
-          if errors:
-              print(
-                  "RESULT API ERROR:",
-                  errors
-              )
-
-              print(
-                  "KEEPING OLD results.json"
-              )
-
-              if os.path.exists("results.json"):
-                  raise SystemExit(0)
-
-          # ==========================================
-          # ONLY 7 LEAGUES
-          # ==========================================
-
           IMPORTANT_LEAGUES = {
               39,
               140,
@@ -285,106 +321,183 @@ jobs:
 
           results = []
 
-          for item in data.get(
-              "response",
-              []
+          api_errors = 0
+          valid_responses = 0
+
+          with open(
+              "results_raw.jsonl",
+              encoding="utf-8"
+          ) as f:
+
+              for line in f:
+
+                  line = line.strip()
+
+                  if not line:
+                      continue
+
+                  try:
+
+                      data = json.loads(line)
+
+                  except Exception:
+
+                      continue
+
+                  errors = data.get(
+                      "errors",
+                      {}
+                  )
+
+                  if errors:
+
+                      api_errors += 1
+
+                      print(
+                          "RESULT API ERROR:",
+                          errors
+                      )
+
+                      continue
+
+                  valid_responses += 1
+
+                  for item in data.get(
+                      "response",
+                      []
+                  ):
+
+                      fixture = item.get(
+                          "fixture",
+                          {}
+                      ) or {}
+
+                      status = fixture.get(
+                          "status",
+                          {}
+                      ) or {}
+
+                      league = item.get(
+                          "league",
+                          {}
+                      ) or {}
+
+                      league_id = league.get(
+                          "id"
+                      )
+
+                      # ==================================
+                      # ONLY 7 LEAGUES
+                      # ==================================
+
+                      if league_id not in IMPORTANT_LEAGUES:
+                          continue
+
+                      # ==================================
+                      # FINISHED ONLY
+                      # ==================================
+
+                      short_status = str(
+                          status.get(
+                              "short",
+                              ""
+                          )
+                      ).upper()
+
+                      long_status = str(
+                          status.get(
+                              "long",
+                              ""
+                          )
+                      ).lower()
+
+                      finished = (
+                          short_status in {
+                              "FT",
+                              "AET",
+                              "PEN"
+                          }
+                          or
+                          "finished" in long_status
+                      )
+
+                      if not finished:
+                          continue
+
+                      # ==================================
+                      # WOMEN FILTER
+                      # ==================================
+
+                      league_name = str(
+                          league.get(
+                              "name",
+                              ""
+                          )
+                      ).lower()
+
+                      league_type = str(
+                          league.get(
+                              "type",
+                              ""
+                          )
+                      ).lower()
+
+                      if (
+                          "women" in league_name
+                          or "woman" in league_name
+                          or "feminine" in league_name
+                          or "female" in league_name
+                          or "women" in league_type
+                      ):
+                          continue
+
+                      teams = item.get(
+                          "teams",
+                          {}
+                      ) or {}
+
+                      results.append({
+                          "fixture": fixture,
+                          "league": league,
+                          "home": teams.get(
+                              "home",
+                              {}
+                          ) or {},
+                          "away": teams.get(
+                              "away",
+                              {}
+                          ) or {},
+                          "goals": item.get(
+                              "goals",
+                              {}
+                          ) or {}
+                      })
+
+          # ==========================================
+          # API ERROR HANDLING
+          # ==========================================
+
+          if (
+              api_errors > 0
+              and valid_responses == 0
           ):
 
-              fixture = item.get(
-                  "fixture",
-                  {}
-              ) or {}
-
-              status = fixture.get(
-                  "status",
-                  {}
-              ) or {}
-
-              league = item.get(
-                  "league",
-                  {}
-              ) or {}
-
-              league_id = league.get(
-                  "id"
+              print(
+                  "ALL RESULT REQUESTS FAILED"
               )
 
-              # تەنها 7 خول
-              if league_id not in IMPORTANT_LEAGUES:
-                  continue
-
-              short_status = str(
-                  status.get(
-                      "short",
-                      ""
-                  )
-              ).upper()
-
-              long_status = str(
-                  status.get(
-                      "long",
-                      ""
-                  )
-              ).lower()
-
-              finished = (
-                  short_status in {
-                      "FT",
-                      "AET",
-                      "PEN"
-                  }
-                  or
-                  "finished" in long_status
+              print(
+                  "KEEPING OLD results.json"
               )
 
-              if not finished:
-                  continue
-
-              league_name = str(
-                  league.get(
-                      "name",
-                      ""
-                  )
-              ).lower()
-
-              league_type = str(
-                  league.get(
-                      "type",
-                      ""
-                  )
-              ).lower()
-
-              # ژنان لابە
-              if (
-                  "women" in league_name
-                  or "woman" in league_name
-                  or "feminine" in league_name
-                  or "female" in league_name
-                  or "women" in league_type
+              if os.path.exists(
+                  "results.json"
               ):
-                  continue
+                  raise SystemExit(0)
 
-              teams = item.get(
-                  "teams",
-                  {}
-              ) or {}
-
-              results.append({
-                  "fixture": fixture,
-                  "league": league,
-                  "home": teams.get(
-                      "home",
-                      {}
-                  ) or {},
-                  "away": teams.get(
-                      "away",
-                      {}
-                  ) or {},
-                  "goals": item.get(
-                      "goals",
-                      {}
-                  ) or {}
-              })
+          # ==========================================
+          # REMOVE DUPLICATES
+          # ==========================================
 
           unique = {}
 
@@ -403,6 +516,10 @@ jobs:
               unique.values()
           )
 
+          # ==========================================
+          # SORT NEWEST FIRST
+          # ==========================================
+
           results.sort(
               key=lambda x:
               x.get(
@@ -414,6 +531,10 @@ jobs:
               ),
               reverse=True
           )
+
+          # ==========================================
+          # SAVE
+          # ==========================================
 
           output = {
               "updated": datetime.now(
@@ -450,6 +571,7 @@ jobs:
           print(
               "================================"
           )
+
           PY
 
       # ==========================================
@@ -460,6 +582,10 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
+
+          echo "================================"
+          echo "GETTING TRANSFERS"
+          echo "================================"
 
           curl -sS \
             --retry 2 \
@@ -551,6 +677,7 @@ jobs:
                       ).date()
 
                   except Exception:
+
                       continue
 
                   if not (
@@ -600,14 +727,14 @@ jobs:
               "FINAL TRANSFERS:",
               len(transfers)
           )
+
           PY
 
       # ==========================================
-      # STANDINGS
-      # تەنها 5 خولی بەهێز
+      # STANDINGS - ONLY 5 LEAGUES
       # ==========================================
 
-      - name: Update standings
+      - name: Get standings
         env:
           API_KEY: ${{ secrets.API_SPORTS_KEY }}
         run: |
@@ -632,7 +759,10 @@ jobs:
               "Ligue 1": 61
           }
 
-          # داتای کۆن پارێزراوە
+          # ==========================================
+          # LOAD OLD DATA
+          # ==========================================
+
           try:
 
               with open(
@@ -650,6 +780,10 @@ jobs:
                   ).isoformat(),
                   "leagues": {}
               }
+
+          # ==========================================
+          # GET 5 STANDINGS
+          # ==========================================
 
           for name, league_id in leagues.items():
 
@@ -707,6 +841,7 @@ jobs:
                   )
 
                   if not response_data:
+
                       print(
                           name,
                           "NO DATA"
@@ -757,7 +892,7 @@ jobs:
                       str(e)
                   )
 
-                  # هیچ داتای کۆن ناسڕێتەوە
+                  # داتای کۆن دەمێنێتەوە
 
           output["updated"] = datetime.now(
               timezone.utc
@@ -785,6 +920,7 @@ jobs:
                   )
               )
           )
+
           PY
 
       # ==========================================
@@ -801,12 +937,15 @@ jobs:
           python3 - <<'PY'
           import json
 
-          def read(path, default):
+          def load_json(
+              filename,
+              default
+          ):
 
               try:
 
                   with open(
-                      path,
+                      filename,
                       encoding="utf-8"
                   ) as f:
 
@@ -816,22 +955,22 @@ jobs:
 
                   return default
 
-          matches = read(
+          matches = load_json(
               "matches.json",
               {"matches": []}
           )
 
-          results = read(
+          results = load_json(
               "results.json",
               {"matches": []}
           )
 
-          transfers = read(
+          transfers = load_json(
               "transfers.json",
               []
           )
 
-          standings = read(
+          standings = load_json(
               "standings.json",
               {"leagues": {}}
           )
@@ -858,7 +997,9 @@ jobs:
 
           print(
               "FINAL TRANSFERS:",
-              len(transfers)
+              len(
+                  transfers
+              )
           )
 
           print(
