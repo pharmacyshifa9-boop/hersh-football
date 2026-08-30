@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T00:02:21.758921+00:00",
+  "updated": "2026-08-30T06:02:20.719970+00:00",
   "results": 15,
   "matches": [
     {
@@ -455,7 +455,7 @@
     {
       "fixture": {
         "id": 1550105,
-        "referee": null,
+        "referee": "L. Pairetto",
         "timezone": "UTC",
         "date": "2026-08-30T16:30:00+00:00",
         "timestamp": 1788107400,
@@ -555,7 +555,7 @@
     {
       "fixture": {
         "id": 1550099,
-        "referee": null,
+        "referee": "M. Fabbri",
         "timezone": "UTC",
         "date": "2026-08-30T18:45:00+00:00",
         "timestamp": 1788115500,
@@ -605,7 +605,7 @@
     {
       "fixture": {
         "id": 1550102,
-        "referee": null,
+        "referee": "E. Feliciani",
         "timezone": "UTC",
         "date": "2026-08-30T18:45:00+00:00",
         "timestamp": 1788115500,
